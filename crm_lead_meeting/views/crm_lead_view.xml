@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<openerp>
+<data>
+    <record model="ir.ui.view" id="crm_case_form_view_leads_z1608">
+        <field name="name">crm.case.form.view.leads.z1608</field>
+        <field name="model">crm.lead</field>
+        <field name="inherit_id" ref="crm.crm_case_form_view_leads"/>
+        <field name="arch" type="xml">
+            <xpath expr="/form/sheet/div/button[1]" position="after">
+                <button class="oe_inline oe_stat_button" type="object"
+                    context="{'partner_id': partner_id}"
+                    name="action_schedule_meeting" icon="fa-calendar">
+                    <field string="Meetings" name="meeting_count" widget="statinfo"/>
+                </button>
+            </xpath>
+        </field>
+    </record>
+</data>
+</openerp>
