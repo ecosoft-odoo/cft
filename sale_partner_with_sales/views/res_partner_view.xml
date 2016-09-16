@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+<data>
+
+<record id="view_partner_form_z160916" model="ir.ui.view">
+    <field name="name">view.partner.form.z160916</field>
+    <field name="model">res.partner</field>
+    <field name="inherit_id" ref="base.view_partner_form"/>
+    <field name="arch" type="xml">
+        <xpath expr="//field[@name='category_id']" position="after">
+            <group>
+                <field name ="has_sales"/>
+            </group>
+        </xpath>
+    </field>
+</record>
+
+<record id="view_res_partner_filter_z160916" model="ir.ui.view">
+    <field name="name">view.res.partner.filter.z160916</field>
+    <field name="model">res.partner</field>
+    <field name="inherit_id" ref="base.view_res_partner_filter"/>
+    <field name="arch" type="xml">
+        <xpath expr="//filter[@name='customer']" position="before">
+            <filter string="Customers (w/ Sales)" name="sold_customer" domain="[('customer','=',1),('has_sales','=',True)]" help="Customer partners with sales history"/>
+        </xpath>
+    </field>
+</record>
+
+<!-- override search defaults -->
+<record id="base.action_partner_customer_form" model="ir.actions.act_window">
+    <field name="context">{'default_customer':1, 'search_default_sold_customer':1}</field>
+</record>
+
+<record id="base.action_partner_form" model="ir.actions.act_window">
+    <field name="context">{'search_default_sold_customer':1}</field>
+</record>
+
+</data>
+</openerp>
