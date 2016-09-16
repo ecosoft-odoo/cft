@@ -9,7 +9,7 @@
     <field name="arch" type="xml">
         <xpath expr="//field[@name='category_id']" position="after">
             <group>
-                <field name ="has_sales"/>
+                <field name ="has_sales" attrs="{'invisible': [('customer','=', False)]}"/>
             </group>
         </xpath>
     </field>
