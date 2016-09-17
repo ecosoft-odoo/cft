@@ -1,20 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
-<data noupdate="1">
+<data>
 
-    <record id="crm_rule_team_lead" model="ir.rule">
-        <field name="name">See Leads of Own Team</field>
-        <field ref="crm.model_crm_lead" name="model_id"/>
-        <field name="domain_force">['|','|',('section_id.user_id','=',user.id),('section_id.member_ids','in',[user.id]),('section_id','=',False)]</field>
-        <field eval="[(4, ref('base.group_sale_salesman_all_leads'))]" name="groups"/>
-    </record>
+<record id="crm_rule_team_lead" model="ir.rule">
+    <field name="name">See Leads of Own Team</field>
+    <field ref="crm.model_crm_lead" name="model_id"/>
+    <field name="domain_force">['|','|',('section_id.user_id','=',user.id),('section_id.member_ids','in',[user.id]),('section_id','=',False)]</field>
+    <field eval="[(4, ref('base.group_sale_salesman_all_leads'))]" name="groups"/>
+</record>
 
-    <record id="crm.crm_rule_all_lead" model="ir.rule">
-        <field name="groups" eval="[(6,0,[ref('base.group_partner_manager')])]"/>
-    </record>
+<!-- replace assigned group -->
+<record id="crm.crm_rule_all_lead" model="ir.rule">
+    <field name="groups" eval="[(6,0,[ref('base.group_partner_manager')])]"/>
+</record>
 
-    <record id="crm.crm_rule_personal_lead" model="ir.rule">
-        <field name="domain_force">[('user_id','=',user.id)]</field>
-    </record>
+<!-- override domain to remove access to unassigned leads -->
+<record id="crm.crm_rule_personal_lead" model="ir.rule">
+    <field name="domain_force">[('user_id','=',user.id)]</field>
+</record>
+
 </data>
 </openerp>
