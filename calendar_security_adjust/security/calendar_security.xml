@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+<data>
+
+<record id="calendar_event_rule_sales_team" model="ir.rule">
+    <field name="name">Sales Team Calendar Events</field>
+    <field ref="calendar.model_calendar_event" name="model_id"/>
+    <field name="domain_force">['|','|','|','|','|','|','|','|',('partner_ids','in',user.partner_id.id),('user_id','=',user.id),('section_id.user_id','=',user.id),('section_id.member_ids','in',[user.id]),('section_id.parent_id.user_id','=',user.id),('section_id.parent_id.member_ids','=',user.id),('section_id.child_ids.user_id','=',user.id),('section_id.child_ids.member_ids','=',user.id),('user_id.company_user','=',True)]</field>
+    <field eval="[(4, ref('base.group_user'))]" name="groups"/>
+</record>
+
+<!-- this may not override the original record rule due to noupdate.
+ manually update record as necessary -->
+<record id="calendar.calendar_event_rule_employee" model="ir.rule">
+    <field name="active">False</field>
+</record>
+
+</data>
+</openerp>
