@@ -14,6 +14,6 @@ class CrmLead(models.Model):
         self.probable_revenue = self.planned_revenue * self.probability / 100
 
     probable_revenue = fields.Float('Estimated Revenue',
-                                    compute=_compute_probable_revenue, store=True)
+                            compute=_compute_probable_revenue, store=True)
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
