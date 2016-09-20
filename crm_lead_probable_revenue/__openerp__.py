@@ -5,10 +5,10 @@
 {
     "name": "CRM Lead Probable Amount",
     "summary": "",
-    "version": "8.0.0.5.0",
+    "version": "8.0.0.6.0",
     "category": "Sales",
     "website": "",
-    "author": "Rooms For (Hong Kong) Limited",
+    "author": "Ecosoft Co. Ltd.",
     "license": "AGPL-3",
     "application": False,
     "installable": True,
