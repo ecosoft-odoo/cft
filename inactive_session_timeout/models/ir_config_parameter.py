@@ -39,7 +39,7 @@ class IrConfigParameter(models.Model):
         urls = []
         try:
             delay = int(param_model.get_param(
-                cr, SUPERUSER_ID, DELAY_KEY, 7200))
+                cr, SUPERUSER_ID, DELAY_KEY, 900))
             urls = param_model.get_param(
                 cr, SUPERUSER_ID, IGNORED_PATH_KEY, '').split(',')
         finally:
