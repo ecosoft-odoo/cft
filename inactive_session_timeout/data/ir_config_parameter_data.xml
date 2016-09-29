@@ -4,7 +4,7 @@
     <data noupdate="1">
         <record id="inactive_session_time_out_delay" model="ir.config_parameter">
             <field name="key">inactive_session_time_out_delay</field>
-            <field name="value">7200</field>
+            <field name="value">900</field>
         </record>
     </data>
     
