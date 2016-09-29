@@ -35,7 +35,10 @@ class ResPartner(models.Model):
     @api.one
     @api.constrains('name', 'supplier', 'customer')
     def _check_partner_name(self):
-        count = self.search_count([('name', '=', self.name)])
+        count = self.search_count(
+            ['|', ('customer', '=', True),
+                ('supplier', '=', True),
+                ('name', '=', self.name)])
         if count > 1:
             raise ValidationError("Partner Name must be unique!")
 
