@@ -15,7 +15,9 @@
     ],
     "data": [
         'security/crm_security.xml',
-        'views/inherit_crm_views.xml'
+        'views/crm_lead_views.xml',
+        'views/crm_phonecall_views.xml',
+        'views/res_partner_views.xml'
     ],
     "js": [
     ],

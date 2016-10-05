@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+<data>
+
+<!-- disable create and edit option in customer form view -->
+<record id="disable_create_edit" model="ir.ui.view">
+    <field name="name">diasble.view.partner.form.ext></field>
+    <field name="model">res.partner</field>
+    <field name="inherit_id" ref="l10n_th_address.view_partner_form_ext"/>
+    <field name="arch" type="xml">
+        <xpath expr="//field[@name='province_id']" position="attributes">
+            <attribute name="options">{"no_open": True, "no_create_edit": True}</attribute>
+        </xpath>
+        <xpath expr="//field[@name='district_id']" position="attributes">
+            <attribute name="options">{"no_open": True, "no_create_edit": True}</attribute>
+        </xpath>
+        <xpath expr="//field[@name='township_id']" position="attributes">
+            <attribute name="options">{"no_open": True, "no_create_edit": True}</attribute>
+        </xpath>
+    </field>
+</record>
+
+</data>
+</openerp>
