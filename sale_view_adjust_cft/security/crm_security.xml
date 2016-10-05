@@ -19,40 +19,5 @@
     <field name="domain_force">[('user_id','=',user.id)]</field>
 </record>
 
-<!-- make customer field required in opportunity form view -->
-<record model="ir.ui.view" id="crm_opportunity_form_view_z160930">
-    <field name="name">crm.opportunity.form.view.z160930</field>
-    <field name="model">crm.lead</field>
-    <field name="inherit_id" ref="crm.crm_case_form_view_oppor"/>
-    <field name="arch" type="xml">
-        <xpath expr="//field[@name='partner_id']" position="attributes">
-        <attribute name="required">True</attribute>
-        </xpath>
-    </field>
-</record>
-
-<!-- remove default filter from Logged Called-->
-<record model="ir.actions.act_window" id="crm.crm_case_categ_phone_incoming0">
-    <field name="context">{'search_default_state':False, 'default_state':False}</field>
-    </record>
-
-<!-- disable create and edit option -->
-<record id="disable_create_edit" model="ir.ui.view">
-    <field name="name">diasble.view.partner.form.ext></field>
-    <field name="model">res.partner</field>
-    <field name="inherit_id" ref="l10n_th_address.view_partner_form_ext"/>
-    <field name="arch" type="xml">
-        <xpath expr="//field[@name='province_id']" position="attributes">
-            <attribute name="options">{"no_open": True, "no_create_edit": True}</attribute>
-        </xpath>
-        <xpath expr="//field[@name='district_id']" position="attributes">
-            <attribute name="options">{"no_open": True, "no_create_edit": True}</attribute>
-        </xpath>
-        <xpath expr="//field[@name='township_id']" position="attributes">
-            <attribute name="options">{"no_open": True, "no_create_edit": True}</attribute>
-        </xpath>
-    </field>
-</record>
-
 </data>
 </openerp>

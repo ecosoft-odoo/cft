@@ -2,10 +2,10 @@
 <openerp>
     <data noupdate="1">
 
-        <record model="res.groups" id="group_excel_export">
+        <record id="group_excel_export" model="res.groups">
             <field name="name">Excel Export</field>
             <field eval="[(4, ref('web_export_view.assets_backend'))]" name="view_access"/>
         </record>
 
-</data>
+    </data>
 </openerp>

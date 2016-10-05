@@ -14,7 +14,8 @@
         'crm',
     ],
     "data": [
-        'security/crm_security.xml'
+        'security/crm_security.xml',
+        'views/inherit_crm_views.xml'
     ],
     "js": [
     ],
