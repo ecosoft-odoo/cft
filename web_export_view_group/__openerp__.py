@@ -3,19 +3,20 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
 {
-    "name": "Sale View Adjust CFT",
-    "version": "8.0.0.5.0",
+    "name": "Limit Excel Button CFT",
+    "version": "8.0.1.0.0",
     "author": "Ecosoft Co. Ltd.",
     "license": "AGPL-3",
     "description": """
+        This module is for limiting the access for "Excel Export Button". To assign the user to a new group named
+        Excel Export,the user has accessed to this button to export needed information.
     """,
-    "category": "Sales",
+    "category": "Base",
     "depends": [
-        'crm',
+        'web_export_view',
     ],
     "data": [
-        'security/crm_security.xml',
-        'views/inherit_crm_views.xml'
+        'security/security_export.xml'
     ],
     "js": [
     ],
