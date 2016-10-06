@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+<data>
+
+<!-- remove default filter from Logged Calls-->
+<record model="ir.actions.act_window" id="crm.crm_case_categ_phone_incoming0">
+    <field name="context">{'search_default_state':False, 'default_state':'done'}</field>
+</record>
+
+</data>
+</openerp>
