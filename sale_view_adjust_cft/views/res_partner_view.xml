@@ -20,7 +20,7 @@
     </field>
 </record>
 
-<!-- make street,job position,phone,mobile, email and title required in customer form view -->
+<!-- make street,job position,phone,email and title required in customer form view -->
 <record id="view_partner_form_reqired" model="ir.ui.view">
     <field name="name">view.partner.form.required</field>
     <field name="model">res.partner</field>
