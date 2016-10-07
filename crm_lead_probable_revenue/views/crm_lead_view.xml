@@ -1,33 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
     <data>
-        <record model="ir.ui.view" id="crm_case_form_view_oppor_z160909">
-            <field name="name">crm.case.form.view.oppor.z160909</field>
-            <field name="model">crm.lead</field>
-            <field name="inherit_id" ref="crm.crm_case_form_view_oppor"/>
-            <field name="arch" type="xml">
-                <xpath expr="//div[@class='oe_title']" position="after">
-                    <group>
-                        <field name="probable_revenue" widget='monetary' options="{'currency_field': 'company_currency'}"/>
-                    </group>
-                </xpath>
-            </field>
-        </record>
 
-        <record model="ir.ui.view" id="crm_case_kanban_view_leads">
-            <field name="model">crm.lead</field>
-            <field name="inherit_id" ref="crm.crm_case_kanban_view_leads"/>
-            <field name="arch" type="xml">
-                <xpath expr="//field[@name='planned_revenue' and @sum='Expected Revenues']" position="after">
-                    <field name="planned_revenue"/>
-                    <field name="probable_revenue" sum="Estimated Revenues"/>
-                </xpath>
-                <xpath expr="//t[@t-if='record.planned_revenue.raw_value']" position="after">
-                    <t t-if="record.probable_revenue.raw_value">
-                    - <b><t t-esc="record.probable_revenue.value"/> <field name="company_currency"/></b>
-                    </t>
-                </xpath>
-            </field>
-        </record>
+<record model="ir.ui.view" id="crm_case_form_view_oppor_z160909">
+    <field name="name">crm.case.form.view.oppor.z160909</field>
+    <field name="model">crm.lead</field>
+    <field name="inherit_id" ref="crm.crm_case_form_view_oppor"/>
+    <field name="arch" type="xml">
+        <xpath expr="//div[@class='oe_title']" position="after">
+            <group>
+                <field name="probable_revenue" widget='monetary' options="{'currency_field': 'company_currency'}"/>
+            </group>
+        </xpath>
+    </field>
+</record>
+
+<record model="ir.ui.view" id="crm_case_kanban_view_leads">
+    <field name="model">crm.lead</field>
+    <field name="inherit_id" ref="crm.crm_case_kanban_view_leads"/>
+    <field name="arch" type="xml">
+        <xpath expr="//field[@name='planned_revenue' and @sum='Expected Revenues']" position="after">
+            <field name="planned_revenue"/>
+            <field name="probable_revenue" sum="Estimated Revenues"/>
+        </xpath>
+        <xpath expr="//t[@t-if='record.planned_revenue.raw_value']" position="after">
+            <t t-if="record.probable_revenue.raw_value">
+                - <b><t t-esc="record.probable_revenue.value"/> <field name="company_currency"/></b>
+            </t>
+        </xpath>
+        <xpath expr="//t[@t-if='record.probable_revenue.raw_value']" position="after">
+            <field name="section_id"/>
+        </xpath>
+    </field>
+</record>
+
+<record model="ir.ui.view" id="crm_case_tree_view_oppr_ext">
+    <field name="name">crm.case.tree.view.oppor.ext</field>
+    <field name="model">crm.lead</field>
+    <field name="inherit_id" ref="crm.crm_case_tree_view_oppor"/>
+    <field name="arch" type="xml">
+        <xpath expr="//field[@name='stage_id']" position="after">
+            <field name="probable_revenue" sum="Estimated Revenues"/>
+        </xpath>
+    </field>
+</record>
+
     </data>
 </openerp>
