@@ -31,8 +31,8 @@
         <xpath expr="//t[@t-if='record.probable_revenue.raw_value']" position="after">
             <field name="section_id"/>
         </xpath>
-            </field>
-        </record>
+    </field>
+</record>
 
 <record model="ir.ui.view" id="crm_case_tree_view_oppr_ext">
     <field name="name">crm.case.tree.view.oppor.ext</field>
