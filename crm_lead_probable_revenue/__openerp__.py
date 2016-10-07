@@ -5,7 +5,7 @@
 {
     "name": "CRM Lead Probable Amount",
     "summary": "",
-    "version": "8.0.0.6.0",
+    "version": "8.0.0.7.0",
     "category": "Sales",
     "website": "",
     "author": "Ecosoft Co. Ltd.",
