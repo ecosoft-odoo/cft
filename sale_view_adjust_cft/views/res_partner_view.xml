@@ -20,5 +20,32 @@
     </field>
 </record>
 
+<!-- make street,job position,phone,mobile, email and title required in customer form view -->
+<record id="view_partner_form_reqired" model="ir.ui.view">
+    <field name="name">view.partner.form.required</field>
+    <field name="model">res.partner</field>
+    <field name="inherit_id" ref="base.view_partner_form"/>
+    <field name="arch" type="xml">
+        <xpath expr="//field[@name='street']" position="attributes">
+            <attribute name="required">True</attribute>
+        </xpath>
+        <xpath expr="//field[@name='function']" position="attributes">
+            <attribute name="required">True</attribute>
+        </xpath>
+        <xpath expr="//field[@name='phone']" position="attributes">
+            <attribute name="required">True</attribute>
+        </xpath>
+        <xpath expr="//field[@name='mobile']" position="attributes">
+            <attribute name="required">True</attribute>
+        </xpath>
+        <xpath expr="//field[@name='email']" position="attributes">
+            <attribute name="required">True</attribute>
+        </xpath>
+        <xpath expr="//field[@name='title']" position="attributes">
+            <attribute name="required">True</attribute>
+        </xpath>
+    </field>
+</record>
+
 </data>
 </openerp>

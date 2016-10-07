@@ -7,5 +7,28 @@
     <field name="context">{'search_default_state':False, 'default_state':'done'}</field>
 </record>
 
+<!-- remove meeting button in Logged Calls tree view and form view -->
+<record id="crm_case_inbound_phone_tree_view_removed" model="ir.ui.view">
+    <field name="name">crm.case.inbound.phone.tree.view.removed</field>
+    <field name="model">crm.phonecall</field>
+    <field name="inherit_id" ref="crm.crm_case_inbound_phone_tree_view"/>
+    <field name="arch" type="xml">
+        <xpath expr="//button[@name='action_make_meeting']" position="attributes">
+            <attribute name="invisible">1</attribute>
+        </xpath>
+    </field>
+</record>
+    
+<record id="crm_case_phone_form_view_removed" model="ir.ui.view">
+    <field name="name">crm.case.phone.form.view.removed</field>
+    <field name="model">crm.phonecall</field>
+    <field name="inherit_id" ref="crm.crm_case_phone_form_view"/>
+    <field name="arch" type="xml">
+        <xpath expr="//button[@name='action_make_meeting']" position="attributes">
+            <attribute name="invisible">1</attribute>
+        </xpath>
+    </field>
+</record>
+
 </data>
 </openerp>
