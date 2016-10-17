@@ -29,8 +29,9 @@
         <xpath expr="//field[@name='street']" position="replace">
             <field name="street" attrs="{'required':[('is_company','=',True)]}"/>
         </xpath>
-        <xpath expr="//field[@name='function']" position="attributes">
-            <attribute name="required">True</attribute>
+        <xpath expr="//field[@name='function']" position="replace">
+            <field name="function" attrs="{'required':[('is_company','=',False)],
+                                      'invisible': [('is_company','=', True)]}"/>
         </xpath>
         <xpath expr="//field[@name='phone']" position="attributes">
             <attribute name="required">True</attribute>
