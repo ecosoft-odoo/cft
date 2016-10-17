@@ -2,12 +2,13 @@
 <openerp>
 <data>
 
-<!-- disable create and edit option in customer form view -->
+<!-- disable create and edit option in customer form view and contact form view -->
 <record id="disable_create_edit" model="ir.ui.view">
     <field name="name">diasble.view.partner.form.ext></field>
     <field name="model">res.partner</field>
     <field name="inherit_id" ref="l10n_th_address.view_partner_form_ext"/>
     <field name="arch" type="xml">
+        <!-- Customer -->
         <xpath expr="//field[@name='province_id']" position="attributes">
             <attribute name="options">{"no_open": True, "no_create": True}</attribute>
         </xpath>
@@ -17,15 +18,29 @@
         <xpath expr="//field[@name='township_id']" position="attributes">
             <attribute name="options">{"no_open": True, "no_create": True}</attribute>
         </xpath>
+         <!-- Contact -->
+        <xpath expr="/form/sheet/notebook/page/field/form[@string='Contact']//field[@name='province_id']"
+               position="attributes">
+            <attribute name="options">{"no_open": True, "no_create": True}</attribute>
+        </xpath>
+        <xpath expr="/form/sheet/notebook/page/field/form[@string='Contact']//field[@name='district_id']"
+               position="attributes">
+            <attribute name="options">{"no_open": True, "no_create": True}</attribute>
+        </xpath>
+        <xpath expr="/form/sheet/notebook/page/field/form[@string='Contact']//field[@name='township_id']"
+               position="attributes">
+            <attribute name="options">{"no_open": True, "no_create": True}</attribute>
+        </xpath>
     </field>
 </record>
 
-<!-- make street,job position,phone,email and title required in customer form view -->
+<!-- make street,job position,phone,email and title required in customer form view and contact form view-->
 <record id="view_partner_form_reqired" model="ir.ui.view">
     <field name="name">view.partner.form.required</field>
     <field name="model">res.partner</field>
     <field name="inherit_id" ref="base.view_partner_form"/>
     <field name="arch" type="xml">
+        <!-- Customer -->
         <xpath expr="//field[@name='street']" position="replace">
             <field name="street" attrs="{'required':[('is_company','=',True)]}"/>
         </xpath>
@@ -40,6 +55,19 @@
             <attribute name="required">True</attribute>
         </xpath>
         <xpath expr="//field[@name='title']" position="attributes">
+            <attribute name="required">True</attribute>
+        </xpath>
+        <!-- Contact -->
+        <xpath expr="/form/sheet/notebook/page/field/form[@string='Contact']//field[@name='function']"
+               position="attributes">
+            <attribute name="required">True</attribute>
+        </xpath>
+        <xpath expr="/form/sheet/notebook/page/field/form[@string='Contact']//field[@name='email']"
+               position="attributes">
+            <attribute name="required">True</attribute>
+        </xpath>
+        <xpath expr="/form/sheet/notebook/page/field/form[@string='Contact']//field[@name='phone']"
+               position="attributes">
             <attribute name="required">True</attribute>
         </xpath>
     </field>
