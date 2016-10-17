@@ -4,7 +4,7 @@
 
 {
     "name": "Sale View Adjust CFT",
-    "version": "8.0.0.8.0",
+    "version": "8.0.0.7.1",
     "author": "Ecosoft Co. Ltd.",
     "license": "AGPL-3",
     "description": """
