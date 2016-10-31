@@ -51,11 +51,11 @@
         <xpath expr="//field[@name='phone']" position="attributes">
             <attribute name="required">True</attribute>
         </xpath>
-        <xpath expr="//field[@name='email']" position="attributes">
-            <attribute name="required">True</attribute>
+        <xpath expr="//field[@name='email']" position="replace">
+            <field name="email" widget="email" attrs="{'required': ['|',('user_ids','!=', []),('supplier','=',False)]}"/>
         </xpath>
-        <xpath expr="//field[@name='title']" position="attributes">
-            <attribute name="required">True</attribute>
+        <xpath expr="//field[@name='title']" position="replace">
+            <field name="title" options='{"no_open": True}' attrs="{'required':[('supplier','=',False)]}"/>
         </xpath>
         <!-- Contact -->
         <xpath expr="/form/sheet/notebook/page/field/form[@string='Contact']//field[@name='function']"
