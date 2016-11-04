@@ -9,10 +9,14 @@
     <field eval="[(4, ref('base.group_user'))]" name="groups"/>
 </record>
 
+<record id="access_all_areas" model="res.groups">
+     <field name="name">Access All Areas</field>
+</record>
+
 <!-- this may not override the original record rule due to noupdate.
  manually update record as necessary -->
 <record id="calendar.calendar_event_rule_employee" model="ir.rule">
-    <field name="active">False</field>
+  <field name="groups" eval="[(6,0,[ref('calendar_security_adjust.access_all_areas')])]"/>
 </record>
 
 </data>
