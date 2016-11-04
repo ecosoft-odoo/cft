@@ -4,7 +4,7 @@
 {
     "name": "Calendar Security Adjustments",
     "summary": "",
-    "version": "8.0.0.5.0",
+    "version": "8.0.1.0.0",
     "category": "Sale",
     "website": "http://ecosoft.co.th/",
     "author": "Ecosoft Co. Ltd.",
