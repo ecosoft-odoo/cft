@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Quotation" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
-	<property name="ireport.zoom" value="2.1961500000000367"/>
-	<property name="ireport.x" value="525"/>
-	<property name="ireport.y" value="99"/>
+	<property name="ireport.zoom" value="1.126972201352386"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="576"/>
 	<property name="OPENERP_RELATIONS" value="[&quot;order_line&quot;]"/>
 	<import value="org.apache.commons.codec.binary.Base64"/>
 	<style name="table" lineSpacing="Single">
@@ -62,86 +62,102 @@
 	<field name="name" class="java.lang.String">
 		<fieldDescription><![CDATA[name]]></fieldDescription>
 	</field>
+	<field name="customer_name" class="java.lang.String">
+		<fieldDescription><![CDATA[partner_id/name]]></fieldDescription>
+	</field>
+	<field name="default_code" class="java.lang.String">
+		<fieldDescription><![CDATA[order_line/product_id/default_code]]></fieldDescription>
+	</field>
+	<field name="description" class="java.lang.String">
+		<fieldDescription><![CDATA[order_line/name]]></fieldDescription>
+	</field>
 	<background>
 		<band height="802" splitType="Stretch">
 			<rectangle>
-				<reportElement style="table" mode="Transparent" x="60" y="200" width="197" height="328"/>
+				<reportElement style="table" mode="Transparent" x="60" y="245" width="197" height="283"/>
 			</rectangle>
 			<rectangle>
-				<reportElement style="table_1" mode="Transparent" x="313" y="200" width="60" height="328"/>
+				<reportElement style="table_1" mode="Transparent" x="313" y="245" width="60" height="283"/>
 			</rectangle>
 			<rectangle>
-				<reportElement style="table_1" mode="Transparent" x="373" y="200" width="50" height="328"/>
+				<reportElement style="table_1" mode="Transparent" x="373" y="245" width="50" height="283"/>
 			</rectangle>
 			<rectangle>
-				<reportElement style="table_1" mode="Transparent" x="485" y="200" width="70" height="328"/>
+				<reportElement style="table_1" mode="Transparent" x="485" y="245" width="70" height="283"/>
 			</rectangle>
 			<rectangle>
-				<reportElement style="table_1" mode="Transparent" x="0" y="200" width="60" height="328"/>
+				<reportElement style="table_1" mode="Transparent" x="0" y="245" width="60" height="283"/>
 			</rectangle>
 			<rectangle>
-				<reportElement style="table_1" mode="Transparent" x="423" y="200" width="62" height="328"/>
+				<reportElement style="table_1" mode="Transparent" x="423" y="245" width="62" height="283"/>
 			</rectangle>
 			<rectangle>
-				<reportElement style="table_1" mode="Transparent" x="257" y="200" width="56" height="328"/>
+				<reportElement style="table_1" mode="Transparent" x="257" y="245" width="56" height="283"/>
 			</rectangle>
 			<staticText>
-				<reportElement mode="Opaque" x="-1" y="177" width="61" height="23" forecolor="#FEFEFE" backcolor="#010101"/>
+				<reportElement mode="Opaque" x="-1" y="195" width="61" height="50" forecolor="#FEFEFE" backcolor="#010101"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle" lineSpacing="Single">
-					<font fontName="Monospaced" size="8" isBold="true" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H" isPdfEmbedded="false"/>
+					<font fontName="Monospaced" size="8" isBold="false" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H" isPdfEmbedded="false"/>
 				</textElement>
-				<text><![CDATA[Model No.]]></text>
+				<text><![CDATA[รหัสสินค้า
+Model No.]]></text>
 			</staticText>
 			<staticText>
-				<reportElement mode="Opaque" x="423" y="177" width="62" height="23" forecolor="#FEFEFE" backcolor="#010101"/>
+				<reportElement mode="Opaque" x="423" y="195" width="62" height="50" forecolor="#FEFEFE" backcolor="#010101"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle" lineSpacing="Single">
-					<font fontName="Monospaced" size="7" isBold="true" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H" isPdfEmbedded="false"/>
+					<font fontName="Monospaced" size="7" isBold="false" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H" isPdfEmbedded="false"/>
 				</textElement>
-				<text><![CDATA[Unit Price
+				<text><![CDATA[ราคาต่อหน่วย
+(หลังหักส่วนลด)
+Unit Price
 (after disc.)]]></text>
 			</staticText>
 			<staticText>
-				<reportElement mode="Opaque" x="257" y="177" width="56" height="23" forecolor="#FEFEFE" backcolor="#010101"/>
+				<reportElement mode="Opaque" x="257" y="195" width="56" height="50" forecolor="#FEFEFE" backcolor="#010101"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle" lineSpacing="Single">
-					<font fontName="Monospaced" size="8" isBold="true" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H" isPdfEmbedded="false"/>
+					<font fontName="Monospaced" size="8" isBold="false" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H" isPdfEmbedded="false"/>
 				</textElement>
-				<text><![CDATA[Quantity]]></text>
+				<text><![CDATA[จำนวน
+Quantity]]></text>
 			</staticText>
 			<staticText>
-				<reportElement mode="Opaque" x="313" y="177" width="60" height="23" forecolor="#FEFEFE" backcolor="#010101"/>
+				<reportElement mode="Opaque" x="313" y="195" width="60" height="50" forecolor="#FEFEFE" backcolor="#010101"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle" lineSpacing="Single">
-					<font fontName="Monospaced" size="8" isBold="true" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H" isPdfEmbedded="false"/>
+					<font fontName="Monospaced" size="8" isBold="false" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H" isPdfEmbedded="false"/>
 				</textElement>
-				<text><![CDATA[Unit Price
-(THB)]]></text>
+				<text><![CDATA[ราคา/หน่วย
+Unit Price]]></text>
 			</staticText>
 			<staticText>
-				<reportElement mode="Opaque" x="60" y="177" width="197" height="23" forecolor="#FEFEFE" backcolor="#010101"/>
+				<reportElement mode="Opaque" x="60" y="195" width="197" height="50" forecolor="#FEFEFE" backcolor="#010101"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle" lineSpacing="Single">
-					<font fontName="Monospaced" size="8" isBold="true" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H" isPdfEmbedded="false"/>
+					<font fontName="Monospaced" size="8" isBold="false" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H" isPdfEmbedded="false"/>
 				</textElement>
-				<text><![CDATA[Description]]></text>
+				<text><![CDATA[รายละเอียด
+Description]]></text>
 			</staticText>
 			<staticText>
-				<reportElement mode="Opaque" x="373" y="177" width="50" height="23" forecolor="#FEFEFE" backcolor="#010101"/>
+				<reportElement mode="Opaque" x="373" y="195" width="50" height="50" forecolor="#FEFEFE" backcolor="#010101"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle" lineSpacing="Single">
-					<font fontName="Monospaced" size="8" isBold="true" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H" isPdfEmbedded="false"/>
+					<font fontName="Monospaced" size="8" isBold="false" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H" isPdfEmbedded="false"/>
 				</textElement>
-				<text><![CDATA[Discount
+				<text><![CDATA[ส่วนลด (%)
+Discount
 (%)]]></text>
 			</staticText>
 			<staticText>
-				<reportElement mode="Opaque" x="485" y="177" width="71" height="23" forecolor="#FEFEFE" backcolor="#010101"/>
+				<reportElement mode="Opaque" x="485" y="195" width="71" height="50" forecolor="#FEFEFE" backcolor="#010101"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle" lineSpacing="Single">
-					<font fontName="Monospaced" size="8" isBold="true" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H" isPdfEmbedded="false"/>
+					<font fontName="Monospaced" size="8" isBold="false" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H" isPdfEmbedded="false"/>
 				</textElement>
-				<text><![CDATA[TOTAL
+				<text><![CDATA[ยอดรวม (บาท)
+TOTAL
 (THB)]]></text>
 			</staticText>
 		</band>
 	</background>
 	<pageHeader>
-		<band height="177" splitType="Stretch">
+		<band height="246" splitType="Stretch">
 			<staticText>
 				<reportElement x="0" y="71" width="511" height="15"/>
 				<textElement lineSpacing="Single">
@@ -151,25 +167,26 @@
 โทร. 02-240-1331-2 แฟกซ์. 02-249-4283]]></text>
 			</staticText>
 			<staticText>
-				<reportElement mode="Transparent" x="4" y="116" width="69" height="14" backcolor="#B5E7D3"/>
+				<reportElement mode="Transparent" x="4" y="116" width="126" height="14" backcolor="#B5E7D3"/>
 				<textElement verticalAlignment="Top" lineSpacing="Single">
 					<font fontName="Monospaced" size="9" isBold="false" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H" isPdfEmbedded="false"/>
 				</textElement>
-				<text><![CDATA[ATTN:]]></text>
+				<text><![CDATA[เรียน / ATTN :]]></text>
 			</staticText>
 			<staticText>
-				<reportElement positionType="Float" mode="Transparent" x="4" y="130" width="69" height="14" backcolor="#B5E7D3"/>
+				<reportElement positionType="Float" mode="Transparent" x="4" y="130" width="126" height="21" backcolor="#B5E7D3"/>
 				<textElement verticalAlignment="Top" lineSpacing="Single">
 					<font fontName="Monospaced" size="9" isBold="false" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H" isPdfEmbedded="false"/>
 				</textElement>
-				<text><![CDATA[CUSTOMER:]]></text>
+				<text><![CDATA[หน่วยงาน /
+CUSTOMER :]]></text>
 			</staticText>
 			<staticText>
-				<reportElement mode="Transparent" x="331" y="130" width="49" height="14" backcolor="#B5E7D3"/>
+				<reportElement mode="Transparent" x="339" y="132" width="84" height="14" backcolor="#B5E7D3"/>
 				<textElement verticalAlignment="Top" lineSpacing="Single">
 					<font fontName="Monospaced" size="9" isBold="false" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H" isPdfEmbedded="false"/>
 				</textElement>
-				<text><![CDATA[TEL:]]></text>
+				<text><![CDATA[โทร / TEL :]]></text>
 			</staticText>
 			<staticText>
 				<reportElement mode="Transparent" x="217" y="-1" width="338" height="27" forecolor="#000000" backcolor="#FFFFFF"/>
@@ -198,32 +215,27 @@ TEL. +662 240 1331 EXT. 111 FAX. +662 249 4283]]></text>
 				<reportElement mode="Opaque" x="-1" y="97" width="557" height="15" backcolor="#FF0000"/>
 			</frame>
 			<staticText>
-				<reportElement positionType="Float" mode="Transparent" x="4" y="144" width="69" height="14" backcolor="#B5E7D3"/>
+				<reportElement positionType="Float" mode="Transparent" x="4" y="152" width="126" height="32" backcolor="#B5E7D3"/>
 				<textElement verticalAlignment="Top" lineSpacing="Single">
 					<font fontName="Monospaced" size="9" isBold="false" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H" isPdfEmbedded="false"/>
 				</textElement>
-				<text><![CDATA[LOCATION:]]></text>
+				<text><![CDATA[สถานที่ตั้ง /
+LOCATION :]]></text>
 			</staticText>
 			<staticText>
-				<reportElement mode="Transparent" x="332" y="144" width="49" height="14" backcolor="#B5E7D3"/>
+				<reportElement mode="Transparent" x="339" y="152" width="84" height="14" backcolor="#B5E7D3"/>
 				<textElement verticalAlignment="Top" lineSpacing="Single">
 					<font fontName="Monospaced" size="9" isBold="false" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H" isPdfEmbedded="false"/>
 				</textElement>
-				<text><![CDATA[EMAIL:]]></text>
+				<text><![CDATA[อีเมล์ / EMAIL :]]></text>
 			</staticText>
 			<staticText>
-				<reportElement positionType="Float" mode="Transparent" x="4" y="162" width="177" height="14" backcolor="#B5E7D3"/>
+				<reportElement positionType="Float" mode="Transparent" x="4" y="176" width="552" height="21" backcolor="#B5E7D3"/>
 				<textElement verticalAlignment="Top" lineSpacing="Single">
 					<font fontName="Monospaced" size="8" isBold="false" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H" isPdfEmbedded="false"/>
 				</textElement>
-				<text><![CDATA[Thank you for your inquiry dated:]]></text>
-			</staticText>
-			<staticText>
-				<reportElement positionType="Float" mode="Transparent" x="281" y="162" width="264" height="14" backcolor="#B5E7D3"/>
-				<textElement verticalAlignment="Top" lineSpacing="Single">
-					<font fontName="Monospaced" size="8" isBold="false" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H" isPdfEmbedded="false"/>
-				</textElement>
-				<text><![CDATA[, we are pleased to quote you as following:]]></text>
+				<text><![CDATA[บริษัท คอมฟอทต้า จ ากัด มีความยินดีที่จะเสนอรายละเอียดสินค้า
+We have pleasure in submitting our quotation as requested. Please contact us if you have any queries]]></text>
 			</staticText>
 			<staticText>
 				<reportElement mode="Transparent" x="348" y="42" width="103" height="14" backcolor="#B5E7D3"/>
@@ -278,13 +290,49 @@ TEL. +662 240 1331 EXT. 111 FAX. +662 249 4283]]></text>
 				</textElement>
 				<textFieldExpression class="java.lang.String"><![CDATA[$V{PAGE_NUMBER}+" /"]]></textFieldExpression>
 			</textField>
+			<textField isStretchWithOverflow="true" pattern="dd/MM/yyyy" isBlankWhenNull="true">
+				<reportElement mode="Transparent" x="98" y="116" width="219" height="14" forecolor="#000000" backcolor="#FFFFFF"/>
+				<textElement textAlignment="Left" verticalAlignment="Top" rotation="None" lineSpacing="Single" markup="none">
+					<font fontName="Monospaced" size="9" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H" isPdfEmbedded="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["???"]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="dd/MM/yyyy" isBlankWhenNull="true">
+				<reportElement mode="Transparent" x="98" y="132" width="219" height="21" forecolor="#000000" backcolor="#FFFFFF"/>
+				<textElement textAlignment="Left" verticalAlignment="Top" rotation="None" lineSpacing="Single" markup="none">
+					<font fontName="Monospaced" size="9" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H" isPdfEmbedded="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{customer_name}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="dd/MM/yyyy" isBlankWhenNull="true">
+				<reportElement mode="Transparent" x="98" y="154" width="219" height="32" forecolor="#000000" backcolor="#FFFFFF"/>
+				<textElement textAlignment="Left" verticalAlignment="Top" rotation="None" lineSpacing="Single" markup="none">
+					<font fontName="Monospaced" size="9" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H" isPdfEmbedded="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["???"]]></textFieldExpression>
+			</textField>
 		</band>
 	</pageHeader>
 	<columnHeader>
 		<band splitType="Stretch"/>
 	</columnHeader>
 	<detail>
-		<band height="17" splitType="Stretch"/>
+		<band height="15" splitType="Stretch">
+			<textField isStretchWithOverflow="true" pattern="dd/MM/yyyy" isBlankWhenNull="true">
+				<reportElement style="pading_2" stretchType="RelativeToTallestObject" mode="Transparent" x="0" y="0" width="60" height="15" forecolor="#000000" backcolor="#FFFFFF"/>
+				<textElement textAlignment="Left" verticalAlignment="Top" rotation="None" lineSpacing="Single" markup="none">
+					<font fontName="Monospaced" size="9" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H" isPdfEmbedded="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{default_code}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="dd/MM/yyyy" isBlankWhenNull="true">
+				<reportElement style="pading_2" mode="Transparent" x="60" y="0" width="197" height="15" forecolor="#000000" backcolor="#FFFFFF"/>
+				<textElement textAlignment="Left" verticalAlignment="Top" rotation="None" lineSpacing="Single" markup="none">
+					<font fontName="Monospaced" size="9" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H" isPdfEmbedded="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{description}]]></textFieldExpression>
+			</textField>
+		</band>
 	</detail>
 	<pageFooter>
 		<band height="275"/>
@@ -296,26 +344,20 @@ TEL. +662 240 1331 EXT. 111 FAX. +662 249 4283]]></text>
 				<textElement lineSpacing="Single">
 					<font fontName="Monospaced" size="8" isBold="false" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H" isPdfEmbedded="false"/>
 				</textElement>
-				<text><![CDATA[1. Price validity: 30 days since the quotation issued
-2. Terms of Payment: 100% T/T after quotation confirmed
-3. Guarantee: 6 months for Security Controller, 3 months for Security Sensor
-4. Price Quotation with Installation Cost excluded
-5. Acc. Details: COMFORTA Co .,Ltd.
-Bangkok Bank, Lumphini Branch, A/C No. 124-3-07527-0
-Kasikorn Bank, Khlong Toei Branch, A/C No. 017-1-08811-9]]></text>
+				<text><![CDATA[]]></text>
 			</staticText>
 			<frame>
-				<reportElement mode="Opaque" x="373" y="108" width="181" height="45" backcolor="#BFBFBF"/>
+				<reportElement mode="Opaque" x="361" y="108" width="194" height="45" backcolor="#BFBFBF"/>
 			</frame>
 			<frame>
-				<reportElement mode="Opaque" x="186" y="108" width="181" height="45" backcolor="#BFBFBF"/>
+				<reportElement mode="Opaque" x="179" y="108" width="170" height="45" backcolor="#BFBFBF"/>
 			</frame>
 			<staticText>
-				<reportElement style="pading_2" mode="Transparent" x="-2" y="1" width="170" height="20"/>
+				<reportElement style="pading_2" mode="Transparent" x="-2" y="3" width="170" height="20"/>
 				<textElement verticalAlignment="Top" lineSpacing="Single">
-					<font fontName="Monospaced" size="9" isBold="true" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H" isPdfEmbedded="false"/>
+					<font fontName="Monospaced" size="9" isBold="false" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H" isPdfEmbedded="false"/>
 				</textElement>
-				<text><![CDATA[NOTE:]]></text>
+				<text><![CDATA[หมายเหตุ / NOTE :]]></text>
 			</staticText>
 			<line>
 				<reportElement x="481" y="34" width="73" height="1"/>
@@ -324,11 +366,11 @@ Kasikorn Bank, Khlong Toei Branch, A/C No. 017-1-08811-9]]></text>
 				</graphicElement>
 			</line>
 			<staticText>
-				<reportElement style="pading_2" mode="Opaque" x="388" y="41" width="93" height="15" forecolor="#FEFEFE" backcolor="#FF0000"/>
+				<reportElement style="pading_2" mode="Opaque" x="348" y="41" width="133" height="15" forecolor="#FEFEFE" backcolor="#FF0000"/>
 				<textElement textAlignment="Right" verticalAlignment="Top" lineSpacing="Single">
-					<font fontName="Monospaced" size="9" isBold="true" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H" isPdfEmbedded="false"/>
+					<font fontName="Monospaced" size="9" isBold="false" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H" isPdfEmbedded="false"/>
 				</textElement>
-				<text><![CDATA[GRAND TOTAL]]></text>
+				<text><![CDATA[ราคาสุทธิ / GRAND TOTAL]]></text>
 			</staticText>
 			<line>
 				<reportElement x="481" y="55" width="73" height="1"/>
@@ -337,44 +379,44 @@ Kasikorn Bank, Khlong Toei Branch, A/C No. 017-1-08811-9]]></text>
 				</graphicElement>
 			</line>
 			<line>
-				<reportElement x="481" y="14" width="73" height="1"/>
+				<reportElement x="481" y="15" width="73" height="1"/>
 				<graphicElement>
 					<pen lineStyle="Solid"/>
 				</graphicElement>
 			</line>
 			<staticText>
-				<reportElement style="pading_2" mode="Opaque" x="0" y="88" width="181" height="20" forecolor="#FEFEFE" backcolor="#010101"/>
+				<reportElement style="pading_2" mode="Opaque" x="0" y="88" width="175" height="20" forecolor="#FEFEFE" backcolor="#010101"/>
 				<textElement verticalAlignment="Middle" lineSpacing="Single">
-					<font fontName="Monospaced" size="10" isBold="true" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H" isPdfEmbedded="false"/>
+					<font fontName="Monospaced" size="9" isBold="false" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H" isPdfEmbedded="false"/>
 				</textElement>
-				<text><![CDATA[Sales Executive]]></text>
+				<text><![CDATA[พนักงานฝ่ายขาย / SALES EXECUTIVE]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="pading_2" mode="Opaque" x="186" y="88" width="181" height="20" forecolor="#FEFEFE" backcolor="#010101"/>
+				<reportElement style="pading_2" mode="Opaque" x="179" y="88" width="170" height="20" forecolor="#FEFEFE" backcolor="#010101"/>
 				<textElement verticalAlignment="Middle" lineSpacing="Single">
-					<font fontName="Monospaced" size="10" isBold="true" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H" isPdfEmbedded="false"/>
+					<font fontName="Monospaced" size="9" isBold="false" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H" isPdfEmbedded="false"/>
 				</textElement>
-				<text><![CDATA[Sales Manager]]></text>
+				<text><![CDATA[ผู้จัดการฝ่ายขาย / SALES MANAGER]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="pading_2" mode="Opaque" x="373" y="88" width="181" height="20" forecolor="#FEFEFE" backcolor="#010101"/>
+				<reportElement style="pading_2" mode="Opaque" x="361" y="88" width="194" height="20" forecolor="#FEFEFE" backcolor="#010101"/>
 				<textElement verticalAlignment="Middle" lineSpacing="Single">
-					<font fontName="Monospaced" size="10" isBold="true" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H" isPdfEmbedded="false"/>
+					<font fontName="Monospaced" size="9" isBold="false" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H" isPdfEmbedded="false"/>
 				</textElement>
-				<text><![CDATA[Managing Director]]></text>
+				<text><![CDATA[กรรมการผู้จัดการ / MANAGING DIRECTOR]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="pading_2" mode="Opaque" x="373" y="173" width="181" height="20" forecolor="#FEFEFE" backcolor="#FF0000"/>
+				<reportElement style="pading_2" mode="Opaque" x="361" y="173" width="194" height="20" forecolor="#FEFEFE" backcolor="#FF0000"/>
 				<textElement verticalAlignment="Middle" lineSpacing="Single">
-					<font fontName="Monospaced" size="10" isBold="true" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H" isPdfEmbedded="false"/>
+					<font fontName="Monospaced" size="10" isBold="false" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H" isPdfEmbedded="false"/>
 				</textElement>
-				<text><![CDATA[Customer]]></text>
+				<text><![CDATA[ผู้สั่งซื้อ / CUSTOMER]]></text>
 			</staticText>
 			<frame>
-				<reportElement mode="Opaque" x="373" y="193" width="181" height="45" backcolor="#BFBFBF"/>
+				<reportElement mode="Opaque" x="361" y="193" width="194" height="45" backcolor="#BFBFBF"/>
 			</frame>
 			<staticText>
-				<reportElement style="pading_2" mode="Transparent" x="373" y="153" width="181" height="20"/>
+				<reportElement style="pading_2" mode="Transparent" x="361" y="153" width="194" height="20"/>
 				<textElement textAlignment="Center" verticalAlignment="Bottom" lineSpacing="Single">
 					<font fontName="Monospaced" size="9" isBold="false" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H" isPdfEmbedded="false"/>
 				</textElement>
@@ -388,50 +430,52 @@ Kasikorn Bank, Khlong Toei Branch, A/C No. 017-1-08811-9]]></text>
 				<text><![CDATA[]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="pading_2" mode="Transparent" x="373" y="238" width="181" height="20"/>
+				<reportElement style="pading_2" mode="Transparent" x="361" y="238" width="194" height="20"/>
 				<textElement textAlignment="Center" verticalAlignment="Bottom" lineSpacing="Single">
 					<font fontName="Monospaced" size="9" isBold="false" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H" isPdfEmbedded="false"/>
 				</textElement>
 				<text><![CDATA[(XXX YYYYYYYYYYYYYYYY)]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="pading_2" mode="Transparent" x="0" y="153" width="181" height="20"/>
+				<reportElement style="pading_2" mode="Transparent" x="0" y="153" width="175" height="20"/>
 				<textElement textAlignment="Center" verticalAlignment="Bottom" lineSpacing="Single">
 					<font fontName="Monospaced" size="9" isBold="false" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H" isPdfEmbedded="false"/>
 				</textElement>
 				<text><![CDATA[(XXX YYYYYYYYYYYYYYYY)]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="pading_2" mode="Transparent" x="186" y="153" width="181" height="20"/>
+				<reportElement style="pading_2" mode="Transparent" x="179" y="153" width="170" height="20"/>
 				<textElement textAlignment="Center" verticalAlignment="Bottom" lineSpacing="Single">
 					<font fontName="Monospaced" size="9" isBold="false" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H" isPdfEmbedded="false"/>
 				</textElement>
 				<text><![CDATA[(XXX YYYYYYYYYYYYYYYY)]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="pading_2" x="4" y="200" width="344" height="38"/>
-				<textElement textAlignment="Right" lineSpacing="Single">
-					<font fontName="Monospaced" size="9" isBold="false" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H" isPdfEmbedded="false"/>
+				<reportElement style="pading_2" x="3" y="193" width="420" height="59"/>
+				<textElement lineSpacing="Single">
+					<font fontName="Monospaced" size="8" isBold="false" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H" isPdfEmbedded="false"/>
 				</textElement>
-				<text><![CDATA[ To accept this quotation, sign in the Customer Box and return
-via FAX no. +662-249-4283]]></text>
+				<text><![CDATA[โปรดลงนามและประทับตรา เพื่อยืนยันการสั่งซื้อ และกรุณาส่งกลับมายังบริษัท คอมฟอทต้า  จำกัด
+To Accept this quotation, please sign in the Customer Box and Return via Fax.
+
+   FAX : +662-249-4283]]></text>
 			</staticText>
 			<staticText>
 				<reportElement style="pading_2" mode="Transparent" x="311" y="21" width="170" height="15"/>
 				<textElement textAlignment="Right" verticalAlignment="Top" lineSpacing="Single">
-					<font fontName="Monospaced" size="9" isBold="true" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H" isPdfEmbedded="false"/>
+					<font fontName="Monospaced" size="9" isBold="false" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H" isPdfEmbedded="false"/>
 				</textElement>
-				<text><![CDATA[VAT]]></text>
+				<text><![CDATA[ภาษีมูลค่าเพิ่ม 7% / VAT 7%]]></text>
 			</staticText>
 			<frame>
-				<reportElement mode="Opaque" x="0" y="108" width="181" height="45" backcolor="#BFBFBF"/>
+				<reportElement mode="Opaque" x="0" y="108" width="175" height="45" backcolor="#BFBFBF"/>
 			</frame>
 			<staticText>
-				<reportElement style="pading_2" mode="Transparent" x="311" y="1" width="170" height="15"/>
+				<reportElement style="pading_2" mode="Transparent" x="186" y="3" width="295" height="15"/>
 				<textElement textAlignment="Right" verticalAlignment="Top" lineSpacing="Single">
-					<font fontName="Monospaced" size="9" isBold="true" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H" isPdfEmbedded="false"/>
+					<font fontName="Monospaced" size="9" isBold="false" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H" isPdfEmbedded="false"/>
 				</textElement>
-				<text><![CDATA[TOTAL BEFORE VAT]]></text>
+				<text><![CDATA[ราคารวมก่อนภาษีมูลค่าเพิ่ม / TOTAL BEFORE VAT]]></text>
 			</staticText>
 		</band>
 	</lastPageFooter>
