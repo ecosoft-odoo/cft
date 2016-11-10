@@ -54,3 +54,7 @@ docs/_build/
 # Backup files
 *~
 *.swp
+
+
+# for jasper (by kittiu)
+*.jasper
