@@ -1,0 +1,25 @@
+id,name,code,parent_id/id,notprintable,sign
+tc_root,Thai Chart of Taxes,,,,1
+tc_vat,Taxable amounts,,tc_root,FALSE,1
+tc_vat_due,Value Added Tax,,tc_vat,FALSE,1
+tc_vat_due_input,Input VAT,PP30,tc_vat_due,FALSE,1
+tc_vat_due_output,Output VAT,PP30,tc_vat_due,FALSE,1
+tc_vat_undue,Undue Value Added Tax,,tc_vat,FALSE,1
+tc_vat_undue_input,Undue Input VAT,,tc_vat_undue,FALSE,1
+tc_vat_undue_output,Undue Output VAT,,tc_vat_undue,FALSE,1
+tc_wht,Withholding Tax,,tc_root,FALSE,1
+tc_wht_corp,Corporate WHT,,tc_wht,FALSE,1
+tc_wht_corp_1,Corporate WHT 1%,PND53,tc_wht_corp,FALSE,1
+tc_wht_corp_2,Corporate WHT 2%,PND53,tc_wht_corp,FALSE,1
+tc_wht_corp_3,Corporate WHT 3%,PND53,tc_wht_corp,FALSE,1
+tc_wht_corp_5,Corporate WHT 5%,PND53,tc_wht_corp,FALSE,1
+tc_wht_psn,Personal WHT,,tc_wht,FALSE,1
+tc_wht_psn_1,Personal WHT 1%,PND3,tc_wht_psn,FALSE,1
+tc_wht_psn_2,Personal WHT 2%,PND3,tc_wht_psn,FALSE,1
+tc_wht_psn_3,Personal WHT 3%,PND3,tc_wht_psn,FALSE,1
+tc_wht_psn_5,Personal WHT 5%,PND3,tc_wht_psn,FALSE,1
+tc_wht_income,Income WHT,,tc_wht,FALSE,1
+tc_wht_income_1,Income WHT 1%,,tc_wht_income,FALSE,1
+tc_wht_income_2,Income WHT 2%,,tc_wht_income,FALSE,1
+tc_wht_income_3,Income WHT 3%,,tc_wht_income,FALSE,1
+tc_wht_income_5,Income WHT 5%,,tc_wht_income,FALSE,1
