@@ -37,6 +37,8 @@ class AccountVoucher(models.Model):
     @api.model
     def action_move_line_writeoff_hook(self, voucher, ml_writeoff):
         if ml_writeoff:
+            if isinstance(ml_writeoff, dict):
+                ml_writeoff = [ml_writeoff]
             self.env['account.move.line'].create(ml_writeoff[0])
         return True
 
@@ -53,16 +55,30 @@ class AccountVoucher(models.Model):
                 )
         return True
 
+    @api.model
+    def _set_local_context(self):
+        context = self._context
+        local_context = dict(
+            context,
+            force_company=self.journal_id.company_id.id
+        )
+        return local_context
+
     @api.multi
     def action_move_line_create(self):
         """ Add HOOK """
+        # HOOK: To bypass this method completely
+        if self._context.get('bypass', False):
+            return True
+        # --
         context = self._context
         move_pool = self.env['account.move']
         move_line_pool = self.env['account.move.line']
         for voucher in self:
-            local_context = dict(
-                context,
-                force_company=voucher.journal_id.company_id.id)
+            #  local_context = dict(
+            # context,
+            # force_company=voucher.journal_id.company_id.id)
+            local_context = voucher._set_local_context()  # HOOK
             if voucher.move_id:
                 continue
             company_currency = self._get_company_currency(voucher.id)
