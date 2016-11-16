@@ -1,36 +1,14 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <openerp>
     <data>
-<!-- #Disable unnecessary adjustment of this community module
-        <record model="ir.ui.view" id="product_templ_form_inh_visible_view">
-            <field name="name">product.templ.form.inh.visible.view</field>
-            <field name="model">product.product</field>
-            <field name="inherit_id" ref="product.product_template_form_view"/>
-            <field name="arch" type="xml">
-                <xpath expr="//field[@name='list_price']" position="replace">
-                    <field name="list_price" groups="product_price_visible.group_product_visible"/>
-                </xpath>
-            </field>
-        </record>
 
-        <record model="ir.ui.view" id="product_templ_stock_property_form_inh_visible_view">
-            <field name="name">product.templ.stock.property.form.inh.visible.view</field>
-            <field name="model">product.product</field>
-            <field name="inherit_id" ref="stock_account.view_template_property_form"/>
-            <field name="arch" type="xml">
-                <field name="cost_method" position="replace">
-                    <field name="cost_method" groups="product_price_visible.group_product_visible"/>
-                </field>
-            </field>
-        </record>
--->
         <record model="ir.ui.view" id="view_product_standard_price_inh_visible_form">
             <field name="name">view.product.standard.price.inh.visible.form</field>
             <field name="model">product.template</field>
             <field name="inherit_id" ref="stock_account.view_template_property_form"/>
             <field name="arch" type="xml">
                 <field name="standard_price" position="replace">
-<!-- Make new adjustment in the community module
+<!--
                 <field name="cost_method" groups="stock_account.group_inventory_valuation" attrs="{'invisible': [('type','=','service')]}"/>
                     <label string="Cost Price" for="standard_price" align="1.0" />
 -->
@@ -39,31 +17,9 @@
                         <button name="412" string="- update" type="action" attrs="{'invisible':['|', ('valuation','!=', 'real_time'), ('cost_method', 'not in', ['standard', 'average'])]}" class="oe_link" groups="stock_account.group_inventory_valuation"/>
                     </div>
 
-<!-- #Disable the original adjustment of this community module
-                    <label string="Cost Price :" align="1.0"/>
-                    <group col="2" colspan="1" groups="product_price_visible.group_product_visible">
-                        <field name="standard_price" attrs="{'readonly':[('cost_method','=','average')]}" nolabel="1" groups="product_price_visible.group_product_visible"/>
-                        <button name="%(stock_account.action_view_change_standard_price)d" string="Update" type="action" icon="gtk-execute" attrs="{'invisible':[('cost_method','&lt;&gt;','average')]}" groups="product_price_visible.group_product_visible"/>
-                    </group>
--->
                 </field>
             </field>
         </record>
 
-<!-- #Disable unnecessary adjustment of this community module
-        <record model="ir.ui.view" id="product_product_tree_inh_visible_view">
-            <field name="name">product.product.tree.inh.visible.view</field>
-            <field name="model">product.product</field>
-            <field name="inherit_id" ref="product.product_product_tree_view"/>
-            <field name="arch" type="xml">
-                <field name="lst_price" position="replace">
-                    <field name="lst_price" groups="product_price_visible.group_product_visible"/>
-                </field>
-                <field name="price" position="replace">
-                    <field name="price" invisible="not context.get('pricelist',False)" groups="product_price_visible.group_product_visible"/>
-                </field>
-            </field>
-        </record>
--->
     </data>
 </openerp>
