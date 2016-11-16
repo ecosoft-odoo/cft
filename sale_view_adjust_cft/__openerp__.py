@@ -4,7 +4,7 @@
 
 {
     "name": "Sale View Adjust CFT",
-    "version": "8.0.0.8.0",
+    "version": "8.0.1.0.0",
     "author": "Ecosoft Co. Ltd.",
     "license": "AGPL-3",
     "description": """
@@ -15,6 +15,7 @@
     ],
     "data": [
         'security/crm_security.xml',
+        'data/ir.model.access.csv',
         'views/crm_lead_view.xml',
         'views/crm_phonecall_view.xml',
         'views/res_partner_view.xml'
