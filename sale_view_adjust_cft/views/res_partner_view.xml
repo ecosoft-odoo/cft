@@ -51,11 +51,11 @@
         <xpath expr="//field[@name='phone']" position="attributes">
             <attribute name="required">True</attribute>
         </xpath>
-        <xpath expr="//field[@name='email']" position="attributes">
-            <attribute name="required">True</attribute>
+        <xpath expr="//field[@name='email']" position="replace">
+            <field name="email" widget="email" attrs="{'required': ['|',('user_ids','!=', []),('customer','=',True)]}"/>
         </xpath>
-        <xpath expr="//field[@name='title']" position="attributes">
-            <attribute name="required">True</attribute>
+        <xpath expr="//field[@name='title']" position="replace">
+            <field name="title" options='{"no_open": True}' attrs="{'required':[('customer','=',True)]}"/>
         </xpath>
         <!-- Contact -->
         <xpath expr="/form/sheet/notebook/page/field/form[@string='Contact']//field[@name='function']"
@@ -70,8 +70,21 @@
                position="attributes">
             <attribute name="required">True</attribute>
         </xpath>
+       <!-- Customer Rank -->
+        <xpath expr="//field[@name='title']" position="after">
+            <field name="customer_rank" attrs="{'invisible':[('customer','=', False)]}"/>
+        </xpath> 
     </field>
 </record>
 
+<record id="action_partner_rank_partner" model="ir.actions.act_window">
+    <field name="name">Ranks</field>
+    <field name="type">ir.actions.act_window</field>
+    <field name="res_model">res.partner.rank</field>
+    <field name="view_type">form</field>
+    <field name="help">Manage the partner ranks you want to have available in your system.</field>
+</record>
+
+    <menuitem action="action_partner_rank_partner" name='Rank' id="menu_partner_rank_partner" parent="base.menu_config_address_book" sequence="2" groups="base.group_no_one"/>
 </data>
 </openerp>
