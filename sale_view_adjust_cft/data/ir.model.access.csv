@@ -1,3 +1,3 @@
 id,active,name,model_id/id,group_id/id,perm_read,perm_write,perm_unlink,perm_create
-__export__.ir_model_access_614,True,res.partner customerrank,sale_view_adjust_cft.model_res_partner_rank,base.group_user,True,False,False,False
-__export__.ir_model_access_615,True,res.partner customerrank,sale_view_adjust_cft.model_res_partner_rank,calendar_security_adjust.access_all_areas,True,True,True,True
+sale_view_adjust_cft_customer_rank1,True,res.partner customerrank,sale_view_adjust_cft.model_res_partner_rank,base.group_user,True,False,False,False
+sale_view_adjust_cft_customer_rank2,True,res.partner customerrank,sale_view_adjust_cft.model_res_partner_rank,calendar_security_adjust.access_all_areas,True,True,True,True

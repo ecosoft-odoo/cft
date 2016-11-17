@@ -72,7 +72,7 @@
         </xpath>
        <!-- Customer Rank -->
         <xpath expr="//field[@name='title']" position="after">
-            <field name="customer_rank" attrs="{'invisible':[('supplier','=', True)]}"/>
+            <field name="customer_rank" attrs="{'invisible':[('customer','=', False)]}"/>
         </xpath> 
     </field>
 </record>
