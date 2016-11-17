@@ -21,6 +21,6 @@ class res_partner_rank(models.Model):
     _inherit = 'res.partner'
 
 
-    customer_rank = fields.Many2one('res.partner.rank','Rank', groups="base.group_user")
+    customer_rank = fields.Many2one('res.partner.rank','Rank')
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
