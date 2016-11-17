@@ -85,6 +85,7 @@
     <field name="help">Manage the partner ranks you want to have available in your system.</field>
 </record>
 
-    <menuitem action="action_partner_rank_partner" name='Rank' id="menu_partner_rank_partner" parent="base.menu_config_address_book" sequence="2" groups="base.group_no_one"/>
+<menuitem action="action_partner_rank_partner" name='Rank' id="menu_partner_rank_partner" parent="base.menu_config_address_book" sequence="2" groups="base.group_no_one"/>
+
 </data>
 </openerp>
