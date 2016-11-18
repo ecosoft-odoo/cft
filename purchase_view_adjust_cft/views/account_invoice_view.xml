@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+    	<record id="invoice_tree_z161117" model="ir.ui.view">
+            <field name="name">account.invoice.tree.z161117</field>
+            <field name="model">account.invoice</field>
+            <field name="inherit_id" ref="account.invoice_tree"/>
+            <field name="arch" type="xml">
+				<xpath expr="//field[@name='date_due']" position="after">
+					<field name ='supplier_invoice_number'/>
+				</xpath>
+            </field>
+        </record>
+      
+    </data>
+</openerp>
