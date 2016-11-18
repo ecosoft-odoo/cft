@@ -29,7 +29,10 @@
             </t>
         </xpath>
         <xpath expr="//t[@t-if='record.probable_revenue.raw_value']" position="after">
+            <field name="write_date"/>
+            <div>
             <field name="section_id"/>
+            </div>
         </xpath>
     </field>
 </record>
