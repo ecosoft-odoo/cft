@@ -4,14 +4,14 @@
 
 {
     "name": "Purchase View Adjust CFT",
-    "version": "8.0.0.0.0",
+    "version": "8.0.1.0.0",
     "author": "Ecosoft Co. Ltd.",
     "license": "AGPL-3",
     "description": """
     """,
-    "category": "Sales",
+    "category": "Purchase",
     "depends": [
-        'crm',
+        'purchase',
     ],
     "data": [
         'views/account_invoice_view.xml'
