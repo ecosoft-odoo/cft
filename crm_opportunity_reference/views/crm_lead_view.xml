@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<openerp>
+<data>
+    
+    <record model="ir.ui.view" id="crm_case_form_view_oppor">
+        <field name="name">crm.case.form.view.oppor</field>
+        <field name="model">crm.lead</field>
+        <field name="inherit_id" ref="crm.crm_case_form_view_oppor"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@string='Lead']" position="after">
+                <page string="Sales Orders">
+                    <field name="sale_order_ids" widget="many2many"/>
+                </page>
+                <page string="References">
+                    <field name="reference_ids"/>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_crm_case_opportunities_filter" model="ir.ui.view">
+        <field name="name">view.crm.case.opportunities.filter</field>
+        <field name="model">crm.lead</field>
+        <field name="inherit_id" ref="crm.view_crm_case_opportunities_filter"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='partner_id']" position="after">
+                <field name="sale_order_ids"/>
+                <field name="reference_ids"/>
+            </xpath>
+        </field>
+    </record>
+
+</data>
+</openerp>
