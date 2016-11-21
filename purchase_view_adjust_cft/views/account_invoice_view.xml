@@ -2,15 +2,26 @@
 <openerp>
 <data>
 
-<record model="ir.ui.view" id="invoice_tree_z161118">
-    <field name="model">account.invoice</field>
-    <field name="inherit_id" ref="account.invoice_tree"/>
-    <field name="arch" type="xml">
-        <xpath expr="//field[@name='date_due']" position="after">
-            <field name='supplier_invoice_number'/>
-        </xpath>
-    </field>
+<record id="invoice_tree_incoming" model="ir.ui.view">
+   <field name="name">account.invoice.tree.incoming</field>
+   <field name="model">account.invoice</field>
+   <field name="mode">primary</field>
+   <field name="inherit_id" ref="account.invoice_tree"/>
+   <field name="arch" type="xml">
+       <xpath expr="//field[@name='date_due']" position="after">
+           <field name='supplier_invoice_number'/>
+       </xpath>
+   </field>
 </record>
-        
+
+# override actions to assign view id
+<record id="purchase.action_invoice_pending" model="ir.actions.act_window">
+   <field name="view_id" ref="invoice_tree_incoming"/>
+</record>
+
+<record id="account.action_invoice_tree2" model="ir.actions.act_window">
+   <field name="view_id" ref="invoice_tree_incoming"/>
+</record>
+
 </data>
 </openerp>
