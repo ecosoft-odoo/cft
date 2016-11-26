@@ -1,0 +1,105 @@
+<?xml version="1.0"?>
+<openerp>
+	<data>
+		<!-- Sale Order -->
+		<record id="cft_sale_order" model="ir.actions.report.xml">
+			<field name="string">Sales Order (CFT)</field>
+			<field name="auto">True</field>
+			<field name="model">sale.order</field>
+			<field name="jasper_model_id" ref="sale.model_sale_order"/>
+			<field name="name">Sales Order (CFT)</field>
+			<field name="report_name">cft.sale.order</field>
+			<field name="report_rml">jasper_forms_cft/jrxml_reports/cft_sale_order.jrxml</field>
+			<field name="menu">True</field>
+			<field name="header">False</field>
+			<field name="jasper_report">True</field>
+			<field name="jasper_output">pdf</field>
+		</record>
+		<record id="cft_sale_order_values" model="ir.values">
+			<field name="name">Sales Order (CFT)</field>
+			<field name="model">sale.order</field>
+			<field name="key2" eval="'client_print_multi'"/>
+			<field name="value_unpickle" eval="'ir.actions.report.xml, ' +str(cft_sale_order)"/>
+		</record>
+		<!-- Purchase Order -->
+		<record id="cft_purchase_order" model="ir.actions.report.xml">
+			<field name="string">Purchase Order (CFT)</field>
+			<field name="auto">True</field>
+			<field name="model">purchase.order</field>
+			<field name="jasper_model_id" ref="purchase.model_purchase_order"/>
+			<field name="name">Purchase Order (CFT)</field>
+			<field name="report_name">cft.purchase.order</field>
+			<field name="report_rml">jasper_forms_cft/jrxml_reports/cft_purchase_order.jrxml</field>
+			<field name="menu">True</field>
+			<field name="header">False</field>
+			<field name="jasper_report">True</field>
+			<field name="jasper_output">pdf</field>
+		</record>
+		<record id="cft_purchase_order_values" model="ir.values">
+			<field name="name">Purchase Order (CFT)</field>
+			<field name="model">purchase.order</field>
+			<field name="key2" eval="'client_print_multi'"/>
+			<field name="value_unpickle" eval="'ir.actions.report.xml, ' +str(cft_purchase_order)"/>
+		</record>
+		<!-- Tax Invoice -->
+		<record id="cft_tax_invoice" model="ir.actions.report.xml">
+			<field name="string">Tax Invoice (CFT)</field>
+			<field name="auto">True</field>
+			<field name="model">account.invoice</field>
+			<field name="jasper_model_id" ref="account.model_account_invoice"/>
+			<field name="name">Tax Invoice (CFT)</field>
+			<field name="report_name">cft.tax.invoice</field>
+			<field name="report_rml">jasper_forms_cft/jrxml_reports/cft_tax_invoice.jrxml</field>
+			<field name="menu">True</field>
+			<field name="header">False</field>
+			<field name="jasper_report">True</field>
+			<field name="jasper_output">pdf</field>
+		</record>
+		<record id="cft_tax_invoice_values" model="ir.values">
+			<field name="name">Tax Invoice (CFT)</field>
+			<field name="model">account.invoice</field>
+			<field name="key2" eval="'client_print_multi'"/>
+			<field name="value_unpickle" eval="'ir.actions.report.xml, ' +str(cft_tax_invoice)"/>
+		</record>
+		<!-- Receipt -->
+		<record id="cft_receipt" model="ir.actions.report.xml">
+			<field name="string">Receipt (CFT)</field>
+			<field name="auto">True</field>
+			<field name="model">account.voucher</field>
+			<field name="jasper_model_id" ref="account_voucher.model_account_voucher"/>
+			<field name="name">Receipt (CFT)</field>
+			<field name="report_name">cft.receipt</field>
+			<field name="report_rml">jasper_forms_cft/jrxml_reports/cft_receipt.jrxml</field>
+			<field name="menu">True</field>
+			<field name="header">False</field>
+			<field name="jasper_report">True</field>
+			<field name="jasper_output">pdf</field>
+		</record>
+		<record id="cft_receipt_values" model="ir.values">
+			<field name="name">Receipt (CFT)</field>
+			<field name="model">account.voucher</field>
+			<field name="key2" eval="'client_print_multi'"/>
+			<field name="value_unpickle" eval="'ir.actions.report.xml, ' +str(cft_receipt)"/>
+		</record>
+		<!-- Billing -->
+		<record id="cft_billing" model="ir.actions.report.xml">
+			<field name="string">Billing (CFT)</field>
+			<field name="auto">True</field>
+			<field name="model">account.billing</field>
+			<field name="jasper_model_id" ref="account_billing.model_account_billing"/>
+			<field name="name">Billing (CFT)</field>
+			<field name="report_name">cft.billing</field>
+			<field name="report_rml">jasper_forms_cft/jrxml_reports/cft_billing.jrxml</field>
+			<field name="menu">True</field>
+			<field name="header">False</field>
+			<field name="jasper_report">True</field>
+			<field name="jasper_output">pdf</field>
+		</record>
+		<record id="cft_billing_values" model="ir.values">
+			<field name="name">Billing (CFT)</field>
+			<field name="model">account.billing</field>
+			<field name="key2" eval="'client_print_multi'"/>
+			<field name="value_unpickle" eval="'ir.actions.report.xml, ' +str(cft_billing)"/>
+		</record>
+	</data>
+</openerp>
