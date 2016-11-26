@@ -41,5 +41,45 @@
 			<field name="key2" eval="'client_print_multi'"/>
 			<field name="value_unpickle" eval="'ir.actions.report.xml, ' +str(cft_purchase_order)"/>
 		</record>
+		<!-- Tax Invoice -->
+		<record id="cft_tax_invoice" model="ir.actions.report.xml">
+			<field name="string">Tax Invoice (CFT)</field>
+			<field name="auto">True</field>
+			<field name="model">account.invoice</field>
+			<field name="jasper_model_id" ref="account.model_account_invoice"/>
+			<field name="name">Tax Invoice (CFT)</field>
+			<field name="report_name">cft.tax.invoice</field>
+			<field name="report_rml">jasper_forms_cft/jrxml_reports/cft_tax_invoice.jrxml</field>
+			<field name="menu">True</field>
+			<field name="header">False</field>
+			<field name="jasper_report">True</field>
+			<field name="jasper_output">pdf</field>
+		</record>
+		<record id="cft_tax_invoice_values" model="ir.values">
+			<field name="name">Tax Invoice (CFT)</field>
+			<field name="model">account.invoice</field>
+			<field name="key2" eval="'client_print_multi'"/>
+			<field name="value_unpickle" eval="'ir.actions.report.xml, ' +str(cft_tax_invoice)"/>
+		</record>
+		<!-- Receipt -->
+		<record id="cft_receipt" model="ir.actions.report.xml">
+			<field name="string">Receipt (CFT)</field>
+			<field name="auto">True</field>
+			<field name="model">account.voucher</field>
+			<field name="jasper_model_id" ref="account_voucher.model_account_voucher"/>
+			<field name="name">Receipt (CFT)</field>
+			<field name="report_name">cft.receipt</field>
+			<field name="report_rml">jasper_forms_cft/jrxml_reports/cft_receipt.jrxml</field>
+			<field name="menu">True</field>
+			<field name="header">False</field>
+			<field name="jasper_report">True</field>
+			<field name="jasper_output">pdf</field>
+		</record>
+		<record id="cft_receipt_values" model="ir.values">
+			<field name="name">Receipt (CFT)</field>
+			<field name="model">account.voucher</field>
+			<field name="key2" eval="'client_print_multi'"/>
+			<field name="value_unpickle" eval="'ir.actions.report.xml, ' +str(cft_receipt)"/>
+		</record>
 	</data>
 </openerp>
