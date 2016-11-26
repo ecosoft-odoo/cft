@@ -205,3 +205,336 @@ Caused by: org.codehaus.groovy.runtime.typehandling.GroovyCastException: Cannot 
 	at cft_receipt_1480149754150_209272.evaluate(calculator_cft_receipt_1480149754150_209272:760)
 	at net.sf.jasperreports.engine.fill.JREvaluator.evaluate(JREvaluator.java:182)
 	... 27 more
+7636590 [XML-RPC-0] ERROR org.apache.xmlrpc.server.XmlRpcErrorLogger - Failed to invoke method execute in class com.nantic.jasperreports.JasperServer: Report design not valid : 
+	 1. Field not found : discount
+	 2. Field not found : price_unit
+	 3. Field not found : quantity
+	 4. Field not found : price_unit
+	 5. Field not found : discount
+	 6. Field not found : price_subtotal
+	 7. Field not found : uom
+	 8. Field not found : note
+	 9. Field not found : amount_untaxed
+	 10. Field not found : amount_tax
+	 11. Field not found : amount_total
+org.apache.xmlrpc.common.XmlRpcInvocationException: Failed to invoke method execute in class com.nantic.jasperreports.JasperServer: Report design not valid : 
+	 1. Field not found : discount
+	 2. Field not found : price_unit
+	 3. Field not found : quantity
+	 4. Field not found : price_unit
+	 5. Field not found : discount
+	 6. Field not found : price_subtotal
+	 7. Field not found : uom
+	 8. Field not found : note
+	 9. Field not found : amount_untaxed
+	 10. Field not found : amount_tax
+	 11. Field not found : amount_total
+	at org.apache.xmlrpc.server.ReflectiveXmlRpcHandler.invoke(ReflectiveXmlRpcHandler.java:129)
+	at org.apache.xmlrpc.server.ReflectiveXmlRpcHandler.execute(ReflectiveXmlRpcHandler.java:106)
+	at org.apache.xmlrpc.server.XmlRpcServerWorker.execute(XmlRpcServerWorker.java:46)
+	at org.apache.xmlrpc.server.XmlRpcServer.execute(XmlRpcServer.java:86)
+	at org.apache.xmlrpc.server.XmlRpcStreamServer.execute(XmlRpcStreamServer.java:200)
+	at org.apache.xmlrpc.webserver.Connection.run(Connection.java:208)
+	at org.apache.xmlrpc.util.ThreadPool$Poolable$1.run(ThreadPool.java:68)
+Caused by: net.sf.jasperreports.engine.design.JRValidationException: Report design not valid : 
+	 1. Field not found : discount
+	 2. Field not found : price_unit
+	 3. Field not found : quantity
+	 4. Field not found : price_unit
+	 5. Field not found : discount
+	 6. Field not found : price_subtotal
+	 7. Field not found : uom
+	 8. Field not found : note
+	 9. Field not found : amount_untaxed
+	 10. Field not found : amount_tax
+	 11. Field not found : amount_total
+	at net.sf.jasperreports.engine.design.JRAbstractCompiler.verifyDesign(JRAbstractCompiler.java:258)
+	at net.sf.jasperreports.engine.design.JRAbstractCompiler.compileReport(JRAbstractCompiler.java:140)
+	at net.sf.jasperreports.engine.JasperCompileManager.compileReport(JasperCompileManager.java:215)
+	at net.sf.jasperreports.engine.JasperCompileManager.compileReportToFile(JasperCompileManager.java:131)
+	at net.sf.jasperreports.engine.JasperCompileManager.compileReportToFile(JasperCompileManager.java:113)
+	at com.nantic.jasperreports.JasperServer.compile(JasperServer.java:98)
+	at com.nantic.jasperreports.JasperServer.privateExecute(JasperServer.java:137)
+	at com.nantic.jasperreports.JasperServer.execute(JasperServer.java:121)
+	at sun.reflect.GeneratedMethodAccessor36.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.apache.xmlrpc.server.ReflectiveXmlRpcHandler.invoke(ReflectiveXmlRpcHandler.java:115)
+	... 6 more
+Caused by:
+net.sf.jasperreports.engine.design.JRValidationException: Report design not valid : 
+	 1. Field not found : discount
+	 2. Field not found : price_unit
+	 3. Field not found : quantity
+	 4. Field not found : price_unit
+	 5. Field not found : discount
+	 6. Field not found : price_subtotal
+	 7. Field not found : uom
+	 8. Field not found : note
+	 9. Field not found : amount_untaxed
+	 10. Field not found : amount_tax
+	 11. Field not found : amount_total
+	at net.sf.jasperreports.engine.design.JRAbstractCompiler.verifyDesign(JRAbstractCompiler.java:258)
+	at net.sf.jasperreports.engine.design.JRAbstractCompiler.compileReport(JRAbstractCompiler.java:140)
+	at net.sf.jasperreports.engine.JasperCompileManager.compileReport(JasperCompileManager.java:215)
+	at net.sf.jasperreports.engine.JasperCompileManager.compileReportToFile(JasperCompileManager.java:131)
+	at net.sf.jasperreports.engine.JasperCompileManager.compileReportToFile(JasperCompileManager.java:113)
+	at com.nantic.jasperreports.JasperServer.compile(JasperServer.java:98)
+	at com.nantic.jasperreports.JasperServer.privateExecute(JasperServer.java:137)
+	at com.nantic.jasperreports.JasperServer.execute(JasperServer.java:121)
+	at sun.reflect.GeneratedMethodAccessor36.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.apache.xmlrpc.server.ReflectiveXmlRpcHandler.invoke(ReflectiveXmlRpcHandler.java:115)
+	at org.apache.xmlrpc.server.ReflectiveXmlRpcHandler.execute(ReflectiveXmlRpcHandler.java:106)
+	at org.apache.xmlrpc.server.XmlRpcServerWorker.execute(XmlRpcServerWorker.java:46)
+	at org.apache.xmlrpc.server.XmlRpcServer.execute(XmlRpcServer.java:86)
+	at org.apache.xmlrpc.server.XmlRpcStreamServer.execute(XmlRpcStreamServer.java:200)
+	at org.apache.xmlrpc.webserver.Connection.run(Connection.java:208)
+	at org.apache.xmlrpc.util.ThreadPool$Poolable$1.run(ThreadPool.java:68)
+7670484 [XML-RPC-0] ERROR org.apache.xmlrpc.server.XmlRpcErrorLogger - Failed to invoke method execute in class com.nantic.jasperreports.JasperServer: Report design not valid : 
+	 1. Field not found : discount
+	 2. Field not found : price_unit
+	 3. Field not found : note
+	 4. Field not found : amount_untaxed
+	 5. Field not found : amount_tax
+	 6. Field not found : amount_total
+org.apache.xmlrpc.common.XmlRpcInvocationException: Failed to invoke method execute in class com.nantic.jasperreports.JasperServer: Report design not valid : 
+	 1. Field not found : discount
+	 2. Field not found : price_unit
+	 3. Field not found : note
+	 4. Field not found : amount_untaxed
+	 5. Field not found : amount_tax
+	 6. Field not found : amount_total
+	at org.apache.xmlrpc.server.ReflectiveXmlRpcHandler.invoke(ReflectiveXmlRpcHandler.java:129)
+	at org.apache.xmlrpc.server.ReflectiveXmlRpcHandler.execute(ReflectiveXmlRpcHandler.java:106)
+	at org.apache.xmlrpc.server.XmlRpcServerWorker.execute(XmlRpcServerWorker.java:46)
+	at org.apache.xmlrpc.server.XmlRpcServer.execute(XmlRpcServer.java:86)
+	at org.apache.xmlrpc.server.XmlRpcStreamServer.execute(XmlRpcStreamServer.java:200)
+	at org.apache.xmlrpc.webserver.Connection.run(Connection.java:208)
+	at org.apache.xmlrpc.util.ThreadPool$Poolable$1.run(ThreadPool.java:68)
+Caused by: net.sf.jasperreports.engine.design.JRValidationException: Report design not valid : 
+	 1. Field not found : discount
+	 2. Field not found : price_unit
+	 3. Field not found : note
+	 4. Field not found : amount_untaxed
+	 5. Field not found : amount_tax
+	 6. Field not found : amount_total
+	at net.sf.jasperreports.engine.design.JRAbstractCompiler.verifyDesign(JRAbstractCompiler.java:258)
+	at net.sf.jasperreports.engine.design.JRAbstractCompiler.compileReport(JRAbstractCompiler.java:140)
+	at net.sf.jasperreports.engine.JasperCompileManager.compileReport(JasperCompileManager.java:215)
+	at net.sf.jasperreports.engine.JasperCompileManager.compileReportToFile(JasperCompileManager.java:131)
+	at net.sf.jasperreports.engine.JasperCompileManager.compileReportToFile(JasperCompileManager.java:113)
+	at com.nantic.jasperreports.JasperServer.compile(JasperServer.java:98)
+	at com.nantic.jasperreports.JasperServer.privateExecute(JasperServer.java:137)
+	at com.nantic.jasperreports.JasperServer.execute(JasperServer.java:121)
+	at sun.reflect.GeneratedMethodAccessor36.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.apache.xmlrpc.server.ReflectiveXmlRpcHandler.invoke(ReflectiveXmlRpcHandler.java:115)
+	... 6 more
+Caused by:
+net.sf.jasperreports.engine.design.JRValidationException: Report design not valid : 
+	 1. Field not found : discount
+	 2. Field not found : price_unit
+	 3. Field not found : note
+	 4. Field not found : amount_untaxed
+	 5. Field not found : amount_tax
+	 6. Field not found : amount_total
+	at net.sf.jasperreports.engine.design.JRAbstractCompiler.verifyDesign(JRAbstractCompiler.java:258)
+	at net.sf.jasperreports.engine.design.JRAbstractCompiler.compileReport(JRAbstractCompiler.java:140)
+	at net.sf.jasperreports.engine.JasperCompileManager.compileReport(JasperCompileManager.java:215)
+	at net.sf.jasperreports.engine.JasperCompileManager.compileReportToFile(JasperCompileManager.java:131)
+	at net.sf.jasperreports.engine.JasperCompileManager.compileReportToFile(JasperCompileManager.java:113)
+	at com.nantic.jasperreports.JasperServer.compile(JasperServer.java:98)
+	at com.nantic.jasperreports.JasperServer.privateExecute(JasperServer.java:137)
+	at com.nantic.jasperreports.JasperServer.execute(JasperServer.java:121)
+	at sun.reflect.GeneratedMethodAccessor36.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.apache.xmlrpc.server.ReflectiveXmlRpcHandler.invoke(ReflectiveXmlRpcHandler.java:115)
+	at org.apache.xmlrpc.server.ReflectiveXmlRpcHandler.execute(ReflectiveXmlRpcHandler.java:106)
+	at org.apache.xmlrpc.server.XmlRpcServerWorker.execute(XmlRpcServerWorker.java:46)
+	at org.apache.xmlrpc.server.XmlRpcServer.execute(XmlRpcServer.java:86)
+	at org.apache.xmlrpc.server.XmlRpcStreamServer.execute(XmlRpcStreamServer.java:200)
+	at org.apache.xmlrpc.webserver.Connection.run(Connection.java:208)
+	at org.apache.xmlrpc.util.ThreadPool$Poolable$1.run(ThreadPool.java:68)
+7716501 [XML-RPC-0] ERROR org.apache.xmlrpc.server.XmlRpcErrorLogger - Failed to invoke method execute in class com.nantic.jasperreports.JasperServer: Report design not valid : 
+	 1. Field not found : discount
+	 2. Field not found : price_unit
+org.apache.xmlrpc.common.XmlRpcInvocationException: Failed to invoke method execute in class com.nantic.jasperreports.JasperServer: Report design not valid : 
+	 1. Field not found : discount
+	 2. Field not found : price_unit
+	at org.apache.xmlrpc.server.ReflectiveXmlRpcHandler.invoke(ReflectiveXmlRpcHandler.java:129)
+	at org.apache.xmlrpc.server.ReflectiveXmlRpcHandler.execute(ReflectiveXmlRpcHandler.java:106)
+	at org.apache.xmlrpc.server.XmlRpcServerWorker.execute(XmlRpcServerWorker.java:46)
+	at org.apache.xmlrpc.server.XmlRpcServer.execute(XmlRpcServer.java:86)
+	at org.apache.xmlrpc.server.XmlRpcStreamServer.execute(XmlRpcStreamServer.java:200)
+	at org.apache.xmlrpc.webserver.Connection.run(Connection.java:208)
+	at org.apache.xmlrpc.util.ThreadPool$Poolable$1.run(ThreadPool.java:68)
+Caused by: net.sf.jasperreports.engine.design.JRValidationException: Report design not valid : 
+	 1. Field not found : discount
+	 2. Field not found : price_unit
+	at net.sf.jasperreports.engine.design.JRAbstractCompiler.verifyDesign(JRAbstractCompiler.java:258)
+	at net.sf.jasperreports.engine.design.JRAbstractCompiler.compileReport(JRAbstractCompiler.java:140)
+	at net.sf.jasperreports.engine.JasperCompileManager.compileReport(JasperCompileManager.java:215)
+	at net.sf.jasperreports.engine.JasperCompileManager.compileReportToFile(JasperCompileManager.java:131)
+	at net.sf.jasperreports.engine.JasperCompileManager.compileReportToFile(JasperCompileManager.java:113)
+	at com.nantic.jasperreports.JasperServer.compile(JasperServer.java:98)
+	at com.nantic.jasperreports.JasperServer.privateExecute(JasperServer.java:137)
+	at com.nantic.jasperreports.JasperServer.execute(JasperServer.java:121)
+	at sun.reflect.GeneratedMethodAccessor36.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.apache.xmlrpc.server.ReflectiveXmlRpcHandler.invoke(ReflectiveXmlRpcHandler.java:115)
+	... 6 more
+Caused by:
+net.sf.jasperreports.engine.design.JRValidationException: Report design not valid : 
+	 1. Field not found : discount
+	 2. Field not found : price_unit
+	at net.sf.jasperreports.engine.design.JRAbstractCompiler.verifyDesign(JRAbstractCompiler.java:258)
+	at net.sf.jasperreports.engine.design.JRAbstractCompiler.compileReport(JRAbstractCompiler.java:140)
+	at net.sf.jasperreports.engine.JasperCompileManager.compileReport(JasperCompileManager.java:215)
+	at net.sf.jasperreports.engine.JasperCompileManager.compileReportToFile(JasperCompileManager.java:131)
+	at net.sf.jasperreports.engine.JasperCompileManager.compileReportToFile(JasperCompileManager.java:113)
+	at com.nantic.jasperreports.JasperServer.compile(JasperServer.java:98)
+	at com.nantic.jasperreports.JasperServer.privateExecute(JasperServer.java:137)
+	at com.nantic.jasperreports.JasperServer.execute(JasperServer.java:121)
+	at sun.reflect.GeneratedMethodAccessor36.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.apache.xmlrpc.server.ReflectiveXmlRpcHandler.invoke(ReflectiveXmlRpcHandler.java:115)
+	at org.apache.xmlrpc.server.ReflectiveXmlRpcHandler.execute(ReflectiveXmlRpcHandler.java:106)
+	at org.apache.xmlrpc.server.XmlRpcServerWorker.execute(XmlRpcServerWorker.java:46)
+	at org.apache.xmlrpc.server.XmlRpcServer.execute(XmlRpcServer.java:86)
+	at org.apache.xmlrpc.server.XmlRpcStreamServer.execute(XmlRpcStreamServer.java:200)
+	at org.apache.xmlrpc.webserver.Connection.run(Connection.java:208)
+	at org.apache.xmlrpc.util.ThreadPool$Poolable$1.run(ThreadPool.java:68)
+13028053 [XML-RPC-0] ERROR org.apache.xmlrpc.server.XmlRpcErrorLogger - Failed to invoke method execute in class com.nantic.jasperreports.JasperServer: Report design not valid : 
+	 1. Field not found : line_amount_paid
+org.apache.xmlrpc.common.XmlRpcInvocationException: Failed to invoke method execute in class com.nantic.jasperreports.JasperServer: Report design not valid : 
+	 1. Field not found : line_amount_paid
+	at org.apache.xmlrpc.server.ReflectiveXmlRpcHandler.invoke(ReflectiveXmlRpcHandler.java:129)
+	at org.apache.xmlrpc.server.ReflectiveXmlRpcHandler.execute(ReflectiveXmlRpcHandler.java:106)
+	at org.apache.xmlrpc.server.XmlRpcServerWorker.execute(XmlRpcServerWorker.java:46)
+	at org.apache.xmlrpc.server.XmlRpcServer.execute(XmlRpcServer.java:86)
+	at org.apache.xmlrpc.server.XmlRpcStreamServer.execute(XmlRpcStreamServer.java:200)
+	at org.apache.xmlrpc.webserver.Connection.run(Connection.java:208)
+	at org.apache.xmlrpc.util.ThreadPool$Poolable$1.run(ThreadPool.java:68)
+Caused by: net.sf.jasperreports.engine.design.JRValidationException: Report design not valid : 
+	 1. Field not found : line_amount_paid
+	at net.sf.jasperreports.engine.design.JRAbstractCompiler.verifyDesign(JRAbstractCompiler.java:258)
+	at net.sf.jasperreports.engine.design.JRAbstractCompiler.compileReport(JRAbstractCompiler.java:140)
+	at net.sf.jasperreports.engine.JasperCompileManager.compileReport(JasperCompileManager.java:215)
+	at net.sf.jasperreports.engine.JasperCompileManager.compileReportToFile(JasperCompileManager.java:131)
+	at net.sf.jasperreports.engine.JasperCompileManager.compileReportToFile(JasperCompileManager.java:113)
+	at com.nantic.jasperreports.JasperServer.compile(JasperServer.java:98)
+	at com.nantic.jasperreports.JasperServer.privateExecute(JasperServer.java:137)
+	at com.nantic.jasperreports.JasperServer.execute(JasperServer.java:121)
+	at sun.reflect.GeneratedMethodAccessor36.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.apache.xmlrpc.server.ReflectiveXmlRpcHandler.invoke(ReflectiveXmlRpcHandler.java:115)
+	... 6 more
+Caused by:
+net.sf.jasperreports.engine.design.JRValidationException: Report design not valid : 
+	 1. Field not found : line_amount_paid
+	at net.sf.jasperreports.engine.design.JRAbstractCompiler.verifyDesign(JRAbstractCompiler.java:258)
+	at net.sf.jasperreports.engine.design.JRAbstractCompiler.compileReport(JRAbstractCompiler.java:140)
+	at net.sf.jasperreports.engine.JasperCompileManager.compileReport(JasperCompileManager.java:215)
+	at net.sf.jasperreports.engine.JasperCompileManager.compileReportToFile(JasperCompileManager.java:131)
+	at net.sf.jasperreports.engine.JasperCompileManager.compileReportToFile(JasperCompileManager.java:113)
+	at com.nantic.jasperreports.JasperServer.compile(JasperServer.java:98)
+	at com.nantic.jasperreports.JasperServer.privateExecute(JasperServer.java:137)
+	at com.nantic.jasperreports.JasperServer.execute(JasperServer.java:121)
+	at sun.reflect.GeneratedMethodAccessor36.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.apache.xmlrpc.server.ReflectiveXmlRpcHandler.invoke(ReflectiveXmlRpcHandler.java:115)
+	at org.apache.xmlrpc.server.ReflectiveXmlRpcHandler.execute(ReflectiveXmlRpcHandler.java:106)
+	at org.apache.xmlrpc.server.XmlRpcServerWorker.execute(XmlRpcServerWorker.java:46)
+	at org.apache.xmlrpc.server.XmlRpcServer.execute(XmlRpcServer.java:86)
+	at org.apache.xmlrpc.server.XmlRpcStreamServer.execute(XmlRpcStreamServer.java:200)
+	at org.apache.xmlrpc.webserver.Connection.run(Connection.java:208)
+	at org.apache.xmlrpc.util.ThreadPool$Poolable$1.run(ThreadPool.java:68)
+13054356 [XML-RPC-0] ERROR org.apache.xmlrpc.server.XmlRpcErrorLogger - Failed to invoke method execute in class com.nantic.jasperreports.JasperServer: Error evaluating expression : 
+	Source text : $V{line_amount_paid}
+org.apache.xmlrpc.common.XmlRpcInvocationException: Failed to invoke method execute in class com.nantic.jasperreports.JasperServer: Error evaluating expression : 
+	Source text : $V{line_amount_paid}
+	at org.apache.xmlrpc.server.ReflectiveXmlRpcHandler.invoke(ReflectiveXmlRpcHandler.java:129)
+	at org.apache.xmlrpc.server.ReflectiveXmlRpcHandler.execute(ReflectiveXmlRpcHandler.java:106)
+	at org.apache.xmlrpc.server.XmlRpcServerWorker.execute(XmlRpcServerWorker.java:46)
+	at org.apache.xmlrpc.server.XmlRpcServer.execute(XmlRpcServer.java:86)
+	at org.apache.xmlrpc.server.XmlRpcStreamServer.execute(XmlRpcStreamServer.java:200)
+	at org.apache.xmlrpc.webserver.Connection.run(Connection.java:208)
+	at org.apache.xmlrpc.util.ThreadPool$Poolable$1.run(ThreadPool.java:68)
+Caused by: net.sf.jasperreports.engine.fill.JRExpressionEvalException: Error evaluating expression : 
+	Source text : $V{line_amount_paid}
+	at net.sf.jasperreports.engine.fill.JREvaluator.evaluate(JREvaluator.java:195)
+	at net.sf.jasperreports.engine.fill.JRCalculator.evaluate(JRCalculator.java:589)
+	at net.sf.jasperreports.engine.fill.JRCalculator.evaluate(JRCalculator.java:557)
+	at net.sf.jasperreports.engine.fill.JRFillElement.evaluateExpression(JRFillElement.java:929)
+	at net.sf.jasperreports.engine.fill.JRFillTextField.evaluateText(JRFillTextField.java:383)
+	at net.sf.jasperreports.engine.fill.JRFillTextField.evaluate(JRFillTextField.java:368)
+	at net.sf.jasperreports.engine.fill.JRFillElementContainer.evaluate(JRFillElementContainer.java:258)
+	at net.sf.jasperreports.engine.fill.JRFillBand.evaluate(JRFillBand.java:499)
+	at net.sf.jasperreports.engine.fill.JRVerticalFiller.fillColumnBand(JRVerticalFiller.java:2036)
+	at net.sf.jasperreports.engine.fill.JRVerticalFiller.fillDetail(JRVerticalFiller.java:760)
+	at net.sf.jasperreports.engine.fill.JRVerticalFiller.fillReportStart(JRVerticalFiller.java:270)
+	at net.sf.jasperreports.engine.fill.JRVerticalFiller.fillReport(JRVerticalFiller.java:128)
+	at net.sf.jasperreports.engine.fill.JRBaseFiller.fill(JRBaseFiller.java:946)
+	at net.sf.jasperreports.engine.fill.JRBaseFiller.fill(JRBaseFiller.java:864)
+	at net.sf.jasperreports.engine.fill.JRFiller.fillReport(JRFiller.java:84)
+	at net.sf.jasperreports.engine.JasperFillManager.fillReport(JasperFillManager.java:624)
+	at com.nantic.jasperreports.JasperServer.privateExecute(JasperServer.java:212)
+	at com.nantic.jasperreports.JasperServer.execute(JasperServer.java:121)
+	at sun.reflect.GeneratedMethodAccessor36.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.apache.xmlrpc.server.ReflectiveXmlRpcHandler.invoke(ReflectiveXmlRpcHandler.java:115)
+	... 6 more
+Caused by: org.codehaus.groovy.runtime.typehandling.GroovyCastException: Cannot cast object '0.0' with class 'java.lang.String' to class 'java.lang.Number'
+	at org.codehaus.groovy.runtime.typehandling.DefaultTypeTransformation.castToNumber(DefaultTypeTransformation.java:136)
+	at org.codehaus.groovy.runtime.typehandling.DefaultTypeTransformation.castToType(DefaultTypeTransformation.java:234)
+	at org.codehaus.groovy.runtime.ScriptBytecodeAdapter.castToType(ScriptBytecodeAdapter.java:602)
+	at billing_1480158558841_79888.evaluate(calculator_billing_1480158558841_79888:788)
+	at net.sf.jasperreports.engine.fill.JREvaluator.evaluate(JREvaluator.java:182)
+	... 27 more
+Caused by:
+net.sf.jasperreports.engine.fill.JRExpressionEvalException: Error evaluating expression : 
+	Source text : $V{line_amount_paid}
+	at net.sf.jasperreports.engine.fill.JREvaluator.evaluate(JREvaluator.java:195)
+	at net.sf.jasperreports.engine.fill.JRCalculator.evaluate(JRCalculator.java:589)
+	at net.sf.jasperreports.engine.fill.JRCalculator.evaluate(JRCalculator.java:557)
+	at net.sf.jasperreports.engine.fill.JRFillElement.evaluateExpression(JRFillElement.java:929)
+	at net.sf.jasperreports.engine.fill.JRFillTextField.evaluateText(JRFillTextField.java:383)
+	at net.sf.jasperreports.engine.fill.JRFillTextField.evaluate(JRFillTextField.java:368)
+	at net.sf.jasperreports.engine.fill.JRFillElementContainer.evaluate(JRFillElementContainer.java:258)
+	at net.sf.jasperreports.engine.fill.JRFillBand.evaluate(JRFillBand.java:499)
+	at net.sf.jasperreports.engine.fill.JRVerticalFiller.fillColumnBand(JRVerticalFiller.java:2036)
+	at net.sf.jasperreports.engine.fill.JRVerticalFiller.fillDetail(JRVerticalFiller.java:760)
+	at net.sf.jasperreports.engine.fill.JRVerticalFiller.fillReportStart(JRVerticalFiller.java:270)
+	at net.sf.jasperreports.engine.fill.JRVerticalFiller.fillReport(JRVerticalFiller.java:128)
+	at net.sf.jasperreports.engine.fill.JRBaseFiller.fill(JRBaseFiller.java:946)
+	at net.sf.jasperreports.engine.fill.JRBaseFiller.fill(JRBaseFiller.java:864)
+	at net.sf.jasperreports.engine.fill.JRFiller.fillReport(JRFiller.java:84)
+	at net.sf.jasperreports.engine.JasperFillManager.fillReport(JasperFillManager.java:624)
+	at com.nantic.jasperreports.JasperServer.privateExecute(JasperServer.java:212)
+	at com.nantic.jasperreports.JasperServer.execute(JasperServer.java:121)
+	at sun.reflect.GeneratedMethodAccessor36.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.apache.xmlrpc.server.ReflectiveXmlRpcHandler.invoke(ReflectiveXmlRpcHandler.java:115)
+	at org.apache.xmlrpc.server.ReflectiveXmlRpcHandler.execute(ReflectiveXmlRpcHandler.java:106)
+	at org.apache.xmlrpc.server.XmlRpcServerWorker.execute(XmlRpcServerWorker.java:46)
+	at org.apache.xmlrpc.server.XmlRpcServer.execute(XmlRpcServer.java:86)
+	at org.apache.xmlrpc.server.XmlRpcStreamServer.execute(XmlRpcStreamServer.java:200)
+	at org.apache.xmlrpc.webserver.Connection.run(Connection.java:208)
+	at org.apache.xmlrpc.util.ThreadPool$Poolable$1.run(ThreadPool.java:68)
+Caused by: org.codehaus.groovy.runtime.typehandling.GroovyCastException: Cannot cast object '0.0' with class 'java.lang.String' to class 'java.lang.Number'
+	at org.codehaus.groovy.runtime.typehandling.DefaultTypeTransformation.castToNumber(DefaultTypeTransformation.java:136)
+	at org.codehaus.groovy.runtime.typehandling.DefaultTypeTransformation.castToType(DefaultTypeTransformation.java:234)
+	at org.codehaus.groovy.runtime.ScriptBytecodeAdapter.castToType(ScriptBytecodeAdapter.java:602)
+	at billing_1480158558841_79888.evaluate(calculator_billing_1480158558841_79888:788)
+	at net.sf.jasperreports.engine.fill.JREvaluator.evaluate(JREvaluator.java:182)
+	... 27 more
