@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 from openerp import models, fields, api, _
+from openerp.exceptions import ValidationError
 from .account_tax_detail import InvoiceVoucherTaxDetail
 
 
@@ -9,8 +10,12 @@ class AccountVoucher(InvoiceVoucherTaxDetail, models.Model):
     @api.multi
     def proforma_voucher(self):
         result = super(AccountVoucher, self).proforma_voucher()
-        self._check_tax_detail_info()
-        self._assign_detail_tax_sequence()
+        if self.type == 'receipt' or \
+                self.env.user.company_id.auto_recognize_vat or \
+                self._context.get('recognize_vat', False):
+            self._compute_sales_tax_detail()
+            self._check_tax_detail_info()
+            self._assign_detail_tax_sequence()
         return result
 
 
@@ -24,15 +29,23 @@ class AccountVoucherTax(models.Model):
     )
 
     @api.model
+    def _prepare_voucher_tax_detail(self, voucher_tax):
+        ttype = voucher_tax.voucher_id.type
+        doc_type = ttype == 'receipt' and 'sale' or 'purchase'
+        return {'doc_type': doc_type,
+                'voucher_tax_id': voucher_tax.id}
+
+    @api.model
     def create(self, vals):
         voucher_tax = super(AccountVoucherTax, self).create(vals)
-        detail = {'voucher_tax_id': voucher_tax.id}
-        self.env['account.tax.detail'].create(detail)
+        if voucher_tax.tax_code_type == 'normal':
+            detail = self._prepare_voucher_tax_detail(voucher_tax)
+            self.env['account.tax.detail'].create(detail)
         return voucher_tax
 
     @api.model
-    def move_line_get(self, voucher_id):
-        res = super(AccountVoucherTax, self).move_line_get(voucher_id)
+    def move_line_get(self, voucher):
+        res = super(AccountVoucherTax, self).move_line_get(voucher)
         # Add Tax Difference
         self._cr.execute("""
             select -coalesce(
@@ -40,11 +53,12 @@ class AccountVoucherTax(models.Model):
                 where tax_code_type = 'normal' and voucher_id = %s) +
                 (select sum(amount) amount from account_voucher_tax
                 where tax_code_type = 'undue' and voucher_id = %s), 0.0)
-        """, (voucher_id, voucher_id))
+        """, (voucher.id, voucher.id))
         vat_diff = self._cr.fetchone()[0] or 0.0
         if vat_diff:
-            voucher = self.env['account.voucher'].browse(voucher_id)
-            account = voucher.partner_id.property_account_tax_difference
+            account = self.env.user.company_id.account_tax_difference
+            if not account:
+                raise ValidationError(_('No Tax Difference Account!'))
             res.append({
                 'type': 'tax',
                 'name': _('Tax Difference'),
