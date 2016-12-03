@@ -2,8 +2,11 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="cft_tax_invoice" language="groovy" pageWidth="612" pageHeight="792" columnWidth="612" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0">
 	<property name="ireport.zoom" value="1.0000000000000029"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="384"/>
+	<property name="ireport.y" value="816"/>
 	<property name="OPENERP_RELATIONS" value="invoice_line"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String">
+		<defaultValueExpression><![CDATA["/home/kittiu/hd/workspace/cft/jasper_forms_cft/jrxml_reports/"]]></defaultValueExpression>
+	</parameter>
 	<queryString language="xPath">
 		<![CDATA[/data/record]]>
 	</queryString>
@@ -110,7 +113,7 @@
 		<band height="752" splitType="Stretch">
 			<image>
 				<reportElement x="40" y="0" width="528" height="752"/>
-				<imageExpression class="java.lang.String"><![CDATA["/home/kittiu/hd/workspace/cft/jasper_forms_cft/jrxml_reports/tax_invoice.jpg"]]></imageExpression>
+				<imageExpression class="java.lang.String"><![CDATA[$P{SUBREPORT_DIR} + "tax_invoice.jpg"]]></imageExpression>
 			</image>
 		</band>
 	</background>
