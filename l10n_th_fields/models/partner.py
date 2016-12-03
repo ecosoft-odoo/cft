@@ -17,6 +17,24 @@ class ResPartner(models.Model):
         size=5,
         copy=False,
     )
+    employee_id = fields.Many2one(
+        'hr.employee',
+        sring='Employee',
+        compute='_compute_employee_id',
+        help="Employee represent this partner (if any)",
+    )
+
+    @api.multi
+    @api.depends()
+    def _compute_employee_id(self):
+        for partner in self:
+            self._cr.execute("""
+            select id from hr_employee where resource_id in
+            (select id from resource_resource where user_id =
+            (select id from res_users where partner_id = %s))
+            """, (partner.id,))
+            res = self._cr.fetchone()
+            partner.employee_id = res and res[0] or False
 
     @api.one
     @api.constrains('vat')
@@ -35,10 +53,7 @@ class ResPartner(models.Model):
     @api.one
     @api.constrains('name', 'supplier', 'customer')
     def _check_partner_name(self):
-        count = self.search_count(
-            ['|', ('customer', '=', True),
-                ('supplier', '=', True),
-                ('name', '=', self.name)])
+        count = self.search_count([('name', '=', self.name)])
         if count > 1:
             raise ValidationError("Partner Name must be unique!")
 
@@ -46,11 +61,8 @@ class ResPartner(models.Model):
     @api.constrains('vat', 'taxbranch')
     def _check_vat_taxbranch_unique(self):
         if self.vat or self.taxbranch:
-            count = self.search_count(
-                ['|', ('parent_id', '=', False),
-                    ('is_company', '=', True),
-                    ('vat', '=', self.vat),
-                    ('taxbranch', '=', self.taxbranch)])
+            count = self.search_count([('vat', '=', self.vat),
+                                       ('taxbranch', '=', self.taxbranch)])
             if count > 1:
                 raise ValidationError(
                     _("Tax ID + Tax Branch ID must be unique!"))

@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="cft_receipt" language="groovy" pageWidth="612" pageHeight="792" columnWidth="612" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0">
 	<property name="ireport.zoom" value="1.2100000000000055"/>
 	<property name="ireport.x" value="14"/>
-	<property name="ireport.y" value="864"/>
+	<property name="ireport.y" value="0"/>
 	<property name="OPENERP_RELATIONS" value="line_ids"/>
 	<parameter name="SUBREPORT_DIR" class="java.lang.String">
 		<defaultValueExpression><![CDATA["/home/kittiu/hd/workspace/cft/jasper_forms_cft/jrxml_reports/"]]></defaultValueExpression>
@@ -112,7 +112,6 @@
 				<textElement markup="none">
 					<font pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
 				</textElement>
-				<textFieldExpression class="java.lang.String"><![CDATA["???"]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="447" y="74" width="100" height="15"/>
