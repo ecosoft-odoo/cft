@@ -3,22 +3,19 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
 {
-    "name": "Sale View Adjust CFT",
-    "version": "8.0.1.1.0",
+    "name": "Model Security Adjust CFT",
+    "version": "8.0.1.0.0",
     "author": "Ecosoft Co. Ltd.",
     "license": "AGPL-3",
     "description": """
     """,
-    "category": "Sales",
+    "category": "Crm",
     "depends": [
         'crm',
     ],
     "data": [
-        'security/crm_security.xml',
-        'data/ir.model.access.csv',
-        'views/crm_lead_view.xml',
-        'views/crm_phonecall_view.xml',
-        'views/res_partner_view.xml'
+        'security/module_data.xml',
+        'data/ir.model.access.csv'
     ],
     "js": [
     ],

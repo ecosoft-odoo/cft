@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+<data noupdate="0">
+
+    <record model="res.groups" id="group_sale_salesman_team_leads">
+        <field name="name">See Team Leads</field>
+        <field name="implied_ids" eval="[(4, ref('base.group_sale_salesman'))]"/>
+        <field name="category_id" ref="base.module_category_sales_management"/>
+        <field name="comment">the user will have access to all records of own sales team in the sales application.</field>
+    </record>
+
+</data>
+</openerp>
