@@ -7,17 +7,29 @@
     <field ref="calendar.model_calendar_event" name="model_id"/>
     <field name="domain_force">['|','|','|','|','|','|','|','|',('partner_ids','in',user.partner_id.id),('user_id','=',user.id),('section_id.user_id','=',user.id),('section_id.member_ids','in',[user.id]),('section_id.parent_id.user_id','=',user.id),('section_id.parent_id.member_ids','=',user.id),('section_id.child_ids.user_id','=',user.id),('section_id.child_ids.member_ids','=',user.id),('user_id.company_user','=',True)]</field>
     <field eval="[(4, ref('base.group_user'))]" name="groups"/>
+    <field name="perm_unlink" eval="False"/>
+    <field name="perm_write" eval="False"/>
 </record>
 
-<record id="access_all_areas" model="res.groups">
-     <field name="name">Access All Areas</field>
+<record id="calendar_event_rule_personal" model="ir.rule">
+        <field name="name">Update Own Events</field>
+        <field ref="calendar.model_calendar_event" name="model_id"/>
+        <field name="domain_force">['|',('user_id','=',user.id),('user_id','=',False)]</field>
+        <field eval="[(4,ref('base.group_user'))]" name="groups"/>
+</record>
+
+<record id="calendar_event_rule_all" model="ir.rule">
+        <field ref="model_calendar_event" name="model_id"/>
+        <field name="name">All Calendar Events</field>
+        <field name="domain_force">[(1,'=',1)]</field>
+        <field eval="[(4,ref('base.group_sale_manager'))]" name="groups"/>
 </record>
 
 <!-- this may not override the original record rule due to noupdate.
  manually update record as necessary -->
 <record id="calendar.calendar_event_rule_employee" model="ir.rule">
-    <field name="groups" eval="[(6,0,[ref('calendar_security_adjust.access_all_areas')])]"/>
+        <field name="active" eval="False"/>
 </record>
-
+    
 </data>
 </openerp>
