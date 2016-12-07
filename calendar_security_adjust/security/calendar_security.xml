@@ -12,17 +12,17 @@
 </record>
 
 <record id="calendar_event_rule_personal" model="ir.rule">
-        <field name="name">Update Own Events</field>
-        <field ref="calendar.model_calendar_event" name="model_id"/>
-        <field name="domain_force">['|',('user_id','=',user.id),('user_id','=',False)]</field>
-        <field eval="[(4,ref('base.group_user'))]" name="groups"/>
+    <field name="name">Update Own Events</field>
+    <field ref="calendar.model_calendar_event" name="model_id"/>
+    <field name="domain_force">['|',('user_id','=',user.id),('user_id','=',False)]</field>
+    <field eval="[(4,ref('base.group_user'))]" name="groups"/>
 </record>
 
 <record id="calendar_event_rule_all" model="ir.rule">
-        <field ref="model_calendar_event" name="model_id"/>
-        <field name="name">All Calendar Events</field>
-        <field name="domain_force">[(1,'=',1)]</field>
-        <field eval="[(4,ref('base.group_sale_manager'))]" name="groups"/>
+    <field ref="model_calendar_event" name="model_id"/>
+    <field name="name">All Calendar Events</field>
+    <field name="domain_force">[(1,'=',1)]</field>
+    <field eval="[(4,ref('base.group_sale_manager'))]" name="groups"/>
 </record>
 
 <!-- this may not override the original record rule due to noupdate.
