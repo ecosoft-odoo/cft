@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+<data>
+
+<record model="ir.rule" id="product_pricelist_no_purchase_rule">
+    <field name="name">No Purchase Pricelist</field>
+    <field name="model_id" ref="product.model_product_pricelist"/>
+    <field eval="[(4,ref('base.group_sale_salesman'))]" name="groups"/>
+    <field name="domain_force"> [('type','=','sale')]</field>
+    <field name="perm_unlink" eval="False"/>
+    <field name="perm_write" eval="False"/>
+    <field name="perm_create" eval="False"/>
+</record>
+
+<record model="ir.rule" id="product_pricelist_purchase_rule">
+    <field name="name">Purchase Pricelist</field>
+    <field name="model_id" ref="product.model_product_pricelist"/>
+    <field eval="[(4,ref('base.group_sale_manager'))]" name="groups"/>
+    <field name="domain_force"> [(1,'=',1)]</field>
+</record>
+
+</data>
+</openerp>

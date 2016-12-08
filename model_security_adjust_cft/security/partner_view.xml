@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+<data>
+
+    <record model="ir.ui.view" id="view_partner_property_form_z161208">
+        <field name="name">res.partner.purchase.property.form.inherit.z161208</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="purchase.view_partner_property_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='property_product_pricelist_purchase']" position="replace">
+                <field name="property_product_pricelist_purchase" groups="product_price_visible.group_product_visible"/>
+            </xpath>
+        </field>
+    </record>
+
+</data>
+</openerp>
+
+
+
