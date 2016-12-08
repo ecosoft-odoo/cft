@@ -12,6 +12,7 @@
     "category": "Sales",
     "depends": [
         'crm',
+        'model_security_adjust_cft',
     ],
     "data": [
         'security/crm_security.xml',

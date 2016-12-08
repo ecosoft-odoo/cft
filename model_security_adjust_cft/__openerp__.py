@@ -9,7 +9,7 @@
     "license": "AGPL-3",
     "description": """
     """,
-    "category": "Crm",
+    "category": "Uncategorized",
     "depends": [
         'crm',
     ],
