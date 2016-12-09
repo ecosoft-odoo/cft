@@ -3,23 +3,23 @@
 <data>
 
 <record model="ir.rule" id="res_partner_own_partner">
-      <field name="name">Own Partner</field>
+      <field name="name">Own Partners</field>
       <field name="model_id" ref="base.model_res_partner"/>
-      <field name="domain_force">['|',('user_id','=',user.id),('user_id','=',False),('customer','=',True)]</field>
+      <field name="domain_force">['|',('user_id','=',user.id),('user_id','=',False)]</field>
       <field eval="[(4,ref('base.group_sale_salesman'))]" name="groups"/>
       <field name="perm_unlink" eval="False"/>
 </record>
 
  <record model="ir.rule" id="res_partner_team_partner">
-      <field name="name">Team Partner</field>
+      <field name="name">Team Partners</field>
       <field name="model_id" ref="base.model_res_partner"/>
-      <field name="domain_force">['|',('user_id','=',user.id),('section_id.member_ids','child_of',user.id)]</field>
+      <field name="domain_force">[('section_id.member_ids','in',[user.id])]</field>
       <field eval="[(4,ref('group_sale_salesman_team_leads'))]" name="groups"/>
       <field name="perm_unlink" eval="False"/>
 </record>
 
  <record model="ir.rule" id="res_partner_all_partner">
-      <field name="name">All Partner</field>
+      <field name="name">All Partners</field>
       <field name="model_id" ref="base.model_res_partner"/>
       <field name="domain_force">[(1,'=',1)]</field>
       <field eval="[(4,ref('base.group_sale_salesman_all_leads'))]" name="groups"/>
