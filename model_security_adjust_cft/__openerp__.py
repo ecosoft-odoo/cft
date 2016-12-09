@@ -15,11 +15,11 @@
     ],
     "data": [
         'security/module_data.xml',
-        'views/partner_view.xml',
         'security/product_security.xml',
         'security/base_security.xml',
-        'data/ir.model.access.csv',
         'views/account_invoice_view.xml',
+        'views/partner_view.xml',
+        'data/ir.model.access.csv',
     ],
     "js": [
     ],
