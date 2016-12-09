@@ -14,7 +14,7 @@
         'crm','purchase','product_price_visible',
     ],
     "data": [
-        'security/module_data.xml',
+        'security/sale_security.xml',
         'security/product_security.xml',
         'security/base_security.xml',
         'views/account_invoice_view.xml',
