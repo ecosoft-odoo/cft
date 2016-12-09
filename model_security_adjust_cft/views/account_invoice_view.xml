@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+<data>
+
+<record model="ir.ui.view" id="invoice_form_z161209">
+    <field name="name">account.invoice.form.with.origin.z161209</field>
+    <field name="model">account.invoice</field>
+    <field name="inherit_id" ref="account_refund_linked_invoice.invoice_form"/>
+    <field name="arch" type="xml">
+        <xpath expr="//field[@name='origin_invoice_id']" position="attributes">
+            <attribute name="groups">product_price_visible.group_product_visible</attribute>/>
+        </xpath>
+    </field>
+</record>
+
+</data>
+</openerp>
