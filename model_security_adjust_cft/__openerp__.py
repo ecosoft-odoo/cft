@@ -4,7 +4,7 @@
 
 {
     "name": "Model Security Adjust CFT",
-    "version": "8.0.1.1.0",
+    "version": "8.0.1.2.0",
     "author": "Ecosoft Co. Ltd.",
     "license": "AGPL-3",
     "description": """
