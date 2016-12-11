@@ -113,7 +113,7 @@
 		<variableExpression><![CDATA[(Math.round($F{amount_total}*100)/100).toString()]]></variableExpression>
 	</variable>
 	<variable name="line_price" class="java.lang.Number">
-		<variableExpression><![CDATA[$F{line_price} * (100-$F{line_discount})/100]]></variableExpression>
+		<variableExpression><![CDATA[$F{line_price}]]></variableExpression>
 	</variable>
 	<background>
 		<band height="752" splitType="Stretch">
@@ -206,7 +206,7 @@
 				</textElement>
 				<textFieldExpression class="java.lang.String"><![CDATA[$F{line_description}]]></textFieldExpression>
 			</textField>
-			<textField isStretchWithOverflow="true" pattern="#,##0.00" isBlankWhenNull="true">
+			<textField isStretchWithOverflow="true" pattern="#,##0" isBlankWhenNull="true">
 				<reportElement x="284" y="0" width="66" height="15"/>
 				<textElement textAlignment="Right" markup="none">
 					<font pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
@@ -225,7 +225,8 @@
 				<textElement textAlignment="Right" markup="none">
 					<font pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
 				</textElement>
-				<textFieldExpression class="java.lang.Number"><![CDATA[$V{line_price}]]></textFieldExpression>
+				<textFieldExpression class="java.lang.Number"><![CDATA[$V{line_price} * (100-($F{line_discount} == null ?
+0.0 : $F{line_discount}))/100]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true" pattern="" isBlankWhenNull="true">
 				<reportElement stretchType="RelativeToTallestObject" mode="Transparent" x="66" y="0" width="34" height="15"/>
@@ -274,7 +275,7 @@
 				<textElement markup="none">
 					<font pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
 				</textElement>
-				<textFieldExpression class="java.lang.String"><![CDATA[(new Scriptlet()).getAmtInWords((new BigDecimal($V{string_total}==""?0:$V{string_total})).setScale(2).toString(),"THB")]]></textFieldExpression>
+				<textFieldExpression class="java.lang.String"><![CDATA["(" + (new Scriptlet()).getAmtInWords((new BigDecimal($V{string_total}==""?0:$V{string_total})).setScale(2).toString(),"THB") + ")"]]></textFieldExpression>
 			</textField>
 		</band>
 	</lastPageFooter>
