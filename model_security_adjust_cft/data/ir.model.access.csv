@@ -1,2 +1,5 @@
 id,active,name,model_id/id,group_id/id,perm_read,perm_write,perm_unlink,perm_create
 model_view_adjust_cft_team_lead,True,crm.lead,crm.model_crm_lead,model_security_adjust_cft.group_sale_salesman_team_leads,True,True,True,True
+account.access_account_invoice_uinvoice,True,account.invoice,account.model_account_invoice,account.group_account_invoice,True,True,FALSE,True
+account.access_account_invoice_group_invoice,True,account.invoice group invoice,account.model_account_invoice,account.group_account_invoice,True,True,FALSE,True
+account.access_account_invoice_accountant,True,account.invoice accountant,account.model_account_invoice,account.group_account_user,True,True,True,True
