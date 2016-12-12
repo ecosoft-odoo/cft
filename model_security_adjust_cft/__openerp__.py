@@ -17,7 +17,6 @@
         'security/sale_security.xml',
         'security/product_security.xml',
         'security/base_security.xml',
-        'security/account_security.xml',
         'views/account_invoice_view.xml',
         'views/partner_view.xml',
         'data/ir.model.access.csv',
