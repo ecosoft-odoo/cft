@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+<data>
+
+<record id="invoice_no_delete_rule" model="ir.rule">
+    <field name="name">Invoice Non-deletion</field>
+    <field name="model_id" ref="account.model_account_invoice"/>
+    <field name="domain_force">[(1,'=',1)]</field>
+    <field eval="[(4,ref('account.group_account_invoice'))]" name="groups"/>
+    <field name="perm_unlink" eval="False"/>
+</record>
+
+</data>
+</openerp>

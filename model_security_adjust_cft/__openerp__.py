@@ -4,7 +4,7 @@
 
 {
     "name": "Model Security Adjust CFT",
-    "version": "8.0.1.2.0",
+    "version": "8.0.1.3.0",
     "author": "Ecosoft Co. Ltd.",
     "license": "AGPL-3",
     "description": """
@@ -17,6 +17,7 @@
         'security/sale_security.xml',
         'security/product_security.xml',
         'security/base_security.xml',
+        'security/account_security.xml',
         'views/account_invoice_view.xml',
         'views/partner_view.xml',
         'data/ir.model.access.csv',
