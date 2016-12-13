@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<openerp>
+    <data>
+
+        <record id="view_invoice_supplier_z161213" model="ir.ui.view">
+	        <field name="name">account.invoice.supplier.pay.z161213</field>
+	        <field name="model">account.invoice</field>
+	        <field name="inherit_id" ref="account_voucher.view_invoice_supplier" />
+	        <field name="arch" type="xml">
+                <xpath expr="//button[@name='invoice_pay_customer']" position="attributes">
+                    <attribute name="invisible">True</attribute>
+		        </xpath>
+	        </field>
+        </record>
+
+    </data>
+</openerp>
