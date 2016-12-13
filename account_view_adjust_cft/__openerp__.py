@@ -11,7 +11,7 @@
     """,
     "category": "Account",
     "depends": [
-        'account',
+        'account_voucher',
     ],
     "data": [
         'views/account_voucher_pay_invoice.xml'
