@@ -15,6 +15,5 @@ class CrmLead(models.Model):
     )
     reference_ids = fields.Many2many(
         'res.partner',
-        'opportunity_id',
         string='References'
     )
