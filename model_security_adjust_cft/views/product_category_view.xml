@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+<data>
+
+    <record model="ir.ui.view" id="product_category_form_view_z161208">
+        <field name="name">.product.category.form.z161208</field>
+        <field name="model">product.category</field>
+        <field name="inherit_id" ref="product.product_category_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='parent_id']" position="after">
+                <field name="section_ids" widget="many2many_tags"/>
+            </xpath>
+        </field>
+    </record>
+
+</data>
+</openerp>
