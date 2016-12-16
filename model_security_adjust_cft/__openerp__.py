@@ -15,10 +15,10 @@
         'product_price_visible',
     ],
     "data": [
-        'security/ir.model.access.csv',
         'security/sale_security.xml',
         'security/product_security.xml',
         'security/base_security.xml',
+        'security/ir.model.access.csv',
         'views/account_invoice_view.xml',
         'views/partner_view.xml',
         'views/stock_view.xml',
