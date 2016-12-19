@@ -17,9 +17,9 @@
     </record>
 
     <record id="sale_order_line_see_team" model="ir.rule">
-        <field name="name">Team Orders Line</field>
+        <field name="name">Team Order Lines</field>
         <field name="model_id" ref="sale.model_sale_order_line" />
-        <field name="domain_force">[(1,'=',1)]</field>
+        <field name="domain_force">[('order_id.section_id.member_ids','in',[user.id])]</field>
         <field name="groups" eval="[(4, ref('group_sale_salesman_team_leads'))]"/>
     </record>
 
