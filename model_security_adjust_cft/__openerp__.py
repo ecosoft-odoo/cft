@@ -17,6 +17,7 @@
         'stock_account',
         'product',
         'sale',
+        'account',
     ],
     "data": [
         'security/sale_security.xml',
