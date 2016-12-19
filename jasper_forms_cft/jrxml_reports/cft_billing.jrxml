@@ -342,7 +342,7 @@ LOCATION :]]></text>
 				<textElement lineSpacing="Single">
 					<font fontName="Monospaced" size="10" isBold="false" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H" isPdfEmbedded="false"/>
 				</textElement>
-				<text><![CDATA[บริษัท คอมฟอทต้าจำกัด]]></text>
+				<text><![CDATA[บริษัท คอมฟอทต้า จำกัด]]></text>
 			</staticText>
 			<image>
 				<reportElement x="-1" y="0" width="86" height="85"/>
