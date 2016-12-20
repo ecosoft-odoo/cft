@@ -3,7 +3,7 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 {
     "name": "Model Security Adjust CFT",
-    "version": "8.0.1.8.0",
+    "version": "8.0.1.9.0",
     "author": "Ecosoft Co. Ltd.",
     "license": "AGPL-3",
     "description": """
@@ -17,11 +17,13 @@
         'stock_account',
         'product',
         'sale',
+        'account',
     ],
     "data": [
         'security/sale_security.xml',
         'security/product_security.xml',
         'security/base_security.xml',
+        'security/account_security.xml',
         'security/ir.model.access.csv',
         'views/account_invoice_view.xml',
         'views/partner_view.xml',
