@@ -4,7 +4,7 @@
 
 {
     "name": "Account View Adjust CFT",
-    "version": "8.0.1.0.0",
+    "version": "8.0.1.1.0",
     "author": "Ecosoft Co. Ltd.",
     "license": "AGPL-3",
     "description": """
@@ -12,9 +12,11 @@
     "category": "Account",
     "depends": [
         'account_voucher',
+        'account'
     ],
     "data": [
-        'views/account_voucher_pay_invoice.xml'
+        'views/account_voucher_pay_invoice.xml',
+        'views/account_menuitem.xml',
     ],
     "js": [
     ],
