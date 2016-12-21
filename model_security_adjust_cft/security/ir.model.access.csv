@@ -9,3 +9,6 @@ stock.access_product_template_stock_user,True,product.template stock user,produc
 stock.access_product_template_stock_manager,True,product.template stock_manager,product.model_product_template,stock.group_stock_manager,True,FALSE,FALSE,FALSE
 purchase.access_product_template_purchase_user,True,product.template purchase_user,product.model_product_template,purchase.group_purchase_user,True,True,True,True
 sale.access_account_move_salesman_team,True,account.move,account.model_account_move,base.group_sale_salesman,True,FALSE,FALSE,FALSE
+purchase.access_res_partner_purchase_user,True,res.partner purchase,account.model_res_partner,purchase.group_purchase_user,True,True,FALSE,True
+account.access_res_partner_account_invoice,True,res.partner invoice,account.model_res_partner,account.group_account_invoice,True,True,FALSE,True
+stock.access_res_partner_stock_invoice,True,res.partner warehouse,account.model_res_partner,stock.group_stock_user,True,True,FALSE,True
