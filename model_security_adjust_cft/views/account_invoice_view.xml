@@ -13,5 +13,27 @@
     </field>
 </record>
 
+<record model="ir.ui.view" id="invoice_form_z161221">
+    <field name="name">account.invoice.form.z161221</field>
+    <field name="model">account.invoice</field>
+    <field name="inherit_id" ref="account.invoice_form"/>
+    <field name="arch" type="xml">
+        <xpath expr="//button[@name='invoice_open']" position="attributes">
+            <attribute name="groups">account.group_account_user</attribute>/>
+        </xpath>
+    </field>
+</record>
+
+<record model="ir.ui.view" id="invoice_supplier_form_z161221">
+    <field name="name">account.invoice.supplier.form.z161221</field>
+    <field name="model">account.invoice</field>
+    <field name="inherit_id" ref="account.invoice_supplier_form"/>
+    <field name="arch" type="xml">
+        <xpath expr="//button[@name='invoice_open']" position="attributes">
+            <attribute name="groups">account.group_account_user</attribute>/>
+        </xpath>
+    </field>
+</record>
+
 </data>
 </openerp>
