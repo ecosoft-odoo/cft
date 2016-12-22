@@ -16,5 +16,12 @@
     <field name="domain_force">[('section_id.member_ids','in',[user.id])]</field>
 </record>
 
+<record id="invoice_all_rule" model="ir.rule">
+    <field name="name">All Invoices</field>
+    <field name="model_id" ref="account.model_account_invoice"/>
+    <field eval="[(4,ref('base.group_sale_salesman_all_leads'))]" name="groups"/>
+    <field name="domain_force">[(1,'=',1)]</field>
+</record>
+
 </data>
 </openerp>
