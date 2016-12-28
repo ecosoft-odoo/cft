@@ -7,7 +7,7 @@ stock.access_stock_picking_user,True,stock.picking user,stock.model_stock_pickin
 stock.access_stock_move_user,True,stock.move user,stock.model_stock_move,stock.group_stock_user,True,FALSE,FALSE,FALSE
 stock.access_product_template_stock_user,True,product.template stock user,product.model_product_template,stock.group_stock_user,True,FALSE,FALSE,FALSE
 stock.access_product_template_stock_manager,True,product.template stock_manager,product.model_product_template,stock.group_stock_manager,True,FALSE,FALSE,FALSE
-purchase.access_product_template_purchase_user,True,product.template purchase_user,product.model_product_template,purchase.group_purchase_user,True,True,True,True
+purchase.access_product_template_purchase_user,True,product.template purchase_user,product.model_product_template,purchase.group_purchase_user,True,True,FALSE,True
 sale.access_account_move_salesman_team,True,account.move,account.model_account_move,base.group_sale_salesman,True,FALSE,FALSE,FALSE
 sale.access_account_invoice_salesman,TRUE,account_invoice salesman,account.model_account_invoice,base.group_sale_salesman,True,True,FALSE,True
 purchase.access_res_partner_purchase_user,True,res.partner purchase,account.model_res_partner,purchase.group_purchase_user,True,True,FALSE,True
