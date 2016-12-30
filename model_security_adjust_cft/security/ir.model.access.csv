@@ -3,6 +3,8 @@ model_view_adjust_cft_team_lead,True,crm.lead,crm.model_crm_lead,model_security_
 account.access_account_invoice_uinvoice,True,account.invoice,account.model_account_invoice,account.group_account_invoice,True,True,FALSE,True
 account.access_account_invoice_group_invoice,True,account.invoice group invoice,account.model_account_invoice,account.group_account_invoice,True,True,FALSE,True
 account.access_account_invoice_accountant,True,account.invoice accountant,account.model_account_invoice,account.group_account_user,True,True,True,True
+purchase.access_account_invoice_purchase,True,account_invoice purchase,account.model_account_invoice,purchase.group_purchase_user,True,True,FALSE,True
+purchase.access_account_invoice_line_purchase,True,account_invoice.line purchase,account.model_account_invoice_line,purchase.group_purchase_user,True,True,FALSE,True
 stock.access_stock_picking_user,True,stock.picking user,stock.model_stock_picking,stock.group_stock_user,True,FALSE,FALSE,FALSE
 stock.access_stock_move_user,True,stock.move user,stock.model_stock_move,stock.group_stock_user,True,FALSE,FALSE,FALSE
 stock.access_product_template_stock_user,True,product.template stock user,product.model_product_template,stock.group_stock_user,True,FALSE,FALSE,FALSE
