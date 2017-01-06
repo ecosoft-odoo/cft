@@ -8,9 +8,9 @@ from openerp import models, api
 class AccountBillingAdjust(models.Model):
     _inherit = 'account.billing'
 
-# overriding the method to remove billing_date_condition
-# so that all the outstanding invoices for the customer
-# can be listed up when applying billing function
+    # overriding the method to remove billing_date_condition
+    # so that all the outstanding invoices for the customer
+    # can be listed up when applying billing function
     @api.multi
     def onchange_partner_id(self, company_id,
                             partner_id, currency_id, date):
