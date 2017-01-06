@@ -4,7 +4,7 @@
 
 {
     'name': "Billing Adjust CFT",
-    'summary': "Group invoice as billing before payment",
+    'summary': "",
     "version": "8.0.1.0.0",
     "author": "Ecosoft Co. Ltd.",
     "license": "AGPL-3",
