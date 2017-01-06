@@ -14,7 +14,7 @@ class AccountBillingAdjust(models.Model):
     @api.multi
     def onchange_partner_id(self, company_id,
                             partner_id, currency_id, date):
-        ctx = self._context.copy()
+        # ctx = self._context.copy()
         # ctx.update(
         #    {'billing_date_condition': ['|',
         #                               ('date_maturity', '=', False),
@@ -22,7 +22,8 @@ class AccountBillingAdjust(models.Model):
         # )
         if not currency_id:
             return {'value': {'line_cr_ids': []}}
-        res = self.with_context(ctx).recompute_billing_lines(
+        # res = self.with_context(ctx).recompute_billing_lines(
+        res = self.recompute_billing_lines(
             company_id, partner_id, currency_id, date)
         return res
 
