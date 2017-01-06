@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+<data>
+
+<record id="account.menu_finance_payables" model="ir.ui.menu">
+    <field name="groups_id" eval="[(4,ref('product_price_visible.group_product_visible'))]"/>
+</record>
+
+</data>
+</openerp>
