@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright <YEAR(S)> <AUTHOR(S)>
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+
+<openerp>
+<data>
+
+<record id="view_vendor_receipt_form_z170109" model="ir.ui.view">
+    <field name="name">account.voucher.receipt.form.z170109</field>
+    <field name="model">account.voucher</field>
+    <field name="inherit_id" ref="account_voucher.view_vendor_receipt_form"/>
+    <field name="arch" type="xml">
+        <xpath expr="//field[@name='move_line_id']" position="replace">
+           <field name="move_line_id" context="{'journal_id':parent.journal_id, 'partner_id':parent.partner_id}"
+               on_change="onchange_move_line_id(move_line_id)"
+               domain="[('account_id.type','in',('receivable','payable')), ('reconcile_id','=', False), ('partner_id','=',parent.partner_id)]"
+               attrs="{'required': [('state', 'in', [False, 'draft'])]}"
+               groups="account.group_account_invoice"/>
+        </xpath>
+        <xpath expr="//field[@name='amount_unreconciled']" position="replace">
+           <field name="amount_unreconciled" readonly="1" groups="account.group_account_invoice"/>
+        </xpath>
+        <xpath expr="//field[@name='reconcile']" position="replace">
+           <field name="reconcile" on_change="onchange_reconcile(reconcile, amount, amount_unreconciled, context)" groups="account.group_account_invoice"/>
+        </xpath>
+    </field>
+</record>
+
+</data>
+</openerp>

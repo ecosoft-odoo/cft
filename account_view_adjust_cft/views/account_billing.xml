@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+<data>
+
+<record model="ir.ui.view" id="view_billing_receipt_form_z170109">
+    <field name="name">account.billing.receipt.form.z170109</field>
+    <field name="model">account.billing</field>
+    <field name="inherit_id" ref="account_billing.view_billing_receipt_form"/>
+    <field name="arch" type="xml">
+        <xpath expr="//field[@name='reconcile']" position="replace">
+            <field name="reconcile" string="Select"
+                on_change="onchange_reconcile(reconcile, amount, amount_unreconciled)"
+                groups="account.group_account_invoice"/>
+        </xpath>
+      <xpath expr="//field[@name='move_line_id']" position="replace">
+            <field name="move_line_id"
+                required="1" readonly="1"
+                groups="account.group_account_invoice"/>
+        </xpath>
+        <xpath expr="//field[@name='amount_unreconciled']" position="replace">
+            <field name="amount_unreconciled" readonly="1" groups="account.group_account_invoice"/>
+        </xpath>
+    </field>
+</record>
+
+</data>
+</openerp>
+
