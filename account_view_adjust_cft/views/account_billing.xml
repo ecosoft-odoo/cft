@@ -18,7 +18,8 @@
                 groups="account.group_account_invoice"/>
         </xpath>
         <xpath expr="//field[@name='amount_unreconciled']" position="replace">
-            <field name="amount_unreconciled" readonly="1" groups="account.group_account_invoice"/>
+            <field name="amount_unreconciled"
+                readonly="1" groups="account.group_account_invoice"/>
         </xpath>
     </field>
 </record>
