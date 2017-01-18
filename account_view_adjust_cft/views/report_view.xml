@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <report
+            id="account.account_invoices"
+            model="account.invoice"
+            string="Debit / Credit Notes"
+            report_type="qweb-pdf"
+            name="account.report_invoice"
+            file="account.report_invoice"
+            attachment_use="True"
+            attachment="(object.state in ('open','paid')) and ('INV'+(object.number or '').replace('/','')+'.pdf')"/>
+
+        <template id="report_invoice_document_cft" inherit_id="account.report_invoice_document">
+            <xpath expr="//t/div/div/div" position="replace">
+                <div class="col-xs-6">
+                    <span>เลขประจำตัวผู้เสียภาษีอากร: 0105535014957 สำนักงานใหญ่</span><br/>
+                    <span>โทร: 0-2244-1331-2 แฟกซ์: 0-2249-4283</span>
+                </div>
+                <div class="col-xs-5 col-xs-offset-1">
+                    <address t-field="o.partner_id" t-field-options='{"widget": "contact", "fields": ["address", "name"], "no_marker": true}'/>
+                    <span t-if="o.partner_id.vat">เลขประจำตัวผู้เสียภาษีอากร:
+                        <span t-field="o.partner_id.vat"/>
+                        /
+                        <span t-field="o.partner_id.taxbranch"/>
+                    </span>
+                </div>
+            </xpath>
+            <xpath expr="//t/div/p[@t-if='o.fiscal_position.note']" position="after">
+                <div class="row">
+                    <br/><br/>
+                    <div class="col-xs-6">
+                        <center>
+                            <p>_______________________</p>
+                            <p>ผู้รับเอกสาร</p>
+                            <br/>
+                            <p>วันที่ ______________</p>
+                        </center>
+                    </div>
+                    <div class="col-xs-5">
+                        <center>
+                            <p>_______________________</p>
+                            <p>ผู้อนุมัติ</p>
+                            <br/>
+                            <p>วันที่ ______________</p>
+                        </center>
+                    </div>
+                </div>
+            </xpath>
+        </template>
+    </data>
+</openerp>
