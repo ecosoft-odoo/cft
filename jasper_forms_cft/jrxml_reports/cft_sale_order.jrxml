@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Quotation" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
-	<property name="ireport.zoom" value="1.1269722013523904"/>
+	<property name="ireport.zoom" value="1.500000000000032"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="455"/>
+	<property name="ireport.y" value="520"/>
 	<property name="OPENERP_RELATIONS" value="[&quot;order_line&quot;]"/>
 	<import value="org.apache.commons.codec.binary.Base64"/>
 	<style name="table" lineSpacing="Single">
@@ -633,7 +633,7 @@ To accept this quotation, please sign in the customer box and return via Fax or 
 				<textElement verticalAlignment="Middle" lineSpacing="Single">
 					<font fontName="Monospaced" size="8" isBold="false" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H" isPdfEmbedded="false"/>
 				</textElement>
-				<text><![CDATA[เจ้าหน้าที่ฝ่ายขาย / SALES EXECUTIVE]]></text>
+				<text><![CDATA[]]></text>
 			</staticText>
 			<staticText>
 				<reportElement style="pading_2" mode="Opaque" x="0" y="262" width="557" height="10" forecolor="#FEFEFE" backcolor="#01B803"/>
@@ -652,6 +652,13 @@ To accept this quotation, please sign in the customer box and return via Fax or 
 				</textElement>
 				<textFieldExpression class="java.lang.String"><![CDATA[$F{note}]]></textFieldExpression>
 			</textField>
+			<staticText>
+				<reportElement style="pading_2" mode="Transparent" x="1" y="88" width="216" height="20" forecolor="#FEFEFE"/>
+				<textElement verticalAlignment="Middle" lineSpacing="Single">
+					<font fontName="Monospaced" size="8" isBold="false" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H" isPdfEmbedded="false"/>
+				</textElement>
+				<text><![CDATA[เจ้าหน้าที่ฝ่ายขาย / SALES EXECUTIVE]]></text>
+			</staticText>
 		</band>
 	</pageFooter>
 	<lastPageFooter>
@@ -706,7 +713,7 @@ To accept this quotation, please sign in the customer box and return via Fax or 
 				<textElement verticalAlignment="Middle" lineSpacing="Single">
 					<font fontName="Monospaced" size="8" isBold="false" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H" isPdfEmbedded="false"/>
 				</textElement>
-				<text><![CDATA[เจ้าหน้าที่ฝ่ายขาย / SALES EXECUTIVE]]></text>
+				<text><![CDATA[]]></text>
 			</staticText>
 			<staticText>
 				<reportElement style="pading_2" mode="Opaque" x="179" y="88" width="170" height="20" forecolor="#FEFEFE" backcolor="#010101"/>
@@ -802,6 +809,13 @@ To accept this quotation, please sign in the customer box and return via Fax or 
 				</textElement>
 				<textFieldExpression class="java.lang.Number"><![CDATA[$F{amount_total}]]></textFieldExpression>
 			</textField>
+			<staticText>
+				<reportElement style="pading_2" mode="Transparent" x="1" y="88" width="216" height="20" forecolor="#FEFEFE"/>
+				<textElement verticalAlignment="Middle" lineSpacing="Single">
+					<font fontName="Monospaced" size="8" isBold="false" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H" isPdfEmbedded="false"/>
+				</textElement>
+				<text><![CDATA[เจ้าหน้าที่ฝ่ายขาย / SALES EXECUTIVE]]></text>
+			</staticText>
 		</band>
 	</lastPageFooter>
 </jasperReport>

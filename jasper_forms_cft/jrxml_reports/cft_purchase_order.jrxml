@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Quotation" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
 	<property name="ireport.zoom" value="1.126972201352392"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="241"/>
+	<property name="ireport.y" value="0"/>
 	<property name="OPENERP_RELATIONS" value="[&quot;order_line&quot;]"/>
 	<import value="org.apache.commons.codec.binary.Base64"/>
 	<style name="table" lineSpacing="Single">
@@ -139,6 +139,9 @@
 	</field>
 	<field name="delivery_method" class="java.lang.String">
 		<fieldDescription><![CDATA[delivery_method]]></fieldDescription>
+	</field>
+	<field name="title" class="java.lang.String">
+		<fieldDescription><![CDATA[partner_id/title/name]]></fieldDescription>
 	</field>
 	<variable name="price_after_disco" class="java.lang.Number">
 		<variableExpression><![CDATA[(100-$F{discount})/100 * $F{price_unit}]]></variableExpression>
@@ -311,7 +314,7 @@
 				<text><![CDATA[COMFORTA CO., LTD.
 25/1 FLOOR 1, SOI PHRAYA PHIREN, CHUAPLOENG ROAD,
 THUNGMAHAMEK, SATHON, BANGKOK 10120, THAILAND
-T.662 240 1331-2 C.6681 846 5205]]></text>
+T.662 240 1331-2 M.6681 846 5205]]></text>
 			</staticText>
 			<frame>
 				<reportElement mode="Opaque" x="100" y="112" width="213" height="20" backcolor="#BFBFBF"/>
@@ -355,7 +358,7 @@ T.662 240 1331-2 C.6681 846 5205]]></text>
 				<textElement textAlignment="Left" verticalAlignment="Top" rotation="None" lineSpacing="Single" markup="none">
 					<font fontName="Monospaced" size="9" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H" isPdfEmbedded="false"/>
 				</textElement>
-				<textFieldExpression class="java.lang.String"><![CDATA[$F{supplier_name}]]></textFieldExpression>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{title}.toString().equals("") ? $F{supplier_name} : $F{title} + " " + $F{supplier_name}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true" pattern="dd/MM/yyyy" isBlankWhenNull="true">
 				<reportElement style="pading_2" mode="Transparent" x="100" y="112" width="213" height="20" forecolor="#000000" backcolor="#FFFFFF"/>
