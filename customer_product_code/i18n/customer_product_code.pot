@@ -1,0 +1,160 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* customer_product_code
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-07-23 14:22+0000\n"
+"PO-Revision-Date: 2016-07-23 14:22+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: customer_product_code
+#: model:ir.model,name:customer_product_code.model_product_customer_code
+msgid "Add Code and Name of customer's product"
+msgstr ""
+
+#. module: customer_product_code
+#: view:product.customer.code:customer_product_code.view_product_customer_code_search
+#: field:product.customer.code,company_id:0
+msgid "Company"
+msgstr ""
+
+#. module: customer_product_code
+#: field:product.customer.code,create_uid:0
+msgid "Created by"
+msgstr ""
+
+#. module: customer_product_code
+#: field:product.customer.code,create_date:0
+msgid "Created on"
+msgstr ""
+
+#. module: customer_product_code
+#: field:product.customer.code,partner_id:0
+msgid "Customer"
+msgstr ""
+
+#. module: customer_product_code
+#: view:product.template:customer_product_code.product_normal_form_inh_product_customer_code_01
+msgid "Customer Code"
+msgstr ""
+
+#. module: customer_product_code
+#: field:product.product,product_customer_code_ids:0
+#: field:product.template,product_customer_code_ids:0
+msgid "Customer Codes"
+msgstr ""
+
+#. module: customer_product_code
+#: field:product.customer.code,product_code:0
+msgid "Customer Product Code"
+msgstr ""
+
+#. module: customer_product_code
+#: field:product.customer.code,product_name:0
+msgid "Customer Product Name"
+msgstr ""
+
+#. module: customer_product_code
+#: field:product.customer.code,display_name:0
+msgid "Display Name"
+msgstr ""
+
+#. module: customer_product_code
+#: view:product.customer.code:customer_product_code.view_product_customer_code_search
+msgid "Group By..."
+msgstr ""
+
+#. module: customer_product_code
+#: field:product.customer.code,id:0
+msgid "ID"
+msgstr ""
+
+#. module: customer_product_code
+#: view:product.template:customer_product_code.product_normal_form_inh_product_customer_code_01
+msgid "Information"
+msgstr ""
+
+#. module: customer_product_code
+#: field:product.customer.code,__last_update:0
+msgid "Last Modified on"
+msgstr ""
+
+#. module: customer_product_code
+#: field:product.customer.code,write_uid:0
+msgid "Last Updated by"
+msgstr ""
+
+#. module: customer_product_code
+#: field:product.customer.code,write_date:0
+msgid "Last Updated on"
+msgstr ""
+
+#. module: customer_product_code
+#: view:product.customer.code:customer_product_code.view_product_customer_code_search
+msgid "Partner"
+msgstr ""
+
+#. module: customer_product_code
+#: model:ir.model,name:customer_product_code.model_product_product
+#: view:product.customer.code:customer_product_code.view_product_customer_code_search
+msgid "Product"
+msgstr ""
+
+#. module: customer_product_code
+#: sql_constraint:product.customer.code:0
+msgid "Product Code of customer must be unique"
+msgstr ""
+
+#. module: customer_product_code
+#: model:ir.actions.act_window,name:customer_product_code.action_product_customer_code_tree
+#: model:ir.ui.menu,name:customer_product_code.menu_product_customer_code
+#: view:product.customer.code:customer_product_code.view_product_customer_code_form
+#: view:product.customer.code:customer_product_code.view_product_customer_code_search
+#: view:product.customer.code:customer_product_code.view_product_customer_code_tree
+#: view:product.template:customer_product_code.product_normal_form_inh_product_customer_code_01
+msgid "Product Customer Code"
+msgstr ""
+
+#. module: customer_product_code
+#: model:ir.model,name:customer_product_code.model_product_template
+#: field:product.customer.code,product_id:0
+msgid "Product Template"
+msgstr ""
+
+#. module: customer_product_code
+#: model:res.groups,name:customer_product_code.group_product_customer_code_manager
+msgid "Product_Customer / Manager"
+msgstr ""
+
+#. module: customer_product_code
+#: model:res.groups,name:customer_product_code.group_product_customer_code_user
+msgid "Product_Customer / User"
+msgstr ""
+
+#. module: customer_product_code
+#: help:product.customer.code,product_code:0
+msgid "This customer's product code\n"
+"                                            will be used when searching into\n"
+"                                            a request for quotation."
+msgstr ""
+
+#. module: customer_product_code
+#: help:product.customer.code,product_name:0
+msgid "This customer's product name will\n"
+"                                            be used when searching into a\n"
+"                                            request for quotation."
+msgstr ""
+
+#. module: customer_product_code
+#: view:account.invoice:customer_product_code.view_invoice_product_code_form_inherit
+msgid "{'partner_id':parent.partner_id, 'type':'out_invoice'}"
+msgstr ""
+
