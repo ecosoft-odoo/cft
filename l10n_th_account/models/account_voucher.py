@@ -7,11 +7,11 @@ import openerp.addons.decimal_precision as dp
 from openerp.addons.l10n_th_account.models.res_partner \
     import INCOME_TAX_FORM
 
-WHT_CERT_INCOME_TYPE = [('1', 'เงินเดือน ค่าจ้าง ฯลฯ 40 (1)'),
-                        ('2', 'เบี้ยประชุม ประเมินผล ฯลฯ 40(2)'),
-                        ('3', 'ค่าลิขสิทธิ์ ฯลฯ 40(3)'),
-                        ('5', 'เงินรางวัล ค่าเช่า ค่าโฆษณา ฯลฯ'),
-                        ('6', 'ธุรกิจพาณิชย์ เกษตร อื่นๆ')]
+WHT_CERT_INCOME_TYPE = [('1', '1.เงินเดือน ค่าจ้าง ฯลฯ 40(1)'),
+                        ('2', '2.ค่าธรรมเนียม ค่านายหน้า ฯลฯ 40(2)'),
+                        ('3', '3.ค่าแห่งลิขสิทธิ์ ฯลฯ 40(3)'),
+                        ('5', '5.ค่าจ้างทำของ ค่าบริการ ฯลฯ 3 เตรส'),
+                        ('6', '6.อื่นๆ')]
 
 TAX_PAYER = [('withholding', 'Withholding'),
              ('paid_one_time', 'Paid One Time')]
@@ -1285,6 +1285,23 @@ class AccountVoucherTax(common_voucher, models.Model):
         return tax_gps
 
     @api.model
+    def _prepare_one_move_line(self, t):
+        return {
+            'type': 'tax',
+            'name': t['name'],
+            'price_unit': t['amount'],
+            'quantity': 1,
+            'price': t['amount'] or 0.0,
+            'tax_currency_gain': t['tax_currency_gain'] or 0.0,
+            'account_id': t['account_id'],
+            'tax_code_id': t['tax_code_id'],
+            'tax_amount': t['tax_amount'],
+            'account_analytic_id': t['account_analytic_id'],
+            'tax_code_type': t['tax_code_type'],
+            'invoice_id': t['invoice_id'],  # pass for future use
+        }
+
+    @api.model
     def move_line_get(self, voucher):
         res = []
         sql = "SELECT * FROM account_voucher_tax WHERE voucher_id=%s"
@@ -1300,19 +1317,7 @@ class AccountVoucherTax(common_voucher, models.Model):
         for t in self._cr.dictfetchall():
             if not t['amount']:
                 continue
-            res.append({
-                'type': 'tax',
-                'name': t['name'],
-                'price_unit': t['amount'],
-                'quantity': 1,
-                'price': t['amount'] or 0.0,
-                'tax_currency_gain': t['tax_currency_gain'] or 0.0,
-                'account_id': t['account_id'],
-                'tax_code_id': t['tax_code_id'],
-                'tax_amount': t['tax_amount'],
-                'account_analytic_id': t['account_analytic_id'],
-                'tax_code_type': t['tax_code_type'],
-            })
+            res.append(self._prepare_one_move_line(t))
         return res
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
