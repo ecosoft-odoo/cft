@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="cft_receipt" language="groovy" pageWidth="612" pageHeight="792" columnWidth="612" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0">
 	<property name="ireport.zoom" value="0.9090909090909131"/>
-	<property name="ireport.x" value="17"/>
-	<property name="ireport.y" value="411"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="114"/>
 	<property name="OPENERP_RELATIONS" value="line_ids"/>
 	<parameter name="SUBREPORT_DIR" class="java.lang.String">
 		<defaultValueExpression><![CDATA["/home/kittiu/hd/workspace/cft/jasper_forms_cft/jrxml_reports/"]]></defaultValueExpression>
@@ -98,12 +98,6 @@
     $F{province},
     $F{zip})
 + " " + $F{country}.toString()]]></textFieldExpression>
-			</textField>
-			<textField isBlankWhenNull="true">
-				<reportElement x="472" y="182" width="419" height="15"/>
-				<textElement markup="none">
-					<font pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
-				</textElement>
 			</textField>
 			<textField>
 				<reportElement x="472" y="74" width="371" height="15"/>

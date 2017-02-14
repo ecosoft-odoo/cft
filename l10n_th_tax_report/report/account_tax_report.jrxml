@@ -151,7 +151,8 @@ and report_period_id = $P{report_period_id}]]>
 					<textElement>
 						<font fontName="Monospaced" size="10" isBold="false" isStrikeThrough="false" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
 					</textElement>
-					<textFieldExpression class="java.lang.String"><![CDATA[$P{branch_taxbranch}]]></textFieldExpression>
+					<textFieldExpression class="java.lang.String"><![CDATA[$P{branch_taxbranch}.toString().equals("00000") ?
+"สำนักงานใหญ่" : $P{branch_taxbranch}]]></textFieldExpression>
 				</textField>
 				<staticText>
 					<reportElement x="0" y="61" width="47" height="15"/>
@@ -326,11 +327,12 @@ $F{partner_title} + " " + $F{partner_name}]]></textFieldExpression>
 				<textFieldExpression class="java.lang.String"><![CDATA[$F{vat}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true" pattern="dd/MM/yyyy" isBlankWhenNull="true">
-				<reportElement style="table2" stretchType="RelativeToTallestObject" x="394" y="0" width="44" height="15"/>
+				<reportElement style="table2" stretchType="RelativeToTallestObject" x="393" y="0" width="45" height="15"/>
 				<textElement textAlignment="Center" verticalAlignment="Top">
 					<font fontName="Monospaced" size="9" isBold="false" isStrikeThrough="false" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
 				</textElement>
-				<textFieldExpression class="java.lang.String"><![CDATA[$F{taxbranch}]]></textFieldExpression>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{taxbranch}.toString().equals("00000") ?
+"สนงญ." : $F{taxbranch}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true" pattern="#,##0.00" isBlankWhenNull="true">
 				<reportElement style="table2" stretchType="RelativeToTallestObject" x="419" y="0" width="74" height="15"/>

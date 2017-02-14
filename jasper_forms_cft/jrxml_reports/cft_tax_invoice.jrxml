@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="cft_tax_invoice" language="groovy" pageWidth="612" pageHeight="792" columnWidth="612" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0">
-	<property name="ireport.zoom" value="1.0000000000000029"/>
-	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="61"/>
+	<property name="ireport.zoom" value="1.1000000000000032"/>
+	<property name="ireport.x" value="37"/>
+	<property name="ireport.y" value="78"/>
 	<property name="OPENERP_RELATIONS" value="invoice_line"/>
 	<parameter name="SUBREPORT_DIR" class="java.lang.String">
 		<defaultValueExpression><![CDATA["/home/kittiu/hd/workspace/cft/jasper_forms_cft/jrxml_reports/"]]></defaultValueExpression>
@@ -129,7 +129,9 @@
 				<textElement markup="none">
 					<font pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
 				</textElement>
-				<textFieldExpression class="java.lang.String"><![CDATA[$F{vat} + " / " + $F{taxbranch}]]></textFieldExpression>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{vat} + " / " +
+($F{taxbranch}.toString().equals("00000") ?
+    "สำนักงานใหญ่" : $F{taxbranch})]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="87" y="196" width="226" height="70"/>

@@ -23,7 +23,12 @@
                     <span t-if="o.partner_id.vat">เลขประจำตัวผู้เสียภาษีอากร:
                         <span t-field="o.partner_id.vat"/>
                         /
-                        <span t-field="o.partner_id.taxbranch"/>
+                        <div t-if="o.partner_id.taxbranch == '00000'">
+                            <span>สำนักงานใหญ่</span>
+                        </div>
+                        <div t-if="o.partner_id.taxbranch != '00000'">
+                            <span t-field="o.partner_id.taxbranch"/>
+                        </div>
                     </span>
                 </div>
             </xpath>
