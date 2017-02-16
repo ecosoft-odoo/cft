@@ -1,0 +1,45 @@
+<openerp>
+    <data>
+        <record model="ir.ui.view" id="assign_salesperson_to_customer_form">
+            <field name="name">assign_salesperson_to_customer_form</field>
+            <field name="model">assign_salesperson_to_customer</field>
+            <field name="arch" type="xml">
+                <form string="Change Salesperson">
+                    <field name="user_id"/>
+                    <footer>
+                        <button name="change_user_id" string="Select" type="object" class="oe_highlight"/>
+                        or
+                        <button string="Cancel" special="cancel" class="oe_link"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <act_window name="Change Salesperson"
+                res_model="assign_salesperson_to_customer"
+                src_model="res.partner"
+                view_mode="form"
+                multi="True"
+                target="new"
+                key2="client_action_multi"
+                id="assign_salesperson_to_customer_act"
+                context="{}"
+                view_type="form"
+                view_id="assign_salesperson_to_customer_form"
+        />
+		
+		<act_window name="Change Salesperson"
+                res_model="assign_salesperson_to_customer"
+                src_model="crm.lead"
+                view_mode="form"
+                multi="True"
+                target="new"
+                key2="client_action_multi"
+                id="mass_set_user_id_act"
+                context="{}"
+                view_type="form"
+                view_id="assign_salesperson_to_customer_form"
+        />
+
+    </data>
+</openerp>
