@@ -1,11 +1,15 @@
 # -*- coding: utf-8 -*-
 {
     'name': 'Comforta Jasper Forms',
-    'version': '8.0.1.0.0',
+    'version': '8.0.1.0.1',
     'author': 'Ecosoft',
     'website': 'http://ecosoft.co.th',
     'depends': [
         'jasper_reports',
+        'account_billing',
+        'sale_customer_attn',
+        'purchase_delivery_method',
+        'l10n_th_amount_text_ext',
     ],
     'data': [
         "jasper_data.xml",
