@@ -19,7 +19,19 @@
                     <span>โทร: 0-2244-1331-2 แฟกซ์: 0-2249-4283</span>
                 </div>
                 <div class="col-xs-5 col-xs-offset-1">
-                    <address t-field="o.partner_id" t-field-options='{"widget": "contact", "fields": ["address", "name"], "no_marker": true}'/>
+                    <p>
+                        <span t-field="o.partner_id.title"/>
+                        <span t-field="o.partner_id.name"/>
+                    </p>
+                    <p>
+                        <span t-field="o.partner_id.street"/><br/>
+                        <span t-field="o.partner_id.city"/>
+                        <span t-field="o.partner_id.township_id"/>
+                        <span t-field="o.partner_id.district_id"/>
+                        <span t-field="o.partner_id.province_id"/><br/>
+                        <span t-field="o.partner_id.zip"/>
+                        <span t-field="o.partner_id.country_id"/>
+                    </p>
                     <span t-if="o.partner_id.vat">เลขประจำตัวผู้เสียภาษีอากร:
                         <span t-field="o.partner_id.vat"/>
                         /
