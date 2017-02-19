@@ -25,6 +25,7 @@
                     </p>
                     <p>
                         <span t-field="o.partner_id.street"/><br/>
+                        <span t-field="o.partner_id.city"/>
                         <span t-field="o.partner_id.township_id"/>
                         <span t-field="o.partner_id.district_id"/>
                         <span t-field="o.partner_id.province_id"/><br/>
