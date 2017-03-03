@@ -14,6 +14,7 @@
         'crm',
         'model_security_adjust_cft',
         'sale',
+        'sale_partner_with_sales',
     ],
     "data": [
         'security/crm_security.xml',
