@@ -2,90 +2,114 @@
 <openerp>
 <data>
 
-<!-- disable create and edit option in customer form view and contact form view -->
-<record id="disable_create_edit" model="ir.ui.view">
-    <field name="name">diasble.view.partner.form.ext></field>
-    <field name="model">res.partner</field>
-    <field name="inherit_id" ref="l10n_th_address.view_partner_form_ext"/>
-    <field name="arch" type="xml">
-        <!-- Customer -->
-        <xpath expr="//field[@name='province_id']" position="attributes">
-            <attribute name="options">{"no_open": True, "no_create": True}</attribute>
-        </xpath>
-        <xpath expr="//field[@name='district_id']" position="attributes">
-            <attribute name="options">{"no_open": True, "no_create": True}</attribute>
-        </xpath>
-        <xpath expr="//field[@name='township_id']" position="attributes">
-            <attribute name="options">{"no_open": True, "no_create": True}</attribute>
-        </xpath>
-         <!-- Contact -->
-        <xpath expr="/form/sheet/notebook/page/field/form[@string='Contact']//field[@name='province_id']"
-               position="attributes">
-            <attribute name="options">{"no_open": True, "no_create": True}</attribute>
-        </xpath>
-        <xpath expr="/form/sheet/notebook/page/field/form[@string='Contact']//field[@name='district_id']"
-               position="attributes">
-            <attribute name="options">{"no_open": True, "no_create": True}</attribute>
-        </xpath>
-        <xpath expr="/form/sheet/notebook/page/field/form[@string='Contact']//field[@name='township_id']"
-               position="attributes">
-            <attribute name="options">{"no_open": True, "no_create": True}</attribute>
-        </xpath>
-    </field>
-</record>
+    <record id="view_partner_form" model="ir.ui.view">
+        <field name="name">view.partner.form</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="sale_partner_with_sales.view_partner_form_z160916"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='has_sales']" position="after">
+                <field name ="verified_partner" readonly="1"/>
+            </xpath>
+        </field>
+    </record>
 
-<!-- make street,job position,phone,email and title required in customer form view and contact form view-->
-<record id="view_partner_form_reqired" model="ir.ui.view">
-    <field name="name">view.partner.form.required</field>
-    <field name="model">res.partner</field>
-    <field name="inherit_id" ref="base.view_partner_form"/>
-    <field name="arch" type="xml">
-        <!-- Customer -->
-        <xpath expr="//field[@name='street']" position="replace">
-            <field name="street" attrs="{'required':[('is_company','=',True)]}"/>
-        </xpath>
-        <xpath expr="//field[@name='function']" position="replace">
-            <field name="function" attrs="{'required':[('is_company','=',False)],
-                                      'invisible': [('is_company','=', True)]}"/>
-        </xpath>
-        <xpath expr="//field[@name='phone']" position="attributes">
-            <attribute name="required">True</attribute>
-        </xpath>
-        <xpath expr="//field[@name='email']" position="replace">
-            <field name="email" widget="email" attrs="{'required': ['|',('user_ids','!=', []),('customer','=',True)]}"/>
-        </xpath>
-        <xpath expr="//field[@name='title']" position="replace">
-            <field name="title" options='{"no_open": True}' attrs="{'required':[('customer','=',True)]}"/>
-        </xpath>
-        <!-- Contact -->
-        <xpath expr="/form/sheet/notebook/page/field/form[@string='Contact']//field[@name='function']"
-               position="attributes">
-            <attribute name="required">True</attribute>
-        </xpath>
-        <xpath expr="/form/sheet/notebook/page/field/form[@string='Contact']//field[@name='email']"
-               position="attributes">
-            <attribute name="required">True</attribute>
-        </xpath>
-        <xpath expr="/form/sheet/notebook/page/field/form[@string='Contact']//field[@name='phone']"
-               position="attributes">
-            <attribute name="required">True</attribute>
-        </xpath>
-       <!-- Customer Rank -->
-        <xpath expr="//field[@name='title']" position="after">
-            <field name="customer_rank" attrs="{'invisible':[('customer','=', False)]}"/>
-        </xpath> 
-    </field>
-</record>
+    <!-- make "Verified Partner" field editable for "Partner Verification" group -->
+    <record id="view_partner_form_partner_verification" model="ir.ui.view">
+        <field name="name">view.partner.form.partner.verification</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="view_partner_form"/>
+        <field name="groups_id" eval="[(6,0,[ref('sale_view_adjust_cft.group_partner_verification')])]"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='verified_partner']" position="attributes">
+                <attribute name ="readonly">0</attribute>
+            </xpath>
+        </field>
+    </record>
 
-<record id="action_partner_rank_partner" model="ir.actions.act_window">
-    <field name="name">Ranks</field>
-    <field name="type">ir.actions.act_window</field>
-    <field name="res_model">res.partner.rank</field>
-    <field name="view_type">form</field>
-    <field name="help">Manage the partner ranks you want to have available in your system.</field>
-</record>
+    <!-- disable create and edit option in customer form view and contact form view -->
+    <record id="disable_create_edit" model="ir.ui.view">
+        <field name="name">diasble.view.partner.form.ext></field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="l10n_th_address.view_partner_form_ext"/>
+        <field name="arch" type="xml">
+            <!-- Customer -->
+            <xpath expr="//field[@name='province_id']" position="attributes">
+                <attribute name="options">{"no_open": True, "no_create": True}</attribute>
+            </xpath>
+            <xpath expr="//field[@name='district_id']" position="attributes">
+                <attribute name="options">{"no_open": True, "no_create": True}</attribute>
+            </xpath>
+            <xpath expr="//field[@name='township_id']" position="attributes">
+                <attribute name="options">{"no_open": True, "no_create": True}</attribute>
+            </xpath>
+             <!-- Contact -->
+            <xpath expr="/form/sheet/notebook/page/field/form[@string='Contact']//field[@name='province_id']"
+                   position="attributes">
+                <attribute name="options">{"no_open": True, "no_create": True}</attribute>
+            </xpath>
+            <xpath expr="/form/sheet/notebook/page/field/form[@string='Contact']//field[@name='district_id']"
+                   position="attributes">
+                <attribute name="options">{"no_open": True, "no_create": True}</attribute>
+            </xpath>
+            <xpath expr="/form/sheet/notebook/page/field/form[@string='Contact']//field[@name='township_id']"
+                   position="attributes">
+                <attribute name="options">{"no_open": True, "no_create": True}</attribute>
+            </xpath>
+        </field>
+    </record>
 
-<menuitem action="action_partner_rank_partner" name='Rank' id="menu_partner_rank_partner" parent="base.menu_config_address_book" sequence="2" groups="base.group_no_one"/>
+    <!-- make street,job position,phone,email and title required in customer form view and contact form view-->
+    <record id="view_partner_form_reqired" model="ir.ui.view">
+        <field name="name">view.partner.form.required</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <!-- Customer -->
+            <xpath expr="//field[@name='street']" position="replace">
+                <field name="street" attrs="{'required':[('is_company','=',True)]}"/>
+            </xpath>
+            <xpath expr="//field[@name='function']" position="replace">
+                <field name="function" attrs="{'required':[('is_company','=',False)],
+                                          'invisible': [('is_company','=', True)]}"/>
+            </xpath>
+            <xpath expr="//field[@name='phone']" position="attributes">
+                <attribute name="required">True</attribute>
+            </xpath>
+            <xpath expr="//field[@name='email']" position="replace">
+                <field name="email" widget="email" attrs="{'required': ['|',('user_ids','!=', []),('customer','=',True)]}"/>
+            </xpath>
+            <xpath expr="//field[@name='title']" position="replace">
+                <field name="title" options='{"no_open": True}' attrs="{'required':[('customer','=',True)]}"/>
+            </xpath>
+            <!-- Contact -->
+            <xpath expr="/form/sheet/notebook/page/field/form[@string='Contact']//field[@name='function']"
+                   position="attributes">
+                <attribute name="required">True</attribute>
+            </xpath>
+            <xpath expr="/form/sheet/notebook/page/field/form[@string='Contact']//field[@name='email']"
+                   position="attributes">
+                <attribute name="required">True</attribute>
+            </xpath>
+            <xpath expr="/form/sheet/notebook/page/field/form[@string='Contact']//field[@name='phone']"
+                   position="attributes">
+                <attribute name="required">True</attribute>
+            </xpath>
+           <!-- Customer Rank -->
+            <xpath expr="//field[@name='title']" position="after">
+                <field name="customer_rank" attrs="{'invisible':[('customer','=', False)]}"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="action_partner_rank_partner" model="ir.actions.act_window">
+        <field name="name">Ranks</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">res.partner.rank</field>
+        <field name="view_type">form</field>
+        <field name="help">Manage the partner ranks you want to have available in your system.</field>
+    </record>
+
+    <menuitem action="action_partner_rank_partner" name='Rank' id="menu_partner_rank_partner" parent="base.menu_config_address_book" sequence="2" groups="base.group_no_one"/>
 
 </data>
 </openerp>

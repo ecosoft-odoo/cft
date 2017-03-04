@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<openerp>
+<data noupdate="0">
+
+    <record model="res.groups" id="group_partner_verification">
+        <field name="name">Partner Verification</field>
+    </record>
+
+</data>
+</openerp>
