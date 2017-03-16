@@ -3,7 +3,7 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 {
     "name": "Product Price Visible Ext.",
-    "version": "8.0.1.0.1",
+    "version": "8.0.1.0.2",
     "author": "Rooms For (Hong Kong) Limited T/A OSCG",
     "category": "Product",
     "website": "",
