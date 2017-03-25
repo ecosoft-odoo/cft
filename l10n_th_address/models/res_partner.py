@@ -14,19 +14,20 @@ class ResPartner(models.Model):
         'res.country.province',
         domain="[('country_id','=',country_id)]",
         ondelete='restrict'
-        )
+    )
     district_id = fields.Many2one(
         'res.country.district',
         domain="[('province_id','=',province_id)]",
         ondelete='restrict'
-        )
+    )
     township_id = fields.Many2one(
         'res.country.township',
         domain="[('district_id','=',district_id)]",
         ondelete='restrict'
-        )
-    street = fields.Text(string='Street')
-    street2 = fields.Text(string='Address (en)')
+    )
+    name = fields.Char(translate=True)
+    street = fields.Char(translate=True)
+    street2 = fields.Char(translate=True)
 
 #     @api.onchange('zip')
 #     def _onchange_township_id(self):
