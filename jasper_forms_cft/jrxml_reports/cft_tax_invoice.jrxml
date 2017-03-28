@@ -129,9 +129,10 @@
 				<textElement markup="none">
 					<font pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
 				</textElement>
-				<textFieldExpression class="java.lang.String"><![CDATA[$F{vat} + " / " +
-($F{taxbranch}.toString().equals("00000") ?
-    "สำนักงานใหญ่" : $F{taxbranch})]]></textFieldExpression>
+				<textFieldExpression class="java.lang.String"><![CDATA[($F{vat} == "" ? "" : $F{vat}) +
+($F{taxbranch} == "" ?
+    "" : " / " + ($F{taxbranch} == "00000" ?
+                            "สำนักงานใหญ่" : "สาขาที่: " + $F{taxbranch}))]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="87" y="196" width="226" height="70"/>
@@ -148,7 +149,9 @@
 + " " + $F{country}.toString()]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="385" y="140" width="823" height="15"/>
+				<reportElement x="385" y="140" width="823" height="15">
+					<printWhenExpression><![CDATA[1 == 0]]></printWhenExpression>
+				</reportElement>
 				<textElement markup="none">
 					<font pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
 				</textElement>
