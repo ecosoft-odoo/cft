@@ -16,7 +16,7 @@
             <xpath expr="//t/div/div/div" position="replace">
                 <div class="col-xs-6">
                     <span>เลขประจำตัวผู้เสียภาษีอากร: 0105535014957 สำนักงานใหญ่</span><br/>
-                    <span>โทร: 0-2244-1331-2 แฟกซ์: 0-2249-4283</span>
+                    <span>โทร: 0-2240-1331-2 แฟกซ์: 0-2249-4283</span>
                 </div>
                 <div class="col-xs-5 col-xs-offset-1">
                     <p>
@@ -38,7 +38,7 @@
                         <div t-if="o.partner_id.taxbranch == '00000'">
                             <span>สำนักงานใหญ่</span>
                         </div>
-                        <div t-if="o.partner_id.taxbranch != '00000'">
+                        <div t-if="o.partner_id.taxbranch != '00000'">สาขาที่:
                             <span t-field="o.partner_id.taxbranch"/>
                         </div>
                     </span>
@@ -50,7 +50,7 @@
                     <div class="col-xs-6">
                         <center>
                             <p>_______________________</p>
-                            <p>ผู้รับเอกสาร / Recipient</p>
+                            <p>ผู้รับเอกสาร / Recipient</p>
                             <br/>
                             <p>วันที่ ______________</p>
                         </center>
@@ -58,7 +58,7 @@
                     <div class="col-xs-5">
                         <center>
                             <p>_______________________</p>
-                            <p>ผู้อนุมัติ / Issuer</p>
+                            <p>ผู้อนุมัติ / Issuer</p>
                             <br/>
                             <p>วันที่ ______________</p>
                         </center>
