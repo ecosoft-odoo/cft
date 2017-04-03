@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="cft_tax_invoice" language="groovy" pageWidth="612" pageHeight="792" columnWidth="612" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0">
-	<property name="ireport.zoom" value="1.1000000000000032"/>
-	<property name="ireport.x" value="37"/>
-	<property name="ireport.y" value="78"/>
+	<property name="ireport.zoom" value="0.564473930053779"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="34"/>
 	<property name="OPENERP_RELATIONS" value="invoice_line"/>
 	<parameter name="SUBREPORT_DIR" class="java.lang.String">
 		<defaultValueExpression><![CDATA["/home/kittiu/hd/workspace/cft/jasper_forms_cft/jrxml_reports/"]]></defaultValueExpression>
@@ -242,33 +242,33 @@
 		</band>
 	</detail>
 	<pageFooter>
-		<band height="332" splitType="Stretch"/>
+		<band height="188" splitType="Stretch"/>
 	</pageFooter>
 	<lastPageFooter>
-		<band height="228">
+		<band height="188">
 			<textField pattern="#,##0.00" isBlankWhenNull="true">
-				<reportElement x="436" y="60" width="123" height="15"/>
+				<reportElement x="436" y="20" width="123" height="15"/>
 				<textElement textAlignment="Right" markup="none">
 					<font pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
 				</textElement>
 				<textFieldExpression class="java.lang.Number"><![CDATA[$F{amount_untaxed}]]></textFieldExpression>
 			</textField>
 			<textField pattern="#,##0.00" isBlankWhenNull="true">
-				<reportElement x="436" y="80" width="123" height="15"/>
+				<reportElement x="436" y="40" width="123" height="15"/>
 				<textElement textAlignment="Right" markup="none">
 					<font pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
 				</textElement>
 				<textFieldExpression class="java.lang.Number"><![CDATA[$F{amount_tax}]]></textFieldExpression>
 			</textField>
 			<textField pattern="#,##0.00" isBlankWhenNull="true">
-				<reportElement x="436" y="98" width="123" height="15"/>
+				<reportElement x="436" y="58" width="123" height="15"/>
 				<textElement textAlignment="Right" markup="none">
 					<font pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
 				</textElement>
 				<textFieldExpression class="java.lang.Number"><![CDATA[$F{amount_total}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true">
-				<reportElement x="74" y="80" width="336" height="15"/>
+				<reportElement x="74" y="40" width="336" height="15"/>
 				<textElement markup="none">
 					<font pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
 				</textElement>
