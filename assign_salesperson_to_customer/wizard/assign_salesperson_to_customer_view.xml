@@ -5,9 +5,16 @@
             <field name="model">assign_salesperson_to_customer</field>
             <field name="arch" type="xml">
                 <form string="Change Salesperson">
-                    <field name="user_id"/>
+                    <group>
+                        <group>
+                            <field name="user_id"/>
+                        </group>
+                        <group>
+                            <field name="section_id"/>
+                        </group>
+                    </group>
                     <footer>
-                        <button name="change_user_id" string="Select" type="object" class="oe_highlight"/>
+                        <button name="change_user_id" string="Update" type="object" class="oe_highlight"/>
                         or
                         <button string="Cancel" special="cancel" class="oe_link"/>
                     </footer>
