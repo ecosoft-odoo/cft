@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="cft_envelope_cover_form" language="groovy" pageWidth="792" pageHeight="612" orientation="Landscape" columnWidth="792" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0">
+	<property name="ireport.zoom" value="0.9090909090909103"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="89"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String"/>
+	<queryString language="xPath">
+		<![CDATA[/data/record]]>
+	</queryString>
+	<field name="street" class="java.lang.String">
+		<fieldDescription><![CDATA[partner_id/street]]></fieldDescription>
+	</field>
+	<field name="city" class="java.lang.String">
+		<fieldDescription><![CDATA[partner_id/city]]></fieldDescription>
+	</field>
+	<field name="township" class="java.lang.String">
+		<fieldDescription><![CDATA[partner_id/township_id/name]]></fieldDescription>
+	</field>
+	<field name="district" class="java.lang.String">
+		<fieldDescription><![CDATA[partner_id/district_id/name]]></fieldDescription>
+	</field>
+	<field name="province" class="java.lang.String">
+		<fieldDescription><![CDATA[partner_id/province_id/name]]></fieldDescription>
+	</field>
+	<field name="zip" class="java.lang.String">
+		<fieldDescription><![CDATA[partner_id/zip]]></fieldDescription>
+	</field>
+	<field name="country" class="java.lang.String">
+		<fieldDescription><![CDATA[partner_id/country_id/name]]></fieldDescription>
+	</field>
+	<field name="title" class="java.lang.String">
+		<fieldDescription><![CDATA[partner_id/title/name]]></fieldDescription>
+	</field>
+	<field name="partner_name" class="java.lang.String">
+		<fieldDescription><![CDATA[partner_id/name]]></fieldDescription>
+	</field>
+	<background>
+		<band height="369" splitType="Stretch">
+			<image>
+				<reportElement x="0" y="0" width="792" height="369"/>
+				<imageExpression class="java.lang.String"><![CDATA["/home/podkung/Workspaces/cft/cft/jasper_forms_cft/jrxml_reports/letter_cover.jpg"]]></imageExpression>
+			</image>
+			<rectangle>
+				<reportElement x="306" y="119" width="403" height="168"/>
+				<graphicElement>
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+		</band>
+	</background>
+	<pageHeader>
+		<band height="369" splitType="Stretch">
+			<textField isBlankWhenNull="true">
+				<reportElement mode="Transparent" x="320" y="127" width="403" height="242" forecolor="#000000" backcolor="#FFFFFF"/>
+				<textElement textAlignment="Left" verticalAlignment="Top" rotation="None" lineSpacing="1_1_2" markup="none">
+					<font fontName="Monospaced" size="14" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H" isPdfEmbedded="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{title} + " " + $F{partner_name} + "\n" +
+(new Scriptlet()).getAddress(
+    $F{street},
+    $F{city},
+    $F{township},
+    $F{district},
+    $F{province},
+    $F{zip})
++ " " + $F{country}.toString()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+</jasperReport>
