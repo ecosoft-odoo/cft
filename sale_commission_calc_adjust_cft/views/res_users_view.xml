@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="view_users_form" model="ir.ui.view">
+            <field name="name">view.users.form</field>
+            <field name="model">res.users</field>
+            <field name="inherit_id" ref="base.view_users_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//notebook" position="inside">
+                    <page string="Target Amount">
+                        <field name="target_amount_ids" nolabel="1">
+                            <tree editable="bottom">
+                                <field name="period_id" required="1"/>
+                                <field name="target_amount"/>
+                            </tree>
+                        </field>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</openerp>

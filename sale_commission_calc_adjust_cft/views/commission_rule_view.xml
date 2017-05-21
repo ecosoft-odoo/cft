@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <!-- Customer Rate -->
+        <record id="view_customer_rate" model="ir.ui.view">
+            <field name="name">Customer Rates</field>
+            <field name="model">res.partner.rank</field>
+            <field name="arch" type="xml">
+                <tree string="Customer Rates" editable="bottom">
+                    <field name="name" readonly="1"/>
+                    <field name="salesperson_commission"/>
+                    <field name="sales_team_commission"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_customer_rate" model="ir.actions.act_window">
+            <field name="name">Customer Rates</field>
+            <field name="res_model">res.partner.rank</field>
+            <field name="view_type">form</field>
+            <field name="view_id" ref="view_customer_rate"/>
+        </record>
+
+        <menuitem name="Customer Rates" id="menu_customer_rate" parent="sale_commission_calc.menu_commission_calc_rate"
+            action="action_customer_rate" sequence="40" groups="sale_commission_calc.group_sale_commission_calc_user"/>
+    </data>
+</openerp>

@@ -101,11 +101,39 @@
         </field>
     </record>
 
+    <record id="view_rank_tree" model="ir.ui.view">
+        <field name="name">view.rank.tree</field>
+        <field name="model">res.partner.rank</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_rank_form" model="ir.ui.view">
+        <field name="name">view.rank.form</field>
+        <field name="model">res.partner.rank</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <group>
+                        <field name="description"/>
+                    </group>
+                    <group>
+                        <field name="name"/>
+                    </group>
+                </group>
+            </form>
+        </field>
+    </record>
+
     <record id="action_partner_rank_partner" model="ir.actions.act_window">
         <field name="name">Ranks</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">res.partner.rank</field>
         <field name="view_type">form</field>
+        <field name="view_id" ref="view_rank_tree"/>
         <field name="help">Manage the partner ranks you want to have available in your system.</field>
     </record>
 

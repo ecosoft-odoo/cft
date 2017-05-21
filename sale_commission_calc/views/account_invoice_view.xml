@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record model="ir.ui.view" id="invoice_form_ext">
+            <field name="name">invoice.form.ext</field>
+            <field name="model">account.invoice</field>
+            <field name="inherit_id" ref="account.invoice_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//form/sheet/notebook/page[@string='Other Info']/group" position="after">
+                    <group colspan="2" col="2">
+                        <separator colspan="2" string="Salesperson/Team and Commission"/>
+                        <field name="sale_team_ids" nolabel="1">
+                            <tree string="Salesperson/Teams and Commissions" editable="top">
+                                <field name="invoice_id" invisible="1"/>
+                                <field name="salesperson_id"/>
+                                <field name="sale_team_id"/>
+                                <field name="commission_rule_id"/>
+                            </tree>
+                        </field>
+                    </group>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</openerp>

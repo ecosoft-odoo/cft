@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="1">
+        <!-- Product -->
+        <record model="product.product" id="product_product_commission">
+            <field name="name">Sale Commission</field>
+            <field name="type">service</field>
+        </record>
+    </data>
+</openerp>
