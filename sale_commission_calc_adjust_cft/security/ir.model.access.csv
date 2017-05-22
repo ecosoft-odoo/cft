@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_target_amount,target.amount,model_target_amount,base.group_user,1,1,1,1
+access_sales_invoice_percent,sales.invoice.percent,model_sales_invoice_percent,base.group_user,1,1,1,1
+access_teams_invoice_percent,teams.invoice.percent,model_teams_invoice_percent,base.group_user,1,1,1,1

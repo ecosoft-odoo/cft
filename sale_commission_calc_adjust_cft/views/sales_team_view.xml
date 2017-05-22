@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="section_corporate" model="ir.ui.view">
+            <field name="name">section.corporate</field>
+            <field name="model">crm.case.section</field>
+            <field name="inherit_id" ref="sales_team.crm_case_section_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//notebook" position="inside">
+                    <page string="Target Amount">
+                        <field name="target_amount_ids" nolabel="1">
+                            <tree editable="bottom">
+                                <field name="period_id" required="1"/>
+                                <field name="target_amount"/>
+                            </tree>
+                        </field>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="view_sale_teams_commission_rule" model="ir.ui.view">
+            <field name="name">view.sale.teams.commission.rule</field>
+            <field name="model">crm.case.section</field>
+            <field name="arch" type="xml">
+                <tree string="Sale Teams Commission Rule" editable="top">
+                    <field name="name" readonly="1"/>
+                    <field name="commission_rule_id"/>
+                    <field name="last_pay_date_rule" attrs="{'required': [('commission_rule_id','!=',False)]}"/>
+                    <field name="require_paid"/>
+                    <field name="allow_overdue"/>
+                    <field name="buffer_days"/>
+                    <field name="active" readonly="1"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="sale_commission_calc.action_sale_team_form" model="ir.actions.act_window">
+            <field name="res_model">crm.case.section</field>
+            <field name="view_id" ref="view_sale_teams_commission_rule"/>
+        </record>
+    </data>
+</openerp>

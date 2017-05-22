@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="view_company_form" model="ir.ui.view">
+            <field name="name">res.company.form</field>
+            <field name="model">res.company</field>
+            <field name="inherit_id" ref="base.view_company_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//notebook" position="inside">
+                    <page string="Commission">
+                        <group>
+                            <group>
+                                <separator string="Selesperson Invoice" colspan="4"/>
+                                <field name="sales_invoice_percent_ids" colspan="4" nolabel="1">
+                                    <tree editable="bottom">
+                                        <field name="compare" required="1"/>
+                                        <field name="target_percent" required="1"/>
+                                        <field name="invoice_percent"/>
+                                    </tree>
+                                </field>
+                            </group>
+                            <group>
+                                <separator string="Sales Teams Invoice" colspan="4"/>
+                                <field name="teams_invoice_percent_ids" colspan="4" nolabel="1">
+                                    <tree editable="bottom">
+                                        <field name="compare" required="1"/>
+                                        <field name="target_percent" required="1"/>
+                                        <field name="invoice_percent" string="Rate"/>
+                                    </tree>
+                                </field>
+                            </group>
+                        </group>
+                        <group>
+                            <group>
+                                <separator string="Salesperson KPI" colspan="4"/>
+                                <field name="sales_kpi_pass"/>
+                                <field name="sales_kpi_fail"/>
+                            </group>
+                            <group>
+                                <separator string="Sales Teams KPI" colspan="4"/>
+                                <field name="teams_kpi_pass"/>
+                                <field name="teams_kpi_fail"/>
+                            </group>
+                        </group>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</openerp>
