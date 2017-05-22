@@ -13,7 +13,6 @@ access_account_move_reconcile_user,account.move.reconcile user,account.model_acc
 access_product_product_user,product.product user,product.model_product_product,sale_commission_calc.group_sale_commission_calc_user,1,1,0,0
 access_product_category_user,product.category user,product.model_product_category,sale_commission_calc.group_sale_commission_calc_user,1,1,0,0
 access_res_users_user,res.users user,base.model_res_users,sale_commission_calc.group_sale_commission_calc_user,1,1,0,0
-access_sale_team_user,sale.team user,sale_commission_calc.model_sale_team,base.group_user,1,1,1,1
 access_account_invoice_team_user,account.invoice.team user,sale_commission_calc.model_account_invoice_team,base.group_user,1,1,1,1
 access_commission_rate_step_all_user,commission.rate.step all user,sale_commission_calc.model_commission_rate_step,base.group_user,1,0,0,0
 access_res_users_manager,res.users manager,base.model_res_users,sale_commission_calc.group_sale_commission_calc_manager,1,1,1,0

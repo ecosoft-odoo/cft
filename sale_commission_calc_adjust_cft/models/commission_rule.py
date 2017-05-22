@@ -37,6 +37,3 @@ class CommissionRule(models.Model):
         COMMISSION_RULE,
         default='percent_sale_commission',
     )
-    sale_team_ids = fields.One2many(
-        'crm.case.section',
-    )
