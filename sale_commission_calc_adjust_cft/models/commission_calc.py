@@ -38,13 +38,13 @@ class CommissionWorksheet(models.Model):
     def _calculate_categ_commission(self, invoice):
         categ_commission_amt = 0.0
         for line in invoice.invoice_line:
-            percent_commission_categ = line.product_id.categ_id \
-                                        .percent_commission
+            percent_commission_categ = \
+                line.product_id.categ_id.percent_commission
             categ_commission_rate = percent_commission_categ \
                 and percent_commission_categ / 100 or 0.0
             if categ_commission_rate:
-                categ_commission_amt += line.price_subtotal \
-                                    * categ_commission_rate
+                categ_commission_amt += \
+                    line.price_subtotal * categ_commission_rate
         return categ_commission_amt
 
     @api.model
@@ -77,7 +77,7 @@ class CommissionWorksheet(models.Model):
         return rate and rate or 0.0
 
     @api.model
-    def _calculate_percent_sale(self, rule, worksheet, invoices):
+    def _calculate_cft_commission(self, rule, worksheet, invoices):
         context = self._context.copy()
         is_team = context.get('is_team', False)
         worksheet_lines = []
@@ -114,8 +114,8 @@ class CommissionWorksheet(models.Model):
 
             if not context.get('is_team', False):
                 # For Category Commission Amount
-                categ_commission_amt = self._calculate_categ_commission(
-                                                invoice)
+                categ_commission_amt = \
+                    self._calculate_categ_commission(invoice)
                 kpi = worksheet.kpi_criteria and company.sales_kpi_pass \
                     or company.sales_kpi_fail
                 commission_amt = (categ_commission_amt + cus_commission_amt +
@@ -152,8 +152,8 @@ class CommissionWorksheet(models.Model):
 
     @api.model
     def _calculate_commission(self, rule, worksheet, invoices):
-        if rule.type == 'percent_sale_commission':
-            return self._calculate_percent_sale(rule, worksheet, invoices)
+        if rule.type == 'cft_sale_commission':
+            return self._calculate_cft_commission(rule, worksheet, invoices)
         if rule.type == 'percent_customer':
             return self._calculate_percent_customer(rule, worksheet, invoices)
         res = super(CommissionWorksheet, self)._calculate_commission(rule,
