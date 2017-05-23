@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="cft_envelope_cover_form" language="groovy" pageWidth="792" pageHeight="612" orientation="Landscape" columnWidth="792" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0">
 	<property name="ireport.zoom" value="0.9090909090909103"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="89"/>
+	<property name="ireport.y" value="343"/>
 	<parameter name="SUBREPORT_DIR" class="java.lang.String"/>
 	<queryString language="xPath">
 		<![CDATA[/data/record]]>
@@ -38,7 +38,7 @@
 		<band height="369" splitType="Stretch">
 			<image>
 				<reportElement x="0" y="0" width="792" height="369"/>
-				<imageExpression class="java.lang.String"><![CDATA["/home/podkung/Workspaces/cft/cft/jasper_forms_cft/jrxml_reports/letter_cover.jpg"]]></imageExpression>
+				<imageExpression class="java.lang.String"><![CDATA[$P{SUBREPORT_DIR} + "letter_cover.jpg"]]></imageExpression>
 			</image>
 			<rectangle>
 				<reportElement x="306" y="119" width="403" height="168"/>
