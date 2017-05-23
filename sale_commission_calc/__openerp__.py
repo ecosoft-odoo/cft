@@ -124,7 +124,7 @@ Group / Securities
     'sequence': 8,
     'website': 'http://www.ecosoft.co.th',
     'images': [],
-    'depends': ['product', 'sale', 'account', ],
+    'depends': ['product', 'sale', 'sales_team', 'account', ],
     'demo': [],
     'init_xml': [
         'views/commission_data.xml',
