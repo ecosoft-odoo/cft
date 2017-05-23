@@ -263,17 +263,22 @@ class CommissionWorksheet(models.Model):
             total = 0.0
             # Update line status first.
             worksheet.worksheet_lines.update_commission_line_status()
+            # Need to read state again as they are updated by SQL
+            # If we use from existing recordset, it will give old cached value
+            lines_read = worksheet.worksheet_lines.read(['commission_state'])
+            lines_dict = {l['id']: l['commission_state'] for l in lines_read}
             # Start calculation.
             for line in worksheet.worksheet_lines:
-                if line.commission_state == 'draft':
+                line_commission_state = lines_dict[line.id]
+                if line_commission_state == 'draft':
                     worksheet.amount_draft += line.amount_subtotal
-                if line.commission_state == 'valid':
+                if line_commission_state == 'valid':
                     worksheet.amount_valid += line.amount_subtotal
-                if line.commission_state == 'invalid':
+                if line_commission_state == 'invalid':
                     worksheet.amount_invalid += line.amount_subtotal
-                if line.commission_state == 'done':
+                if line_commission_state == 'done':
                     worksheet.amount_done += line.amount_subtotal
-                if line.commission_state == 'skip':
+                if line_commission_state == 'skip':
                     worksheet.amount_skip += line.amount_subtotal
                 total += line.amount_subtotal
             worksheet.amount_total = total
@@ -962,7 +967,6 @@ class CommissionWorksheetLine(models.Model):
         params = self._get_commission_params()
         # For each worksheet line,
         for line in self:
-
             # If Not Invoice Lines
             if not line.invoice_id:
                 return True
