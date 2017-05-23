@@ -39,9 +39,9 @@ COMMISSION_LINE_STATE = [('draft', 'Not Ready'),
                          ('skip', 'Skipped'), ]
 
 
-class SaleTeam(models.Model):
+class SalesTeam(models.Model):
 
-    _name = 'sale.team'
+    _inherit = 'crm.case.section'
     _description = 'Sales Team'
 
     name = fields.Char(
@@ -60,7 +60,7 @@ class SaleTeam(models.Model):
         string='Users',
     )
     implied_ids = fields.Many2many(
-        'sale.team',
+        'crm.case.section',
         'sale_team_implied_rel', 'tid', 'hid',
         string='Inherits',
         help="Users of this group automatically inherit those groups",
@@ -91,7 +91,10 @@ class SaleTeam(models.Model):
         "to be eligible for commission.",
         default=0,
     )
-
+    commission_for_every_member = fields.Boolean(
+        string='Commission for every member',
+        default=False,
+    )
     _sql_constraints = [
         ('name_uniq', 'unique (name)', 'The name of the team must be unique !')
     ]
@@ -112,7 +115,7 @@ class CommissionWorksheet(models.Model):
         default='/',
     )
     sale_team_id = fields.Many2one(
-        'sale.team',
+        'crm.case.section',
         string='Team',
         required=False,
         readonly=True,
@@ -405,7 +408,9 @@ class CommissionWorksheet(models.Model):
             if worksheet.salesperson_id:
                 users = [worksheet.salesperson_id]
             elif worksheet.sale_team_id:
-                users = worksheet.sale_team_id.users
+                users = [worksheet.sale_team_id.user_id]
+                if worksheet.sale_team_id.commission_for_every_member:
+                    users = worksheet.sale_team_id.member_ids
             else:
                 continue
 

@@ -24,11 +24,6 @@
 ##############################################################################
 from openerp import models, fields
 
-LAST_PAY_DATE_RULE = [
-    ('invoice_duedate', 'Invoice Due Date (default)'),
-    ('invoice_date_plus_cust_payterm', 'Invoice Date + Customer Payment Term'),
-]
-
 
 class SalesTeam(models.Model):
     _inherit = 'crm.case.section'
@@ -36,34 +31,4 @@ class SalesTeam(models.Model):
     target_amount_ids = fields.One2many(
         'target.amount', 'team_ids',
         string='Target Amount',
-    )
-    commission_rule_id = fields.Many2one(
-        'commission.rule',
-        string='Applied Commission',
-        required=False,
-        readonly=False,
-    )
-    require_paid = fields.Boolean(
-        string='Require Paid Invoice',
-        help="Require invoice to be paid in full amount.",
-        default=False,
-    )
-    require_posted = fields.Boolean(
-        string='Require Payment Detail Posted',
-        help="Require that all payment detail related to payments "
-             "to invoice has been posted.",
-        default=False,
-    )
-    allow_overdue = fields.Boolean(
-        string='Allow Overdue Payment',
-        help="Allow paying commission with overdue payment.",
-        default=False,
-    )
-    last_pay_date_rule = fields.Selection(
-        LAST_PAY_DATE_RULE,
-        string='Last Pay Date Rule',
-    )
-    buffer_days = fields.Integer(
-        string='Buffer Days',
-        default=0,
     )

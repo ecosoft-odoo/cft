@@ -62,7 +62,7 @@ class CommissionRule(models.Model):
         default=True,
     )
     sale_team_ids = fields.One2many(
-        'sale.team',
+        'crm.case.section',
         'commission_rule_id',
         string='Teams',
     )

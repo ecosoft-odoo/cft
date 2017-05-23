@@ -38,7 +38,7 @@ class AccountInvoiceTeam(models.Model):
         required=False,
     )
     sale_team_id = fields.Many2one(
-        'sale.team',
+        'crm.case.section',
         string='Team',
         required=False,
     )
@@ -93,36 +93,17 @@ class AccountInvoice(models.Model):
         team_recs = []
         if user:
             self._cr.execute("""
-                select a.tid team_id, b.tid as inherit_id
-                from sale_team_users_rel a
-                left outer join sale_team_implied_rel b on b.hid = a.tid
-                where uid = %s """, (user.id,))
-            team_ids = []
-            for team_id, inherit_id in self._cr.fetchall():
-                if team_id not in team_ids:
-                    team_ids.append(team_id)
-                if inherit_id:
-                    if inherit_id not in team_ids:
-                        team_ids.append(inherit_id)
-
-                    def _get_all_inherited_team(team_ids, inherit_id):
-                        self._cr.execute("""
-                            select tid as interit_id from sale_team_implied_rel
-                            where hid = %s and tid != hid """, (inherit_id,))
-                        for team_id in self._cr.fetchall():
-                            if team_id[0] not in team_ids:
-                                team_ids.append(team_id[0])
-                            team_ids = _get_all_inherited_team(team_ids,
-                                                               team_id[0])
-                        return team_ids
-
-                    team_ids = _get_all_inherited_team(team_ids, inherit_id)
-
-            teams = self.env['sale.team'].browse(team_ids)
-            for team in teams:
-                team_recs.append({
-                    'sale_team_id': team.id,
-                    'commission_rule_id': team.commission_rule_id.id, })
+             select section.id team_id, section.commission_rule_id rule_id
+             from crm_case_section section
+             left outer join sale_member_rel rel on rel.section_id = section.id
+             left outer join res_users users on users.id = rel.member_id
+             where users.id = %s""", (user.id,))
+            for team_id, rule_id in self._cr.fetchall():
+                if rule_id:
+                    team_recs.append({
+                        'sale_team_id': team_id,
+                        'commission_rule_id': rule_id,
+                    })
         return team_recs
 
     @api.onchange('user_id')

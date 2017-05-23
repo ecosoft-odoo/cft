@@ -4,58 +4,30 @@
 
         <!-- SALE TEAM -->
 
-        <record model="ir.ui.view" id="view_sale_team_tree">
-            <field name="name">view.sale.team.tree</field>
-            <field name="model">sale.team</field>
+        <record id="view_sale_teams_commission_rule" model="ir.ui.view">
+            <field name="name">view.sale.teams.commission.rule</field>
+            <field name="model">crm.case.section</field>
             <field name="arch" type="xml">
-                <tree string="Sales Team">
-                    <field name="name"/>
+                <tree string="Sale Teams Commission Rule" editable="top">
+                    <field name="name" readonly="1"/>
                     <field name="commission_rule_id"/>
+                    <field name="last_pay_date_rule" attrs="{'required': [('commission_rule_id','!=',False)]}"/>
                     <field name="require_paid"/>
-                    <!-- <field name="require_posted"/> -->
                     <field name="allow_overdue"/>
-                    <field name="last_pay_date_rule"/>
                     <field name="buffer_days"/>
+                    <field name="commission_for_every_member"/>
+                    <field name="active" readonly="1"/>
                 </tree>
-            </field>
-        </record>
-
-        <record model="ir.ui.view" id="view_sale_team_form">
-            <field name="name">view.sale.team.form</field>
-            <field name="model">sale.team</field>
-            <field name="arch" type="xml">
-                <form string="Groups">
-                    <sheet>
-                        <group col="4">
-                            <field name="name"/>
-                            <field name="commission_rule_id"/>
-                            <field name="require_paid"/>
-                            <!-- <field name="require_posted"/> -->
-                            <field name="allow_overdue"/>
-                            <field name="last_pay_date_rule"/>
-                            <field name="buffer_days"/>
-                        </group>
-                        <notebook>
-                            <page string="Team Member">
-                                <field name="users"/>
-                            </page>
-                            <page string="Inherited Team">
-                                <label string="This team is the parent of the following teams"/>
-                                <field name="implied_ids"/>
-                            </page>
-                        </notebook>
-                    </sheet>
-                </form>
             </field>
         </record>
 
         <record model="ir.actions.act_window" id="action_sale_team_form">
             <field name="name">Sale Teams</field>
             <field name="type">ir.actions.act_window</field>
-            <field name="res_model">sale.team</field>
+            <field name="res_model">crm.case.section</field>
             <field name="view_type">form</field>
             <field name="view_mode">tree,form</field>
-            <field name="view_id" ref="view_sale_team_tree"/>
+            <field name="view_id" ref="view_sale_teams_commission_rule"/>
         </record>
 
         <!-- COMMISSION WORKSHEET -->

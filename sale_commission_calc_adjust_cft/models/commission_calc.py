@@ -33,9 +33,6 @@ class CommissionWorksheet(models.Model):
         string='KPI (Passed/Failed)',
         default=False,
     )
-    sale_team_id = fields.Many2one(
-        'crm.case.section',
-    )
 
     @api.model
     def _calculate_categ_commission(self, invoice):
@@ -126,10 +123,11 @@ class CommissionWorksheet(models.Model):
             else:
                 kpi = worksheet.kpi_criteria and company.teams_kpi_pass \
                     or company.teams_kpi_fail
+                comm_percent = 0.0
                 if invoice.partner_id and invoice.partner_id.customer_rank:
-                    rank = invoice.partner_id.customer_rank. \
+                    comm_percent = invoice.partner_id.customer_rank. \
                         sales_team_commission
-                commission_amt = cus_commission_amt * rank / 100 * \
+                commission_amt = cus_commission_amt * comm_percent / 100 * \
                     invoice_comm_rate * kpi
 
             res = self._prepare_worksheet_line(worksheet, invoice,
