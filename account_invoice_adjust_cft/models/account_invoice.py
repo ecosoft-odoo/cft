@@ -32,7 +32,6 @@ class AccountInvoice(models.Model):
     order_id = fields.Many2one(
         'sale.order',
         compute='_compute_order_id',
-        store=True,
     )
 
     @api.multi
@@ -41,16 +40,35 @@ class AccountInvoice(models.Model):
         Order = self.env['sale.order']
         Picking = self.env['stock.picking']
         for invoice in self:
-            origin = invoice.origin and invoice.origin.split(':')[0] or False
             invoice.order_id = False
-            if origin:
+            order = False
+            picking = False
+            old_picking = False
+            origins = invoice.origin and invoice.origin.split(':') or []
+            for origin in origins:
+                origin = origin.strip()
 
-                # Find order_name for stock picking
-                if origin.find('WH') != -1:
-                    picking = Picking.search([('name', '=', origin)])
-                    origin = picking and picking.origin.split(':')[0] or False
+                # Find order from origin
+                order = Order.search([('name', '=', origin)])
+                if order:
+                    break
 
-                # Find order_id
-                if origin and origin.find('SO') != -1:
+                # Find picking from origin
+                picking = Picking.search([('name', '=', origin)])
+                if picking:
+                    old_picking = picking
+                else:
+                    picking = old_picking
+            # Assign order_id in invoice
+            if order:
+                invoice.order_id = order.id
+            elif picking:
+                origins = picking.origin and picking.origin.split(':') or []
+                for origin in origins:
+                    origin = origin.strip()
+
+                    # Find order from origin
                     order = Order.search([('name', '=', origin)])
-                    invoice.order_id = order and order.id or False
+                    if order:
+                        invoice.order_id = order.id
+                        break

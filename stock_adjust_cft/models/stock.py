@@ -32,7 +32,6 @@ class StockPicking(models.Model):
     order_id = fields.Many2one(
         'sale.order',
         compute='_compute_order_id',
-        store=True,
     )
 
     @api.multi
@@ -40,8 +39,11 @@ class StockPicking(models.Model):
     def _compute_order_id(self):
         Order = self.env['sale.order']
         for picking in self:
-            origin = picking.origin and picking.origin.split(':')[0] or False
             picking.order_id = False
-            if origin:
+            origins = picking.origin and picking.origin.split(':') or []
+            for origin in origins:
+                origin = origin.strip()
                 order = Order.search([('name', '=', origin)])
-                picking.order_id = order and order.id or False
+                if order:
+                    picking.order_id = order.id
+                    break
