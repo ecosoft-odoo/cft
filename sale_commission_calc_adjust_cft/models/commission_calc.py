@@ -219,37 +219,18 @@ class CommissionWorksheet(models.Model):
 class CommissionWorksheetLine(models.Model):
     _inherit = 'commission.worksheet.line'
 
-    is_leader = fields.Boolean(
-        string='Leader',
-        compute='_calculate_leader',
-        readonly='1',
-    )
-
-    @api.model
-    def _check_is_leader(self):
-        leader_id = (self.worksheet_id and
-                     self.worksheet_id.sale_team_id and
-                     self.worksheet_id.sale_team_id.user_id) and \
-                     self.worksheet_id.sale_team_id.user_id.id or False
-        user_id = (self.invoice_id and self.invoice_id.user_id) and \
-            self.invoice_id.user_id.id or False
-        if leader_id == user_id:
-            return True
-        return False
-
-    @api.multi
-    @api.depends('invoice_id')
-    def _calculate_leader(self):
-        for line in self:
-            line.is_leader = False
-            if line._check_is_leader():
-                line.is_leader = True
-
     @api.model
     def _check_commission_line_status(self, line, params):
         res = super(CommissionWorksheetLine, self). \
             _check_commission_line_status(line, params)
         if self._context.copy().get('is_team', False):
-            if line._check_is_leader():
-                res.update({'commission_state': 'draft'})
+            leader_id = (line.worksheet_id and
+                         line.worksheet_id.sale_team_id and
+                         line.worksheet_id.sale_team_id.user_id) and \
+                         line.worksheet_id.sale_team_id.user_id.id or False
+            user_id = (line.invoice_id and line.invoice_id.user_id) and \
+                line.invoice_id.user_id.id or False
+            if leader_id == user_id:
+                line.write({'note': 'Team Lead'})
+                res.update({'commission_state': 'invalid'})
         return res

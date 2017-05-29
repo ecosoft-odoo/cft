@@ -9,9 +9,6 @@
                 <field name="salesperson_id" position="after">
                     <field name="kpi_criteria" attrs="{'readonly': [('state', 'not in', ('draft'))]}"/>
                 </field>
-                <xpath expr="//notebook/page[@string='Worksheet Details']/field/tree/field[@name='partner_id']" position="after">
-                    <field name="is_leader" invisible="not context.get('is_team', False)"/>
-                </xpath>
             </field>
         </record>
         <record id="view_salesperson_commission_rule" model="ir.ui.view">
