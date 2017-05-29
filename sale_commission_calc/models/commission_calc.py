@@ -51,8 +51,9 @@ class SalesTeam(models.Model):
     )
     commission_rule_id = fields.Many2one(
         'commission.rule',
-        string='Commission Rule',
+        string='Applied Commission',
         required=False,
+        readonly=False,
     )
     users = fields.Many2many(
         'res.users',

@@ -27,7 +27,7 @@ class CommissionRule(models.Model):
     type = fields.Selection(
         selection_add=[
             ('percent_customer', 'Customer Commission Rate'),
-            ('cft_sale_commission', 'CFT Commission Rate'),
+            ('cft_sale_commission', 'CFT Sale Commission Rate'),
+            ('cft_team_commission', 'CFT Team Commission Rate'),
         ],
-        default='cft_sale_commission',
     )
