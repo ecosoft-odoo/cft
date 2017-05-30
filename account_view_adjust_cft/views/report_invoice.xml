@@ -65,6 +65,13 @@
                     </div>
                 </div>
             </xpath>
+            <xpath expr="//t/div/div/div[@class='col-xs-4 pull-right']" position="before">
+                <div class="col-xs-8 pull-left">
+                    <table class="table table-condensed">
+                        <tr><td style="border:0px;padding-top:67px;">(<span t-esc="o.amount_to_text_th(o.amount_total, o.currency_id.name)"/>)</td></tr>
+                    </table>
+                </div>
+            </xpath>
         </template>
     </data>
 </openerp>
