@@ -30,6 +30,9 @@ class stock_history(models.Model):
         'res.partner',
         string='Supplier',
     )
+    supplier = fields.Boolean(
+        string='Supplier',
+    )
 
     # Replace view stock_history
     def init(self, cr):
@@ -46,7 +49,8 @@ class stock_history(models.Model):
                 date,
                 COALESCE(SUM(price_unit_on_quant * quantity) / NULLIF(SUM(quantity), 0), 0) as price_unit_on_quant,
                 source,
-                partner_id
+                partner_id,
+                supplier
                 FROM
                 ((SELECT
                     stock_move.id AS id,
@@ -59,7 +63,8 @@ class stock_history(models.Model):
                     stock_move.date AS date,
                     quant.cost as price_unit_on_quant,
                     stock_move.origin AS source,
-                    stock_picking.partner_id AS partner_id
+                    stock_picking.partner_id AS partner_id,
+                    res_partner.supplier AS supplier
                 FROM
                     stock_move
                 JOIN
@@ -76,6 +81,8 @@ class stock_history(models.Model):
                     product_template ON product_template.id = product_product.product_tmpl_id
                 FULL OUTER JOIN
                     stock_picking ON stock_picking.id = stock_move.picking_id
+                FULL OUTER JOIN
+                    res_partner ON res_partner.id = stock_picking.partner_id
                 WHERE quant.qty>0 AND stock_move.state = 'done' AND dest_location.usage in ('internal', 'transit')
                   AND (
                     not (source_location.company_id is null and dest_location.company_id is null) or
@@ -93,7 +100,8 @@ class stock_history(models.Model):
                     stock_move.date AS date,
                     quant.cost as price_unit_on_quant,
                     stock_move.origin AS source,
-                    stock_picking.partner_id AS partner_id
+                    stock_picking.partner_id AS partner_id,
+                    res_partner.supplier AS supplier
                 FROM
                     stock_move
                 JOIN
@@ -110,6 +118,8 @@ class stock_history(models.Model):
                     product_template ON product_template.id = product_product.product_tmpl_id
                 FULL OUTER JOIN
                     stock_picking ON stock_picking.id = stock_move.picking_id
+                FULL OUTER JOIN
+                    res_partner ON res_partner.id = stock_picking.partner_id
                 WHERE quant.qty>0 AND stock_move.state = 'done' AND source_location.usage in ('internal', 'transit')
                  AND (
                     not (dest_location.company_id is null and source_location.company_id is null) or
@@ -117,5 +127,5 @@ class stock_history(models.Model):
                     dest_location.usage not in ('internal', 'transit'))
                 ))
                 AS foo
-                GROUP BY move_id, location_id, company_id, product_id, product_categ_id, date, source, partner_id
+                GROUP BY move_id, location_id, company_id, product_id, product_categ_id, date, source, partner_id, supplier
             )""")
