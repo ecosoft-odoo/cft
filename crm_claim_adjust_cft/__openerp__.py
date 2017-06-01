@@ -14,7 +14,8 @@
         'crm_claim',
     ],
     "data": [
-        'views/crm_claim_views.xml'
+        'views/crm_claim_views.xml',
+        'views/crm_claim_menu.xml',
     ],
     "js": [
     ],
