@@ -84,7 +84,7 @@ and report_period_id = $P{report_period_id}]]>
 					<text><![CDATA[ชื่อสถานประกอบการ :]]></text>
 				</staticText>
 				<staticText>
-					<reportElement x="301" y="84" width="133" height="15"/>
+					<reportElement x="301" y="84" width="144" height="15"/>
 					<textElement verticalAlignment="Top" lineSpacing="Single" markup="none">
 						<font fontName="Monospaced" size="10" isBold="false" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
 					</textElement>
@@ -98,7 +98,7 @@ and report_period_id = $P{report_period_id}]]>
 					<textFieldExpression class="java.lang.String"><![CDATA[$F{month}]]></textFieldExpression>
 				</textField>
 				<textField isBlankWhenNull="true">
-					<reportElement x="434" y="61" width="126" height="15"/>
+					<reportElement x="444" y="61" width="126" height="15"/>
 					<textElement>
 						<font fontName="Monospaced" size="10" isBold="false" isStrikeThrough="false" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
 					</textElement>
@@ -112,7 +112,7 @@ and report_period_id = $P{report_period_id}]]>
 					<textFieldExpression class="java.lang.String"><![CDATA[$P{company_name}]]></textFieldExpression>
 				</textField>
 				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
-					<reportElement x="434" y="84" width="126" height="15"/>
+					<reportElement x="444" y="84" width="126" height="15"/>
 					<textElement>
 						<font fontName="Monospaced" size="10" isBold="false" isStrikeThrough="false" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
 					</textElement>
@@ -147,7 +147,7 @@ and report_period_id = $P{report_period_id}]]>
 					<textFieldExpression class="java.lang.String"><![CDATA[$P{branch_name}]]></textFieldExpression>
 				</textField>
 				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
-					<reportElement x="434" y="108" width="126" height="15"/>
+					<reportElement x="444" y="108" width="126" height="15"/>
 					<textElement>
 						<font fontName="Monospaced" size="10" isBold="false" isStrikeThrough="false" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
 					</textElement>
