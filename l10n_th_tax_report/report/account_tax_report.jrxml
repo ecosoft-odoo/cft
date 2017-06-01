@@ -77,7 +77,7 @@ and report_period_id = $P{report_period_id}]]>
 		<groupHeader>
 			<band height="135">
 				<staticText>
-					<reportElement x="0" y="108" width="109" height="15"/>
+					<reportElement x="0" y="108" width="119" height="15"/>
 					<textElement verticalAlignment="Top" lineSpacing="Single" markup="none">
 						<font fontName="Monospaced" size="10" isBold="false" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
 					</textElement>
@@ -91,7 +91,7 @@ and report_period_id = $P{report_period_id}]]>
 					<text><![CDATA[เลขประจำตัวผู้เสียภาษี :]]></text>
 				</staticText>
 				<textField isBlankWhenNull="true">
-					<reportElement x="109" y="61" width="169" height="15"/>
+					<reportElement x="119" y="61" width="169" height="15"/>
 					<textElement>
 						<font fontName="Monospaced" size="10" isBold="false" isStrikeThrough="false" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
 					</textElement>
@@ -105,7 +105,7 @@ and report_period_id = $P{report_period_id}]]>
 					<textFieldExpression class="java.lang.String"><![CDATA[$F{year}]]></textFieldExpression>
 				</textField>
 				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
-					<reportElement x="109" y="84" width="169" height="25"/>
+					<reportElement x="119" y="84" width="169" height="25"/>
 					<textElement>
 						<font fontName="Monospaced" size="10" isBold="false" isStrikeThrough="false" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
 					</textElement>
@@ -140,7 +140,7 @@ and report_period_id = $P{report_period_id}]]>
 					<text><![CDATA[รหัสสาขา :]]></text>
 				</staticText>
 				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
-					<reportElement x="109" y="108" width="169" height="25"/>
+					<reportElement x="119" y="108" width="169" height="25"/>
 					<textElement>
 						<font fontName="Monospaced" size="10" isBold="false" isStrikeThrough="false" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
 					</textElement>
