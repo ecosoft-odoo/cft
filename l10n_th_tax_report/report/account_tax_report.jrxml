@@ -105,7 +105,7 @@ and report_period_id = $P{report_period_id}]]>
 					<textFieldExpression class="java.lang.String"><![CDATA[$F{year}]]></textFieldExpression>
 				</textField>
 				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
-					<reportElement x="119" y="84" width="169" height="25"/>
+					<reportElement x="119" y="84" width="169" height="24"/>
 					<textElement>
 						<font fontName="Monospaced" size="10" isBold="false" isStrikeThrough="false" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
 					</textElement>
