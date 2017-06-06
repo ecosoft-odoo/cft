@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="1">
+
+        # Bank Payment
+        <record id="doctype_bank_payment_seq" model="ir.sequence">
+            <field name="name">DOCTYPE: Bank Payment</field>
+            <field name="code"></field>
+            <field name="special_type">doctype</field>
+            <field name="prefix">PC.CFT.</field>
+            <field name="suffix">/%(fy)s</field>
+            <field eval="5" name="padding"/>
+            <field eval="1" name="number_increment"/>
+            <field eval="1" name="number_next_actual"/>
+            <field name="implementation">no_gap</field>
+        </record>
+
+    </data>
+</openerp>
