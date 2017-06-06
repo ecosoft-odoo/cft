@@ -32,7 +32,7 @@
         multi="True"
         key2="client_action_multi" name="Create Bank Payment"
         res_model="voucher.create.bank.payment.wizard" src_model="account.voucher"
-        view_mode="form" target="new" view_type="form" />
+        view_mode="form" target="new" view_type="form" context="{'bank_type': 'payment'}" />
 
 		<record id="action_voucher_create_bank_payment" model="ir.actions.act_window">
 			<field name="name">Create Bank Payment</field>
