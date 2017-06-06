@@ -136,13 +136,11 @@ class AccountBankPayment(models.Model):
         'res.users',
         string='Validated By',
         readonly=True,
-        states={'draft': [('readonly', False)]},
         copy=False,
     )
     validate_date = fields.Date(
         'Validate On',
         readonly=True,
-        states={'draft': [('readonly', False)]},
         copy=False,
     )
 
