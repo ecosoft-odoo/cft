@@ -47,3 +47,22 @@ class AccountVoucher(models.Model):
                 receipt_date = fields.Date.context_today(self)
                 voucher.move_id.create_bank_receipt(receipt_date)
         return result
+
+    @api.model
+    def fields_view_get(self, view_id=None, view_type='form', toolbar=False,
+                        submenu=False):
+        res = super(AccountVoucher, self).fields_view_get(
+            view_id, view_type, toolbar=toolbar, submenu=submenu)
+        if self._context.get('type', False) == 'receipt':
+            Window = self.env['ir.actions.act_window']
+            action = []
+            if res.get('toolbar', False) and res.get('toolbar').get('action',
+                                                                    False):
+                for act in res.get('toolbar').get('action'):
+                    window = Window.browse(act['id'])[0]
+                    if 'bank_type' not in window.context:
+                        action.append(act)
+                    elif window.context == "{'bank_type': 'receipt'}":
+                        action.append(act)
+                res['toolbar']['action'] = action
+        return res
