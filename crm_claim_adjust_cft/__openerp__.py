@@ -12,6 +12,7 @@
     "category": "CRM",
     "depends": [
         'crm_claim',
+        'sale',
     ],
     "data": [
         'views/crm_claim_views.xml',

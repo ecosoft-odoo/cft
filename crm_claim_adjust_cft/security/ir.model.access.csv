@@ -1,5 +1,7 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_crm_claim_purchase_manager,crm.claim.purchase.manager,model_crm_claim,purchase.group_purchase_manager,1,1,1,1
-access_crm_claim_purchase_user,crm.claim.purchase.user,model_crm_claim,purchase.group_purchase_user,1,1,1,0
-access_crm_claim_purchase_stage_user,crm.claim.purchase.stage.user,model_crm_claim_stage,purchase.group_purchase_user,1,1,1,1
+access_crm_claim_purchase_manager,crm.claim.purchase.manager,model_crm_claim,purchase.group_purchase_manager,1,0,0,0
+access_crm_claim_purchase_user,crm.claim.purchase.user,model_crm_claim,purchase.group_purchase_user,1,0,0,0
+access_crm_claim_sale_order_purchase_manager,crm.claim.sale.order.purchase.manager,model_sale_order,purchase.group_purchase_manager,1,0,0,0
+access_crm_claim_sale_order_purchase_user,crm.claim.sale.order.purchase.user,model_sale_order,purchase.group_purchase_user,1,0,0,0
+access_crm_claim_purchase_stage_user,crm.claim.purchase.stage.user,model_crm_claim_stage,purchase.group_purchase_user,1,0,0,0
 access_crm_claim_purchase_partner_manager,crm.claim.purchase.partner.manager,model_crm_claim,purchase.group_purchase_manager,1,0,0,0
