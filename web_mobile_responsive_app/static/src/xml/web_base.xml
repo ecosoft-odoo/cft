@@ -1,0 +1,623 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    Copyright (c) 2015 - Present Ahmed Magdy
+    All Rights Reserved
+    Author: Ahmed Magdy <ahmed.magdy40@gmail.com>
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    A copy of the GNU General Public License is available at:
+    <http://www.gnu.org/licenses/gpl.html>.
+-->
+
+<templates id="inshas_template" xml:space="preserve">
+
+    <t t-name="ResponsiveViewManager">
+        <div class="oe_view_manager">
+            <div class="oe_view_manager_header">
+                <div class="page-header oe_header_row oe_header_row_top">
+                    <div class="row">
+                        <div class="col-md-8 col-sm-12 col-sx-12">
+                            <h2 class="oe_view_title" t-if="widget.flags.display_title !== false">
+                                <span class="oe_view_title_text oe_breadcrumb_title"/>
+                            </h2>
+                            <div class="debug_section"></div>
+                        </div>
+                        <div class="oe_view_manager_view_search pull-right col-md-4 col-xs-12 col-sm-12"/>
+
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default" id="inshasviewmanagerpanel">
+                <div class="panel-heading" id="inshasview-tools">
+                    <div class="row">
+                        <div class="col-md-3 col-sm-6 col-xs-6">
+                            <div class="oe_view_manager_buttons"/>
+                        </div>
+
+                        <div class="dropdown visible-xs visible-sm oe_right">
+                            <a href="#" class="btn more_options btn-default img-circle pull-right col-sm-1 col-xs-1" data-toggle="modal" data-target="#MoreOptions">
+                                <i class="fa fa-ellipsis-v"></i>
+                            </a>
+
+                            <div class="text-center" style='display: inline;'>
+                                <pager-small>
+                                </pager-small>
+                            </div>
+                        </div>
+                        <div class="col-md-3 hidden-xs hidden-sm">
+                            <sidebar-large>
+                                <div class="oe_view_manager_sidebar"/>
+                            </sidebar-large>
+                        </div>
+                        <div class="col-md-6 hidden-xs hidden-sm">
+                            <div class="col-ms-6 oe_view_manager_switch btn-group oe_button_group oe_right" role="group">
+                                <t t-if="widget.views_src.length > 1" t-foreach="widget.views_src" t-as="view">
+                                    <a t-attf-class="btn btn-default btn-sm oe_vm_switch_#{view.view_type}" t-att-data-view-type="view.view_type" t-att-title="view.button_label"/>
+                                </t>
+                            </div>
+                            <pager-large>
+                                <div class="col-md-6 oe_view_manager_pager oe_right"/>
+                            </pager-large>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-body oe_view_manager_wrapper" id="main">
+                    <div class="oe_view_manager_body">
+                        <div class="oe_searchview_drawer_container"/>
+                        <t t-foreach="widget.views_src" t-as="view">
+                            <div t-attf-class="oe_view_manager_view_#{view.view_type}"/>
+                        </t>
+                    </div>
+                </div>
+            </div>
+            <div class="modal lg fade" id="MoreOptions" role="dialog">
+                              <div class="modal-dialog">
+                                <div class="modal-content">
+                                  <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal">×</button>
+                                    <h4 class="modal-title">More Options</h4>
+                                  </div>
+                                  <div class="modal-body text-center">
+                                      <div class="row text-center">
+                                          <div class="col-sm-12 col-xs-12">
+                                              <sidebar-small>
+                                              </sidebar-small>
+                                          </div>
+                                      </div>
+
+                                      <div class="row text-center">
+                                          <div class="col-sm-12 col-xs-12 oe_view_manager_switch btn-group oe_button_group" role="group">
+                                              <t t-if="widget.views_src.length > 1" t-foreach="widget.views_src" t-as="view">
+                                                  <a t-attf-class="btn btn-default btn-sm oe_vm_switch_#{view.view_type}" t-att-data-view-type="view.view_type" t-att-title="view.button_label"/>
+                                              </t>
+                                          </div>
+                                      </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+        </div>
+    </t>
+    <t t-name="ResponsiveViewManagerAction" t-extend="ResponsiveViewManager">
+        <t t-jquery=".debug_section" t-operation="append">
+            <select t-if="widget.session.debug" class="oe_debug_view btn btn-default btn-sm"/>
+        </t>
+    </t>
+
+    <t t-name="ResponsiveTreeView">
+        <div class="table-responsive" style="overflow-x: auto;">
+            <select t-if="toolbar" style="width: 30%">
+            </select>
+            <table cellpadding="0" cellspacing="0" border="0" class="oe_tree_table oe-treeview-table table table-striped table-bordered dataTable no-footer" id="basic-datatable" role="grid" aria-describedby="basic-datatable_info">
+            <!-- <table class="table oe_tree_table oe-treeview-table"> -->
+                <thead>
+                    <tr role="row">
+                        <th t-foreach="fields_view" t-as="field"
+                            t-if="!field.attrs.modifiers.tree_invisible" class="treeview-header sorting" tabindex="0" aria-controls="basic-datatable" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending" style="width: 174px;">
+                        <!-- <th t-foreach="fields_view" t-as="field"
+                            t-if="!field.attrs.modifiers.tree_invisible"
+                            class="treeview-header"> -->
+                            <t t-esc="field_value.attrs.string || fields[field.attrs.name].string" />
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+    </t>
+    <t t-name="ResponsiveViewPager">
+        <div class="col-md-12">
+            <div class="btn-group oe_pager_group pull-right" role="group" >
+                <a class="btn btn-sm btn-default" type="button" data-pager-action="previous">
+                    <span class="fa fa-arrow-left"></span>
+                </a>
+                <a class="btn btn-sm btn-default" type="button" data-pager-action="next">
+                    <span class="fa fa-arrow-right"></span>
+                </a>
+            </div>
+        </div>
+        <div class="col-md-12 oe_pager_value pull-right">
+            <span class="pull-right">
+                <t t-raw="0"/>
+            </span>
+        </div>
+    </t>
+    <t t-name="ResponsiveFormView.pager">
+        <div class="oe_form_pager">
+            <t t-if="widget.options.pager !== false" t-call="ResponsiveViewPager">
+                <span class="oe_form_pager_state"></span>
+            </t>
+        </div>
+    </t>
+
+    <t t-name="ResponsiveListView.pager">
+        <div class="oe_list_pager" t-att-colspan="widget.columns_count">
+            <t t-if="!widget.no_leaf and widget.options.pager !== false" t-call="ResponsiveViewPager">
+                <span class="oe_list_pager_state">
+                </span>
+            </t>
+        </div>
+    </t>
+
+
+    <div t-name="ResponsiveListView" class="table-responsive" style="overflow-x: auto;">
+        <table class="oe_list_content table table-striped table-hover dataTable no-footer" cellpadding="0" cellspacing="0" border="0" id="basic-datatable">
+            <t t-set="columns_count" t-value="visible_columns.length + (options.selectable ? 1 : 0) + (options.deletable ? 1 : 0)"/>
+            <thead>
+                <tr t-if="(!!options.action_buttons and !options.$buttons) or (!!options.pager and !options.$pager)">
+                    <th t-att-colspan="columns_count">
+                        <div class="oe_list_buttons"/>
+                        <div class="oe_list_sidebar"/>
+                        <div class="oe_list_pager"/>
+                    </th>
+                </tr>
+                <tr t-if="options.header" class="oe_list_header_columns">
+                    <t t-foreach="columns" t-as="column">
+                        <th t-if="column.meta">
+                            <t t-esc="column.string"/>
+                        </th>
+                    </t>
+                    <th t-if="options.selectable" width="1"  >
+                        <input type="checkbox" class="oe_list_record_selector"/>
+                    </th>
+                    <t t-foreach="columns" t-as="column">
+                        <th t-if="!column.meta and column.invisible !== '1'" t-att-data-id="column.id"
+                            t-attf-class="oe_list_header_#{column.widget or column.type} #{((options.sortable and column.tag !== 'button') ? 'oe_sortable' : null)}">
+                            <div>
+                                <t t-if="column.tag !== 'button'"><t t-esc="column.string"/></t>
+                            </div>
+                    </th>
+                    </t>
+                    <th t-if="options.deletable" class="oe_list_record_delete" width="13px"/>
+                </tr>
+            </thead>
+            <tfoot>
+                <tr>
+                    <td t-if="options.selectable"/>
+                    <td t-foreach="aggregate_columns" t-as="column" class="oe_list_footer oe_number"
+                        t-att-data-field="column.id" t-att-title="column.label">
+                    </td>
+                    <td t-if="options.deletable" class="oe_list_record_delete"/>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+
+    <t t-name="ResponsiveFormView">
+        <div class="oe_form">
+            <div class="oe_form_buttons"/>
+            <div class="oe_form_sidebar"/>
+            <div class="oe_form_pager"/>
+            <div class="oe_form_container"/>
+        </div>
+    </t>
+
+    <div t-name="ResponsiveFormView.buttons" class="oe_form_buttons">
+        <t t-if="widget.options.action_buttons !== false">
+            <span class="oe_form_buttons_view">
+                <!-- required for the bounce effect on button -->
+                <div t-if="widget.is_action_enabled('edit')" style="display: inline-block;">
+                    <button type="button" class="oe_button oe_form_button_edit" accesskey="E">Edit</button>
+                </div>
+                <button t-if="widget.is_action_enabled('create')"
+                    type="button" class="oe_button oe_form_button_create" accesskey="C">Create</button>
+            </span>
+            <span class="oe_form_buttons_edit">
+                <button type="button" class="oe_button oe_form_button_save oe_highlight" accesskey="S">Save</button>
+                <span class="oe_fade">or</span>
+                <a href="#" class="oe_bold oe_form_button_cancel" accesskey="D">Discard</a>
+            </span>
+        </t>
+    </div>
+
+
+    <t t-name="ResponsiveFormRenderingForm">
+        <div t-attf-class="#{classnames}">
+        </div>
+    </t>
+
+    <t t-name="FormRenderingLabel">
+        <label t-att-for="_for" t-attf-class="#{classnames} oe_form_label #{help ? 'oe_form_label_help ' : ''}">
+            <t t-esc="string"/>
+        </label>
+    </t>
+    <t t-name="ResponsiveFormRenderingSheet">
+        <div class="oe_form_sheetbg" style='display: inline-block; width:100%;'>
+            <div t-attf-class="oe_form_sheet oe_form_sheet_width #{classnames}">
+            </div>
+        </div>
+    </t>
+    <t t-name="FormRenderingNotebook">
+        <div class="oe_clear r_notebook_wrapper">
+            <ul t-attf-class="oe_notebook #{classnames}">
+                <li t-foreach="pages" t-as="page" t-att-modifiers="page.modifiers">
+                    <a t-attf-href="##{page.id}" t-att-accesskey="page.accesskey">
+                        <t t-esc="page.string"/>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </t>
+
+    <t t-name="ResponsiveFormRenderingLabel">
+        <label  t-att-for="_for"
+                t-attf-class="#{classnames} oe_form_label#{help ? '_help' : ''} oe_align_#{align}">
+            <t t-esc="string"/>
+        </label>
+    </t>
+
+    <t t-name="Sidebar">
+        <div class="oe_sidebar">
+            <t t-foreach="widget.sections" t-as="section">
+                <div class="dropdown oe_form_dropdown_section">
+                    <button class="btn btn-default dropdown-toggle oe_dropdown_toggle oe_dropdown_arrow" t-if="section.name != 'buttons'" data-toggle="dropdown">
+                        <t t-if="section.name == 'files'" t-raw="widget.items[section.name].length || ''"/>
+                        <t t-esc="section.label"/>
+                        <i class="fa fa-caret-down"/>
+                    </button>
+                    <t t-if="section.name == 'buttons'" t-foreach="widget.items[section.name]" t-as="item" t-att-class="item.classname">
+                        <button t-att-title="item.title or ''" t-att-data-section="section.name" t-att-data-index="item_index" t-att-href="item.url"
+                            target="_blank" class="oe_sidebar_button oe_highlight">
+                            <t t-raw="item.label"/>
+                        </button>
+                    </t>
+                    <ul class="dropdown-menu oe_dropdown_menu">
+                        <li t-foreach="widget.items[section.name]" t-as="item" t-att-class="item.classname">
+                            <t t-if="section.name == 'files'">
+                                <t t-set="item.title">
+                                    <b>Attachment : </b><br/>
+                                    <t t-raw="item.name"/>
+                                </t>
+                                <t t-if="item.create_uid and item.create_uid[0]" t-set="item.title">
+                                    <t t-raw="item.title"/><br/>
+                                    <b>Created by : </b><br/>
+                                    <t t-raw="item.create_uid[1] + ' ' + item.create_date"/>
+                                </t>
+                                <t t-if="item.create_uid and item.write_uid and item.create_uid[0] != item.write_uid[0]" t-set="item.title">
+                                    <t t-raw="item.title"/><br/>
+                                    <b>Modified by : </b><br/>
+                                    <t t-raw="item.write_uid[1] + ' ' + item.write_date"/>
+                                </t>
+                            </t>
+                            <a class="oe_sidebar_action_a" t-att-title="item.title or ''" t-att-data-section="section.name" t-att-data-index="item_index" t-att-href="item.url" target="_blank">
+                                <t t-raw="item.label"/>
+                            </a>
+                             <a t-if="section.name == 'files' and !item.callback" class="oe_sidebar_delete_item" t-att-data-id="item.id" title="Delete this attachment">x</a>
+                        </li>
+                        <li t-if="section.name == 'files'" class="oe_sidebar_add_attachment">
+                            <t t-call="HiddenInputFile">
+                                <t t-set="fileupload_id" t-value="widget.fileupload_id"/>
+                                <t t-set="fileupload_action" t-translation="off">/web/binary/upload_attachment</t>
+                                <input type="hidden" name="model" t-att-value="widget.dataset and widget.dataset.model"/>
+                                <input type="hidden" name="id" t-att-value="widget.model_id"/>
+                                <input type="hidden" name="session_id" t-att-value="widget.session.session_id" t-if="widget.session.override_session"/>
+                                <span>Add...</span>
+                            </t>
+                        </li>
+                    </ul>
+                </div>
+            </t>
+        </div>
+    </t>
+
+    <t t-name="UserMenu">
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                <img class="oe_topbar_avatar img-circle" t-att-data-default-src="_s + '/web/static/src/img/user_menu_avatar.png'"/>
+                <span class="hidden-sm hidden-xs oe_topbar_name user-name"/> <b class="hidden-sm hidden-xs caret"></b>
+            </a>
+            <!-- <div class="panel-body arrow dropdown-menu"> -->
+                <ul class="dropdown-menu">
+                    <li>
+                        <div class="navbar-login">
+                            <div class="row">
+                                <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
+                                    <p class="text-center">
+                                        <img class="oe_topbar_avatar img-circle" t-att-data-default-src="_s + '/web/static/src/img/user_menu_avatar.png'"/>
+                                    </p>
+                                </div>
+                                <div class="col-lg-8 col-md-12 col-sm-12 col-xs-12">
+                                    <p class="text-left"><strong><span class="oe_topbar_name user-name"/></strong></p>
+                                    <!-- <p class="text-left small">correoElectronico@email.com</p> -->
+                                    <p class="text-left">
+                                        <a href="#" class="btn btn-danger btn-block btn-sm" data-menu="logout">Log out</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="divider"></li>
+                    <li><a href="#" data-menu="settings">Preferences</a></li>
+                    <li><a href="#" data-menu="account">My Odoo.com account</a></li>
+                    <li><a href="#" data-menu="about">About Odoo</a></li>
+                    <li><a href="#" data-menu="help">Help</a></li>
+                </ul>
+            <!-- </div> -->
+        </li>
+    </t>
+
+    <div t-name="SearchView.FacetView" class="oe_tag oe_tag_dark oe_searchview_facet" tabindex="0">
+        <span class="oe_facet_remove"><i class="fa fa-times"></i></span>
+        <span class="oe_facet_category oe_i" style="font-size: 14px;" t-if="widget.model.has('icon')">
+            <t t-esc="widget.model.get('icon')"/>
+        </span>
+        <span class="oe_facet_category" t-if="!widget.model.has('icon')">
+            <t t-esc="widget.model.get('category')"/>
+        </span ><span class="oe_facet_values"/>
+    </div>
+    <div t-name="SearchView.Custom" class="oe_searchview_custom oe_searchview_section">
+        <dl class="dl-horizontal">
+            <dt><span class="oe_i"><i class="fa fa-star"></i></span> Favorites</dt>
+            <dd><ul class="oe_searchview_custom_list"/></dd>
+        </dl>
+    </div>
+    <t t-name="ResponsiveFieldChar">
+        <span t-att-class="'oe_form_field '+widget.widget_class" t-att-style="widget.node.attrs.style">
+            <t t-if="!widget.get('effective_readonly')">
+                <span class="form-group col-md-12 col-sm-12">
+                    <input t-att-type="widget.password ? 'password' : 'text'"
+                        t-att-id="widget.id_for_label"
+                        t-att-tabindex="widget.node.attrs.tabindex"
+                        t-att-autofocus="widget.node.attrs.autofocus"
+                        t-att-placeholder="widget.node.attrs.placeholder"
+                        t-att-maxlength="widget.field.size"
+                        class='form-control'
+                    /><img class="oe_field_translate oe_input_icon" t-if="widget.field.translate" t-att-src='_s + "/web/static/src/img/icons/terp-translate.png"' width="16" height="16" border="0"/>
+                </span>
+            </t>
+            <t t-if="widget.get('effective_readonly')">
+                <span class="oe_form_char_content"></span>
+            </t>
+        </span>
+    </t>
+    <t t-name="ResponsiveFieldMany2One">
+        <span class="oe_form_field oe_form_field_many2one oe_form_field_with_button" t-att-style="widget.node.attrs.style">
+            <t t-if="widget.get('effective_readonly')">
+                <a t-if="! widget.options.no_open" href="#" class="oe_form_uri"/>
+                <span t-if="widget.options.no_open" href="#" class="oe_form_uri"/>
+                <span class="oe_form_m2o_follow"/>
+            </t>
+            <t t-if="!widget.get('effective_readonly')">
+                <a t-if="! widget.options.no_open" href="#" tabindex="-1"
+                    class="oe_m2o_cm_button oe_e" draggable="false"><i class="fa fa-external-link"></i></a>
+                <span class="form-group col-md-12 col-sm-12">
+                    <span class="input-group">
+                        <input type="text"
+                            t-att-id="widget.id_for_label"
+                            t-att-tabindex="widget.node.attrs.tabindex"
+                            t-att-autofocus="widget.node.attrs.autofocus"
+                            t-att-placeholder="widget.node.attrs.placeholder"
+                            class="form-control"
+                        />
+                        <span class="input-group-addon oe_m2o_drop_down_button">
+                            <i class="fa fa-sort-down"></i>
+                        </span>
+                    </span>
+                </span>
+            </t>
+        </span>
+    </t>
+    <t t-name="inshas.datepicker">
+        <span class="form-group col-md-12 col-sm-12">
+            <span class="input-group date">
+                <t t-set="placeholder" t-value="widget.getParent().node and widget.getParent().node.attrs.placeholder"/>
+                <!-- <input type="text" class="oe_datepicker_container" disabled="disabled" style="display: none;"/> -->
+                <input type="text"
+                    t-att-name="widget.name"
+                    t-att-placeholder="placeholder"
+                    class="oe_datepicker_master form-control"
+                />
+                <span class="input-group-addon ">
+                    <span class="fa fa-calendar"></span>
+                </span>
+            </span>
+        </span>
+    </t>
+    <t t-name="ResponsiveFieldDate">
+        <span class="oe_form_field oe_datepicker_root oe_form_field_date" t-att-style="widget.node.attrs.style"/>
+    </t>
+    <t t-name="ResponsiveFieldDatetime">
+        <span class="oe_form_field oe_datepicker_root oe_form_field_datetime" t-att-style="widget.node.attrs.style"/>
+    </t>
+    <t t-name="ResponsiveOne2Many.listview" t-extend="ResponsiveListView">
+        <t t-jquery="thead.ui-widget-header > tr:first">
+            this.removeAttr('t-if');
+        </t>
+
+        <t t-jquery="td.oe-actions">
+            this.removeAttr('t-if');
+        </t>
+        <t t-jquery="td.oe-actions" t-operation="prepend">
+            <h3 class="oe_view_title"><t t-esc="fields_view.arch.attrs.string"/></h3>
+        </t>
+    </t>
+    <tr t-name="ListView.row"
+            t-att-data-id="record.get('id')"
+            t-att-style="view.style_for(record)">
+        <t t-set="asData" t-value="record.toForm().data"/>
+        <t t-foreach="columns" t-as="column">
+            <td t-if="column.meta"> </td>
+        </t>
+        <th t-if="options.selectable" class="oe_list_record_selector" width="1">
+            <t t-set="checked" t-value="options.select_view_id == record.get('id') ? 'checked' : null"/>
+            <input t-if="options.radio" type="radio" name="radiogroup" t-att-checked="checked"/>
+            <input t-if="!options.radio" type="checkbox" name="radiogroup" t-att-checked="checked"/>
+        </th>
+        <t t-foreach="columns" t-as="column">
+            <t t-set="number" t-value="column.type === 'integer' or column.type == 'float'"/>
+            <t t-set="modifiers" t-value="column.modifiers_for(asData)"/>
+            <td t-if="!column.meta and column.invisible !== '1'" t-att-title="column.help"
+                t-attf-class="oe_list_field_cell oe_list_field_#{column.widget or column.type} #{number ? 'oe_number' : ''} #{column.tag === 'button' ? 'oe-button' : ''} #{modifiers.readonly ? 'oe_readonly' : ''} #{modifiers.required ? 'oe_required' : ''}"
+                t-att-data-field="column.id"
+                ><t t-raw="render_cell(record, column)"/></td>
+        </t>
+        <td t-if="options.deletable" class='oe_list_record_delete' width="13px">
+            <button type="button" name="delete"><i class="fa fa-trash"></i></button>
+        </td>
+    </tr>
+
+    <t t-name="ResponsiveFieldEmail">
+        <span class="oe_form_field oe_form_field_email" t-att-style="widget.node.attrs.style">
+            <a t-if="widget.get('effective_readonly')" href="#" class="oe_form_uri" target="_blank"/>
+            <t t-if="!widget.get('effective_readonly')">
+                <span class="form-group col-md-12 col-sm-12">
+                    <span class="input-group">
+                        <input type="text"
+                            t-att-id="widget.id_for_label"
+                            t-att-tabindex="widget.node.attrs.tabindex"
+                            t-att-autofocus="widget.node.attrs.autofocus"
+                            t-att-placeholder="widget.node.attrs.placeholder"
+                            t-att-maxlength="widget.field.size"
+                            class='form-control'
+                        />
+                        <span class="input-group-addon">
+                            @
+                        </span>
+                    </span>
+                </span>
+            </t>
+        </span>
+    </t>
+    <t t-name="ResponsiveFieldUrl" t-extend="ResponsiveFieldEmail">
+        <t t-jquery="span:first">
+            this.removeClass('oe_form_field_email').addClass('oe_form_field_url');
+        </t>
+        <t t-jquery="span.input-group-addon:first">
+            this.html('<i class="fa fa-link"></i>');
+        </t>
+    </t>
+    <t t-name="ResponsiveFieldText">
+        <div class="oe_form_field oe_form_field_text" t-att-style="widget.node.attrs.style">
+            <t t-if="!widget.get('effective_readonly')">
+                <span class="form-group col-md-12 col-sm-12">
+                    <textarea rows="6"
+                        t-att-name="widget.name"
+                        class="field_text form-control"
+                        t-att-tabindex="widget.node.attrs.tabindex"
+                        t-att-autofocus="widget.node.attrs.autofocus"
+                        t-att-placeholder="! widget.get('effective_readonly') ? widget.node.attrs.placeholder : ''"
+                        t-att-maxlength="widget.field.size"
+                    ></textarea><img class="oe_field_translate oe_input_icon"
+                                    t-if="widget.field.translate and !widget.get('effective_readonly')"
+                                    t-att-src='_s + "/web/static/src/img/icons/terp-translate.png"' width="16" height="16" border="0"
+                    />
+                </span>
+            </t>
+            <t t-if="widget.get('effective_readonly')">
+                <span class="oe_form_text_content"></span>
+            </t>
+        </div>
+    </t>
+
+    <t t-name="ResponsiveFieldMany2ManyTags">
+        <div class="oe_form_field oe_tags" t-att-style="widget.node.attrs.style">
+            <span class="form-group col-md-12 col-sm-12">
+                <t t-if="! widget.get('effective_readonly')">
+                    <textarea rows="1" style="width: 100%"
+                        class="form-control"
+                        t-att-placeholder="widget.node.attrs.placeholder"></textarea>
+                </t>
+            </span>
+        </div>
+    </t>
+
+    <t t-name="ResponsiveFieldSelection">
+        <div class="oe_form_field oe_form_field_selection" t-att-style="widget.node.attrs.style">
+        </div>
+    </t>
+    <t t-name="ResponsiveFieldSelectionSelect">
+        <span class="form-group col-md-12 col-sm-12">
+            <select t-if="!widget.get('effective_readonly')"
+                t-att-name="widget.name"
+                class="form-control"
+                t-att-tabindex="widget.node.attrs.tabindex"
+                t-att-autofocus="widget.node.attrs.autofocus"
+                t-att-id="widget.id_for_label">
+                    <t t-foreach="values" t-as="option">
+                        <option t-att-value="JSON.stringify(option[0])">
+                            <t t-esc="option[1]"/>
+                        </option>
+                    </t>
+            </select>
+        </span>
+    </t>
+    <t t-name="ResponsiveFieldBoolean">
+        <span class="oe_form_field oe_form_field_boolean form-group" t-att-style="widget.node.attrs.style">
+            <span class="switch-button sm showcase-switch-button" style="margin-left: 10px; margin-right:0px; padding: 10px 0px;">
+                <input type="checkbox"
+                    t-att-id="widget.id_for_label or widget.name"
+                    t-att-name="widget.name"
+                    t-att-tabindex="widget.node.attrs.tabindex"
+                    t-att-autofocus="widget.node.attrs.autofocus"
+                    class="field_boolean"/>
+                <label t-att-for="widget.id_for_label or widget.name"></label>
+            </span>
+        </span>
+    </t>
+    <t t-name="ResponsiveFieldRadio">
+        <span t-attf-class="form-group col-md-12 col-sm-12 oe_form_field oe_form_field_radio #{widget.options.horizontal ? 'oe_horizontal' : 'oe_vertical'}" t-att-style="widget.node.attrs.style">
+            <span t-if="!widget.get('effective_readonly')">
+                <t t-if="widget.options.horizontal">
+                    <t t-set="width" t-value="Math.floor(100 / widget.selection.length)"/>
+                    <t t-if="!widget.options.no_radiolabel">
+                        <t t-foreach="widget.selection" t-as="selection">
+                            <label t-att-for="widget.uniqueId + '_' + selection[0]" t-att-style="'width: ' + width + '%;'"><t t-esc="selection[1]"/></label>
+                        </t>
+                        <br/>
+                    </t>
+                    <t t-foreach="widget.selection" t-as="selection">
+                        <div t-att-style="'width: ' + width + '%;'">
+                            <span class="oe_radio_input switch-button info sm showcase-switch-button" style="width: auto; height: auto; ">
+                                <input type="radio" t-att-name="widget.uniqueId" t-att-id="widget.uniqueId + '_' + selection[0]" t-att-value="selection[0]"/>
+                                <label t-att-for="widget.uniqueId + '_' + selection[0]"></label>
+                            </span>
+                        </div>
+                    </t>
+                </t>
+                <t t-if="!widget.options.horizontal">
+                    <t t-foreach="widget.selection" t-as="selection">
+                        <div>
+                            <span class="oe_radio_input switch-button info sm showcase-switch-button"  style="width: auto; height: auto; ">
+                                <input type="radio" t-att-id="widget.uniqueId + '_' + selection[0]" t-att-name="widget.uniqueId" t-att-value="selection[0]"/>
+                                <label t-att-for="widget.uniqueId + '_' + selection[0]"></label>
+                            </span>
+                            <label t-if="!widget.options.no_radiolabel" t-att-for="widget.uniqueId + '_' + selection[0]"><t t-esc="selection[1]"/></label>
+                        </div>
+                    </t>
+                </t>
+            </span>
+            <span t-if="widget.get('effective_readonly')" class="oe_radio_readonly"><t t-esc="widget.get('value')[1]"/></span>
+        </span>
+    </t>
+</templates>

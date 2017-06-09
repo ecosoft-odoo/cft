@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    Copyright (c) 2015 - Present Ahmed Magdy
+    All Rights Reserved
+    Author: Ahmed Magdy <ahmed.magdy40@gmail.com>
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    A copy of the GNU General Public License is available at:
+    <http://www.gnu.org/licenses/gpl.html>.
+-->
+
+<template>
+
+  <div t-name="mail.followers_responsive" class="oe_followers">
+    <div class="oe_actions">
+      <div t-attf-class="btn-group oe_subtype_list">
+        <button class="btn oe_follower oe_notfollow">
+          <span class="oe_follow">Follow</span>
+          <span class="oe_unfollow">Unfollow</span>
+          <span class="oe_following">Following</span>
+        </button>
+        <button type="button" t-attf-class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+          <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" role="menu"></ul>
+      </div>
+
+      <t t-if="widget.comment">
+        <h5 class="oe_comment"><t t-raw="widget.comment"/></h5>
+      </t>
+    </div>
+    <div class='oe_follower_title_box'>
+      <a t-if="widget.view_is_editable" href='#' class="oe_invite">Add others</a>
+      <button class="btn btn-link dropdown-toggle" data-toggle="dropdown">
+        <h4 class='oe_follower_title'>Followers</h4>
+        <span class="caret"></span>
+      </button>
+      <div class="oe_follower_list dropdown-menu" role="menu">
+      </div>
+    </div>
+  </div>
+
+
+</template>
