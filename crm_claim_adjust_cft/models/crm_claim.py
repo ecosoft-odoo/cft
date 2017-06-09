@@ -12,3 +12,7 @@ class CRMClaim(models.Model):
         comodel_name='sale.order',
         string='Sales Order',
     )
+
+
+class CrmClaimStage(models.Model):
+    _inherit = 'crm.claim.stage'

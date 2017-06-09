@@ -15,7 +15,7 @@ class AccountBankPayment(models.Model):
         string='Name',
         size=64,
         readonly=True,
-        default='/',
+        default='',
         copy=False,
     )
     bank_intransit_ids = fields.One2many(
@@ -233,9 +233,10 @@ class AccountBankPayment(models.Model):
 
     @api.model
     def create(self, vals):
-        if vals.get('name', '/') == '/':
-            vals['name'] = self.env['ir.sequence'].\
-                next_by_code('account.bank.payment')
+        # if vals.get('name', '/') == '/':
+        #     vals['name'] = self.env['ir.sequence'].\
+        #         next_by_code('account.bank.payment')
+        vals['name'] = ''
         return super(AccountBankPayment, self).create(vals)
 
     @api.model
@@ -303,6 +304,17 @@ class AccountBankPayment(models.Model):
                 raise UserError(
                     _("Missing Account for Bank Payment on the journal '%s'.")
                     % payment.partner_bank_id.journal_id.name)
+
+            # Create document number
+            refer_type = 'bank_payment'
+            doctype = payment.env['res.doctype'].get_doctype(refer_type)
+            fiscalyear_id = payment.env['account.fiscalyear'].find()
+            payment = payment.with_context(doctype_id=doctype.id,
+                                           fiscalyear_id=fiscalyear_id)
+            name = payment.env['ir.sequence'].next_by_code(
+                'account.bank.payment')
+            payment.write({'name': name})
+
             # --
             move_vals = self._prepare_account_move_vals(payment)
             move = Move.create(move_vals)

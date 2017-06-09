@@ -15,7 +15,7 @@ class AccountBankReceipt(models.Model):
         string='Name',
         size=64,
         readonly=True,
-        default='/',
+        default='',
     )
     bank_intransit_ids = fields.One2many(
         'account.move.line',
@@ -225,9 +225,10 @@ class AccountBankReceipt(models.Model):
 
     @api.model
     def create(self, vals):
-        if vals.get('name', '/') == '/':
-            vals['name'] = self.env['ir.sequence'].\
-                next_by_code('account.bank.receipt')
+        # if vals.get('name', '/') == '/':
+        #     vals['name'] = self.env['ir.sequence'].\
+        #         next_by_code('account.bank.receipt')
+        vals['name'] = ''
         return super(AccountBankReceipt, self).create(vals)
 
     @api.model
@@ -276,6 +277,17 @@ class AccountBankReceipt(models.Model):
         am_obj = self.env['account.move']
         aml_obj = self.env['account.move.line']
         for receipt in self:
+
+            # Create document number
+            refer_type = 'bank_receipt'
+            doctype = receipt.env['res.doctype'].get_doctype(refer_type)
+            fiscalyear_id = receipt.env['account.fiscalyear'].find()
+            receipt = receipt.with_context(doctype_id=doctype.id,
+                                           fiscalyear_id=fiscalyear_id)
+            name = receipt.env['ir.sequence'].next_by_code(
+                'account.bank.receipt')
+            receipt.write({'name': name})
+
             move_vals = self._prepare_account_move_vals(receipt)
             move = am_obj.create(move_vals)
             total_debit = 0.0

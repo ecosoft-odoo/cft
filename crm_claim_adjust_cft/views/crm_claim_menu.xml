@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <!-- Claim menu -->
+        <menuitem id="menu_purchase_aftersale" name="After-Sale Services"
+            groups="purchase.group_purchase_user"
+            parent="base.menu_purchase_root" sequence="2"/>
+
+        <menuitem name="Claims" id="menu_purchase_crm_case_claims"
+            parent="menu_purchase_aftersale" action="crm_claim.crm_case_categ_claim0" sequence="1"/>
+    </data>
+</openerp>
