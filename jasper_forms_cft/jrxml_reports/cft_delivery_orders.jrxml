@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="cft_delivery_bill_form" language="groovy" pageWidth="595" pageHeight="842" columnWidth="595" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0">
 	<property name="ireport.zoom" value="1.4641000000000015"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="1010"/>
+	<property name="ireport.y" value="274"/>
 	<property name="OPENERP_RELATIONS" value="[&quot;move_lines&quot;]"/>
 	<style name="space_detail">
 		<box leftPadding="3" rightPadding="3"/>
@@ -443,7 +443,7 @@ TAX ID. 0105535014957 สำนักงานใหญ่]]></text>
 		</band>
 	</pageHeader>
 	<detail>
-		<band height="28" splitType="Stretch">
+		<band height="28" splitType="Prevent">
 			<textField isStretchWithOverflow="true" pattern="" isBlankWhenNull="true">
 				<reportElement style="space_detail" mode="Transparent" x="18" y="7" width="50" height="20" forecolor="#000000" backcolor="#FFFFFF"/>
 				<textElement textAlignment="Right" verticalAlignment="Top" rotation="None" lineSpacing="Single" markup="none">
@@ -475,9 +475,6 @@ TAX ID. 0105535014957 สำนักงานใหญ่]]></text>
 		</band>
 	</detail>
 	<pageFooter>
-		<band height="194" splitType="Stretch"/>
+		<band height="210" splitType="Stretch"/>
 	</pageFooter>
-	<lastPageFooter>
-		<band height="50"/>
-	</lastPageFooter>
 </jasperReport>

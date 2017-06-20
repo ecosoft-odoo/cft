@@ -3,11 +3,11 @@
 	<data>
 		<!-- Sale Order -->
 		<record id="cft_sale_order" model="ir.actions.report.xml">
-			<field name="string">Quotation (CFT)</field>
+			<field name="string">Quotation</field>
 			<field name="auto">True</field>
 			<field name="model">sale.order</field>
 			<field name="jasper_model_id" ref="sale.model_sale_order"/>
-			<field name="name">Quotation (CFT)</field>
+			<field name="name">Quotation</field>
 			<field name="report_name">cft.sale.order</field>
 			<field name="report_rml">jasper_forms_cft/jrxml_reports/cft_sale_order.jrxml</field>
 			<field name="menu">True</field>
@@ -16,30 +16,30 @@
 			<field name="jasper_output">pdf</field>
 		</record>
 		<record id="cft_sale_order_values" model="ir.values">
-			<field name="name">Quotation (CFT)</field>
+			<field name="name">Quotation</field>
 			<field name="model">sale.order</field>
 			<field name="key2" eval="'client_print_multi'"/>
 			<field name="value_unpickle" eval="'ir.actions.report.xml, ' +str(cft_sale_order)"/>
 		</record>
-		<!-- Envelope Cover Form -->
-		<record id="cft_envelope_cover_form" model="ir.actions.report.xml">
-			<field name="string">Envelope Cover Form</field>
+		<!-- Envelope Cover -->
+		<record id="cft_envelope_cover" model="ir.actions.report.xml">
+			<field name="string">Envelope Cover</field>
 			<field name="auto">True</field>
 			<field name="model">sale.order</field>
 			<field name="jasper_model_id" ref="sale.model_sale_order"/>
-			<field name="name">Envelope Cover Form</field>
-			<field name="report_name">cft.envelope.cover.form</field>
-			<field name="report_rml">jasper_forms_cft/jrxml_reports/cft_envelope_cover_form.jrxml</field>
+			<field name="name">Envelope Cover</field>
+			<field name="report_name">cft.envelope.cover</field>
+			<field name="report_rml">jasper_forms_cft/jrxml_reports/cft_envelope_cover.jrxml</field>
 			<field name="menu">True</field>
 			<field name="header">False</field>
 			<field name="jasper_report">True</field>
 			<field name="jasper_output">pdf</field>
 		</record>
-		<record id="cft_envelope_cover_form_values" model="ir.values">
-			<field name="name">Envelope Cover Form</field>
+		<record id="cft_envelope_cover_values" model="ir.values">
+			<field name="name">Envelope Cover</field>
 			<field name="model">sale.order</field>
 			<field name="key2" eval="'client_print_multi'"/>
-			<field name="value_unpickle" eval="'ir.actions.report.xml, ' +str(cft_envelope_cover_form)"/>
+			<field name="value_unpickle" eval="'ir.actions.report.xml, ' +str(cft_envelope_cover)"/>
 		</record>
 		<!-- RFQ / PO -->
 		<record id="cft_purchase_order" model="ir.actions.report.xml">
@@ -62,7 +62,7 @@
 			<field name="value_unpickle" eval="'ir.actions.report.xml, ' +str(cft_purchase_order)"/>
 		</record>
 		<!-- Tax Invoice -->
-		<record id="cft_tax_invoice" model="ir.actions.report.xml">
+		<!-- <record id="cft_tax_invoice" model="ir.actions.report.xml">
 			<field name="string">Tax Invoice (CFT)</field>
 			<field name="auto">True</field>
 			<field name="model">account.invoice</field>
@@ -80,14 +80,14 @@
 			<field name="model">account.invoice</field>
 			<field name="key2" eval="'client_print_multi'"/>
 			<field name="value_unpickle" eval="'ir.actions.report.xml, ' +str(cft_tax_invoice)"/>
-		</record>
-		<!-- Tax invoice (pre-print form) -->
+		</record> -->
+		<!-- Tax invoice (Pre-print form) -->
 		<record id="cft_tax_invoice_pre_print_form" model="ir.actions.report.xml">
-			<field name="string">Tax Invoice (pre-print form)</field>
+			<field name="string">Tax Invoice (Pre-print form)</field>
 			<field name="auto">True</field>
 			<field name="model">account.invoice</field>
 			<field name="jasper_model_id" ref="account.model_account_invoice"/>
-			<field name="name">Tax Invoice (pre-print form)</field>
+			<field name="name">Tax Invoice (Pre-print form)</field>
 			<field name="report_name">cft.tax.invoice.pre.print.form</field>
 			<field name="report_rml">jasper_forms_cft/jrxml_reports/cft_tax_invoice_pre_print_form.jrxml</field>
 			<field name="menu">True</field>
@@ -97,34 +97,34 @@
 			<field name="copies">4</field>
 		</record>
 		<record id="cft_tax_invoice_pre_print_form_values" model="ir.values">
-			<field name="name">Tax Invoice (pre-print form)</field>
+			<field name="name">Tax Invoice (Pre-print form)</field>
 			<field name="model">account.invoice</field>
 			<field name="key2" eval="'client_print_multi'"/>
 			<field name="value_unpickle" eval="'ir.actions.report.xml, ' +str(cft_tax_invoice_pre_print_form)"/>
 		</record>
-		<!-- Tax invoice form -->
-		<record id="cft_tax_invoice_form" model="ir.actions.report.xml">
-			<field name="string">Tax Invoice Form</field>
+		<!-- Tax invoice A4 -->
+		<record id="cft_tax_invoice_a4" model="ir.actions.report.xml">
+			<field name="string">Tax Invoice (A4)</field>
 			<field name="auto">True</field>
 			<field name="model">account.invoice</field>
 			<field name="jasper_model_id" ref="account.model_account_invoice"/>
-			<field name="name">Tax Invoice Form</field>
-			<field name="report_name">cft.tax.invoice.form</field>
-			<field name="report_rml">jasper_forms_cft/jrxml_reports/cft_tax_invoice_form.jrxml</field>
+			<field name="name">Tax Invoice (A4)</field>
+			<field name="report_name">cft.tax.invoice.a4</field>
+			<field name="report_rml">jasper_forms_cft/jrxml_reports/cft_tax_invoice_a4.jrxml</field>
 			<field name="menu">True</field>
 			<field name="header">False</field>
 			<field name="jasper_report">True</field>
 			<field name="jasper_output">pdf</field>
 			<field name="copies">4</field>
 		</record>
-		<record id="cft_tax_invoice_form_values" model="ir.values">
-			<field name="name">Tax Invoice Form</field>
+		<record id="cft_tax_invoice_a4_values" model="ir.values">
+			<field name="name">Tax Invoice (A4)</field>
 			<field name="model">account.invoice</field>
 			<field name="key2" eval="'client_print_multi'"/>
-			<field name="value_unpickle" eval="'ir.actions.report.xml, ' +str(cft_tax_invoice_form)"/>
+			<field name="value_unpickle" eval="'ir.actions.report.xml, ' +str(cft_tax_invoice_a4)"/>
 		</record>
 		<!-- Receipt -->
-		<record id="cft_receipt" model="ir.actions.report.xml">
+		<!-- <record id="cft_receipt" model="ir.actions.report.xml">
 			<field name="string">Receipt (CFT)</field>
 			<field name="auto">True</field>
 			<field name="model">account.voucher</field>
@@ -142,14 +142,14 @@
 			<field name="model">account.voucher</field>
 			<field name="key2" eval="'client_print_multi'"/>
 			<field name="value_unpickle" eval="'ir.actions.report.xml, ' +str(cft_receipt)"/>
-		</record>
-		<!-- Receipt (pre-print form) -->
+		</record> -->
+		<!-- Receipt (Pre-print form) -->
 		<record id="cft_receipt_pre_print_form" model="ir.actions.report.xml">
-			<field name="string">Receipt (pre-print form)</field>
+			<field name="string">Receipt (Pre-print form)</field>
 			<field name="auto">True</field>
 			<field name="model">account.voucher</field>
 			<field name="jasper_model_id" ref="account_voucher.model_account_voucher"/>
-			<field name="name">Receipt (pre-print form)</field>
+			<field name="name">Receipt (Pre-print form)</field>
 			<field name="report_name">cft.receipt.pre.print.form</field>
 			<field name="report_rml">jasper_forms_cft/jrxml_reports/cft_receipt_pre_print_form.jrxml</field>
 			<field name="menu">True</field>
@@ -159,31 +159,31 @@
 			<field name="copies">3</field>
 		</record>
 		<record id="cft_receipt_pre_print_form_values" model="ir.values">
-			<field name="name">Receipt (pre-print form)</field>
+			<field name="name">Receipt (Pre-print form)</field>
 			<field name="model">account.voucher</field>
 			<field name="key2" eval="'client_print_multi'"/>
 			<field name="value_unpickle" eval="'ir.actions.report.xml, ' +str(cft_receipt_pre_print_form)"/>
 		</record>
-		<!-- Receipt form -->
-		<record id="cft_receipt_form" model="ir.actions.report.xml">
-			<field name="string">Receipt Form</field>
+		<!-- Receipt A4 -->
+		<record id="cft_receipt_a4" model="ir.actions.report.xml">
+			<field name="string">Receipt (A4)</field>
 			<field name="auto">True</field>
 			<field name="model">account.voucher</field>
 			<field name="jasper_model_id" ref="account_voucher.model_account_voucher"/>
-			<field name="name">Receipt Form</field>
-			<field name="report_name">cft.receipt.form</field>
-			<field name="report_rml">jasper_forms_cft/jrxml_reports/cft_receipt_form.jrxml</field>
+			<field name="name">Receipt (A4)</field>
+			<field name="report_name">cft.receipt.a4</field>
+			<field name="report_rml">jasper_forms_cft/jrxml_reports/cft_receipt_a4.jrxml</field>
 			<field name="menu">True</field>
 			<field name="header">False</field>
 			<field name="jasper_report">True</field>
 			<field name="jasper_output">pdf</field>
 			<field name="copies">3</field>
 		</record>
-		<record id="cft_receipt_form_values" model="ir.values">
-			<field name="name">Receipt Form</field>
+		<record id="cft_receipt_a4_values" model="ir.values">
+			<field name="name">Receipt (A4)</field>
 			<field name="model">account.voucher</field>
 			<field name="key2" eval="'client_print_multi'"/>
-			<field name="value_unpickle" eval="'ir.actions.report.xml, ' +str(cft_receipt_form)"/>
+			<field name="value_unpickle" eval="'ir.actions.report.xml, ' +str(cft_receipt_a4)"/>
 		</record>
 		<!-- Billing -->
 		<record id="cft_billing" model="ir.actions.report.xml">
@@ -205,26 +205,31 @@
 			<field name="key2" eval="'client_print_multi'"/>
 			<field name="value_unpickle" eval="'ir.actions.report.xml, ' +str(cft_billing)"/>
 		</record>
-		<!-- Delivery Bill Form -->
-		<record id="cft_delivery_bill_form" model="ir.actions.report.xml">
-			<field name="string">Delivery Bill Form</field>
+		<!-- Delivery Orders -->
+		<record id="cft_delivery_orders" model="ir.actions.report.xml">
+			<field name="string">Delivery Orders</field>
 			<field name="auto">True</field>
 			<field name="model">stock.picking</field>
 			<field name="jasper_model_id" ref="stock.model_stock_picking"/>
-			<field name="name">Delivery Bill Form</field>
-			<field name="report_name">delivery.bill.form</field>
-			<field name="report_rml">jasper_forms_cft/jrxml_reports/cft_delivery_bill_form.jrxml</field>
+			<field name="name">Delivery Orders</field>
+			<field name="report_name">delivery.orders</field>
+			<field name="report_rml">jasper_forms_cft/jrxml_reports/cft_delivery_orders.jrxml</field>
 			<field name="menu">True</field>
 			<field name="header">False</field>
 			<field name="jasper_report">True</field>
 			<field name="jasper_output">pdf</field>
 			<field name="copies">2</field>
 		</record>
-		<record id="cft_delivery_bill_form_values" model="ir.values">
-			<field name="name">Delivery Bill Form</field>
+		<record id="cft_delivery_orders_values" model="ir.values">
+			<field name="name">Delivery Orders</field>
 			<field name="model">stock.picking</field>
 			<field name="key2" eval="'client_print_multi'"/>
-			<field name="value_unpickle" eval="'ir.actions.report.xml, ' +str(cft_delivery_bill_form)"/>
+			<field name="value_unpickle" eval="'ir.actions.report.xml, ' +str(cft_delivery_orders)"/>
+		</record>
+
+		<!-- Invisible Report -->
+		<record id="sale.report_sale_order" model="ir.actions.report.xml">
+			<field name="groups_id" eval="[(4, ref('invisible_report'))]"/>
 		</record>
 	</data>
 </openerp>
