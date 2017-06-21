@@ -250,7 +250,9 @@ class CommissionWorksheet(models.Model):
     @api.multi
     @api.depends('worksheet_lines.done',
                  'worksheet_lines.force',
+                 'worksheet_lines.commission_amt',
                  'worksheet_lines.adjust_amt',
+                 'worksheet_lines.amount_subtotal',
                  'worksheet_lines.commission_state',
                  'worksheet_lines.invoice_id.state')
     def _amount_all(self):
