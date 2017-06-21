@@ -257,6 +257,15 @@ class CommissionWorksheet(models.Model):
                  'worksheet_lines.invoice_id.state')
     def _amount_all(self):
         for worksheet in self:
+            # Update line status first.
+            worksheet.worksheet_lines.update_commission_line_status()
+
+            # Need to read state again as they are updated by SQL
+            # If we use from existing recordset, it will give old cached value
+            lines_read = worksheet.worksheet_lines.read(['commission_state'])
+            lines_dict = {l['id']: l['commission_state'] for l in lines_read}
+
+            # Start calculation.
             worksheet.amount_draft = 0.0
             worksheet.amount_valid = 0.0
             worksheet.amount_invalid = 0.0
@@ -264,13 +273,6 @@ class CommissionWorksheet(models.Model):
             worksheet.amount_skip = 0.0
             worksheet.amount_total = 0.0
             total = 0.0
-            # Update line status first.
-            worksheet.worksheet_lines.update_commission_line_status()
-            # Need to read state again as they are updated by SQL
-            # If we use from existing recordset, it will give old cached value
-            lines_read = worksheet.worksheet_lines.read(['commission_state'])
-            lines_dict = {l['id']: l['commission_state'] for l in lines_read}
-            # Start calculation.
             for line in worksheet.worksheet_lines:
                 line_commission_state = lines_dict[line.id]
                 if line_commission_state == 'draft':
@@ -768,7 +770,8 @@ class CommissionWorksheetLine(models.Model):
     @api.depends('commission_amt', 'adjust_amt')
     def _amount_subtotal(self):
         for line in self:
-            line.amount_subtotal = line.commission_amt + line.adjust_amt
+            line.amount_subtotal = round(line.commission_amt, 2) + \
+                round(line.adjust_amt, 2)
 
     @api.model
     def _get_date_maturity(self, invoice, date_start):

@@ -122,6 +122,7 @@ class CommissionWorksheet(models.Model):
             # Commission each invoice
             commission_amt = (categ_commission_amt + cus_commission_amt +
                               invoice_comm_rate * base_amt) * kpi
+            commission_amt = round(commission_amt, 2)
 
             res = self._prepare_worksheet_line(worksheet, invoice,
                                                base_amt, commission_amt)
@@ -179,6 +180,7 @@ class CommissionWorksheet(models.Model):
             #     invoice_comm_rate * kpi
 
             commission_amt = cus_commission_amt * invoice_comm_rate * kpi
+            commission_amt = round(commission_amt, 2)
 
             res = self._prepare_worksheet_line(worksheet, invoice,
                                                base_amt, commission_amt)
