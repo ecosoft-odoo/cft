@@ -158,7 +158,7 @@ class CommissionWorksheet(models.Model):
         for invoice in invoices:
             base_amt = self._get_base_amount(invoice)
             commission_amt = 0.0
-            comm_cus_percent = 0.0
+            # comm_cus_percent = 0.0
 
             # For Customer Commission Amount
             cus_commission_amt = self._calculate_customer_commission(invoice,
@@ -169,14 +169,17 @@ class CommissionWorksheet(models.Model):
                 or company.teams_kpi_fail
             kpi = not kpi and 0.0 or kpi
 
-            if invoice.partner_id and invoice.partner_id.customer_rank:
-                comm_cus_percent = 0.0
-                if invoice.partner_id.customer_rank.sales_team_commission:
-                    comm_cus_percent = invoice.partner_id.customer_rank. \
-                        sales_team_commission
+            # if invoice.partner_id and invoice.partner_id.customer_rank:
+            #     comm_cus_percent = 0.0
+            #     if invoice.partner_id.customer_rank.sales_team_commission:
+            #         comm_cus_percent = invoice.partner_id.customer_rank. \
+            #             sales_team_commission
 
-            commission_amt = cus_commission_amt * comm_cus_percent / 100 * \
-                invoice_comm_rate * kpi
+            # commission_amt = cus_commission_amt * comm_cus_percent / 100 * \
+            #     invoice_comm_rate * kpi
+
+            commission_amt = cus_commission_amt * invoice_comm_rate * kpi
+
             res = self._prepare_worksheet_line(worksheet, invoice,
                                                base_amt, commission_amt)
 
