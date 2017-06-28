@@ -37,7 +37,7 @@
 	<pageHeader>
 		<band height="310" splitType="Stretch">
 			<textField isBlankWhenNull="true">
-				<reportElement mode="Transparent" x="292" y="115" width="317" height="180" forecolor="#000000" backcolor="#FFFFFF"/>
+				<reportElement mode="Transparent" x="238" y="115" width="317" height="180" forecolor="#000000" backcolor="#FFFFFF"/>
 				<textElement textAlignment="Left" verticalAlignment="Top" rotation="None" lineSpacing="1_1_2" markup="none">
 					<font fontName="Monospaced" size="10" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H" isPdfEmbedded="false"/>
 				</textElement>
