@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="cft_receipt_a4" language="groovy" pageWidth="595" pageHeight="842" columnWidth="595" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0">
 	<property name="ireport.zoom" value="0.8264462809917397"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="224"/>
+	<property name="ireport.y" value="320"/>
 	<property name="OPENERP_RELATIONS" value="[&quot;line_ids&quot;]"/>
 	<style name="space_detail">
 		<box leftPadding="3" rightPadding="3"/>
@@ -492,7 +492,7 @@ TAX ID. 0105535014957 สำนักงานใหญ่]]></text>
 				<textElement textAlignment="Right" verticalAlignment="Top" rotation="None" lineSpacing="Single" markup="none">
 					<font fontName="Monospaced" size="9" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H" isPdfEmbedded="false"/>
 				</textElement>
-				<textFieldExpression class="java.lang.Number"><![CDATA[$V{line_amount}]]></textFieldExpression>
+				<textFieldExpression class="java.lang.Number"><![CDATA[$V{line_amount} != null ? $V{line_amount} : 0.0]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>
@@ -502,11 +502,11 @@ TAX ID. 0105535014957 สำนักงานใหญ่]]></text>
 	<lastPageFooter>
 		<band height="271">
 			<textField isStretchWithOverflow="true" pattern="#,##0.00;-#,##0.00" isBlankWhenNull="true">
-				<reportElement style="space_detail" mode="Transparent" x="437" y="6" width="143" height="20" forecolor="#000000" backcolor="#FFFFFF"/>
+				<reportElement style="space_detail" mode="Transparent" x="312" y="6" width="268" height="20" forecolor="#000000" backcolor="#FFFFFF"/>
 				<textElement textAlignment="Right" verticalAlignment="Middle" rotation="None" lineSpacing="Single" markup="none">
 					<font fontName="Monospaced" size="9" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H" isPdfEmbedded="false"/>
 				</textElement>
-				<textFieldExpression class="java.lang.Number"><![CDATA[$V{amount_total}]]></textFieldExpression>
+				<textFieldExpression class="java.lang.Number"><![CDATA[$V{amount_total} != null ? $V{amount_total} : 0.0]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
 				<reportElement style="space_detail" mode="Transparent" x="20" y="6" width="417" height="20" forecolor="#000000" backcolor="#FFFFFF"/>
