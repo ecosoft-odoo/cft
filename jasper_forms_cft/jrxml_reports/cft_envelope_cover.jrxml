@@ -52,7 +52,7 @@
 			</textField>
 			<image>
 				<reportElement x="9" y="12" width="74" height="62"/>
-				<imageExpression class="java.lang.String"><![CDATA["/home/podkung/Workspaces/cft/cft/jasper_forms_cft/jrxml_reports/comforta_logo.jpg"]]></imageExpression>
+				<imageExpression class="java.lang.String"><![CDATA[$P{SUBREPORT_DIR} + "comforta_logo.jpg"]]></imageExpression>
 			</image>
 			<staticText>
 				<reportElement mode="Transparent" x="78" y="9" width="456" height="153" forecolor="#000000" backcolor="#FFFFFF"/>
