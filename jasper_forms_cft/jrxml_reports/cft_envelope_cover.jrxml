@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="cft_envelope_cover" language="groovy" pageWidth="792" pageHeight="612" orientation="Landscape" columnWidth="792" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="cft_envelope_cover" language="groovy" pageWidth="612" pageHeight="792" columnWidth="612" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0">
 	<property name="ireport.zoom" value="0.9090909090909103"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="330"/>
+	<property name="ireport.y" value="0"/>
 	<parameter name="SUBREPORT_DIR" class="java.lang.String"/>
 	<queryString language="xPath">
 		<![CDATA[/data/record]]>
@@ -34,26 +34,12 @@
 	<field name="partner_name" class="java.lang.String">
 		<fieldDescription><![CDATA[partner_id/name]]></fieldDescription>
 	</field>
-	<background>
-		<band height="369" splitType="Stretch">
-			<image>
-				<reportElement x="0" y="0" width="792" height="369"/>
-				<imageExpression class="java.lang.String"><![CDATA[$P{SUBREPORT_DIR} + "letter_cover.jpg"]]></imageExpression>
-			</image>
-			<rectangle>
-				<reportElement x="306" y="119" width="403" height="168"/>
-				<graphicElement>
-					<pen lineWidth="0.0"/>
-				</graphicElement>
-			</rectangle>
-		</band>
-	</background>
 	<pageHeader>
-		<band height="369" splitType="Stretch">
+		<band height="310" splitType="Stretch">
 			<textField isBlankWhenNull="true">
-				<reportElement mode="Transparent" x="320" y="127" width="403" height="242" forecolor="#000000" backcolor="#FFFFFF"/>
+				<reportElement mode="Transparent" x="292" y="115" width="317" height="180" forecolor="#000000" backcolor="#FFFFFF"/>
 				<textElement textAlignment="Left" verticalAlignment="Top" rotation="None" lineSpacing="1_1_2" markup="none">
-					<font fontName="Monospaced" size="14" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H" isPdfEmbedded="false"/>
+					<font fontName="Monospaced" size="10" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H" isPdfEmbedded="false"/>
 				</textElement>
 				<textFieldExpression class="java.lang.String"><![CDATA[$F{title} + " " + $F{partner_name} + "\n" +
 (new Scriptlet()).getAddress(
@@ -62,9 +48,22 @@
     $F{township},
     $F{district},
     $F{province},
-    $F{zip})
-+ " " + $F{country}.toString()]]></textFieldExpression>
+    $F{zip}).toString()]]></textFieldExpression>
 			</textField>
+			<image>
+				<reportElement x="9" y="12" width="74" height="62"/>
+				<imageExpression class="java.lang.String"><![CDATA["/home/podkung/Workspaces/cft/cft/jasper_forms_cft/jrxml_reports/comforta_logo.jpg"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement mode="Transparent" x="78" y="9" width="456" height="153" forecolor="#000000" backcolor="#FFFFFF"/>
+				<textElement textAlignment="Left" verticalAlignment="Top" rotation="None" lineSpacing="1_1_2" markup="none">
+					<font fontName="Monospaced" size="10" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H" isPdfEmbedded="false"/>
+				</textElement>
+				<text><![CDATA[บจก. คอมฟอทต้า
+25/1 ชั้น 1 ซ.พระยาพิเรนท์ ถ.เชื้อเพลิง
+แขวงทุ่งมหาเมฆ เขตสาทร กรุงเทพมหานคร 10120
+โทรศัพท์ 02-240-1331-2 โทรสาร 02-249-4283 เว็บไซต์ www.comforta.co.th]]></text>
+			</staticText>
 		</band>
 	</pageHeader>
 </jasperReport>
