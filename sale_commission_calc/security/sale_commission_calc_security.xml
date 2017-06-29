@@ -19,7 +19,7 @@
 	    <record model="ir.rule" id="sale_commission_worksheet_personal_rule">
 	        <field name="name">Personal Commission Worksheet</field>
 	        <field ref="model_commission_worksheet" name="model_id"/>
-	        <field name="domain_force">['|',('salesperson_id','=',user.id),('salesperson_id','=',False)]</field>
+	        <field name="domain_force">[('salesperson_id','=',user.id)]</field>
 	        <field name="groups" eval="[(4, ref('group_sale_commission_calc_sale'))]"/>
 	    </record>
 	    <record model="ir.rule" id="sale_commission_worksheet_see_all_rule">

@@ -32,3 +32,7 @@ class SalesTeam(models.Model):
         'target.amount', 'team_ids',
         string='Target Amount',
     )
+    teams_invoice_percent_ids = fields.One2many(
+        'teams.invoice.percent', 'team_ids',
+        string='Sales Teams Invoice Percent',
+    )

@@ -61,13 +61,17 @@ class CommissionWorksheet(models.Model):
         return cus_commission_amt
 
     @api.model
-    def _calculate_invoice_comm_rate(self, target_amount, total_amount):
+    def _calculate_invoice_comm_rate(self, target_amount, total_amount,
+                                     sales_team):
         context = self._context.copy()
         is_team = context.get('is_team', False)
         rate = False
         table = is_team and "teams_invoice_percent" or "sales_invoice_percent"
+        key = is_team and "team_ids" or "user_ids"
         self._cr.execute("select compare, target_percent, invoice_percent " +
-                         "from " + table + " order by target_percent desc")
+                         "from " + table +
+                         " where " + key + " = " + str(sales_team.id) +
+                         " order by target_percent desc")
         for line in self._cr.fetchall():
             if line[0] == 'greater_than' and not rate:
                 if total_amount > (line[1] / 100) * target_amount:
@@ -95,7 +99,7 @@ class CommissionWorksheet(models.Model):
         # Find Invoice commission rate
         if target_amount:
             invoice_comm_rate = self._calculate_invoice_comm_rate(
-                                    target_amount, total_amount)
+                target_amount, total_amount, worksheet.salesperson_id)
 
         # Find Company
         ResCompany = self.env['res.company']
@@ -149,7 +153,7 @@ class CommissionWorksheet(models.Model):
         # Find Invoice commission rate
         if target_amount:
             invoice_comm_rate = self._calculate_invoice_comm_rate(
-                target_amount, total_amount)
+                target_amount, total_amount, worksheet.sale_team_id)
 
         ResCompany = self.env['res.company']
         company_id = ResCompany._company_default_get('CommissionWorksheet')

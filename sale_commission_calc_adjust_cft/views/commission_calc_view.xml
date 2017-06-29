@@ -1,6 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
     <data>
+        <record id="sale_commission_calc.menu_team_commission_worksheet" model="ir.ui.menu">
+            <field name="groups_id" eval="[(6,0,[ref('sale_commission_calc_adjust_cft.group_sale_commission_calc_team')])]"/>
+        </record>
+        <record id="view_commission_worksheet_tree" model="ir.ui.view">
+            <field name="name">view.commission.worksheet.tree</field>
+            <field name="model">commission.worksheet</field>
+            <field name="inherit_id" ref="sale_commission_calc.view_commission_worksheet_tree"/>
+            <field name="arch" type="xml">
+                <field name="period_id" position="after">
+                    <field name="amount_draft" string="Not Ready Amount"/>
+                    <field name="amount_valid" string="Ready Amount"/>
+                    <field name="amount_invalid" string="Invalid Amount"/>
+                    <field name="amount_done" string="Done Amount"/>
+                    <field name="amount_skip" string="Skip Amount"/>
+                    <field name="amount_total" string="Total Amount"/>
+                </field>
+            </field>
+        </record>
         <record id="view_commission_worksheet_form" model="ir.ui.view">
             <field name="name">view.commission.worksheet.form</field>
             <field name="model">commission.worksheet</field>

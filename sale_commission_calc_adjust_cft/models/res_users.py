@@ -32,3 +32,7 @@ class ResUsers(models.Model):
         'target.amount', 'user_ids',
         string='Target Amount',
     )
+    sales_invoice_percent_ids = fields.One2many(
+        'sales.invoice.percent', 'user_ids',
+        string='Salesperson Invoice Percent',
+    )

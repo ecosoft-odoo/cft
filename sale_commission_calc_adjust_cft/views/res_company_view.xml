@@ -7,29 +7,7 @@
             <field name="inherit_id" ref="base.view_company_form"/>
             <field name="arch" type="xml">
                 <xpath expr="//notebook" position="inside">
-                    <page string="Commission">
-                        <group>
-                            <group>
-                                <separator string="Selesperson Invoice" colspan="4"/>
-                                <field name="sales_invoice_percent_ids" colspan="4" nolabel="1">
-                                    <tree editable="bottom">
-                                        <field name="compare" required="1"/>
-                                        <field name="target_percent" required="1"/>
-                                        <field name="invoice_percent"/>
-                                    </tree>
-                                </field>
-                            </group>
-                            <group>
-                                <separator string="Sales Teams Invoice" colspan="4"/>
-                                <field name="teams_invoice_percent_ids" colspan="4" nolabel="1">
-                                    <tree editable="bottom">
-                                        <field name="compare" required="1"/>
-                                        <field name="target_percent" required="1"/>
-                                        <field name="invoice_percent" string="Rate"/>
-                                    </tree>
-                                </field>
-                            </group>
-                        </group>
+                    <page string="Commission" groups="sale_commission_calc.group_sale_commission_calc_user">
                         <group>
                             <group>
                                 <separator string="Salesperson KPI" colspan="4"/>
