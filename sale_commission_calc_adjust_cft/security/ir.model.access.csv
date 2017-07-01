@@ -5,3 +5,6 @@ access_teams_invoice_percent_sale,teams.invoice.percent sale,model_teams_invoice
 access_target_amount_user,target.amount user,model_target_amount,sale_commission_calc.group_sale_commission_calc_user,1,1,1,1
 access_sales_invoice_percent_user,sales.invoice.percent user,model_sales_invoice_percent,sale_commission_calc.group_sale_commission_calc_user,1,1,1,1
 access_teams_invoice_percent_user,teams.invoice.percent user,model_teams_invoice_percent,sale_commission_calc.group_sale_commission_calc_user,1,1,1,1
+access_target_amount_all_user,target.amount all user,model_target_amount,base.group_user,1,0,0,0
+access_sales_invoice_percent_all_user,sales.invoice.percent all user,model_sales_invoice_percent,base.group_user,1,0,0,0
+access_teams_invoice_percent_all_user,teams.invoice.percent all user,model_teams_invoice_percent,base.group_user,1,0,0,0
