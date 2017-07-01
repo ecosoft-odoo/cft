@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="1">
+        <record id="doctype_bank_payment" model="res.doctype">
+            <field name="name">Bank Payment</field>
+            <field name="sequence_id" ref="doctype_bank_payment_seq"/>
+            <field name="refer_type">bank_payment</field>
+        </record>
+    </data>
+</openerp>
