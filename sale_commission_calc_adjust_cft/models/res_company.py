@@ -28,14 +28,6 @@ from openerp import models, fields
 class ResCompany(models.Model):
     _inherit = 'res.company'
 
-    sales_invoice_percent_ids = fields.One2many(
-        'sales.invoice.percent', 'company_ids',
-        string='Salesperson Invoice Percent',
-    )
-    teams_invoice_percent_ids = fields.One2many(
-        'teams.invoice.percent', 'company_ids',
-        string='Sales Teams Invoice Percent',
-    )
     sales_kpi_pass = fields.Float(
         string='Passed',
     )

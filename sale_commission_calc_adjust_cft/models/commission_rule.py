@@ -20,20 +20,14 @@
 ##############################################################################
 from openerp import models, fields
 
-COMMISSION_RULE = [
-    ('percent_fixed', 'Fixed Commission Rate'),
-    ('percent_product_category', 'Product Category Commission Rate'),
-    ('percent_product', 'Product Commission Rate'),
-    ('percent_product_step', 'Product Commission Rate Steps'),
-    ('percent_amount', 'Commission Rate By Order Amount'),
-    ('percent_customer', 'Customer Commission Rate'),
-    ('percent_sale_commission', 'Sale Commission Rate'), ]
-
 
 class CommissionRule(models.Model):
     _inherit = 'commission.rule'
 
     type = fields.Selection(
-        COMMISSION_RULE,
-        default='percent_sale_commission',
+        selection_add=[
+            ('percent_customer', 'Customer Commission Rate'),
+            ('cft_sale_commission', 'CFT Sale Commission Rate'),
+            ('cft_team_commission', 'CFT Team Commission Rate'),
+        ],
     )

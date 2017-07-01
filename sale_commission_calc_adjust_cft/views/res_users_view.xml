@@ -7,13 +7,28 @@
             <field name="inherit_id" ref="base.view_users_form"/>
             <field name="arch" type="xml">
                 <xpath expr="//notebook" position="inside">
-                    <page string="Target Amount">
-                        <field name="target_amount_ids" nolabel="1">
-                            <tree editable="bottom">
-                                <field name="period_id" required="1"/>
-                                <field name="target_amount"/>
-                            </tree>
-                        </field>
+                    <page string="Commission" groups="sale_commission_calc.group_sale_commission_calc_user">
+                        <group>
+                            <group>
+                                <separator string="Target Amount" colspan="4"/>
+                                <field name="target_amount_ids" colspan="4" nolabel="1">
+                                    <tree editable="bottom">
+                                        <field name="period_id" required="1"/>
+                                        <field name="target_amount"/>
+                                    </tree>
+                                </field>
+                            </group>
+                            <group>
+                                <separator string="Selesperson Invoice" colspan="4"/>
+                                <field name="sales_invoice_percent_ids" colspan="4" nolabel="1">
+                                    <tree editable="bottom">
+                                        <field name="compare" required="1"/>
+                                        <field name="target_percent" required="1"/>
+                                        <field name="invoice_percent"/>
+                                    </tree>
+                                </field>
+                            </group>
+                        </group>
                     </page>
                 </xpath>
             </field>

@@ -32,9 +32,9 @@ COMPARE = [('greater_than', 'Greater Than'),
 class SalesInvoicePercent(models.Model):
     _name = 'sales.invoice.percent'
 
-    company_ids = fields.Many2one(
-        'res.company',
-        string='Company',
+    user_ids = fields.Many2one(
+        'res.users',
+        string='User',
     )
     compare = fields.Selection(
         COMPARE,
@@ -51,9 +51,9 @@ class SalesInvoicePercent(models.Model):
 class TeamsInvoicePercent(models.Model):
     _name = 'teams.invoice.percent'
 
-    company_ids = fields.Many2one(
-        'res.company',
-        string='Company',
+    team_ids = fields.Many2one(
+        'crm.case.section',
+        string='Team',
     )
     compare = fields.Selection(
         COMPARE,

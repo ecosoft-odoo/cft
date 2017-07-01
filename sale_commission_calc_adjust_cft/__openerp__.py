@@ -34,6 +34,7 @@
         'sale_view_adjust_cft',
     ],
     'data': [
+        'security/sale_commission_calc_adjust_cft_security.xml',
         'security/ir.model.access.csv',
         'views/res_company_view.xml',
         'views/res_users_view.xml',

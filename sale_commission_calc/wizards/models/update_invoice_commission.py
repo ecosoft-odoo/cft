@@ -61,7 +61,10 @@ class UpdateInvoiceCommission(models.TransientModel):
                 ('type', 'in', ('out_invoice', 'out_refund'))])
             # Only for invoice without commission, create it.
             for invoice in invoices:
-                if not invoice.sale_team_ids:
+                if not invoice.sale_team_ids or len(invoice_comms) != \
+                                                len(invoice.sale_team_ids):
+                    if len(invoice_comms) != len(invoice.sale_team_ids):
+                        invoice.sale_team_ids.unlink()
                     for invoice_comm in invoice_comms:
                         invoice_comm.update({'invoice_id': invoice.id})
                         InvoiceTeam.create(invoice_comm)
