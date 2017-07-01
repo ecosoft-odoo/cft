@@ -12,6 +12,7 @@
         'l10n_th_amount_text_ext',
     ],
     'data': [
+        "security/jasper_forms_cft_security.xml",
         "jasper_data.xml",
     ],
     'installable': True,
