@@ -62,7 +62,7 @@
 			<field name="value_unpickle" eval="'ir.actions.report.xml, ' +str(cft_purchase_order)"/>
 		</record>
 		<!-- Tax Invoice -->
-		<!-- <record id="cft_tax_invoice" model="ir.actions.report.xml">
+		<record id="cft_tax_invoice" model="ir.actions.report.xml">
 			<field name="string">Tax Invoice (CFT)</field>
 			<field name="auto">True</field>
 			<field name="model">account.invoice</field>
@@ -80,7 +80,7 @@
 			<field name="model">account.invoice</field>
 			<field name="key2" eval="'client_print_multi'"/>
 			<field name="value_unpickle" eval="'ir.actions.report.xml, ' +str(cft_tax_invoice)"/>
-		</record> -->
+		</record>
 		<!-- Tax invoice (Pre-print form) -->
 		<record id="cft_tax_invoice_pre_print_form" model="ir.actions.report.xml">
 			<field name="string">Tax Invoice (PP)</field>
@@ -124,7 +124,7 @@
 			<field name="value_unpickle" eval="'ir.actions.report.xml, ' +str(cft_tax_invoice_a4)"/>
 		</record>
 		<!-- Receipt -->
-		<!-- <record id="cft_receipt" model="ir.actions.report.xml">
+		<record id="cft_receipt" model="ir.actions.report.xml">
 			<field name="string">Receipt (CFT)</field>
 			<field name="auto">True</field>
 			<field name="model">account.voucher</field>
@@ -142,7 +142,7 @@
 			<field name="model">account.voucher</field>
 			<field name="key2" eval="'client_print_multi'"/>
 			<field name="value_unpickle" eval="'ir.actions.report.xml, ' +str(cft_receipt)"/>
-		</record> -->
+		</record>
 		<!-- Receipt (Pre-print form) -->
 		<record id="cft_receipt_pre_print_form" model="ir.actions.report.xml">
 			<field name="string">Receipt (PP)</field>
