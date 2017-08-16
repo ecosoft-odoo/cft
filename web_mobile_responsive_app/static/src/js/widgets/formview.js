@@ -17,11 +17,11 @@
  *    <http://www.gnu.org/licenses/gpl.html>.
  */
 
-(function(){
+(function () {
     var instance = openerp;
     var QWeb = instance.web.qweb,
-          _t =  instance.web._t,
-          _lt = instance.web._lt;
+        _t = instance.web._t,
+        _lt = instance.web._lt;
 
     instance.web.form.AbstractField.include({
         set_dimensions: function (height, width) {
@@ -141,13 +141,13 @@
                 this.$el.find('.oe_form_buttons').replaceWith(this.$buttons);
             }
             this.$buttons.on('click', '.oe_form_button_create',
-                    this.guard_active(this.on_button_create));
+                this.guard_active(this.on_button_create));
             this.$buttons.on('click', '.oe_form_button_edit',
-                    this.guard_active(this.on_button_edit));
+                this.guard_active(this.on_button_edit));
             this.$buttons.on('click', '.oe_form_button_save',
-                    this.guard_active(this.on_button_save));
+                this.guard_active(this.on_button_save));
             this.$buttons.on('click', '.oe_form_button_cancel',
-                    this.guard_active(this.on_button_cancel));
+                this.guard_active(this.on_button_cancel));
             if (this.options.footer_to_buttons) {
                 this.$el.find('footer').appendTo(this.$buttons);
             }
@@ -179,7 +179,10 @@
             //bounce effect on red button when click on statusbar.
             this.$el.find(".oe_form_field_status:not(.oe_form_status_clickable)").on('click', function (e) {
                 if ((self.get("actual_mode") == "view")) {
-                    var $button = self.$el.find(".oe_highlight:not(.oe_form_invisible)").css({'float': 'left', 'clear': 'none'});
+                    var $button = self.$el.find(".oe_highlight:not(.oe_form_invisible)").css({
+                        'float': 'left',
+                        'clear': 'none'
+                    });
                     $button.openerpBounce();
                     e.stopPropagation();
                 }
@@ -448,9 +451,9 @@
                 var change_spec = widget ? onchange_specs[widget.name] : null;
                 if (!widget || (!_.isEmpty(change_spec) && change_spec !== "0")) {
                     var ids = [],
-                            trigger_field_name = widget ? widget.name : self._onchange_fields,
-                            values = self._get_onchange_values(),
-                            context = new instance.web.CompoundContext(self.dataset.get_context());
+                        trigger_field_name = widget ? widget.name : self._onchange_fields,
+                        values = self._get_onchange_values(),
+                        context = new instance.web.CompoundContext(self.dataset.get_context());
 
                     if (widget && widget.build_context()) {
                         context.add(widget.build_context());
@@ -465,7 +468,7 @@
                         ids.push(self.datarecord.id);
                     }
                     def = self.alive(new instance.web.Model(self.dataset.model).call(
-                            "onchange", [ids, values, trigger_field_name, onchange_specs, context]));
+                        "onchange", [ids, values, trigger_field_name, onchange_specs, context]));
                 }
                 this.onchanges_mutex.exec(function () {
                     return def.then(function (response) {
@@ -491,8 +494,8 @@
 
                                 if (value_) {
                                     defs.push(self.alive(new instance.web.Model('ir.values').call(
-                                            'get_defaults', [self.model, condition]
-                                            )).then(function (results) {
+                                        'get_defaults', [self.model, condition]
+                                    )).then(function (results) {
                                         if (!results.length) {
                                             return response;
                                         }
@@ -541,9 +544,11 @@
                         size: 'medium',
                         title: result.warning.title,
                         buttons: [
-                            {text: _t("Ok"), click: function () {
-                                    this.parents('.modal').modal('hide');
-                                }}
+                            {
+                                text: _t("Ok"), click: function () {
+                                this.parents('.modal').modal('hide');
+                            }
+                            }
                         ]
                     }, QWeb.render("CrashManager.warning", result.warning)).open();
                 }
@@ -586,6 +591,7 @@
                         return $.when();
                     });
                 }
+
                 return iterate();
             });
         },
@@ -793,9 +799,9 @@
             var prepend_on_create = save_obj.prepend_on_create;
             try {
                 var form_invalid = false,
-                        values = {},
-                        first_invalid_field = null,
-                        readonly_values = {};
+                    values = {},
+                    first_invalid_field = null,
+                    readonly_values = {};
                 for (var f in self.fields) {
                     if (!self.fields.hasOwnProperty(f)) {
                         continue;
@@ -820,13 +826,13 @@
                 // Heuristic to assign a proper sequence number for new records that
                 // are added in a dataset containing other lines with existing sequence numbers
                 if (!self.datarecord.id && self.fields.sequence &&
-                        !_.has(values, 'sequence') && !_.isEmpty(self.dataset.cache)) {
+                    !_.has(values, 'sequence') && !_.isEmpty(self.dataset.cache)) {
                     // Find current max or min sequence (editable top/bottom)
                     var current = _[prepend_on_create ? "min" : "max"](
-                            _.map(self.dataset.cache, function (o) {
-                                return o.values.sequence
-                            })
-                            );
+                        _.map(self.dataset.cache, function (o) {
+                            return o.values.sequence
+                        })
+                    );
                     values['sequence'] = prepend_on_create ? current - 1 : current + 1;
                 }
                 if (form_invalid) {
@@ -860,13 +866,13 @@
         },
         on_invalid: function () {
             var warnings = _(this.fields).chain()
-                    .filter(function (f) {
-                        return !f.is_valid();
-                    })
-                    .map(function (f) {
-                        return _.str.sprintf('<li>%s</li>',
-                                _.escape(f.string));
-                    }).value();
+                .filter(function (f) {
+                    return !f.is_valid();
+                })
+                .map(function (f) {
+                    return _.str.sprintf('<li>%s</li>',
+                        _.escape(f.string));
+                }).value();
             warnings.unshift('<ul>');
             warnings.push('</ul>');
             this.do_warn(_t("The following fields are invalid:"), warnings.join(''));
@@ -939,10 +945,10 @@
                     var fields = _.keys(self.fields_view.fields);
                     fields.push('display_name');
                     return self.dataset.read_index(fields,
-                            {
-                                context: {'bin_size': true},
-                                check_access_rule: true
-                            }).then(function (r) {
+                        {
+                            context: {'bin_size': true},
+                            check_access_rule: true
+                        }).then(function (r) {
                         self.trigger('load_record', r);
                     }).fail(function () {
                         self.do_action('history_back');
@@ -1019,46 +1025,46 @@
                 return value;
             };
             var fields = _.chain(this.fields)
-                    .map(function (field) {
-                        var value = field.get_value();
-                        // ignore fields which are empty, invisible, readonly, o2m
-                        // or m2m
-                        if (!value
-                                || field.get('invisible')
-                                || field.get("readonly")
-                                || field.field.type === 'one2many'
-                                || field.field.type === 'many2many'
-                                || field.field.type === 'binary'
-                                || field.password) {
-                            return false;
-                        }
+                .map(function (field) {
+                    var value = field.get_value();
+                    // ignore fields which are empty, invisible, readonly, o2m
+                    // or m2m
+                    if (!value
+                        || field.get('invisible')
+                        || field.get("readonly")
+                        || field.field.type === 'one2many'
+                        || field.field.type === 'many2many'
+                        || field.field.type === 'binary'
+                        || field.password) {
+                        return false;
+                    }
 
-                        return {
-                            name: field.name,
-                            string: field.string,
-                            value: value,
-                            displayed: display(field, value),
-                        };
-                    })
-                    .compact()
-                    .sortBy(function (field) {
-                        return field.string;
-                    })
-                    .value();
+                    return {
+                        name: field.name,
+                        string: field.string,
+                        value: value,
+                        displayed: display(field, value),
+                    };
+                })
+                .compact()
+                .sortBy(function (field) {
+                    return field.string;
+                })
+                .value();
             var conditions = _.chain(self.fields)
-                    .filter(function (field) {
-                        return field.field.change_default;
-                    })
-                    .map(function (field) {
-                        var value = field.get_value();
-                        return {
-                            name: field.name,
-                            string: field.string,
-                            value: value,
-                            displayed: display(field, value),
-                        };
-                    })
-                    .value();
+                .filter(function (field) {
+                    return field.field.change_default;
+                })
+                .map(function (field) {
+                    var value = field.get_value();
+                    return {
+                        name: field.name,
+                        string: field.string,
+                        value: value,
+                        displayed: display(field, value),
+                    };
+                })
+                .value();
             var d = new instance.web.Dialog(this, {
                 title: _t("Set Default"),
                 args: {
@@ -1066,31 +1072,35 @@
                     conditions: conditions
                 },
                 buttons: [
-                    {text: _t("Close"), click: function () {
+                    {
+                        text: _t("Close"), click: function () {
+                        d.close();
+                    }
+                    },
+                    {
+                        text: _t("Save default"), click: function () {
+                        var $defaults = d.$el.find('#formview_default_fields');
+                        var field_to_set = $defaults.val();
+                        if (!field_to_set) {
+                            $defaults.parent().addClass('oe_form_invalid');
+                            $defaults.parent().addClass('has-feedback has-error');
+                            return;
+                        }
+                        var condition = d.$el.find('#formview_default_conditions').val(),
+                            all_users = d.$el.find('#formview_default_all').is(':checked');
+                        new instance.web.DataSet(self, 'ir.values').call(
+                            'set_default', [
+                                self.dataset.model,
+                                field_to_set,
+                                self.fields[field_to_set].get_value(),
+                                all_users,
+                                true,
+                                condition || false
+                            ]).done(function () {
                             d.close();
-                        }},
-                    {text: _t("Save default"), click: function () {
-                            var $defaults = d.$el.find('#formview_default_fields');
-                            var field_to_set = $defaults.val();
-                            if (!field_to_set) {
-                                $defaults.parent().addClass('oe_form_invalid');
-                                $defaults.parent().addClass('has-feedback has-error');
-                                return;
-                            }
-                            var condition = d.$el.find('#formview_default_conditions').val(),
-                                    all_users = d.$el.find('#formview_default_all').is(':checked');
-                            new instance.web.DataSet(self, 'ir.values').call(
-                                    'set_default', [
-                                        self.dataset.model,
-                                        field_to_set,
-                                        self.fields[field_to_set].get_value(),
-                                        all_users,
-                                        true,
-                                        condition || false
-                                    ]).done(function () {
-                                d.close();
-                            });
-                        }}
+                        });
+                    }
+                    }
                 ]
             });
             d.template = 'FormView.set_default';
@@ -1104,7 +1114,7 @@
             }
 
             field.on('focused', null, this.proxy('widgetFocused'))
-                    .on('blurred', null, this.proxy('widgetBlurred'));
+                .on('blurred', null, this.proxy('widgetBlurred'));
             if (this.get_field_desc(name).translate) {
                 this.translatable_fields.push(field);
             }
@@ -1202,38 +1212,36 @@
                 var w = new (obj)(self.view, instance.web.xml_to_json($elem[0]));
                 self.to_replace.push([w, $elem]);
             });
-            if(this.$target.find('.r_notebook_wrapper').length !==0 ){
-              var $n_wrapper = this.$target.find('.r_notebook_wrapper');
-              var $notebook = $n_wrapper.find('ul.oe_notebook');
-              var $tabs_wrapper = $notebook.wrap($('<div></div>').addClass('r_tabs_wrapper'));
+            if (this.$target.find('.r_notebook_wrapper').length !== 0) {
+                var $n_wrapper = this.$target.find('.r_notebook_wrapper');
+                var $notebook = $n_wrapper.find('ul.oe_notebook');
+                var $tabs_wrapper = $notebook.wrap($('<div></div>').addClass('r_tabs_wrapper'));
             }
-            if(this.$target.find('.oe_button_box [widget="website_button"]').length !==0 ){
-              this.$target.find('.oe_button_box [widget="website_button"]').insertAfter('.oe_button_box');
+            if (this.$target.find('.oe_button_box [widget="website_button"]').length !== 0) {
+                this.$target.find('.oe_button_box [widget="website_button"]').insertAfter('.oe_button_box');
             }
-            if((this.$target.find('.oe_button_box').length !==0 )
-               && (this.$target.find('.oe_button_box').parents('.oe_button_box_wrapper').length === 0)){
+            if ((this.$target.find('.oe_button_box').length !== 0 )
+                && (this.$target.find('.oe_button_box').parents('.oe_button_box_wrapper').length === 0)) {
                 this.$target.find('.oe_button_box').wrap($('<div></div>').addClass('oe_button_box_wrapper'));
                 var $wrapper = this.$target.find('.oe_button_box_wrapper');
                 var $button_box = $wrapper.find('.oe_button_box');
                 $wrapper.css({
-                    'width': '100%',
-                    'min-width': '100%',
+                    'width': '70%',
                     'position': 'absolute',
-                    'top': '0',
-                    'left': '0',
+                    'float': 'right',
+                    'right': '0px',
                     'height': '41px',
-//                     'overflow': 'hidden',
                     'padding': '0px 25px',
                 });
             }
 
         },
-        attach_node_attr: function($new_element, $node, attr) {
+        attach_node_attr: function ($new_element, $node, attr) {
             $new_element.data(attr, $node.attr(attr));
         },
-        process_group: function($group) {
+        process_group: function ($group) {
             var self = this;
-            $group.children('field').each(function() {
+            $group.children('field').each(function () {
                 self.preprocess_field($(this));
             });
             var $new_group = this.render_element('FormRenderingGroup', $group.getAttributes());
@@ -1252,7 +1260,7 @@
 
             var children = [];
 
-            $group.children().each(function(a,b,c) {
+            $group.children().each(function (a, b, c) {
                 var $child = $(this);
                 var colspan = parseInt($child.attr('colspan') || 1, 10);
                 var tagName = $child[0].tagName.toLowerCase();
@@ -1260,7 +1268,7 @@
                 var newline = tagName === 'newline';
 
                 // add flag for ground level groups
-                if(tagName ==='group' && $child.children('group').length == 0){
+                if (tagName === 'group' && $child.children('group').length == 0) {
                     $td.addClass('oe_ground_group');
                 }
 
@@ -1278,7 +1286,7 @@
                 if (!$tr || row_cols < colspan) {
                     $tr = $('<tr/>').addClass('oe_form_group_row').appendTo($table);
                     row_cols = cols;
-                } else if (tagName==='group') {
+                } else if (tagName === 'group') {
                     // When <group> <group/><group/> </group>, we need a spacing between the two groups
                     $td.addClass('oe_group_right');
                 }
@@ -1297,11 +1305,11 @@
             }
             $group.before($new_group).remove();
 
-            $table.find('> tbody > tr').each(function() {
+            $table.find('> tbody > tr').each(function () {
                 var to_compute = [],
                     row_cols = cols,
                     total = 100;
-                $(this).children().each(function() {
+                $(this).children().each(function () {
                     var $td = $(this),
                         $child = $td.children(':first');
                     if ($child.attr('cell-class')) {
@@ -1313,7 +1321,7 @@
                         case 'label':
                             if ($child.attr('for')) {
                                 $td.attr('width', '1%').addClass('oe_form_group_cell_label');
-                                row_cols-= $td.attr('colspan') || 1;
+                                row_cols -= $td.attr('colspan') || 1;
                                 total--;
                             }
                             break;
@@ -1330,7 +1338,7 @@
                                 }
                                 $td.attr('width', width);
                                 $child.removeAttr('width');
-                                row_cols-= $td.attr('colspan') || 1;
+                                row_cols -= $td.attr('colspan') || 1;
                             } else {
                                 to_compute.push($td);
                             }
@@ -1340,7 +1348,7 @@
                 if (row_cols) {
                     var unit = Math.floor(total / row_cols);
                     if (!$(this).is('.oe_form_group_row_incomplete')) {
-                        _.each(to_compute, function($td, i) {
+                        _.each(to_compute, function ($td, i) {
                             var width = parseInt($td.attr('colspan'), 10) * unit;
                             $td.attr('width', width + '%');
                             total -= width;
@@ -1348,13 +1356,13 @@
                     }
                 }
             });
-            _.each(children, function(el) {
+            _.each(children, function (el) {
                 self.process($(el));
             });
             this.handle_common_properties($new_group, $group);
             return $new_group;
         },
-        process_sheet: function($sheet) {
+        process_sheet: function ($sheet) {
             var $new_sheet = this.render_element('FormRenderingSheet', $sheet.getAttributes());
             this.handle_common_properties($new_sheet, $sheet);
             var $dst = $new_sheet.find('.oe_form_sheet');
@@ -1415,13 +1423,13 @@
             //                                     .after($('<div>').addClass('scroller scroller-right').css({'float': 'left'}).append($('<i>').addClass('fa fa-chevron-right'))));
             return $new_notebook;
         },
-        process_separator: function($separator) {
+        process_separator: function ($separator) {
             var $new_separator = this.render_element('FormRenderingSeparator', $separator.getAttributes());
             $separator.before($new_separator).remove();
             this.handle_common_properties($new_separator, $separator);
             return $new_separator;
         },
-        process_label: function($label) {
+        process_label: function ($label) {
             var name = $label.attr("for"),
                 field_orm = this.fvg.fields[name];
             var dict = {
@@ -1447,7 +1455,7 @@
         template: 'ResponsiveFieldUrl',
     });
 
-  	instance.web.form.ResponsiveFieldChar = instance.web.form.FieldChar.extend({
+    instance.web.form.ResponsiveFieldChar = instance.web.form.FieldChar.extend({
         template: 'ResponsiveFieldChar',
         widget_class: 'oe_form_field_char',
         events: {
@@ -1458,11 +1466,11 @@
         },
         store_dom_value: function () {
             if (!this.get('effective_readonly')
-                    && this.$('input').length
-                    && this.is_syntax_valid()) {
+                && this.$('input').length
+                && this.is_syntax_valid()) {
                 this.internal_set_value(
-                        this.parse_value(
-                                this.$('input').val()));
+                    this.parse_value(
+                        this.$('input').val()));
             }
         },
         commit_value: function () {
@@ -1534,9 +1542,9 @@
             this.$input = this.$el.find('.oe_datepicker_master');
             this.$input_picker = this.$el.find('.input-group.date');
             moment.locale(Date.CultureInfo.name, {
-              week: {
-                dow: Date.CultureInfo.firstDayOfWeek,
-              }
+                week: {
+                    dow: Date.CultureInfo.firstDayOfWeek,
+                }
             });
 
             var format_ = this.pickTime ? "L HH:mm:ss" : "L"
@@ -1554,17 +1562,17 @@
 
             this.set_readonly(false);
             this.set({'value': false});
-            this.$input_picker.on('dp.hide', function(ev){
+            this.$input_picker.on('dp.hide', function (ev) {
                 self.on_picker_close(ev.date.format(self.pickTime ? "L HH:mm:ss" : "L"), ev.date);
                 self.change_datetime(ev);
             });
-            this.$input_picker.on('dp.change', function(ev){
+            this.$input_picker.on('dp.change', function (ev) {
                 self.on_picker_select(ev.date.format(self.pickTime ? "L HH:mm:ss" : "L"), ev.date);
                 self.change_datetime(ev);
             });
         },
-        picker: function() {
-            if (this.jqueryui_object !== 'datetimepicker'){
+        picker: function () {
+            if (this.jqueryui_object !== 'datetimepicker') {
                 this.jqueryui_object = 'datetimepicker';
             }
             return $.fn[this.jqueryui_object].apply(this.$input_picker, arguments);
@@ -1573,29 +1581,29 @@
             this.on_picker_select(text, date_);
             this.$input.focus();
         },
-        on_picker_select: function(text, date_) {
+        on_picker_select: function (text, date_) {
             var date = date_;
             this.$input
                 .val(date ? this.format_client(date._d) : '');
             this.$input.trigger('change');
         },
-        set_value: function(value_) {
+        set_value: function (value_) {
             this.set({'value': value_});
             this.$input.val(value_ ? this.format_client(value_) : '');
         },
-        get_value: function() {
+        get_value: function () {
             return this.get('value');
         },
-        set_value_from_ui_: function() {
+        set_value_from_ui_: function () {
             var value_ = this.$input.val() || false;
             this.set({'value': this.parse_client(value_)});
         },
-        set_readonly: function(readonly) {
+        set_readonly: function (readonly) {
             this.readonly = readonly;
             this.$input.prop('readonly', this.readonly);
             this.$el.find('img.oe_datepicker_trigger').toggleClass('oe_input_icon_disabled', readonly);
         },
-        is_valid_: function() {
+        is_valid_: function () {
             var value_ = this.$input.val();
             if (value_ === "") {
                 return true;
@@ -1603,18 +1611,18 @@
                 try {
                     this.parse_client(value_);
                     return true;
-                } catch(e) {
+                } catch (e) {
                     return false;
                 }
             }
         },
-        parse_client: function(v) {
+        parse_client: function (v) {
             return instance.web.parse_value(v, {"widget": this.type_of_date});
         },
-        format_client: function(v) {
+        format_client: function (v) {
             return instance.web.format_value(v, {"widget": this.type_of_date});
         },
-        change_datetime: function(e) {
+        change_datetime: function (e) {
             if ((e.type !== "keypress" || e.which === 13) && this.is_valid_()) {
                 this.set_value_from_ui_();
                 this.trigger("datetime_changed");
