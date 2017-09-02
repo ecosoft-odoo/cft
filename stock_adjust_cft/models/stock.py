@@ -33,6 +33,10 @@ class StockPicking(models.Model):
         'sale.order',
         compute='_compute_order_id',
     )
+    client_order_ref = fields.Char(
+        string='Reference/Description',
+        copy=False,
+    )
 
     @api.multi
     @api.depends('origin')
