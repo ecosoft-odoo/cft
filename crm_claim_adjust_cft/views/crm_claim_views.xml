@@ -2,13 +2,31 @@
 <openerp>
 <data>
 
+    <record id="crm_case_claims_tree_view" model="ir.ui.view">
+        <field name="name">CRM - Claims Tree</field>
+        <field name="model">crm.claim</field>
+        <field name="inherit_id" ref="crm_claim.crm_case_claims_tree_view"/>
+        <field name="arch" type="xml">
+            <field name="partner_id" position="after">
+                <field name="opportunity_id"/>
+                <field name="reference"/>
+            </field>
+        </field>
+    </record>
+
     <record model="ir.ui.view" id="crm_case_claims_form_view">
         <field name="name">CRM - Claims Form</field>
         <field name="model">crm.claim</field>
         <field name="inherit_id" ref="crm_claim.crm_case_claims_form_view"/>
         <field name="arch" type="xml">
             <xpath expr="//field[@name='ref']" position="after">
+                <field name="ref2"/>
+                <field name="ref3"/>
                 <field name="sale_ids"/>
+            </xpath>
+            <xpath expr="//field[@name='partner_id']" position="after">
+                <field name="reference"/>
+                <field name="opportunity_id" domain="[('type','=','opportunity')]"/>
             </xpath>
         </field>
     </record>
@@ -21,6 +39,9 @@
             <xpath expr="//field[@name='user_id']" position="after">
                 <field name="ref"/>
                 <field name="sale_ids"/>
+            </xpath>
+            <xpath expr="//field[@name='partner_id']" position="after">
+                <field name="opportunity_id"/>
             </xpath>
         </field>
     </record>

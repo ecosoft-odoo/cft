@@ -17,6 +17,7 @@
     "data": [
         'views/crm_claim_views.xml',
         'views/crm_claim_menu.xml',
+        'views/crm_lead_view.xml',
         'security/ir.model.access.csv',
     ],
     "js": [
