@@ -32,6 +32,12 @@
                        context="{'default_type':'delivery'}"
                        options='{"no_create":True, "no_create_edit":True}'/>
             </xpath>
+            <xpath expr="//button[@name='print_quotation'][1]" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//button[@name='print_quotation'][2]" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
         </field>
     </record>
 

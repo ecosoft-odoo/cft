@@ -11,6 +11,7 @@
         'purchase',
     ],
     "data": [
+        'views/purchase_view.xml',
         'views/res_currency_view.xml',
     ],
     "auto_install": False,
