@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <!-- Menu -->
+        <record id="crm_claim_adjust_cft.menu_purchase_aftersale" model="ir.ui.menu">
+            <field name="groups_id" eval="[(4, ref('group_purchase_user_readonly'))]"/>
+        </record>
+        <record id="base.menu_purchase_root" model="ir.ui.menu">
+            <field name="groups_id" eval="[(4, ref('group_purchase_user_readonly'))]"/>
+        </record>
+
+        <!-- View -->
+        <record id="purchase.view_product_normal_purchase_buttons_from" model="ir.ui.view">
+            <field name="groups_id" eval="[(4, ref('group_purchase_user_readonly'))]"/>
+        </record>
+        <record id="purchase.view_product_template_purchase_buttons_from" model="ir.ui.view">
+            <field name="groups_id" eval="[(4, ref('group_purchase_user_readonly'))]"/>
+        </record>
+        <record id="purchase.purchase_partner_kanban_view" model="ir.ui.view">
+            <field name="groups_id" eval="[(4, ref('group_purchase_user_readonly'))]"/>
+        </record>
+        <record id="purchase.res_partner_view_purchase_buttons" model="ir.ui.view">
+            <field name="groups_id" eval="[(4, ref('group_purchase_user_readonly'))]"/>
+        </record>
+    </data>
+</openerp>

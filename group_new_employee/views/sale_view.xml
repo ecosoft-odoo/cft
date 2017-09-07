@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <!-- Menu -->
+        <record id="base.menu_aftersale" model="ir.ui.menu">
+            <field name="groups_id" eval="[(4, ref('group_sale_salesman_readonly'))]"/>
+        </record>
+        <record id="crm.menu_crm_case_phone" model="ir.ui.menu">
+            <field name="groups_id" eval="[(4, ref('group_sale_salesman_readonly'))]"/>
+        </record>
+        <record id="crm.menu_crm_opportunities" model="ir.ui.menu">
+            <field name="groups_id" eval="[(4, ref('group_sale_salesman_readonly'))]"/>
+        </record>
+        <record id="sale.menu_sale_order" model="ir.ui.menu">
+            <field name="groups_id" eval="[(4, ref('group_sale_salesman_readonly'))]"/>
+        </record>
+        <record id="crm.menu_report_crm_phonecalls_tree" model="ir.ui.menu">
+            <field name="groups_id" eval="[(4, ref('group_sale_salesman_readonly'))]"/>
+        </record>
+        <record id="base.menu_base_partner" model="ir.ui.menu">
+            <field name="groups_id" eval="[(4, ref('group_sale_salesman_readonly'))]"/>
+        </record>
+        <record id="crm.menu_crm_config_phonecall" model="ir.ui.menu">
+            <field name="groups_id" eval="[(4, ref('group_sale_salesman_readonly'))]"/>
+        </record>
+
+        <!-- View -->
+        <record id="claim_from_delivery.crm_claim_from_delivery" model="ir.ui.view">
+            <field name="groups_id" eval="[(4, ref('group_sale_salesman_readonly'))]"/>
+        </record>
+        <record id="sale.product_form_view_sale_order_button" model="ir.ui.view">
+            <field name="groups_id" eval="[(4, ref('group_sale_salesman_readonly'))]"/>
+        </record>
+        <record id="sale.product_template_form_view_sale_order_button" model="ir.ui.view">
+            <field name="groups_id" eval="[(4, ref('group_sale_salesman_readonly'))]"/>
+        </record>
+        <record id="sale.res_partner_view_buttons" model="ir.ui.view">
+            <field name="groups_id" eval="[(4, ref('group_sale_salesman_readonly'))]"/>
+        </record>
+        <record id="crm_claim.view_claim_res_partner_info_form" model="ir.ui.view">
+            <field name="groups_id" eval="[(4, ref('group_sale_salesman_readonly'))]"/>
+        </record>
+    </data>
+</openerp>

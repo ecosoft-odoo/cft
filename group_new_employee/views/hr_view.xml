@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <!-- Menu -->
+        <record id="base.menu_crm_case_job_req_main" model="ir.ui.menu">
+            <field name="groups_id" eval="[(4, ref('group_hr_user_readonly'))]"/>
+        </record>
+        <record id="hr.menu_hr_root" model="ir.ui.menu">
+            <field name="groups_id" eval="[(4, ref('group_hr_user_readonly'))]"/>
+        </record>
+    </data>
+</openerp>

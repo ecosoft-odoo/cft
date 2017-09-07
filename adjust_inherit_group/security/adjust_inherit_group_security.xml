@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <!-- Purchase -->
+        <record id="purchase.group_purchase_user" model="res.groups">
+            <field name="implied_ids" eval="[(4, ref('group_new_employee.group_purchase_user_readonly'))]"/>
+        </record>
+        <!-- Account -->
+        <record id="account.group_account_invoice" model="res.groups">
+            <field name="implied_ids" eval="[(4, ref('group_new_employee.group_account_invoice_readonly'))]"/>
+        </record>
+        <!-- Stock -->
+        <record id="stock.group_stock_user" model="res.groups">
+            <field name="implied_ids" eval="[(4, ref('group_new_employee.group_stock_user_readonly'))]"/>
+        </record>
+        <!-- HR -->
+        <record id="base.group_hr_user" model="res.groups">
+            <field name="implied_ids" eval="[(4, ref('group_new_employee.group_hr_user_readonly'))]"/>
+        </record>
+        <!-- Marketing -->
+        <record id="marketing.group_marketing_user" model="res.groups">
+            <field name="implied_ids" eval="[(4, ref('group_new_employee.group_marketing_user_readonly'))]"/>
+        </record>
+    </data>
+</openerp>
