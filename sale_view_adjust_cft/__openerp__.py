@@ -16,6 +16,7 @@
         'sale',
         'sale_partner_with_sales',
         'account',
+        'product',
     ],
     "data": [
         'security/crm_security.xml',
