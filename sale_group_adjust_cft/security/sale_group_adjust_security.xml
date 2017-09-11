@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <!-- E-Commerce Group -->
+        <record id="group_sale_ecommerce" model="res.groups">
+            <field name="name">E-Commerce</field>
+            <field name="category_id" ref="base.module_category_sales_management"/>
+            <field name="implied_ids" eval="[(4, ref('base.group_sale_salesman'))]"/>
+        </record>
+        <!-- After-service Group -->
+        <record id="group_sale_after_service" model="res.groups">
+            <field name="name">After-service</field>
+            <field name="category_id" ref="base.module_category_sales_management"/>
+            <field name="implied_ids" eval="[(4, ref('base.group_sale_salesman_all_leads'))]"/>
+        </record>
+        <!-- Marketing Group -->
+        <record id="group_sale_marketing" model="res.groups">
+            <field name="name">Marketing</field>
+            <field name="category_id" ref="base.module_category_sales_management"/>
+            <field name="implied_ids" eval="[(4, ref('base.group_sale_salesman_all_leads'))]"/>
+        </record>
+    </data>
+</openerp>
