@@ -13,6 +13,7 @@
         'sale',
         'crm_claim',
         'crm',
+        'customer_product_code',
     ],
     'data': [
         'security/sale_group_adjust_security.xml',
