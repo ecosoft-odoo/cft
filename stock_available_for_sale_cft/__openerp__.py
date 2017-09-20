@@ -7,7 +7,7 @@
     """,
     'website': 'www.ecosoft.co.th',
     'depends': [
-        'stock',
+        'sale_stock',
     ],
     'category': 'Warehouse Management',
     'data': [
