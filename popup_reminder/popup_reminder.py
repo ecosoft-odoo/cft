@@ -2,7 +2,7 @@
 ##############################################################################
 #
 #    OpenERP, Open Source Management Solution
-#    Copyright (C) 2012-Today Serpent Consulting Services Pvt. Ltd. 
+#    Copyright (C) 2012-Today Serpent Consulting Services Pvt. Ltd.
 #                                      (<http://www.serpentcs.com>)
 #    Copyright (C) 2004 OpenERP SA (<http://www.openerp.com>)
 #
@@ -238,3 +238,4 @@ class popup_reminder(models.Model):
     duration_in_days = fields.Integer('Days')
     color = fields.Char('Color', size=64)
     from_today = fields.Boolean('From Today')
+    group_ids = fields.Many2many('res.groups', 'reminder_group_rel', 'reminder_id', 'group_id', 'Groups')

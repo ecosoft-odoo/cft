@@ -17,6 +17,7 @@
                             <field name="duration_in_days" attrs="{'invisible':[('search_option', 'not in', ['days'])]}" />
                             <field name="color" />
                             <field name="from_today" />
+                            <field name="group_ids" widget="many2many_tags"/>
                         </group>
                         <separator string="Display Fields" colspan="4"/>
                         <field name="popup_field_ids" nolabel="1" colspan="4"/>
@@ -40,7 +41,7 @@
             <field name="view_type">form</field>
             <field name="view_mode">tree,form</field>
         </record>
-        <menuitem id="main_popup_reminder_menu" name="Popup Reminder" />
+        <menuitem id="main_popup_reminder_menu" name="Popup Reminder" groups="group_manage_popup_reminder"/>
         <menuitem id="main_reminder_menu" name="Reminder" parent="main_popup_reminder_menu"/>
         <menuitem id="menu_popup_reminder" action="action_popup_reminder" parent="main_reminder_menu"/>
 
