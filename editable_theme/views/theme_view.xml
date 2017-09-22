@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <!--FORM [THEMES]-->
+        <record id="form_themes" model="ir.ui.view">
+            <field name="name">menu.theme.form</field>
+            <field name="model">menu.theme</field>
+            <field name="arch" type="xml">
+
+                 <form string="Theme Settings" class="oe_form_configuration">
+                    <header>
+                        <button string="Apply" type="object" name="execute" class="oe_highlight"/>
+                        or
+                        <button string="Cancel" type="object" name="cancel" class="oe_link"/>
+                    </header>
+                    <separator string="Theme Settings"/>
+
+
+                     <!--<group>-->
+                        <!--<label for="top_image" string="Topbar Image"/>-->
+                        <!--<div>-->
+                            <!--<div>-->
+                                <!--<field name="top_image" widget="image" class="oe_avatar oe_left oe_inline"/>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                     <!--</group>-->
+
+                     <group>
+                         <label for="font_common" string="Font Style"/>
+                         <div>
+                             <span id="demo_sans_serif" class="oe_inline" nolabel="1" attrs="{'invisible': [('font_common','!=','sans-serif')]}">ABCXyz123</span>
+                             <span id="demo_serif" class="oe_inline" nolabel="1" attrs="{'invisible': [('font_common','!=','serif')]}">ABCXyz123</span>
+                             <span id="demo_monospace" class="oe_inline" nolabel="1" attrs="{'invisible': [('font_common','!=','monospace')]}">ABCXyz123</span>
+                             <field name="font_common" class="oe_inline" nolabel="1"/>
+                         </div>
+                    </group>
+
+                     <group>
+                        <label for="top_background_color" string="Main Menu Bar BackGround Colour"/>
+                        <div>
+                            <div>
+                                <field name="top_background_color" class="oe_inline"  widget="color"/>
+                            </div>
+                        </div>
+                     </group>
+
+                     <group>
+                        <label for="sidebar_background_color" string="Left Bar Background Colour"/>
+                        <div>
+                            <div>
+                                <field name="sidebar_background_color" class="oe_inline" widget="color"/>
+                            </div>
+                        </div>
+                     </group>
+
+                     <group>
+                        <label for="sidebar_font_color_parent" string="Left Bar Parent Menu Colour"/>
+                        <div>
+                            <div>
+                                <field name="sidebar_font_color_parent" class="oe_inline" widget="color"/>
+                            </div>
+                        </div>
+                     </group>
+
+                     <group>
+                        <label for="sidebar_font_color" string="Left Bar Child Menu Colour"/>
+                        <div>
+                            <div>
+                                <field name="sidebar_font_color" class="oe_inline"  widget="color"/>
+                            </div>
+                        </div>
+                    </group>
+
+                     <group>
+                        <label for="top_font_color" string="Main Menu Colour"/>
+                        <div>
+                            <div>
+                                <field name="top_font_color" class="oe_inline"  widget="color"/>
+                            </div>
+                        </div>
+                    </group>
+
+
+
+
+                     <group>
+                        <label for="sidebar_image" string="Left Bar Background Image"/>
+                        <div>
+                            <div>
+                                <field name="sidebar_image" widget="image" class="oe_avatar oe_left oe_inline"/>
+                            </div>
+                        </div>
+                     </group>
+
+                </form>
+            </field>
+        </record>
+
+
+        <record id="action_themes_setup" model="ir.actions.act_window">
+            <field name="name">Themes Settings</field>
+            <field name="res_model">menu.theme</field>
+            <field name="view_mode">form</field>
+            <field name="target">inline</field>
+        </record>
+        <!--MENU [THEME SETTINGS]-->
+        <menuitem action="action_themes_setup" id="menu_themes" parent="base.next_id_2" sequence="-5"/>
+    </data>
+</openerp>
