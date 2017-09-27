@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+		<!-- product.product -->
+		<report string="Stock Ledger"
+        	model="product.product"
+        	auto="False"
+        	name="report.product.normal.stock.ledger"
+        	rml="product_stock_ledger/report/product_stock_ledger_form.jrxml"
+        	id="report_product_normal_stock_ledger"
+        	menu="True"
+        	header="False"
+    		attachment=""
+        	groups=""
+    	/>
+    	<record id="report_product_normal_stock_ledger" model="ir.actions.report.xml">
+        	<field name="jasper_report">True</field>
+        	<field name="jasper_output">xls</field>
+    	</record>
+
+		<!-- product.template -->
+		<report string="Stock Ledger"
+        	model="product.template"
+        	auto="False"
+        	name="report.product.template.stock.ledger"
+        	rml="product_stock_ledger/report/product_stock_ledger_form.jrxml"
+        	id="report_product_template_stock_ledger"
+        	menu="True"
+        	header="False"
+    		attachment=""
+        	groups=""
+    	/>
+    	<record id="report_product_template_stock_ledger" model="ir.actions.report.xml">
+        	<field name="jasper_report">True</field>
+        	<field name="jasper_output">xls</field>
+    	</record>
+	</data>
+</openerp>
