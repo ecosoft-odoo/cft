@@ -32,9 +32,16 @@ class ProductStockLedger(models.Model):
         string='Invoice Number',
         readonly=True,
     )
+    price_unit_temp = fields.Float(
+        string='Unit Price Temp',
+        related='product_id.standard_price',
+        method=True,
+        readonly=True,
+        digits_compute=dp.get_precision('Account'),
+    )
     price_unit = fields.Float(
         string='Unit Price',
-        related='product_id.standard_price',
+        compute='_compute_amount',
         method=True,
         readonly=True,
         digits_compute=dp.get_precision('Account'),
@@ -71,7 +78,7 @@ class ProductStockLedger(models.Model):
     def init(self, cr):
         tools.drop_view_if_exists(cr, 'product_stock_ledger')
         cr.execute("""CREATE OR REPLACE VIEW product_stock_ledger AS
-                      (SELECT ROW_NUMBER() OVER (ORDER BY line.product_id, inv.date_invoice, line.invoice_id, inv.number ASC) AS id,
+                      (SELECT ROW_NUMBER() OVER (ORDER BY line.product_id, inv.date_invoice, inv.number ASC) AS id,
                               line.product_id AS product_id,
                               inv.date_invoice AS date_invoice,
                               line.invoice_id AS invoice_id,
@@ -117,6 +124,7 @@ class ProductStockLedger(models.Model):
                     out_qty = (-1) * qty
                 balance -= out_qty
 
+            stock_ledger.price_unit = stock_ledger.price_unit_temp
             amount_total = balance * stock_ledger.price_unit
             # Assign Value
             stock_ledger.in_qty = in_qty
