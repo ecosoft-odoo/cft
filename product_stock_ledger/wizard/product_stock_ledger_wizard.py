@@ -93,6 +93,11 @@ class ProductStockLedgerWizard(models.TransientModel):
                 domain += [('product_id', '=', product_id)]
                 parameters.update({'product_id': product_id})
 
+            if product_id:
+                product = self.env['product.product'].sudo().browse(product_id)
+                # pass parameter price unit
+                parameters.update({'price_unit': product.standard_price})
+
             # Compute Amount (in_qty, out_qty, balance, amount_total)
             StockLedger.search([('product_id', '=', product_id)]) \
                 ._compute_amount()

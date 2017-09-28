@@ -7,6 +7,7 @@ def report_product_stock_ledger_parser(cr, uid, ids, data, context):
     return {
         'parameters': {
             'product_id': parameters.get('product_id', -1),
+            'price_unit': parameters.get('price_unit', -1),
             'from_date': parameters.get('from_date', ''),
             'to_date': parameters.get('to_date', ''),
         }

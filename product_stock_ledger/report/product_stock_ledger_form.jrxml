@@ -16,6 +16,7 @@
 	<parameter name="from_date" class="java.lang.String"/>
 	<parameter name="product_id" class="java.lang.Number"/>
 	<parameter name="to_date" class="java.lang.String"/>
+	<parameter name="price_unit" class="java.lang.Number"/>
 	<queryString language="xPath">
 		<![CDATA[/data/record]]>
 	</queryString>
@@ -46,7 +47,7 @@
 		<variableExpression><![CDATA[$F{line_date_invoice} == null ? "" : (new SimpleDateFormat("yyyy-MM-dd")).format($F{line_date_invoice})]]></variableExpression>
 	</variable>
 	<variable name="amount_total" class="java.lang.Number">
-		<variableExpression><![CDATA[$F{line_balance_qty} * $F{price_unit}]]></variableExpression>
+		<variableExpression><![CDATA[$F{line_balance_qty} * $P{price_unit}]]></variableExpression>
 	</variable>
 	<filterExpression><![CDATA[($P{from_date} == '' || $V{line_date_invoice} >= $P{from_date} ) &&
 ($P{to_date} == '' || $V{line_date_invoice} <= $P{to_date} )]]></filterExpression>
@@ -180,7 +181,7 @@
 				<textElement textAlignment="Right" verticalAlignment="Top" rotation="None" lineSpacing="Single" markup="none">
 					<font fontName="Monospaced" size="10" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Garuda-Bold.ttf" pdfEncoding="Identity-H" isPdfEmbedded="false"/>
 				</textElement>
-				<textFieldExpression class="java.lang.Number"><![CDATA[$F{price_unit}]]></textFieldExpression>
+				<textFieldExpression class="java.lang.Number"><![CDATA[$P{price_unit} != -1 ? $P{price_unit} : 0.0]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
 				<reportElement style="style1" mode="Transparent" x="539" y="0" width="70" height="20" forecolor="#000000" backcolor="#FFFFFF"/>
