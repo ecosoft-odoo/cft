@@ -17,6 +17,7 @@
     },
     "depends": [
         "calendar",
+        "google_calendar",
         "sales_team",
     ],
     "data": [

@@ -10,6 +10,12 @@ class CalendarEvent(models.Model):
     _inherit = "calendar.event"
 
     @api.multi
+    def write(self, values):
+        if len(values) == 1 and values.get('oe_update_date', False):
+            self = self.sudo()
+        return super(CalendarEvent, self).write(values)
+
+    @api.multi
     @api.depends('user_id')
     def _get_section_id(self):
         team_obj = self.env['crm.case.section']
