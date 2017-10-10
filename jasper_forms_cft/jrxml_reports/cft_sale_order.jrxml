@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Quotation" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
 	<property name="ireport.zoom" value="1.6500000000000352"/>
-	<property name="ireport.x" value="315"/>
+	<property name="ireport.x" value="29"/>
 	<property name="ireport.y" value="111"/>
 	<property name="OPENERP_RELATIONS" value="[&quot;order_line&quot;]"/>
 	<import value="org.apache.commons.codec.binary.Base64"/>
@@ -379,8 +379,8 @@ We have pleasure in submitting our quotation as requested. Please contact us if 
 				</textElement>
 				<textFieldExpression class="java.lang.String"><![CDATA[$F{customer_title} + " " + $F{customer_name}]]></textFieldExpression>
 			</textField>
-			<textField pattern="dd/MM/yyyy" isBlankWhenNull="true">
-				<reportElement mode="Transparent" x="98" y="154" width="292" height="30" forecolor="#000000" backcolor="#FFFFFF"/>
+			<textField isStretchWithOverflow="true" pattern="dd/MM/yyyy" isBlankWhenNull="true">
+				<reportElement mode="Transparent" x="98" y="154" width="260" height="30" forecolor="#000000" backcolor="#FFFFFF"/>
 				<textElement textAlignment="Left" verticalAlignment="Top" rotation="None" lineSpacing="Single" markup="none">
 					<font fontName="Monospaced" size="9" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H" isPdfEmbedded="false"/>
 				</textElement>
@@ -443,15 +443,15 @@ We have pleasure in submitting our quotation as requested. Please contact us if 
 				<text><![CDATA[TAX ID. 0105535014957 สํานักงานใหญ่]]></text>
 			</staticText>
 			<staticText>
-				<reportElement mode="Transparent" x="368" y="154" width="84" height="22" backcolor="#B5E7D3"/>
+				<reportElement mode="Transparent" x="359" y="154" width="84" height="22" backcolor="#B5E7D3"/>
 				<textElement verticalAlignment="Top" lineSpacing="Single">
 					<font fontName="Monospaced" size="9" isBold="false" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H" isPdfEmbedded="false"/>
 				</textElement>
 				<text><![CDATA[อ้างอิง
 / REFERENCE :]]></text>
 			</staticText>
-			<textField pattern="" isBlankWhenNull="true">
-				<reportElement mode="Transparent" x="441" y="156" width="153" height="20" forecolor="#000000" backcolor="#FFFFFF"/>
+			<textField isStretchWithOverflow="true" pattern="" isBlankWhenNull="true">
+				<reportElement mode="Transparent" x="432" y="154" width="146" height="20" forecolor="#000000" backcolor="#FFFFFF"/>
 				<textElement textAlignment="Left" verticalAlignment="Top" rotation="None" lineSpacing="Single" markup="none">
 					<font fontName="Monospaced" size="9" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H" isPdfEmbedded="false"/>
 				</textElement>
