@@ -11,6 +11,7 @@
         'purchase',
     ],
     "data": [
+        'security/ir.model.access.csv',
         'views/purchase_view.xml',
         'views/res_currency_view.xml',
     ],

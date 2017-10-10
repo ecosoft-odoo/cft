@@ -1,0 +1,2 @@
+"id","name","model_id/id","group_id/id","perm_read","perm_write","perm_create","perm_unlink"
+"access_res_currency_purchase_manager","access_res_currency_purchase_manager","model_res_currency","purchase.group_purchase_manager",1,1,1,1
