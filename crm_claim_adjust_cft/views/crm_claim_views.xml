@@ -28,6 +28,9 @@
                 <field name="reference"/>
                 <field name="opportunity_id" domain="[('type','=','opportunity')]"/>
             </xpath>
+            <xpath expr="//field[@name='partner_id']" position="attributes">
+                <attribute name="required">1</attribute>
+            </xpath>
         </field>
     </record>
 
