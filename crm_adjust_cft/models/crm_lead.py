@@ -1,9 +1,13 @@
 # -*- coding: utf-8 -*-
-from openerp import models, api
+from openerp import models, fields, api
 
 
 class CRMLead(models.Model):
     _inherit = 'crm.lead'
+
+    website = fields.Char(
+        string='Website',
+    )
 
     @api.model
     def _lead_create_contact(self, lead, name, is_company, parent_id=False):

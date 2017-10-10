@@ -12,7 +12,9 @@
         'crm',
         'l10n_th_address_adjust_cft',
     ],
-    'data': [],
+    'data': [
+        'views/crm_lead_view.xml',
+    ],
     'demo': [],
     'test': [],
     'installable': True,
