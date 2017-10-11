@@ -150,3 +150,4 @@ access_hr_employee_resource_user_readonly,resource.resource.user.readonly,resour
 access_hr_department_user_readonly,hr.department.user.readonly,hr.model_hr_department,group_hr_user_readonly,1,0,0,0
 access_hr_job_user_readonly,hr.job user readonly,hr.model_hr_job,group_hr_user_readonly,1,0,0,0
 access_ir_property_hr_user_readonly,ir_property hr_user readonly,base.model_ir_property,group_hr_user_readonly,1,0,0,0
+access_res_currency_purchase_user_readonly,access_res_currency_purchase_user_readonly,base.model_res_currency,group_purchase_user_readonly,1,0,0,0
