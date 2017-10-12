@@ -29,6 +29,7 @@ from openerp.http import request
 from dateutil.relativedelta import relativedelta
 from openerp.tools import DEFAULT_SERVER_DATETIME_FORMAT, DEFAULT_SERVER_DATE_FORMAT
 from openerp.tools.translate import _
+import ast
 
 skip_models_list = ['ir.property', 'ir.model.data', 'ir.module.module']
 
@@ -168,6 +169,12 @@ class popup_reminder(models.Model):
             today_date = datetime.date.today()
             data_ids = []
             model_obj = self.pool.get(data.model_id.model)
+
+            # User defind domain
+            domain = "[(1, '=', 1)]"
+            if data.domain and data.domain.strip() != "":
+                domain = data.domain.strip()
+
             if data.search_option == 'current_month':
                 if data.from_today:
                     if data.field_id.ttype in ['datetime']:
@@ -178,6 +185,10 @@ class popup_reminder(models.Model):
                         today_date = today_date.strftime(DEFAULT_SERVER_DATETIME_FORMAT)
                     data_ids = model_obj.search(cr, uid, [(data.field_id.name, '>=', today_date),
                                                          (data.field_id.name, '<=', cur_month_last_date)])
+                    try:
+                        data_ids = model_obj.search(cr, uid, [('id', 'in', data_ids)] + ast.literal_eval(domain))
+                    except:
+                        raise osv.except_osv(_('Warning!'), _('Invalid domain of "%s", please reset it.' % (data.name)))
                 else:
                     if data.field_id.ttype in ['datetime']:
                         try:
@@ -190,12 +201,22 @@ class popup_reminder(models.Model):
                             cur_month_first_date = datetime.datetime.strptime(str(cur_month_first_date),'%Y-%m-%d').strftime(DEFAULT_SERVER_DATETIME_FORMAT)
                     data_ids = model_obj.search(cr, uid, [(data.field_id.name, '>=', cur_month_first_date),
                                                          (data.field_id.name, '<=', cur_month_last_date)])
+
+                    try:
+                        data_ids = model_obj.search(cr, uid, [('id', 'in', data_ids)] + ast.literal_eval(domain))
+                    except:
+                        raise osv.except_osv(_('Warning!'), _('Invalid domain of "%s", please reset it.' % (data.name)))
             if data.search_option == 'next_month':
                 if data.field_id.ttype in ['datetime']:
                     next_month_first_date = next_month_first_date.strftime(DEFAULT_SERVER_DATETIME_FORMAT)
                     next_month_last_date = next_month_last_date.strftime(DEFAULT_SERVER_DATETIME_FORMAT)
                 data_ids = model_obj.search(cr, uid, [(data.field_id.name, '>=', next_month_first_date),
                                                      (data.field_id.name, '<=', next_month_last_date)])
+
+                try:
+                    data_ids = model_obj.search(cr, uid, [('id', 'in', data_ids)] + ast.literal_eval(domain))
+                except:
+                    raise osv.except_osv(_('Warning!'), _('Invalid domain of "%s", please reset it.' % (data.name)))
             if data.search_option == 'days':
                 next_date = False
                 if data.field_id.ttype in ['datetime']:
@@ -207,11 +228,21 @@ class popup_reminder(models.Model):
                     next_date = next_date.strftime(DEFAULT_SERVER_DATE_FORMAT)
                 data_ids = model_obj.search(cr, uid, [(data.field_id.name, '>=', today_date),
                                                      (data.field_id.name, '<=', next_date)])
+
+                try:
+                    data_ids = model_obj.search(cr, uid, [('id', 'in', data_ids)] + ast.literal_eval(domain))
+                except:
+                    raise osv.except_osv(_('Warning!'), _('Invalid domain of "%s", please reset it.' % (data.name)))
             if data.search_option == 'today':
                 if data.field_id.ttype in ['datetime']:
                     today_date = today_date.strftime(DEFAULT_SERVER_DATETIME_FORMAT)
                 data_ids = model_obj.search(cr, uid, [(data.field_id.name, '>=', today_date),
                                                      (data.field_id.name, '<=', today_date)])
+
+                try:
+                    data_ids = model_obj.search(cr, uid, [('id', 'in', data_ids)] + ast.literal_eval(domain))
+                except:
+                    raise osv.except_osv(_('Warning!'), _('Invalid domain of "%s", please reset it.' % (data.name)))
             read_data = []
             field_label = []
             field_res = {}
@@ -239,4 +270,5 @@ class popup_reminder(models.Model):
     color = fields.Char('Color', size=64)
     from_today = fields.Boolean('From Today')
     group_ids = fields.Many2many('res.groups', 'reminder_group_rel', 'reminder_id', 'group_id', 'Groups')
+    domain = fields.Char('Domain', help="Filter objects by domain, if blank, all items are listed.")
     active = fields.Boolean('Active', default=True)
