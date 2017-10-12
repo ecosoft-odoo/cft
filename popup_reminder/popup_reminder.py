@@ -239,3 +239,4 @@ class popup_reminder(models.Model):
     color = fields.Char('Color', size=64)
     from_today = fields.Boolean('From Today')
     group_ids = fields.Many2many('res.groups', 'reminder_group_rel', 'reminder_id', 'group_id', 'Groups')
+    active = fields.Boolean('Active', default=True)
