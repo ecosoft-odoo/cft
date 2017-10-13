@@ -1,0 +1,319 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# * partner_external_maps
+# 
+# Translators:
+# Matjaž Mozetič <m.mozetic@matmoz.si>, 2015-2016
+msgid ""
+msgstr ""
+"Project-Id-Version: partner-contact (8.0)\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-07-03 07:56+0000\n"
+"PO-Revision-Date: 2016-07-04 06:44+0000\n"
+"Last-Translator: Matjaž Mozetič <m.mozetic@matmoz.si>\n"
+"Language-Team: Slovenian (http://www.transifex.com/oca/OCA-partner-contact-8-0/language/sl/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Language: sl\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%100==4 ? 2 : 3);\n"
+
+#. module: partner_external_maps
+#: code:addons/partner_external_maps/partner_external_maps.py:128
+#, python-format
+msgid "Address missing on partner '%s'."
+msgstr "Pri partnerju '%s' manjka naslov."
+
+#. module: partner_external_maps
+#: field:res.users,capital_amount:0
+msgid "Capital amount"
+msgstr "Znesek kapitala"
+
+#. module: partner_external_maps
+#: field:res.users,capital_country_id:0
+msgid "Capital country"
+msgstr "Država kapitala"
+
+#. module: partner_external_maps
+#: field:res.users,capital_currency_id:0
+msgid "Capital currency"
+msgstr "Valuta kapitala"
+
+#. module: partner_external_maps
+#: field:res.users,job_position_id:0
+msgid "Categorized job position"
+msgstr "Kategorizirani delovni položaj"
+
+#. module: partner_external_maps
+#: field:res.users,count_pending_changesets:0
+msgid "Changes"
+msgstr "Spremembe"
+
+#. module: partner_external_maps
+#: field:res.users,changeset_ids:0
+msgid "Changesets"
+msgstr "Nizi sprememb"
+
+#. module: partner_external_maps
+#: field:res.users,zip_id:0
+msgid "City/Location"
+msgstr "Kraj/lokacija"
+
+#. module: partner_external_maps
+#: field:res.users,company_size:0
+msgid "Company size"
+msgstr "Velikost družbe"
+
+#. module: partner_external_maps
+#: field:res.users,continent_id:0
+msgid "Continent"
+msgstr "Celina"
+
+#. module: partner_external_maps
+#: help:res.users,capital_country_id:0
+msgid "Country of origin of this company's capital."
+msgstr "Država izvora kapitala te družbe."
+
+#. module: partner_external_maps
+#: field:map.website,create_uid:0
+msgid "Created by"
+msgstr "Ustvaril"
+
+#. module: partner_external_maps
+#: field:map.website,create_date:0
+msgid "Created on"
+msgstr "Ustvaril"
+
+#. module: partner_external_maps
+#: field:res.users,department_id:0
+msgid "Department"
+msgstr "Oddelek"
+
+#. module: partner_external_maps
+#: field:map.website,display_name:0
+msgid "Display Name"
+msgstr "Prikazni naziv"
+
+#. module: partner_external_maps
+#: field:res.users,employee_quantity:0
+msgid "Employee quantity"
+msgstr "Število zaposlenih"
+
+#. module: partner_external_maps
+#: field:res.users,employee_quantity_range_id:0
+msgid "Employee quantity range"
+msgstr "Razpon števila zaposlenih"
+
+#. module: partner_external_maps
+#: field:map.website,id:0
+msgid "ID"
+msgstr "ID"
+
+#. module: partner_external_maps
+#: help:map.website,address_url:0
+msgid "In this URL, {ADDRESS} will be replaced by the address."
+msgstr "V tej URL povezavi bo {ADDRESS} zamenjan z naslovom."
+
+#. module: partner_external_maps
+#: help:map.website,lat_lon_url:0
+msgid ""
+"In this URL, {LATITUDE} and {LONGITUDE} will be replaced by the latitude and"
+" longitude (requires the module 'base_geolocalize')"
+msgstr "V tej URL povezavi bosta {LATITUDE} in {LONGITUDE} zamenjani z geografsko širino in dolžino (potreben je modul 'base_geolocalize')"
+
+#. module: partner_external_maps
+#: help:map.website,route_address_url:0
+msgid ""
+"In this URL, {START_ADDRESS} and {DEST_ADDRESS} will be replaced by the "
+"start and destination addresses."
+msgstr "V tej URL povezavi bosta {START_ADDRESS} in {DEST_ADDRESS} zamenjana z začetnim in ciljnim naslovom."
+
+#. module: partner_external_maps
+#: help:map.website,route_lat_lon_url:0
+msgid ""
+"In this URL, {START_LATITUDE}, {START_LONGITUDE}, {DEST_LATITUDE} and "
+"{DEST_LONGITUDE} will be replaced by the latitude and longitude of the start"
+" and destination adresses (requires the module 'base_geolocalize')."
+msgstr "V tej URL povezavi bodo {START_LATITUDE}, {START_LONGITUDE}, {DEST_LATITUDE} in {DEST_LONGITUDE} zamenjani z geografsko širino in dolžino začetnega in ciljnega naslova (potreben je modul 'base_geolocalize')."
+
+#. module: partner_external_maps
+#: field:map.website,__last_update:0
+msgid "Last Modified on"
+msgstr "Zadnjič spremenjeno"
+
+#. module: partner_external_maps
+#: field:map.website,write_uid:0
+msgid "Last Updated by"
+msgstr "Zadnji posodobil"
+
+#. module: partner_external_maps
+#: field:map.website,write_date:0
+msgid "Last Updated on"
+msgstr "Zadnjič posodobljeno"
+
+#. module: partner_external_maps
+#: field:res.users,lau1_id:0
+msgid "Local Admin. Unit 1"
+msgstr "Lokalna upravna enota 1"
+
+#. module: partner_external_maps
+#: field:res.users,lau2_id:0
+msgid "Local Admin. Unit 2"
+msgstr "Lokalna upravna enota 2"
+
+#. module: partner_external_maps
+#: view:res.partner:partner_external_maps.view_partner_form
+msgid "Map"
+msgstr "Zemljevid"
+
+#. module: partner_external_maps
+#: model:ir.model,name:partner_external_maps.model_map_website
+#: view:map.website:partner_external_maps.map_website_form
+#: field:res.users,context_map_website_id:0
+msgid "Map Website"
+msgstr "Spletna stran zemljevida"
+
+#. module: partner_external_maps
+#: field:map.website,name:0
+msgid "Map Website Name"
+msgstr "Naziv spletne strani zemljevida"
+
+#. module: partner_external_maps
+#: model:ir.actions.act_window,name:partner_external_maps.map_website_action
+#: model:ir.ui.menu,name:partner_external_maps.map_website_menu
+#: view:map.website:partner_external_maps.map_website_tree
+msgid "Map Websites"
+msgstr "Spletne strani zemljevidov"
+
+#. module: partner_external_maps
+#: help:res.users,context_route_map_website_id:0
+msgid ""
+"Map provided used when you click on the car icon on the partner form to "
+"display an itinerary."
+msgstr "Zemljevid uporabljen ob kliku na ikono avtomobila v partnerjevem obrazcu za prikaz itinerarja."
+
+#. module: partner_external_maps
+#: view:res.users:partner_external_maps.view_users_form
+msgid "Maps"
+msgstr "Zemljevidi"
+
+#. module: partner_external_maps
+#: code:addons/partner_external_maps/partner_external_maps.py:147
+#, python-format
+msgid "Missing map provider: you should set it in your preferences."
+msgstr "Manjkajoč ponudnik zemljevida: nastavite ga v nastavitvah."
+
+#. module: partner_external_maps
+#: code:addons/partner_external_maps/partner_external_maps.py:161
+#, python-format
+msgid "Missing parameter 'URL that uses the address' for map website '%s'."
+msgstr "Manjkajoč parameter 'URL ki uporablja naslov' za spletno stran zemljevida '%s'."
+
+#. module: partner_external_maps
+#: code:addons/partner_external_maps/partner_external_maps.py:200
+#, python-format
+msgid "Missing route URL that uses the addresses for the map website '%s'"
+msgstr "Manjkajoč URL proge, ki uporablja naslove za spletno stran zemljevida '%s'"
+
+#. module: partner_external_maps
+#: code:addons/partner_external_maps/partner_external_maps.py:176
+#, python-format
+msgid "Missing route map website: you should set it in your preferences."
+msgstr "Manjkajoča spletna stran proge: nastavite jo v svojih nastavitvah."
+
+#. module: partner_external_maps
+#: code:addons/partner_external_maps/partner_external_maps.py:181
+#, python-format
+msgid ""
+"Missing start address for route map: you should set it in your preferences."
+msgstr "Manjkajoč začetni naslov za progo: nastavite ga v svojih nastavitvah."
+
+#. module: partner_external_maps
+#: field:res.users,nuts1_id:0
+msgid "NUTS L1"
+msgstr "NUTS L1"
+
+#. module: partner_external_maps
+#: field:res.users,nuts2_id:0
+msgid "NUTS L2"
+msgstr "NUTS L2"
+
+#. module: partner_external_maps
+#: field:res.users,nuts3_id:0
+msgid "NUTS L3"
+msgstr "NUTS L3"
+
+#. module: partner_external_maps
+#: field:res.users,nuts4_id:0
+msgid "NUTS L4"
+msgstr "NUTS L4"
+
+#. module: partner_external_maps
+#: model:ir.model,name:partner_external_maps.model_res_partner
+msgid "Partner"
+msgstr "Partner"
+
+#. module: partner_external_maps
+#: help:res.users,capital_amount:0
+msgid "Publicly registered capital amount."
+msgstr "Znesek javno registriranega kapitala."
+
+#. module: partner_external_maps
+#: help:res.users,employee_quantity_range_id:0
+msgid "Range of this partner depending on the employee quantity."
+msgstr "Razpon partnerja glede na število zaposlenih."
+
+#. module: partner_external_maps
+#: view:res.partner:partner_external_maps.view_partner_form
+msgid "Route Map"
+msgstr "Zemljevid proge"
+
+#. module: partner_external_maps
+#: field:res.users,context_route_map_website_id:0
+msgid "Route Map Website"
+msgstr "Spletna stran zemljevida proge"
+
+#. module: partner_external_maps
+#: field:map.website,route_lat_lon_url:0
+msgid "Route URL that uses latitude and longitude"
+msgstr "URL proge, ki uporablja geografsko širino in dolžino."
+
+#. module: partner_external_maps
+#: field:map.website,route_address_url:0
+msgid "Route URL that uses the addresses"
+msgstr "URL proge, ki uporablja naslove"
+
+#. module: partner_external_maps
+#: field:res.users,context_route_start_partner_id:0
+msgid "Start Address for Route Map"
+msgstr "Začetni naslov za zemljevid proge"
+
+#. module: partner_external_maps
+#: field:res.users,street3:0
+msgid "Street 3"
+msgstr "Ulica 3"
+
+#. module: partner_external_maps
+#: field:res.users,turnover_amount:0
+msgid "Turnover amount"
+msgstr "Znesek prometa"
+
+#. module: partner_external_maps
+#: field:res.users,turnover_range_id:0
+msgid "Turnover range"
+msgstr "Razpon prometa"
+
+#. module: partner_external_maps
+#: field:map.website,lat_lon_url:0
+msgid "URL that uses latitude and longitude"
+msgstr "URL, ki uporablja geografsko širino in dolžino"
+
+#. module: partner_external_maps
+#: field:map.website,address_url:0
+msgid "URL that uses the address"
+msgstr "URL, ki uporablja naslov"
+
+#. module: partner_external_maps
+#: model:ir.model,name:partner_external_maps.model_res_users
+msgid "Users"
+msgstr "Uporabniki"
