@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
-from openerp import models, fields, api, tools
+from openerp import models, fields, api, tools, _
+from openerp.exceptions import ValidationError
 import openerp.addons.decimal_precision as dp
 
 
@@ -8,7 +9,7 @@ class ProductStockLedger(models.Model):
     _rec_name = 'product_id'
     _description = 'Product Stock Ledger'
     _auto = False
-    _order = 'product_id,date_invoice,invoice_number'
+    _order = 'product_id,date_invoice,invoice_number,price_unit,uos_id'
 
     id = fields.Integer(
         string='ID',
@@ -23,114 +24,92 @@ class ProductStockLedger(models.Model):
         string='Date',
         readonly=True,
     )
-    invoice_id = fields.Many2one(
-        'account.invoice',
-        string='Invoice ID',
-        readonly=True,
-    )
     invoice_number = fields.Char(
         string='Invoice Number',
         readonly=True,
     )
-    price_unit_temp = fields.Float(
-        string='Unit Price Temp',
-        related='product_id.standard_price',
-        method=True,
-        readonly=True,
-        digits_compute=dp.get_precision('Account'),
-    )
-    price_unit = fields.Float(
-        string='Unit Price',
-        compute='_compute_amount',
-        method=True,
-        readonly=True,
-        digits_compute=dp.get_precision('Account'),
-    )
     in_qty = fields.Float(
         string='In',
-        compute='_compute_amount',
-        method=True,
         readonly=True,
         digits_compute=dp.get_precision('Account'),
     )
     out_qty = fields.Float(
         string='Out',
-        compute='_compute_amount',
-        method=True,
         readonly=True,
         digits_compute=dp.get_precision('Account'),
     )
     balance = fields.Float(
         string='Balance',
-        compute='_compute_amount',
-        method=True,
         readonly=True,
         digits_compute=dp.get_precision('Account'),
+    )
+    price_unit = fields.Float(
+        string='Unit Price',
+        readonly=True,
+        digits_compute=dp.get_precision('Account'),
+    )
+    uos_id = fields.Many2one(
+        'product.uom',
+        string='Unit of Measure',
     )
     amount_total = fields.Float(
         string='Total',
-        compute='_compute_amount',
-        method=True,
         readonly=True,
         digits_compute=dp.get_precision('Account'),
     )
 
-    def init(self, cr):
-        tools.drop_view_if_exists(cr, 'product_stock_ledger')
-        cr.execute("""CREATE OR REPLACE VIEW product_stock_ledger AS
-                      (SELECT ROW_NUMBER() OVER (ORDER BY line.product_id, inv.date_invoice, inv.number ASC) AS id,
-                              line.product_id AS product_id,
-                              inv.date_invoice AS date_invoice,
-                              line.invoice_id AS invoice_id,
-                              inv.number AS invoice_number
-                       FROM account_invoice_line line
-                       LEFT JOIN account_invoice inv ON inv.id = line.invoice_id
-                       WHERE inv.state in ('open', 'paid')
-                       GROUP BY line.product_id, inv.date_invoice, line.invoice_id, inv.number
-                       ORDER BY line.product_id, inv.date_invoice, inv.number);""")
+    @api.model
+    def read_group(self, domain, fields, groupby, offset=0, limit=None,
+                   orderby=False, lazy=True):
+        if 'balance' in fields:
+            fields.remove('balance')
+        if 'price_unit' in fields:
+            fields.remove('price_unit')
+        if 'amount_total' in fields:
+            fields.remove('amount_total')
+        return super(ProductStockLedger, self).read_group(
+            domain, fields, groupby, offset=offset, limit=limit,
+            orderby=orderby, lazy=True)
 
-    @api.multi
-    def _compute_amount(self):
-        UOM = self.env['product.uom']
-        InvLine = self.env['account.invoice.line']
-        balance = 0.0
+    @api.model
+    def _compute_stock_ledger(self, products=[],
+                              date_start=False, date_end=False):
+        if not products:
+            raise ValidationError(_("Not Products!!"))
 
-        self = sorted(self, key=lambda x: (x.product_id, x.date_invoice,
-                                           x.invoice_number))
-        for stock_ledger in self:
-            # Initial
-            in_qty = 0.0
-            out_qty = 0.0
-            qty = 0.0
+        condition = ""
 
-            inv_lines = InvLine.search([
-                ('product_id', '=', stock_ledger.product_id.id),
-                ('invoice_id', '=', stock_ledger.invoice_id.id)])
+        # Products
+        if len(products) == 1:
+            condition += " line.product_id = " + str(products[0])
+        else:
+            condition += " line.product_id in " + str(tuple(products))
 
-            for inv_line in inv_lines:
-                qty += UOM._compute_qty_obj(inv_line.uos_id, inv_line.quantity,
-                                            inv_line.product_id.uom_id)
+        # Start Date
+        if date_start:
+            condition += " and inv.date_invoice >= " + "'" + date_start + "'"
 
-            if stock_ledger.invoice_id.type in ('in_invoice', 'in_refund'):
-                if stock_ledger.invoice_id.type == 'in_invoice':
-                    in_qty = qty
-                else:
-                    in_qty = (-1) * qty
-                balance += in_qty
-            elif stock_ledger.invoice_id.type in ('out_invoice', 'out_refund'):
-                if stock_ledger.invoice_id.type == 'out_invoice':
-                    out_qty = qty
-                else:
-                    out_qty = (-1) * qty
-                balance -= out_qty
+        # End Date
+        if date_end:
+            condition += " and inv.date_invoice <= " + "'" + date_end + "'"
 
-            stock_ledger.price_unit = stock_ledger.price_unit_temp
-            amount_total = balance * stock_ledger.price_unit
-            # Assign Value
-            stock_ledger.in_qty = in_qty
-            stock_ledger.out_qty = out_qty
-            stock_ledger.balance = balance
-            stock_ledger.amount_total = amount_total
+        tools.drop_view_if_exists(self._cr, 'product_stock_ledger')
+        self._cr.execute("""CREATE OR REPLACE VIEW product_stock_ledger AS
+                         (SELECT ROW_NUMBER() OVER (ORDER BY line.product_id, inv.date_invoice, inv.number, line.price_unit, line.uos_id) AS id,
+                                 line.product_id AS product_id,
+                                 inv.date_invoice AS date_invoice,
+                                 inv.number AS invoice_number,
+                                 SUM(CASE inv.type WHEN 'in_invoice' THEN line.quantity WHEN 'in_refund' THEN (-1) * line.quantity ELSE 0.0 END) AS in_qty,
+                                 SUM(CASE inv.type WHEN 'out_invoice' THEN line.quantity WHEN 'out_refund' THEN (-1) * line.quantity ELSE 0.0 END) AS out_qty,
+                                 (SUM(SUM(CASE inv.type WHEN 'in_invoice' THEN line.quantity WHEN 'in_refund' THEN (-1) * line.quantity ELSE 0.0 END) - SUM(CASE inv.type WHEN 'out_invoice' THEN line.quantity WHEN 'out_refund' THEN (-1) * line.quantity ELSE 0.0 END)) OVER (PARTITION BY line.product_id ORDER BY line.product_id, inv.date_invoice, inv.number, line.price_unit, line.uos_id)) AS balance,
+                                 line.price_unit AS price_unit,
+                                 line.uos_id AS uos_id,
+                                 (SUM((SUM(CASE inv.type WHEN 'out_invoice' THEN line.quantity WHEN 'out_refund' THEN (-1) * line.quantity ELSE 0.0 END) * line.price_unit) - (SUM(CASE inv.type WHEN 'in_invoice' THEN line.quantity WHEN 'in_refund' THEN (-1) * line.quantity ELSE 0.0 END) * line.price_unit)) OVER (PARTITION BY line.product_id ORDER BY line.product_id, inv.date_invoice, inv.number, line.price_unit, line.uos_id)) AS amount_total
+                          FROM account_invoice_line line
+                          LEFT JOIN account_invoice inv ON inv.id = line.invoice_id
+                          WHERE inv.state in ('paid') and %s
+                          GROUP BY line.product_id, inv.date_invoice, inv.number, line.price_unit, line.uos_id
+                          ORDER BY line.product_id, inv.date_invoice, inv.number, line.price_unit, line.uos_id)""" % (condition))
 
 
 class ProductProduct(models.Model):
@@ -140,8 +119,3 @@ class ProductProduct(models.Model):
         'product_id',
         string='Stock Ledger',
     )
-
-    @api.one
-    def copy(self, default={}):
-        default['stock_ledger_ids'] = []
-        return super(ProductProduct, self).copy(default)

@@ -18,5 +18,6 @@
         'views/reports.xml',
     ],
     'active': False,
+    'application': False,
     'installable': True
 }
