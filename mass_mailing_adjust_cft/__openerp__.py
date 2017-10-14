@@ -8,8 +8,9 @@
     'website': 'http://www.ecosoft.co.th',
     'category': 'Marketing',
     'depends': [
-        'mass_mailing',
         'group_new_employee',
+        'sale_group_adjust_cft',
+        'mass_mailing',
     ],
     'data': [
         'views/mass_mailing_view.xml',
