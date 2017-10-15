@@ -7,32 +7,17 @@ import openerp.addons.decimal_precision as dp
 class ProductProduct(models.Model):
     _inherit = 'product.product'
 
-    qty_available = fields.Float(
-        compute='_product_available',
-    )
-    incoming_qty = fields.Float(
-        compute='_product_available',
-    )
-    outgoing_qty = fields.Float(
-        compute='_product_available',
-    )
-    virtual_available = fields.Float(
-        compute='_product_available',
-    )
     sale_available = fields.Float(
-        compute='_product_available',
+        compute='_product_quantity_available',
         multi='qty_available',
         digits_compute=dp.get_precision('Product Unit of Measure'),
         string='Available for Sales',
-        search='_search_product_quantity',
         help="Sale Available (computed as Quantity On Hand - Outgoing)",
     )
 
-    # Overwrite Method
     @api.multi
-    def _product_available(self, field_names=None, arg=False):
+    def _product_quantity_available(self, field_names=None, arg=False):
         """
-        This fuction will overide old method and add 'Available for Sale'
         - Available for Sales = Quantity On Hand - Outgoing
         """
         context = self._context.copy() or {}
@@ -78,92 +63,48 @@ class ProductProduct(models.Model):
                             moves_in))
         moves_out = dict(map(lambda x: (x['product_id'][0], x['product_qty']),
                              moves_out))
+        res = {}
         for product in self:
             id = product.id
-            qty_available = float_round(
-                quants.get(id, 0.0),
-                precision_rounding=product.uom_id.rounding)
-            incoming_qty = float_round(
-                moves_in.get(id, 0.0),
-                precision_rounding=product.uom_id.rounding)
-            outgoing_qty = float_round(
-                moves_out.get(id, 0.0),
-                precision_rounding=product.uom_id.rounding)
             sale_available = float_round(
                 quants.get(id, 0.0) - moves_out.get(id, 0.0),
                 precision_rounding=product.uom_id.rounding)
-            virtual_available = float_round(
-                quants.get(id, 0.0) + moves_in.get(id, 0.0) -
-                moves_out.get(id, 0.0),
-                precision_rounding=product.uom_id.rounding)
-            product.qty_available = qty_available
-            product.incoming_qty = incoming_qty
-            product.outgoing_qty = outgoing_qty
             product.sale_available = sale_available
-            product.virtual_available = virtual_available
-
-    @api.model
-    def _search_product_quantity(self, obj, name, domain):
-        return super(ProductProduct, self)._search_product_quantity(
-            obj, name, domain)
+            res[id] = {
+                'sale_available': sale_available,
+            }
+        return res
 
 
 class ProductTemplate(models.Model):
     _inherit = 'product.template'
 
-    qty_available = fields.Float(
-        compute='_product_available',
-    )
-    incoming_qty = fields.Float(
-        compute='_product_available',
-    )
-    outgoing_qty = fields.Float(
-        compute='_product_available',
-    )
-    virtual_available = fields.Float(
-        compute='_product_available',
-    )
     sale_available = fields.Float(
-        compute='_product_available',
+        compute='_product_quantity_available',
         multi='qty_available',
         digits_compute=dp.get_precision('Product Unit of Measure'),
         string='Available for Sales',
-        search='_search_product_quantity',
         help="Sale Available (computed as Quantity On Hand - Outgoing)",
     )
 
-    # Overwrite Method
     @api.multi
-    def _product_available(self):
+    def _product_quantity_available(self, name=None, arg=False):
         """
-        This fuction will overide old method and add 'Available for Sale'
         - Available for Sales = Quantity On Hand - Outgoing
         """
+        prod_available = {}
         var_ids = []
         for product in self:
             var_ids += [p.id for p in product.product_variant_ids]
         product = self.env['product.product'].browse(var_ids)
-        product._product_available()
+        variant_available = product._product_quantity_available()
 
         for product in self:
-            qty_available = 0
-            virtual_available = 0
-            incoming_qty = 0
-            outgoing_qty = 0
             sale_available = 0
             for p in product.product_variant_ids:
-                qty_available += p.qty_available
-                virtual_available += p.virtual_available
-                incoming_qty += p.incoming_qty
-                outgoing_qty += p.outgoing_qty
-                sale_available += p.sale_available
-            product.qty_available = qty_available
-            product.virtual_available = virtual_available
-            product.incoming_qty = incoming_qty
-            product.outgoing_qty = outgoing_qty
+                sale_available += variant_available[p.id]['sale_available']
             product.sale_available = sale_available
-
-    @api.model
-    def _search_product_quantity(self, obj, name, domain):
-        return super(ProductTemplate, self)._search_product_quantity(
-            obj, name, domain)
+            prod_available[product.id] = {
+                'sale_available': sale_available,
+            }
+        return prod_available
