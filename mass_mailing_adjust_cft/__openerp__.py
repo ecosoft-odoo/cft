@@ -10,9 +10,11 @@
     'depends': [
         'group_new_employee',
         'sale_group_adjust_cft',
+        'marketing',
         'mass_mailing',
     ],
     'data': [
+        'security/ir.model.access.csv',
         'views/mass_mailing_view.xml',
     ],
     'qweb': [],

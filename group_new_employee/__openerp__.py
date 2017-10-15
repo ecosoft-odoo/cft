@@ -28,6 +28,7 @@
         'sale_commission_calc',
         'board',
         'resource',
+        'mass_mailing',
     ],
     "data": [
         'security/group_new_employee_security.xml',
