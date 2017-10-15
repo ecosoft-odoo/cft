@@ -13,7 +13,8 @@ class EmailTemplate(models.Model):
             submenu=submenu)
         User = self.env.user
         root = etree.fromstring(res['arch'])
-        if User.has_group('marketing.group_marketing_user'):
+        if User.has_group('marketing.group_marketing_user') or \
+           User.has_group('sale_group_adjust_cft.group_sale_marketing'):
             root.set('create', 'true')
             root.set('edit', 'true')
             root.set('delete', 'false')
