@@ -19,6 +19,7 @@ class CRMLead(models.Model):
             'province_id': lead.province_id.id or False,
             'district_id': lead.district_id.id or False,
             'township_id': lead.township_id.id or False,
+            'website': lead.website,
         }
         partner.write(vals)
         return partner_id
