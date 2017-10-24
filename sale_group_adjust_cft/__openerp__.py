@@ -14,6 +14,7 @@
         'crm_claim',
         'crm',
         'customer_product_code',
+        'model_security_adjust_cft',
     ],
     'data': [
         'security/sale_group_adjust_security.xml',
