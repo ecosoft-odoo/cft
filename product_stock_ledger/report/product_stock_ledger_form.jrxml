@@ -32,13 +32,16 @@
 		<fieldDescription><![CDATA[stock_ledger_ids/out_qty]]></fieldDescription>
 	</field>
 	<field name="line_balance_qty" class="java.lang.Number">
-		<fieldDescription><![CDATA[stock_ledger_ids/balance]]></fieldDescription>
+		<fieldDescription><![CDATA[stock_ledger_ids/balance_qty]]></fieldDescription>
 	</field>
 	<field name="line_price_unit" class="java.lang.Number">
 		<fieldDescription><![CDATA[stock_ledger_ids/price_unit]]></fieldDescription>
 	</field>
 	<field name="line_amount_total" class="java.lang.Number">
 		<fieldDescription><![CDATA[stock_ledger_ids/amount_total]]></fieldDescription>
+	</field>
+	<field name="line_price_balance" class="java.lang.Number">
+		<fieldDescription><![CDATA[stock_ledger_ids/price_balance]]></fieldDescription>
 	</field>
 	<group name="Product">
 		<groupExpression><![CDATA[$F{product_name}]]></groupExpression>
@@ -123,14 +126,21 @@
 					<text><![CDATA[หน่วยละ]]></text>
 				</staticText>
 				<staticText>
-					<reportElement style="style1" mode="Transparent" x="469" y="88" width="70" height="20" forecolor="#000000" backcolor="#FFFFFF"/>
+					<reportElement style="style1" mode="Transparent" x="469" y="88" width="101" height="20" forecolor="#000000" backcolor="#FFFFFF"/>
 					<textElement textAlignment="Center" verticalAlignment="Middle" rotation="None" lineSpacing="Single" markup="none">
 						<font fontName="Monospaced" size="10" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Garuda-Bold.ttf" pdfEncoding="Identity-H" isPdfEmbedded="false"/>
 					</textElement>
-					<text><![CDATA[รวมเงิน]]></text>
+					<text><![CDATA[รวมเงินต่อเอกสาร]]></text>
 				</staticText>
 				<staticText>
-					<reportElement style="style1" mode="Transparent" x="539" y="88" width="73" height="20" forecolor="#000000" backcolor="#FFFFFF"/>
+					<reportElement style="style1" mode="Transparent" x="570" y="88" width="124" height="20" forecolor="#000000" backcolor="#FFFFFF"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle" rotation="None" lineSpacing="Single" markup="none">
+						<font fontName="Monospaced" size="10" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Garuda-Bold.ttf" pdfEncoding="Identity-H" isPdfEmbedded="false"/>
+					</textElement>
+					<text><![CDATA[มูลค่าสินค้าคงเหลือ]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="style1" mode="Transparent" x="694" y="88" width="70" height="20" forecolor="#000000" backcolor="#FFFFFF"/>
 					<textElement textAlignment="Center" verticalAlignment="Middle" rotation="None" lineSpacing="Single" markup="none">
 						<font fontName="Monospaced" size="10" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Garuda-Bold.ttf" pdfEncoding="Identity-H" isPdfEmbedded="false"/>
 					</textElement>
@@ -185,14 +195,21 @@
 				<textFieldExpression class="java.lang.Number"><![CDATA[$F{line_price_unit} != null ? $F{line_price_unit} : 0.0]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true" pattern="#,##0.00;-#,##0.00" isBlankWhenNull="true">
-				<reportElement style="style1" mode="Transparent" x="469" y="0" width="70" height="20" forecolor="#000000" backcolor="#FFFFFF"/>
+				<reportElement style="style1" mode="Transparent" x="469" y="0" width="101" height="20" forecolor="#000000" backcolor="#FFFFFF"/>
 				<textElement textAlignment="Right" verticalAlignment="Top" rotation="None" lineSpacing="Single" markup="none">
 					<font fontName="Monospaced" size="10" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Garuda-Bold.ttf" pdfEncoding="Identity-H" isPdfEmbedded="false"/>
 				</textElement>
 				<textFieldExpression class="java.lang.Number"><![CDATA[$F{line_amount_total} != null ? $F{line_amount_total} : 0.0]]></textFieldExpression>
 			</textField>
+			<textField isStretchWithOverflow="true" pattern="#,##0.00;-#,##0.00" isBlankWhenNull="true">
+				<reportElement style="style1" mode="Transparent" x="570" y="0" width="124" height="20" forecolor="#000000" backcolor="#FFFFFF"/>
+				<textElement textAlignment="Right" verticalAlignment="Top" rotation="None" lineSpacing="Single" markup="none">
+					<font fontName="Monospaced" size="10" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Garuda-Bold.ttf" pdfEncoding="Identity-H" isPdfEmbedded="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Number"><![CDATA[$F{line_price_balance} != null ? $F{line_price_balance} : 0.0]]></textFieldExpression>
+			</textField>
 			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
-				<reportElement style="style1" mode="Transparent" x="539" y="0" width="73" height="20" forecolor="#000000" backcolor="#FFFFFF"/>
+				<reportElement style="style1" mode="Transparent" x="694" y="0" width="70" height="20" forecolor="#000000" backcolor="#FFFFFF"/>
 				<textElement verticalAlignment="Top" rotation="None" lineSpacing="Single" markup="none">
 					<font fontName="Monospaced" size="10" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Garuda-Bold.ttf" pdfEncoding="Identity-H" isPdfEmbedded="false"/>
 				</textElement>

@@ -6,7 +6,6 @@ import openerp.addons.decimal_precision as dp
 
 class ProductStockLedger(models.Model):
     _name = 'product.stock.ledger'
-    _rec_name = 'product_id'
     _description = 'Product Stock Ledger'
     _auto = False
     _order = 'product_id,date_invoice,invoice_number,price_unit,uos_id'
@@ -38,7 +37,7 @@ class ProductStockLedger(models.Model):
         readonly=True,
         digits_compute=dp.get_precision('Account'),
     )
-    balance = fields.Float(
+    balance_qty = fields.Float(
         string='Balance',
         readonly=True,
         digits_compute=dp.get_precision('Account'),
@@ -51,25 +50,18 @@ class ProductStockLedger(models.Model):
     uos_id = fields.Many2one(
         'product.uom',
         string='Unit of Measure',
+        readonly=True,
     )
     amount_total = fields.Float(
-        string='Total',
+        string='Total Amount',
         readonly=True,
         digits_compute=dp.get_precision('Account'),
     )
-
-    @api.model
-    def read_group(self, domain, fields, groupby, offset=0, limit=None,
-                   orderby=False, lazy=True):
-        if 'balance' in fields:
-            fields.remove('balance')
-        if 'price_unit' in fields:
-            fields.remove('price_unit')
-        if 'amount_total' in fields:
-            fields.remove('amount_total')
-        return super(ProductStockLedger, self).read_group(
-            domain, fields, groupby, offset=offset, limit=limit,
-            orderby=orderby, lazy=True)
+    price_balance = fields.Float(
+        string='Balance Price',
+        readonly=True,
+        digits_compute=dp.get_precision('Account'),
+    )
 
     @api.model
     def _compute_stock_ledger(self, products=[],
@@ -101,10 +93,11 @@ class ProductStockLedger(models.Model):
                                  inv.number AS invoice_number,
                                  SUM(CASE inv.type WHEN 'in_invoice' THEN line.quantity WHEN 'in_refund' THEN (-1) * line.quantity ELSE 0.0 END) AS in_qty,
                                  SUM(CASE inv.type WHEN 'out_invoice' THEN line.quantity WHEN 'out_refund' THEN (-1) * line.quantity ELSE 0.0 END) AS out_qty,
-                                 (SUM(SUM(CASE inv.type WHEN 'in_invoice' THEN line.quantity WHEN 'in_refund' THEN (-1) * line.quantity ELSE 0.0 END) - SUM(CASE inv.type WHEN 'out_invoice' THEN line.quantity WHEN 'out_refund' THEN (-1) * line.quantity ELSE 0.0 END)) OVER (PARTITION BY line.product_id ORDER BY line.product_id, inv.date_invoice, inv.number, line.price_unit, line.uos_id)) AS balance,
+                                 (SUM(SUM(CASE inv.type WHEN 'in_invoice' THEN line.quantity WHEN 'in_refund' THEN (-1) * line.quantity ELSE 0.0 END) - SUM(CASE inv.type WHEN 'out_invoice' THEN line.quantity WHEN 'out_refund' THEN (-1) * line.quantity ELSE 0.0 END)) OVER (PARTITION BY line.product_id ORDER BY line.product_id, inv.date_invoice, inv.number, line.price_unit, line.uos_id)) AS balance_qty,
                                  line.price_unit AS price_unit,
                                  line.uos_id AS uos_id,
-                                 (SUM((SUM(CASE inv.type WHEN 'out_invoice' THEN line.quantity WHEN 'out_refund' THEN (-1) * line.quantity ELSE 0.0 END) * line.price_unit) - (SUM(CASE inv.type WHEN 'in_invoice' THEN line.quantity WHEN 'in_refund' THEN (-1) * line.quantity ELSE 0.0 END) * line.price_unit)) OVER (PARTITION BY line.product_id ORDER BY line.product_id, inv.date_invoice, inv.number, line.price_unit, line.uos_id)) AS amount_total
+                                 ((SUM(CASE inv.type WHEN 'in_invoice' THEN line.quantity WHEN 'in_refund' THEN (-1) * line.quantity ELSE 0.0 END) + SUM(CASE inv.type WHEN 'out_invoice' THEN line.quantity WHEN 'out_refund' THEN (-1) * line.quantity ELSE 0.0 END)) * line.price_unit) AS amount_total,
+                                 ((SUM(SUM(CASE inv.type WHEN 'in_invoice' THEN line.quantity WHEN 'in_refund' THEN (-1) * line.quantity ELSE 0.0 END) - SUM(CASE inv.type WHEN 'out_invoice' THEN line.quantity WHEN 'out_refund' THEN (-1) * line.quantity ELSE 0.0 END)) OVER (PARTITION BY line.product_id ORDER BY line.product_id, inv.date_invoice, inv.number, line.price_unit, line.uos_id)) * (SELECT value_float FROM ir_property WHERE name = 'standard_price' and res_id = concat('product.template,', line.product_id) LIMIT 1)) AS price_balance
                           FROM account_invoice_line line
                           LEFT JOIN account_invoice inv ON inv.id = line.invoice_id
                           WHERE inv.state in ('paid') and %s
