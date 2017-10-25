@@ -9,6 +9,7 @@
     'depends': [
         'product',
         'account',
+        'product_price_visible',
         'jasper_reports',
     ],
     'data': [

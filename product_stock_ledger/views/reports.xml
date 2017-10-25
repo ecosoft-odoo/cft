@@ -11,7 +11,7 @@
         	menu="False"
         	header="False"
     		attachment=""
-        	groups=""
+        	groups="product_price_visible.group_product_visible"
     	/>
     	<record id="report_product_normal_stock_ledger" model="ir.actions.report.xml">
         	<field name="jasper_report">True</field>

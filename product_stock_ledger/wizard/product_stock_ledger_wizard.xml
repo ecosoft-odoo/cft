@@ -54,6 +54,7 @@
             target="new"
             key2="client_action_multi"
             view_id="stock_ledger_wizard_view"
+            groups="product_price_visible.group_product_visible"
             id="action_product_normal_stock_ledger_wizard"/>
 
         <act_window
@@ -64,6 +65,7 @@
             target="new"
             key2="client_action_multi"
             view_id="stock_ledger_wizard_view"
+            groups="product_price_visible.group_product_visible"
             id="action_product_template_stock_ledger_wizard"/>
 
         <record id="action_report_stock_ledger" model="ir.actions.act_window">
@@ -83,6 +85,6 @@
         <menuitem action="action_report_stock_ledger"
             id="menu_report_stock_ledger"
             name="Stock Ledger"
-            parent="action_accounting_control" sequence="1"/>
+            parent="action_accounting_control" groups="product_price_visible.group_product_visible" sequence="1"/>
     </data>
 </openerp>
