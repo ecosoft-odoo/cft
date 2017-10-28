@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <!-- Groups -->
+        <!-- Sales -->
+        <record id="group_sale_salesman_readonly" model="res.groups">
+            <field name="name">See Own Leads (readonly)</field>
+            <field name="category_id" ref="base.module_category_sales_management"/>
+            <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+        </record>
+        <!-- Purchase -->
+        <record id="group_purchase_user_readonly" model="res.groups">
+            <field name="name">User (readonly)</field>
+            <field name="category_id" ref="base.module_category_purchase_management"/>
+            <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+        </record>
+        <!-- Account -->
+        <record id="group_account_invoice_readonly" model="res.groups">
+            <field name="name">Invoicing &amp; Payments (readonly)</field>
+            <field name="category_id" ref="base.module_category_accounting_and_finance"/>
+            <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+        </record>
+        <!-- Stock -->
+        <record id="group_stock_user_readonly" model="res.groups">
+            <field name="name">User (readonly)</field>
+            <field name="category_id" ref="base.module_category_warehouse_management"/>
+            <field name="implied_ids" eval="[(4, ref('base.group_user')),(4, ref('stock.group_locations'))]"/>
+        </record>
+        <!-- HR -->
+        <record id="group_hr_user_readonly" model="res.groups">
+            <field name="name">Officer (readonly)</field>
+            <field name="category_id" ref="base.module_category_human_resources"/>
+            <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+        </record>
+        <!-- Marketing -->
+        <record id="group_marketing_user_readonly" model="res.groups">
+            <field name="name">User (readonly)</field>
+            <field name="category_id" ref="base.module_category_marketing"/>
+        </record>
+
+        <!-- Rules -->
+        <!-- Sales -->
+        <record id="sale.sale_order_report_personal_rule" model="ir.rule">
+            <field name="groups" eval="[(4, ref('group_sale_salesman_readonly'))]"/>
+        </record>
+        <record id="sale.sale_order_line_personal_rule" model="ir.rule">
+            <field name="groups" eval="[(4, ref('group_sale_salesman_readonly'))]"/>
+        </record>
+        <record id="sale.sale_order_personal_rule" model="ir.rule">
+            <field name="groups" eval="[(4, ref('group_sale_salesman_readonly'))]"/>
+        </record>
+        <record id="model_security_adjust_cft.res_partner_own_partner" model="ir.rule">
+            <field name="groups" eval="[(4, ref('group_sale_salesman_readonly'))]"/>
+        </record>
+        <record id="model_security_adjust_cft.product_own_lead_rule" model="ir.rule">
+            <field name="groups" eval="[(4, ref('group_sale_salesman_readonly'))]"/>
+        </record>
+        <record id="model_security_adjust_cft.product_pricelist_no_purchase_rule" model="ir.rule">
+            <field name="groups" eval="[(4, ref('group_sale_salesman_readonly'))]"/>
+        </record>
+        <record id="payment.payment_transaction_salesman_rule" model="ir.rule">
+            <field name="groups" eval="[(4, ref('group_sale_salesman_readonly'))]"/>
+        </record>
+        <record id="crm.crm_rule_personal_phonecall" model="ir.rule">
+            <field name="groups" eval="[(4, ref('group_sale_salesman_readonly'))]"/>
+        </record>
+        <record id="crm.crm_rule_personal_lead_report" model="ir.rule">
+            <field name="groups" eval="[(4, ref('group_sale_salesman_readonly'))]"/>
+        </record>
+        <record id="crm.crm_rule_personal_lead" model="ir.rule">
+            <field name="groups" eval="[(4, ref('group_sale_salesman_readonly'))]"/>
+        </record>
+        <record id="model_security_adjust_cft.invoice_own_rule" model="ir.rule">
+            <field name="groups" eval="[(4, ref('group_sale_salesman_readonly'))]"/>
+        </record>
+    </data>
+</openerp>

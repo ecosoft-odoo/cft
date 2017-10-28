@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="crm_case_form_view_leads" model="ir.ui.view">
+            <field name="name">CRM - Leads Form</field>
+            <field name="model">crm.lead</field>
+            <field name="inherit_id" ref="crm.crm_case_form_view_leads"/>
+            <field name="arch" type="xml">
+                <field name="country_id" position="after">
+                    <field name="province_id" placeholder="Province" class="oe_no_button" options='{"no_open": True, "no_create":True, "no_create_edit":True}'/>
+                    <field name="district_id" placeholder="District" class="oe_no_button" options='{"no_open": True, "no_create":True, "no_create_edit":True}'/>
+                    <field name="township_id" placeholder="Township" class="oe_no_button" options='{"no_open": True, "no_create":True, "no_create_edit":True}'/>
+                </field>
+            </field>
+        </record>
+    </data>
+</openerp>

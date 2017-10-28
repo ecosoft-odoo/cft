@@ -96,7 +96,8 @@
             </xpath>
            <!-- Customer Rank -->
             <xpath expr="//field[@name='title']" position="after">
-                <field name="customer_rank" attrs="{'invisible':[('customer','=', False)]}"/>
+                <field name="is_sale_manager" invisible="1"/>
+                <field name="customer_rank" attrs="{'invisible':[('customer','=', False)], 'readonly': [('is_sale_manager','=',False)]}"/>
             </xpath>
         </field>
     </record>
@@ -139,5 +140,15 @@
 
     <menuitem action="action_partner_rank_partner" name='Rank' id="menu_partner_rank_partner" parent="base.menu_config_address_book" sequence="2" groups="base.group_no_one"/>
 
+    <record id="view_partner_property_form" model="ir.ui.view">
+        <field name="name">res.partner.product.property.form.inherit</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="product.view_partner_property_form"/>
+        <field name="arch" type="xml">
+            <field name="property_product_pricelist" position="attributes">
+                <attribute name="attrs">{'readonly': [('is_sale_manager','=',False)]}</attribute>
+            </field>
+        </field>
+    </record>
 </data>
 </openerp>

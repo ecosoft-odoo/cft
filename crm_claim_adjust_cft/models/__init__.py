@@ -4,3 +4,4 @@
 
 from . import crm_claim
 from . import sale_order
+from . import crm_lead

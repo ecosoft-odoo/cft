@@ -29,7 +29,9 @@
     'author': "Tharathip, Ecosoft",
     'website': 'http://www.ecosoft.co.th',
     'depends': ['account'],
-    'data': [],
+    'data': [
+        'views/account_invoice_view.xml',
+    ],
     'installable': True,
     'application': False,
     'auto_install': False,

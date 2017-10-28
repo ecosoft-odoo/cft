@@ -28,7 +28,10 @@
 This module will adjust stock account
     """,
     'website': 'https://www.ecosoft.co.th',
-    'depends': ['stock_account'],
+    'depends': [
+        'stock_account',
+        'sale_group_adjust_cft',
+    ],
     'category': 'Hidden',
     'demo': [],
     'data': [

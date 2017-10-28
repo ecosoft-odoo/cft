@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="cft_receipt_pre_print_form" language="groovy" pageWidth="595" pageHeight="842" columnWidth="595" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0">
 	<property name="ireport.zoom" value="1.0000000000000044"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="240"/>
+	<property name="ireport.y" value="0"/>
 	<property name="OPENERP_RELATIONS" value="[&quot;line_ids&quot;]"/>
 	<style name="space_detail">
 		<box leftPadding="3" rightPadding="3"/>
@@ -45,11 +45,11 @@
 	<field name="country" class="java.lang.String">
 		<fieldDescription><![CDATA[partner_id/country_id/name]]></fieldDescription>
 	</field>
-	<field name="line_invoice_number" class="java.lang.String">
-		<fieldDescription><![CDATA[line_ids/move_line_id/invoice/number]]></fieldDescription>
+	<field name="line_doc_number" class="java.lang.String">
+		<fieldDescription><![CDATA[line_ids/move_line_id/move_id/name]]></fieldDescription>
 	</field>
 	<field name="line_invoice_date" class="java.util.Date">
-		<fieldDescription><![CDATA[line_ids/move_line_id/invoice/date_invoice]]></fieldDescription>
+		<fieldDescription><![CDATA[line_ids/date_original]]></fieldDescription>
 	</field>
 	<field name="type" class="java.lang.String">
 		<fieldDescription><![CDATA[line_ids/type]]></fieldDescription>
@@ -66,6 +66,7 @@
 	<variable name="string_total" class="java.lang.String">
 		<variableExpression><![CDATA[(Math.round($V{amount_total}*100)/100).toString()]]></variableExpression>
 	</variable>
+	<filterExpression><![CDATA[$F{line_amount} != null && $F{line_amount} != false && $F{line_amount} != 0]]></filterExpression>
 	<pageHeader>
 		<band height="251" splitType="Stretch">
 			<textField pattern="" isBlankWhenNull="true">
@@ -133,7 +134,7 @@
 				<textElement verticalAlignment="Top" rotation="None" lineSpacing="Single" markup="none">
 					<font fontName="Monospaced" size="9" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H" isPdfEmbedded="false"/>
 				</textElement>
-				<textFieldExpression class="java.lang.String"><![CDATA[$F{line_invoice_number}]]></textFieldExpression>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{line_doc_number}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true" pattern="dd/MM/yyyy" isBlankWhenNull="true">
 				<reportElement style="space_detail" mode="Transparent" x="305" y="9" width="125" height="20" forecolor="#000000" backcolor="#FFFFFF"/>

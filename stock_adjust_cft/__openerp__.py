@@ -29,7 +29,9 @@
     'author': "Tharathip, Ecosoft",
     'website': 'http://www.ecosoft.co.th',
     'depends': ['stock'],
-    'data': [],
+    'data': [
+        'views/stock_view.xml',
+    ],
     'installable': True,
     'application': False,
     'auto_install': False,

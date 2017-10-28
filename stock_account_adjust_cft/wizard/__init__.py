@@ -20,3 +20,4 @@
 ##############################################################################
 
 import stock_valuation_history
+import stock_invoice_onshipping

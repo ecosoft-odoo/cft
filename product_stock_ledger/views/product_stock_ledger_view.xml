@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="view_product_stock_ledger_tree" model="ir.ui.view">
+            <field name="name">product.stock.ledger.tree</field>
+            <field name="model">product.stock.ledger</field>
+            <field name="arch" type="xml">
+                <tree string="Stock Ledger">
+                    <field name="id" invisible="1"/>
+                    <field name="product_id"/>
+                    <field name="date_invoice"/>
+                    <field name="invoice_number"/>
+                    <field name="in_qty"/>
+                    <field name="out_qty"/>
+                    <field name="balance_qty"/>
+                    <field name="price_unit"/>
+                    <field name="uos_id" invisible="1"/>
+                    <field name="amount_total"/>
+                    <field name="price_balance"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_product_stock_ledger_search" model="ir.ui.view">
+            <field name="name">product.stock.ledger.search</field>
+            <field name="model">product.stock.ledger</field>
+            <field name="arch" type="xml">
+                <search string="Stock Ledger">
+                    <field name="product_id"/>
+                    <group expand="0" string="Group By...">
+                        <filter string="Product" name="by_product" icon="terp-accessories-archiver" domain="[]"  context="{'group_by':'product_id'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+    </data>
+</openerp>

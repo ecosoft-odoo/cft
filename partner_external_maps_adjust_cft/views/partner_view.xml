@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="view_partner_form" model="ir.ui.view">
+            <field name="name">map.button.res.partner.form</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="partner_external_maps.view_partner_form"/>
+            <field name="arch" type="xml">
+                <button name="open_map" position="attributes">
+                    <attribute name="attrs">{'invisible': [('province_id', '=', False)]}</attribute>
+                </button>
+                <button name="open_route_map" position="attributes">
+                    <attribute name="attrs">{'invisible': [('province_id', '=', False)]}</attribute>
+                </button>
+            </field>
+        </record>
+    </data>
+</openerp>
