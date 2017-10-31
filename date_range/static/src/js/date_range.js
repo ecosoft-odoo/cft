@@ -151,7 +151,7 @@ openerp.date_range = function(instance) {
     instance.web.SearchView.include({
         build_search_data: function () {
             var res = this._super.apply(this, arguments);
-            if ($('.searchview_extended_prop_op').val().startsWith('drt_')) {
+            if ($('.searchview_extended_prop_op').val() != undefined && $('.searchview_extended_prop_op').val().startsWith('drt_')) {
                 var domains = [];
                 this.query.each(function (facet) {
                     var field = facet.get('field');
