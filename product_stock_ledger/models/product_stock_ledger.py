@@ -42,6 +42,11 @@ class ProductStockLedger(models.Model):
         readonly=True,
         digits_compute=dp.get_precision('Account'),
     )
+    standard_price = fields.Float(
+        string='Cost Price',
+        readonly=True,
+        digits_compute=dp.get_precision('Account'),
+    )
     price_unit = fields.Float(
         string='Unit Price',
         readonly=True,
@@ -94,14 +99,15 @@ class ProductStockLedger(models.Model):
                                  SUM(CASE inv.type WHEN 'in_invoice' THEN line.quantity WHEN 'in_refund' THEN (-1) * line.quantity ELSE 0.0 END) AS in_qty,
                                  SUM(CASE inv.type WHEN 'out_invoice' THEN line.quantity WHEN 'out_refund' THEN (-1) * line.quantity ELSE 0.0 END) AS out_qty,
                                  (SUM(SUM(CASE inv.type WHEN 'in_invoice' THEN line.quantity WHEN 'in_refund' THEN (-1) * line.quantity ELSE 0.0 END) - SUM(CASE inv.type WHEN 'out_invoice' THEN line.quantity WHEN 'out_refund' THEN (-1) * line.quantity ELSE 0.0 END)) OVER (PARTITION BY line.product_id ORDER BY line.product_id, inv.date_invoice, inv.number, line.price_unit, line.uos_id)) AS balance_qty,
-                                 line.price_unit AS price_unit,
+                                 (SELECT value_float FROM ir_property WHERE name = 'standard_price' and res_id = concat('product.template,', line.product_id) LIMIT 1) AS standard_price,
+                                 (line.price_subtotal / line.quantity) AS price_unit,
                                  line.uos_id AS uos_id,
-                                 ((SUM(CASE inv.type WHEN 'in_invoice' THEN line.quantity WHEN 'in_refund' THEN (-1) * line.quantity ELSE 0.0 END) + SUM(CASE inv.type WHEN 'out_invoice' THEN line.quantity WHEN 'out_refund' THEN (-1) * line.quantity ELSE 0.0 END)) * line.price_unit) AS amount_total,
+                                 line.price_subtotal AS amount_total,
                                  ((SUM(SUM(CASE inv.type WHEN 'in_invoice' THEN line.quantity WHEN 'in_refund' THEN (-1) * line.quantity ELSE 0.0 END) - SUM(CASE inv.type WHEN 'out_invoice' THEN line.quantity WHEN 'out_refund' THEN (-1) * line.quantity ELSE 0.0 END)) OVER (PARTITION BY line.product_id ORDER BY line.product_id, inv.date_invoice, inv.number, line.price_unit, line.uos_id)) * (SELECT value_float FROM ir_property WHERE name = 'standard_price' and res_id = concat('product.template,', line.product_id) LIMIT 1)) AS price_balance
                           FROM account_invoice_line line
                           LEFT JOIN account_invoice inv ON inv.id = line.invoice_id
                           WHERE inv.state in ('paid') and %s
-                          GROUP BY line.product_id, inv.date_invoice, inv.number, line.price_unit, line.uos_id
+                          GROUP BY line.product_id, inv.date_invoice, inv.number, line.price_unit, line.uos_id, line.price_subtotal, line.quantity
                           ORDER BY line.product_id, inv.date_invoice, inv.number, line.price_unit, line.uos_id)""" % (condition))
 
 

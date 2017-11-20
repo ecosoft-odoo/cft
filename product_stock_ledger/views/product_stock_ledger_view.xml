@@ -13,6 +13,7 @@
                     <field name="in_qty"/>
                     <field name="out_qty"/>
                     <field name="balance_qty"/>
+                    <field name="standard_price"/>
                     <field name="price_unit"/>
                     <field name="uos_id" invisible="1"/>
                     <field name="amount_total"/>

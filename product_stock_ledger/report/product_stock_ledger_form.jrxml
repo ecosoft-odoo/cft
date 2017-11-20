@@ -43,10 +43,13 @@
 	<field name="line_price_balance" class="java.lang.Number">
 		<fieldDescription><![CDATA[stock_ledger_ids/price_balance]]></fieldDescription>
 	</field>
+	<field name="standard_price" class="java.lang.Number">
+		<fieldDescription><![CDATA[stock_ledger_ids/product_id/product_tmpl_id/standard_price]]></fieldDescription>
+	</field>
 	<group name="Product">
 		<groupExpression><![CDATA[$F{product_name}]]></groupExpression>
 		<groupHeader>
-			<band height="108">
+			<band height="130">
 				<printWhenExpression><![CDATA[$F{product_name} != null && $F{product_name} != false && $F{product_name} != ""]]></printWhenExpression>
 				<staticText>
 					<reportElement mode="Transparent" x="0" y="0" width="281" height="20" forecolor="#000000" backcolor="#FFFFFF"/>
@@ -84,68 +87,82 @@
 					<text><![CDATA[ชนิด/ขนาด]]></text>
 				</staticText>
 				<staticText>
-					<reportElement style="style1" mode="Transparent" x="0" y="88" width="58" height="20" forecolor="#000000" backcolor="#FFFFFF"/>
+					<reportElement style="style1" mode="Transparent" x="0" y="110" width="58" height="20" forecolor="#000000" backcolor="#FFFFFF"/>
 					<textElement textAlignment="Center" verticalAlignment="Middle" rotation="None" lineSpacing="Single" markup="none">
 						<font fontName="Monospaced" size="10" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Garuda-Bold.ttf" pdfEncoding="Identity-H" isPdfEmbedded="false"/>
 					</textElement>
 					<text><![CDATA[วันที่]]></text>
 				</staticText>
 				<staticText>
-					<reportElement style="style1" mode="Transparent" x="58" y="88" width="131" height="20" forecolor="#000000" backcolor="#FFFFFF"/>
+					<reportElement style="style1" mode="Transparent" x="58" y="110" width="131" height="20" forecolor="#000000" backcolor="#FFFFFF"/>
 					<textElement textAlignment="Center" verticalAlignment="Middle" rotation="None" lineSpacing="Single" markup="none">
 						<font fontName="Monospaced" size="10" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Garuda-Bold.ttf" pdfEncoding="Identity-H" isPdfEmbedded="false"/>
 					</textElement>
 					<text><![CDATA[เลขที่]]></text>
 				</staticText>
 				<staticText>
-					<reportElement style="style1" mode="Transparent" x="189" y="88" width="70" height="20" forecolor="#000000" backcolor="#FFFFFF"/>
+					<reportElement style="style1" mode="Transparent" x="189" y="110" width="70" height="20" forecolor="#000000" backcolor="#FFFFFF"/>
 					<textElement textAlignment="Center" verticalAlignment="Middle" rotation="None" lineSpacing="Single" markup="none">
 						<font fontName="Monospaced" size="10" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Garuda-Bold.ttf" pdfEncoding="Identity-H" isPdfEmbedded="false"/>
 					</textElement>
 					<text><![CDATA[รับ]]></text>
 				</staticText>
 				<staticText>
-					<reportElement style="style1" mode="Transparent" x="259" y="88" width="70" height="20" forecolor="#000000" backcolor="#FFFFFF"/>
+					<reportElement style="style1" mode="Transparent" x="259" y="110" width="70" height="20" forecolor="#000000" backcolor="#FFFFFF"/>
 					<textElement textAlignment="Center" verticalAlignment="Middle" rotation="None" lineSpacing="Single" markup="none">
 						<font fontName="Monospaced" size="10" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Garuda-Bold.ttf" pdfEncoding="Identity-H" isPdfEmbedded="false"/>
 					</textElement>
 					<text><![CDATA[จ่าย]]></text>
 				</staticText>
 				<staticText>
-					<reportElement style="style1" mode="Transparent" x="329" y="88" width="70" height="20" forecolor="#000000" backcolor="#FFFFFF"/>
+					<reportElement style="style1" mode="Transparent" x="329" y="110" width="70" height="20" forecolor="#000000" backcolor="#FFFFFF"/>
 					<textElement textAlignment="Center" verticalAlignment="Middle" rotation="None" lineSpacing="Single" markup="none">
 						<font fontName="Monospaced" size="10" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Garuda-Bold.ttf" pdfEncoding="Identity-H" isPdfEmbedded="false"/>
 					</textElement>
 					<text><![CDATA[คงเหลือ]]></text>
 				</staticText>
 				<staticText>
-					<reportElement style="style1" mode="Transparent" x="399" y="88" width="70" height="20" forecolor="#000000" backcolor="#FFFFFF"/>
+					<reportElement style="style1" mode="Transparent" x="399" y="110" width="70" height="20" forecolor="#000000" backcolor="#FFFFFF"/>
 					<textElement textAlignment="Center" verticalAlignment="Middle" rotation="None" lineSpacing="Single" markup="none">
 						<font fontName="Monospaced" size="10" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Garuda-Bold.ttf" pdfEncoding="Identity-H" isPdfEmbedded="false"/>
 					</textElement>
 					<text><![CDATA[หน่วยละ]]></text>
 				</staticText>
 				<staticText>
-					<reportElement style="style1" mode="Transparent" x="469" y="88" width="101" height="20" forecolor="#000000" backcolor="#FFFFFF"/>
+					<reportElement style="style1" mode="Transparent" x="469" y="110" width="101" height="20" forecolor="#000000" backcolor="#FFFFFF"/>
 					<textElement textAlignment="Center" verticalAlignment="Middle" rotation="None" lineSpacing="Single" markup="none">
 						<font fontName="Monospaced" size="10" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Garuda-Bold.ttf" pdfEncoding="Identity-H" isPdfEmbedded="false"/>
 					</textElement>
 					<text><![CDATA[รวมเงินต่อเอกสาร]]></text>
 				</staticText>
 				<staticText>
-					<reportElement style="style1" mode="Transparent" x="570" y="88" width="124" height="20" forecolor="#000000" backcolor="#FFFFFF"/>
+					<reportElement style="style1" mode="Transparent" x="570" y="110" width="124" height="20" forecolor="#000000" backcolor="#FFFFFF"/>
 					<textElement textAlignment="Center" verticalAlignment="Middle" rotation="None" lineSpacing="Single" markup="none">
 						<font fontName="Monospaced" size="10" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Garuda-Bold.ttf" pdfEncoding="Identity-H" isPdfEmbedded="false"/>
 					</textElement>
 					<text><![CDATA[มูลค่าสินค้าคงเหลือ]]></text>
 				</staticText>
 				<staticText>
-					<reportElement style="style1" mode="Transparent" x="694" y="88" width="70" height="20" forecolor="#000000" backcolor="#FFFFFF"/>
+					<reportElement style="style1" mode="Transparent" x="694" y="110" width="70" height="20" forecolor="#000000" backcolor="#FFFFFF"/>
 					<textElement textAlignment="Center" verticalAlignment="Middle" rotation="None" lineSpacing="Single" markup="none">
 						<font fontName="Monospaced" size="10" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Garuda-Bold.ttf" pdfEncoding="Identity-H" isPdfEmbedded="false"/>
 					</textElement>
 					<text><![CDATA[หมายเหตุ]]></text>
 				</staticText>
+				<staticText>
+					<reportElement mode="Transparent" x="0" y="80" width="100" height="20" forecolor="#000000" backcolor="#FFFFFF"/>
+					<textElement verticalAlignment="Middle" rotation="None" lineSpacing="Single" markup="none">
+						<font fontName="Monospaced" size="10" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Garuda-Bold.ttf" pdfEncoding="Identity-H" isPdfEmbedded="false"/>
+					</textElement>
+					<text><![CDATA[ราคาทุนต่อหน่วย]]></text>
+				</staticText>
+				<textField pattern="#,##0.00;-#,##0.00" isBlankWhenNull="true">
+					<reportElement mode="Transparent" x="100" y="80" width="513" height="20" forecolor="#000000" backcolor="#FFFFFF"/>
+					<textElement textAlignment="Left" verticalAlignment="Middle" rotation="None" lineSpacing="Single" markup="none">
+						<font fontName="Monospaced" size="10" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Garuda-Bold.ttf" pdfEncoding="Identity-H" isPdfEmbedded="false"/>
+					</textElement>
+					<textFieldExpression class="java.lang.Number"><![CDATA[$F{standard_price}]]></textFieldExpression>
+				</textField>
 			</band>
 		</groupHeader>
 	</group>
