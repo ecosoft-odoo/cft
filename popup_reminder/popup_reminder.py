@@ -243,6 +243,12 @@ class popup_reminder(models.Model):
                     data_ids = model_obj.search(cr, uid, [('id', 'in', data_ids)] + ast.literal_eval(domain))
                 except:
                     raise osv.except_osv(_('Warning!'), _('Invalid domain of "%s", please reset it.' % (data.name)))
+            if data.search_option == 'everyday':
+                # More search option (CFT)
+                try:
+                    data_ids = model_obj.search(cr, uid, ast.literal_eval(domain))
+                except:
+                    raise osv.except_osv(_('Warning!'), _('Invalid domain of "%s", please reset it.' % (data.name)))
             read_data = []
             field_label = []
             field_res = {}
@@ -265,10 +271,10 @@ class popup_reminder(models.Model):
     model_id = fields.Many2one('ir.model', 'Model', required=True)
     field_id = fields.Many2one('ir.model.fields', 'Fields', domain="[('model_id', '=', model_id),('ttype','in',['date','datetime'])]")
     popup_field_ids = fields.Many2many('ir.model.fields', 'popup_ir_model_field', 'field_id', 'popup_field_id', 'Display Fields', domain="[('model_id', '=', model_id)]")
-    search_option = fields.Selection([('days', 'Days'), ('today', 'Today'), ('current_month', 'Current Month'), ('next_month', 'Next Month')], 'Search Option')
+    search_option = fields.Selection([('days', 'Days'), ('today', 'Today'), ('everyday', 'Everyday'), ('current_month', 'Current Month'), ('next_month', 'Next Month')], 'Search Option')
     duration_in_days = fields.Integer('Days')
     color = fields.Char('Color', size=64)
     from_today = fields.Boolean('From Today')
     group_ids = fields.Many2many('res.groups', 'reminder_group_rel', 'reminder_id', 'group_id', 'Groups')
-    domain = fields.Char('Domain', help="Filter objects by domain, if blank, all items are listed.")
+    domain = fields.Char('Domain', help="Filter objects by domain, if blank, all items are listed. \n Ex: [('field','operator','value')]")
     active = fields.Boolean('Active', default=True)
