@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="pta_receipt_a4" language="groovy" pageWidth="595" pageHeight="842" columnWidth="595" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0">
 	<property name="ireport.zoom" value="0.8264462809917397"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="0"/>
+	<property name="ireport.y" value="969"/>
 	<property name="OPENERP_RELATIONS" value="[&quot;line_ids&quot;]"/>
 	<style name="space_detail">
 		<box leftPadding="3" rightPadding="3"/>
@@ -77,16 +77,16 @@
 				<textFieldExpression class="java.lang.String"><![CDATA[$P{COPY} == 1 ? "FOR CUSTOMER / สำหรับลูกค้า" : "FOR COMPANY / สำหรับบริษัท"]]></textFieldExpression>
 			</textField>
 			<rectangle>
-				<reportElement x="19" y="201" width="42" height="51" backcolor="#BFBFBF"/>
+				<reportElement x="19" y="201" width="42" height="51" backcolor="#FFFFFF"/>
 			</rectangle>
 			<rectangle>
-				<reportElement x="61" y="201" width="251" height="51" backcolor="#BFBFBF"/>
+				<reportElement x="61" y="201" width="251" height="51" backcolor="#FFFFFF"/>
 			</rectangle>
 			<rectangle>
-				<reportElement x="312" y="201" width="125" height="51" backcolor="#BFBFBF"/>
+				<reportElement x="312" y="201" width="125" height="51" backcolor="#FFFFFF"/>
 			</rectangle>
 			<rectangle>
-				<reportElement x="437" y="201" width="143" height="51" backcolor="#BFBFBF"/>
+				<reportElement x="437" y="201" width="143" height="51" backcolor="#FFFFFF"/>
 			</rectangle>
 			<rectangle>
 				<reportElement x="19" y="252" width="42" height="320"/>
@@ -104,7 +104,7 @@
 				<reportElement x="19" y="572" width="293" height="27"/>
 			</rectangle>
 			<rectangle>
-				<reportElement x="312" y="572" width="125" height="27" backcolor="#000000"/>
+				<reportElement x="312" y="572" width="125" height="27" backcolor="#FFFFFF"/>
 			</rectangle>
 			<rectangle>
 				<reportElement x="437" y="572" width="143" height="27"/>
@@ -142,7 +142,7 @@
 จำนวนเงิน]]></text>
 			</staticText>
 			<staticText>
-				<reportElement mode="Transparent" x="312" y="572" width="125" height="27" forecolor="#FFFFFF" backcolor="#FFFFFF"/>
+				<reportElement mode="Transparent" x="312" y="572" width="125" height="27" forecolor="#000000" backcolor="#FFFFFF"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle" rotation="None" lineSpacing="1_1_2" markup="none">
 					<font fontName="Monospaced" size="9" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H" isPdfEmbedded="false"/>
 				</textElement>
@@ -261,38 +261,38 @@
 				<text><![CDATA[จำนวนเงิน...............................บาท]]></text>
 			</staticText>
 			<rectangle>
-				<reportElement x="20" y="701" width="176" height="20" backcolor="#000000"/>
+				<reportElement x="20" y="701" width="176" height="20" backcolor="#FFFFFF"/>
 				<graphicElement>
-					<pen lineWidth="0.0"/>
+					<pen lineWidth="1.0"/>
 				</graphicElement>
 			</rectangle>
 			<rectangle>
-				<reportElement x="279" y="701" width="195" height="20" backcolor="#000000"/>
+				<reportElement x="279" y="701" width="195" height="20" backcolor="#FFFFFF"/>
 				<graphicElement>
-					<pen lineWidth="0.0"/>
+					<pen lineWidth="1.0"/>
 				</graphicElement>
 			</rectangle>
 			<rectangle>
-				<reportElement x="20" y="721" width="176" height="46" backcolor="#BFBFBF"/>
+				<reportElement x="20" y="721" width="176" height="46" backcolor="#FFFFFF"/>
 				<graphicElement>
-					<pen lineWidth="0.0"/>
+					<pen lineWidth="1.0"/>
 				</graphicElement>
 			</rectangle>
 			<rectangle>
-				<reportElement x="279" y="721" width="195" height="46" backcolor="#BFBFBF"/>
+				<reportElement x="279" y="721" width="195" height="46" backcolor="#FFFFFF"/>
 				<graphicElement>
-					<pen lineWidth="0.0"/>
+					<pen lineWidth="1.0"/>
 				</graphicElement>
 			</rectangle>
 			<staticText>
-				<reportElement mode="Transparent" x="25" y="701" width="176" height="20" forecolor="#FFFFFF" backcolor="#FFFFFF"/>
+				<reportElement mode="Transparent" x="25" y="701" width="176" height="20" forecolor="#000000" backcolor="#FFFFFF"/>
 				<textElement verticalAlignment="Middle" rotation="None" lineSpacing="1_1_2" markup="none">
 					<font fontName="Monospaced" size="9" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H" isPdfEmbedded="false"/>
 				</textElement>
 				<text><![CDATA[Received by / ชื่อผู้รับเงิน]]></text>
 			</staticText>
 			<staticText>
-				<reportElement mode="Transparent" x="284" y="701" width="251" height="20" forecolor="#FFFFFF" backcolor="#FFFFFF"/>
+				<reportElement mode="Transparent" x="284" y="701" width="251" height="20" forecolor="#000000" backcolor="#FFFFFF"/>
 				<textElement textAlignment="Left" verticalAlignment="Middle" rotation="None" lineSpacing="1_1_2" markup="none">
 					<font fontName="Monospaced" size="9" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H" isPdfEmbedded="false"/>
 				</textElement>
@@ -417,7 +417,7 @@ TAX ID. 0105545066810 สํานักงานใหญ่]]></text>
 				<text><![CDATA[Page / หน้า :]]></text>
 			</staticText>
 			<rectangle>
-				<reportElement x="13" y="122" width="568" height="16" backcolor="#01B803"/>
+				<reportElement x="13" y="122" width="568" height="16" backcolor="#3EAAEA"/>
 				<graphicElement>
 					<pen lineWidth="0.0"/>
 				</graphicElement>
@@ -452,7 +452,7 @@ TAX ID. 0105545066810 สํานักงานใหญ่]]></text>
 				<textElement lineSpacing="Single">
 					<font fontName="Monospaced" size="12" isBold="false" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H" isPdfEmbedded="false"/>
 				</textElement>
-				<text><![CDATA[บริษัท โปรเจค เทอร์มินัล เอเชีย จำกัด]]></text>
+				<text><![CDATA[บริษัท โปรเจค เทอร์มินัล เอเซีย จำกัด]]></text>
 			</staticText>
 		</band>
 	</pageHeader>

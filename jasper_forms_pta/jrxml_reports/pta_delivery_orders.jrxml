@@ -251,7 +251,7 @@
 				<text><![CDATA[- โปรดลงนามด้วยตัวบรรจง]]></text>
 			</staticText>
 			<rectangle>
-				<reportElement x="19" y="817" width="559" height="11" backcolor="#01B803"/>
+				<reportElement x="19" y="817" width="559" height="11" backcolor="#3EAAEA"/>
 				<graphicElement>
 					<pen lineWidth="0.0"/>
 				</graphicElement>
@@ -356,7 +356,7 @@ TEL. +662 240 1331-2  FAX. +662 249 4283 INFO@TERMINALASIA.COM WWW.TERMINALASIA.
 TAX ID. 0105545066810 สํานักงานใหญ่]]></text>
 			</staticText>
 			<rectangle>
-				<reportElement x="13" y="120" width="568" height="16" backcolor="#01B803"/>
+				<reportElement x="13" y="120" width="568" height="16" backcolor="#3EAAEA"/>
 				<graphicElement>
 					<pen lineWidth="0.0"/>
 				</graphicElement>
@@ -450,7 +450,7 @@ TAX ID. 0105545066810 สํานักงานใหญ่]]></text>
 				<textElement lineSpacing="Single">
 					<font fontName="Monospaced" size="12" isBold="false" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H" isPdfEmbedded="false"/>
 				</textElement>
-				<text><![CDATA[บริษัท โปรเจค เทอร์มินัล เอเชีย จำกัด]]></text>
+				<text><![CDATA[บริษัท โปรเจค เทอร์มินัล เอเซีย จำกัด]]></text>
 			</staticText>
 		</band>
 	</pageHeader>
