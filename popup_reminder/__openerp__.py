@@ -46,6 +46,7 @@ This module will help you to get reminders for :
     'website' : 'http://www.serpentcs.com',
     'depends': ['base','web'],
     'data': [
+        'data/popup.reminder.csv',
         'security/popup_reminder_security.xml',
         'security/ir.model.access.csv',
         'popup_reminder_view.xml',
