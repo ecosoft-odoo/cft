@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="billing" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
 	<property name="ireport.zoom" value="1.0245201830476287"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="0"/>
+	<property name="ireport.y" value="576"/>
 	<property name="OPENERP_RELATIONS" value="line_cr_ids"/>
 	<import value="org.apache.commons.codec.binary.Base64"/>
 	<style name="table" lineSpacing="Single">
@@ -233,7 +233,7 @@ CUSTOMER :]]></text>
 				<text><![CDATA[ใบวางบิล / ใบแจ้งหนี้]]></text>
 			</staticText>
 			<frame>
-				<reportElement mode="Opaque" x="-1" y="99" width="557" height="15" backcolor="#01D10E"/>
+				<reportElement mode="Opaque" x="-1" y="99" width="557" height="15" backcolor="#3EAAEA"/>
 			</frame>
 			<staticText>
 				<reportElement positionType="Float" mode="Transparent" x="4" y="144" width="126" height="32" backcolor="#B5E7D3"/>
@@ -356,7 +356,7 @@ LOCATION :]]></text>
 				<textElement lineSpacing="Single">
 					<font fontName="Monospaced" size="12" isBold="false" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H" isPdfEmbedded="false"/>
 				</textElement>
-				<text><![CDATA[บริษัท โปรเจค เทอร์มินัล เอเชีย จำกัด]]></text>
+				<text><![CDATA[บริษัท โปรเจค เทอร์มินัล เอเซีย จำกัด]]></text>
 			</staticText>
 		</band>
 	</pageHeader>
@@ -422,17 +422,17 @@ LOCATION :]]></text>
 	<lastPageFooter>
 		<band height="217" splitType="Immediate">
 			<staticText>
-				<reportElement style="pading_2" mode="Opaque" x="356" y="116" width="200" height="20" forecolor="#FEFEFE" backcolor="#01D10E"/>
+				<reportElement style="pading_2" mode="Opaque" x="327" y="116" width="229" height="20" forecolor="#FEFEFE" backcolor="#3EAAEA"/>
 				<textElement verticalAlignment="Middle" lineSpacing="Single">
 					<font fontName="Monospaced" size="10" isBold="false" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H" isPdfEmbedded="false"/>
 				</textElement>
 				<text><![CDATA[ชื่อผู้วางบิล / BILL ISSUER]]></text>
 			</staticText>
 			<frame>
-				<reportElement mode="Opaque" x="356" y="136" width="200" height="59" backcolor="#BFBFBF"/>
+				<reportElement mode="Opaque" x="327" y="136" width="229" height="59" backcolor="#BFBFBF"/>
 			</frame>
 			<staticText>
-				<reportElement style="pading_2" mode="Opaque" x="-1" y="206" width="557" height="10" forecolor="#FEFEFE" backcolor="#01D10E"/>
+				<reportElement style="pading_2" mode="Opaque" x="-1" y="206" width="557" height="10" forecolor="#FEFEFE" backcolor="#3EAAEA"/>
 				<textElement verticalAlignment="Middle" lineSpacing="Single">
 					<font fontName="Monospaced" size="10" isBold="true" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H" isPdfEmbedded="false"/>
 				</textElement>
@@ -471,12 +471,12 @@ Total Outstanding]]></text>
 				<text><![CDATA[ชื่อผู้รับวางบิล / Recipient:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="pading_2" x="356" y="81" width="211" height="29"/>
+				<reportElement style="pading_2" x="326" y="78" width="280" height="45"/>
 				<textElement lineSpacing="Single">
 					<font fontName="Monospaced" size="10" isBold="false" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H" isPdfEmbedded="false"/>
 				</textElement>
-				<text><![CDATA[ในนามบริษัท คอมฟอทต้า จำกัด
-On behalf of COMFORTA CO., LTD.]]></text>
+				<text><![CDATA[ในนามบริษัท โปรเจค เทอร์มินัล เอเซีย จำกัด
+On behalf of PROJECT TERMINAL ASIA CO., LTD.]]></text>
 			</staticText>
 			<staticText>
 				<reportElement positionType="Float" mode="Transparent" x="4" y="144" width="201" height="21" backcolor="#B5E7D3"/>
@@ -493,16 +493,16 @@ On behalf of COMFORTA CO., LTD.]]></text>
 				<text><![CDATA[วันที่นัดรับเช็ค / Cheque Collection Date:]]></text>
 			</staticText>
 			<line>
-				<reportElement x="141" y="137" width="204" height="1"/>
+				<reportElement x="141" y="137" width="182" height="1"/>
 			</line>
 			<line>
-				<reportElement x="141" y="165" width="204" height="1"/>
+				<reportElement x="141" y="165" width="182" height="1"/>
 			</line>
 			<line>
-				<reportElement x="205" y="194" width="140" height="1"/>
+				<reportElement x="205" y="194" width="117" height="1"/>
 			</line>
 			<textField pattern="dd/MM/yyyy" isBlankWhenNull="true">
-				<reportElement mode="Transparent" x="4" y="65" width="352" height="61" forecolor="#000000" backcolor="#FFFFFF"/>
+				<reportElement mode="Transparent" x="4" y="65" width="323" height="61" forecolor="#000000" backcolor="#FFFFFF"/>
 				<textElement textAlignment="Left" verticalAlignment="Top" rotation="None" lineSpacing="Single" markup="none">
 					<font fontName="Monospaced" size="10" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H" isPdfEmbedded="false"/>
 				</textElement>

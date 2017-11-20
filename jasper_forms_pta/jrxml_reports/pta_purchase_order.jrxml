@@ -238,7 +238,7 @@
 "PURCHASE ORDER /\nใบสั่งซื้อ"]]></textFieldExpression>
 			</textField>
 			<frame>
-				<reportElement mode="Opaque" x="0" y="99" width="555" height="5" backcolor="#0F6602"/>
+				<reportElement mode="Opaque" x="0" y="99" width="555" height="5" backcolor="#3EAAEA"/>
 			</frame>
 			<staticText>
 				<reportElement mode="Transparent" x="363" y="54" width="103" height="14" backcolor="#B5E7D3"/>
@@ -314,8 +314,8 @@
 				<textElement lineSpacing="Single">
 					<font fontName="Monospaced" size="8" isBold="false" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H" isPdfEmbedded="false"/>
 				</textElement>
-				<text><![CDATA[COMFORTA CO., LTD.
-25/1 FLOOR 1, SOI PHRAYA PHIREN, CHUAPLOENG ROAD,
+				<text><![CDATA[PROJECT TERMINAL ASIA CO., LTD.
+25 SOI PHRAYA PHIREN, CHUAPLOENG ROAD,
 THUNGMAHAMEK, SATHON, BANGKOK 10120, THAILAND
 T.662 240 1331-2 M.6681 846 5205]]></text>
 			</staticText>
@@ -340,7 +340,7 @@ T.662 240 1331-2 M.6681 846 5205]]></text>
 				<reportElement mode="Opaque" x="340" y="112" width="172" height="20" backcolor="#BFBFBF"/>
 			</frame>
 			<frame>
-				<reportElement mode="Opaque" x="-1" y="204" width="557" height="15" backcolor="#0F6602"/>
+				<reportElement mode="Opaque" x="-1" y="204" width="557" height="15" backcolor="#3EAAEA"/>
 			</frame>
 			<textField pattern="dd/MM/yyyy" isBlankWhenNull="true">
 				<reportElement mode="Transparent" x="4" y="171" width="277" height="58" forecolor="#000000" backcolor="#FFFFFF"/>
@@ -431,7 +431,7 @@ T.662 240 1331-2 M.6681 846 5205]]></text>
 				<textElement lineSpacing="Single">
 					<font fontName="Monospaced" size="12" isBold="false" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H" isPdfEmbedded="false"/>
 				</textElement>
-				<text><![CDATA[บริษัท โปรเจค เทอร์มินัล เอเชีย จำกัด]]></text>
+				<text><![CDATA[บริษัท โปรเจค เทอร์มินัล เอเซีย จำกัด]]></text>
 			</staticText>
 		</band>
 	</pageHeader>
@@ -514,7 +514,7 @@ T.662 240 1331-2 M.6681 846 5205]]></text>
 				</graphicElement>
 			</line>
 			<staticText>
-				<reportElement style="pading_2" mode="Opaque" x="349" y="38" width="133" height="15" forecolor="#FEFEFE" backcolor="#0F6602">
+				<reportElement style="pading_2" mode="Opaque" x="349" y="38" width="133" height="15" forecolor="#FEFEFE" backcolor="#3EAAEA">
 					<printWhenExpression><![CDATA[$F{state} != "draft"]]></printWhenExpression>
 				</reportElement>
 				<textElement textAlignment="Right" verticalAlignment="Top" lineSpacing="Single">
@@ -532,7 +532,7 @@ T.662 240 1331-2 M.6681 846 5205]]></text>
 				<text><![CDATA[ภาษีมูลค่าเพิ่ม 7% / VAT 7%]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="pading_2" mode="Opaque" x="-1" y="149" width="557" height="10" forecolor="#FEFEFE" backcolor="#0F6602"/>
+				<reportElement style="pading_2" mode="Opaque" x="-1" y="149" width="557" height="10" forecolor="#FEFEFE" backcolor="#3EAAEA"/>
 				<textElement verticalAlignment="Middle" lineSpacing="Single">
 					<font fontName="Monospaced" size="10" isBold="true" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H" isPdfEmbedded="false"/>
 				</textElement>
@@ -615,7 +615,7 @@ T.662 240 1331-2 M.6681 846 5205]]></text>
 				<text><![CDATA[*** NOTE / หมายเหตุ ***]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="pading_2" mode="Opaque" x="348" y="57" width="206" height="20" forecolor="#FEFEFE" backcolor="#0F6602">
+				<reportElement style="pading_2" mode="Opaque" x="348" y="57" width="206" height="20" forecolor="#FEFEFE" backcolor="#3EAAEA">
 					<printWhenExpression><![CDATA[$F{state} != "draft"]]></printWhenExpression>
 				</reportElement>
 				<textElement verticalAlignment="Middle" lineSpacing="Single">
@@ -650,7 +650,7 @@ T.662 240 1331-2 M.6681 846 5205]]></text>
 				<text><![CDATA[*** NOTE / หมายเหตุ ***]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="pading_2" mode="Opaque" x="348" y="57" width="206" height="20" forecolor="#FEFEFE" backcolor="#0F6602">
+				<reportElement style="pading_2" mode="Opaque" x="348" y="57" width="206" height="20" forecolor="#FEFEFE" backcolor="#3EAAEA">
 					<printWhenExpression><![CDATA[$F{state} == "draft"]]></printWhenExpression>
 				</reportElement>
 				<textElement verticalAlignment="Middle" lineSpacing="Single">
@@ -659,7 +659,7 @@ T.662 240 1331-2 M.6681 846 5205]]></text>
 				<text><![CDATA[ ISSUED BY]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="pading_2" mode="Opaque" x="-1" y="149" width="557" height="10" forecolor="#FEFEFE" backcolor="#0F6602"/>
+				<reportElement style="pading_2" mode="Opaque" x="-1" y="149" width="557" height="10" forecolor="#FEFEFE" backcolor="#3EAAEA"/>
 				<textElement verticalAlignment="Middle" lineSpacing="Single">
 					<font fontName="Monospaced" size="10" isBold="true" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H" isPdfEmbedded="false"/>
 				</textElement>
@@ -683,7 +683,7 @@ T.662 240 1331-2 M.6681 846 5205]]></text>
 				<text><![CDATA[(_____________________________________)]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="pading_2" mode="Opaque" x="348" y="57" width="206" height="20" forecolor="#FEFEFE" backcolor="#0F6602">
+				<reportElement style="pading_2" mode="Opaque" x="348" y="57" width="206" height="20" forecolor="#FEFEFE" backcolor="#3EAAEA">
 					<printWhenExpression><![CDATA[$F{state} != "draft"]]></printWhenExpression>
 				</reportElement>
 				<textElement verticalAlignment="Middle" lineSpacing="Single">
@@ -734,7 +734,7 @@ T.662 240 1331-2 M.6681 846 5205]]></text>
 				</graphicElement>
 			</line>
 			<staticText>
-				<reportElement style="pading_2" mode="Opaque" x="349" y="38" width="133" height="15" forecolor="#FEFEFE" backcolor="#0F6602">
+				<reportElement style="pading_2" mode="Opaque" x="349" y="38" width="133" height="15" forecolor="#FEFEFE" backcolor="#3EAAEA">
 					<printWhenExpression><![CDATA[$F{state} != "draft"]]></printWhenExpression>
 				</reportElement>
 				<textElement textAlignment="Right" verticalAlignment="Top" lineSpacing="Single">

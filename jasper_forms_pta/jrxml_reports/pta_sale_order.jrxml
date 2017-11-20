@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Quotation" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
 	<property name="ireport.zoom" value="1.6500000000000352"/>
-	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="0"/>
+	<property name="ireport.x" value="29"/>
+	<property name="ireport.y" value="1047"/>
 	<property name="OPENERP_RELATIONS" value="[&quot;order_line&quot;]"/>
 	<import value="org.apache.commons.codec.binary.Base64"/>
 	<style name="table" lineSpacing="Single">
@@ -273,7 +273,7 @@ CUSTOMER :]]></text>
 				<text><![CDATA[25 SOI PHRAYA PHIREN, CHUAPLOENG ROAD, THUNGMAHAMEK, SATHON, BANGKOK 10120, THAILAND]]></text>
 			</staticText>
 			<frame>
-				<reportElement mode="Opaque" x="-1" y="97" width="557" height="15" backcolor="#01B803"/>
+				<reportElement mode="Opaque" x="-1" y="97" width="557" height="15" backcolor="#3EAAEA"/>
 			</frame>
 			<staticText>
 				<reportElement positionType="Float" mode="Transparent" x="4" y="152" width="126" height="32" backcolor="#B5E7D3"/>
@@ -295,7 +295,7 @@ LOCATION :]]></text>
 				<textElement verticalAlignment="Top" lineSpacing="Single">
 					<font fontName="Monospaced" size="8" isBold="false" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H" isPdfEmbedded="false"/>
 				</textElement>
-				<text><![CDATA[บริษัท คอมฟอทต้า จำกัด มีความยินดีที่จะเสนอรายละเอียดสินค้า
+				<text><![CDATA[บริษัท โปรเจค เทอร์มินัล เอเซีย จำกัด มีความยินดีที่จะเสนอรายละเอียดสินค้า
 We have pleasure in submitting our quotation as requested. Please contact us if you have any queries]]></text>
 			</staticText>
 			<staticText>
@@ -434,7 +434,7 @@ We have pleasure in submitting our quotation as requested. Please contact us if 
 				<textElement lineSpacing="Single">
 					<font fontName="Monospaced" size="12" isBold="false" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H" isPdfEmbedded="false"/>
 				</textElement>
-				<text><![CDATA[บริษัท โปรเจค เทอร์มินัล เอเชีย จำกัด]]></text>
+				<text><![CDATA[บริษัท โปรเจค เทอร์มินัล เอเซีย จำกัด]]></text>
 			</staticText>
 		</band>
 	</pageHeader>
@@ -595,28 +595,28 @@ We have pleasure in submitting our quotation as requested. Please contact us if 
 				<text><![CDATA[ราคารวมก่อนภาษีมูลค่าเพิ่ม / TOTAL BEFORE VAT]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="pading_2" x="5" y="193" width="420" height="69"/>
+				<reportElement style="pading_2" x="0" y="193" width="420" height="69"/>
 				<textElement lineSpacing="Single">
 					<font fontName="Monospaced" size="8" isBold="false" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H" isPdfEmbedded="false"/>
 				</textElement>
-				<text><![CDATA[โปรดลงนามและประทับตรา เพื่อยืนยันการสั่งซื้อ และกรุณาส่งกลับมายังบริษัท คอมฟอทต้า  จำกัด
+				<text><![CDATA[โปรดลงนามและประทับตรา เพื่อยืนยันการสั่งซื้อ และกรุณาส่งกลับมายังบริษัท โปรเจค เทอร์มินัล เอเซีย จำกัด
 To accept this quotation, please sign in the customer box and return via Fax or Email,
 
    FAX : +662-249-4283
-   EMAIL: Order@comforta.co.th]]></text>
+   EMAIL: Order@terminalasia.com]]></text>
 			</staticText>
 			<frame>
 				<reportElement mode="Opaque" x="363" y="108" width="194" height="45" backcolor="#BFBFBF"/>
 			</frame>
 			<staticText>
-				<reportElement style="pading_2" mode="Opaque" x="350" y="41" width="133" height="15" forecolor="#FEFEFE" backcolor="#01B803"/>
+				<reportElement style="pading_2" mode="Opaque" x="350" y="41" width="133" height="15" forecolor="#FEFEFE" backcolor="#3EAAEA"/>
 				<textElement textAlignment="Right" verticalAlignment="Top" lineSpacing="Single">
 					<font fontName="Monospaced" size="9" isBold="false" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H" isPdfEmbedded="false"/>
 				</textElement>
 				<text><![CDATA[ราคาสุทธิ / GRAND TOTAL]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="pading_2" mode="Opaque" x="363" y="173" width="194" height="20" forecolor="#FEFEFE" backcolor="#01B803"/>
+				<reportElement style="pading_2" mode="Opaque" x="363" y="173" width="194" height="20" forecolor="#FEFEFE" backcolor="#3EAAEA"/>
 				<textElement verticalAlignment="Middle" lineSpacing="Single">
 					<font fontName="Monospaced" size="8" isBold="false" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H" isPdfEmbedded="false"/>
 				</textElement>
@@ -633,7 +633,7 @@ To accept this quotation, please sign in the customer box and return via Fax or 
 				<text><![CDATA[]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="pading_2" mode="Opaque" x="0" y="262" width="557" height="10" forecolor="#FEFEFE" backcolor="#01B803"/>
+				<reportElement style="pading_2" mode="Opaque" x="0" y="262" width="557" height="10" forecolor="#FEFEFE" backcolor="#3EAAEA"/>
 				<textElement verticalAlignment="Middle" lineSpacing="Single">
 					<font fontName="Monospaced" size="10" isBold="true" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H" isPdfEmbedded="false"/>
 				</textElement>
@@ -687,7 +687,7 @@ To accept this quotation, please sign in the customer box and return via Fax or 
 				</graphicElement>
 			</line>
 			<staticText>
-				<reportElement style="pading_2" mode="Opaque" x="348" y="41" width="133" height="15" forecolor="#FEFEFE" backcolor="#01B803"/>
+				<reportElement style="pading_2" mode="Opaque" x="348" y="41" width="133" height="15" forecolor="#FEFEFE" backcolor="#3EAAEA"/>
 				<textElement textAlignment="Right" verticalAlignment="Top" lineSpacing="Single">
 					<font fontName="Monospaced" size="9" isBold="false" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H" isPdfEmbedded="false"/>
 				</textElement>
@@ -727,7 +727,7 @@ To accept this quotation, please sign in the customer box and return via Fax or 
 				<text><![CDATA[กรรมการผู้จัดการ / MANAGING DIRECTOR]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="pading_2" mode="Opaque" x="361" y="173" width="194" height="20" forecolor="#FEFEFE" backcolor="#01B803"/>
+				<reportElement style="pading_2" mode="Opaque" x="361" y="173" width="194" height="20" forecolor="#FEFEFE" backcolor="#3EAAEA"/>
 				<textElement verticalAlignment="Middle" lineSpacing="Single">
 					<font fontName="Monospaced" size="8" isBold="false" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H" isPdfEmbedded="false"/>
 				</textElement>
@@ -744,7 +744,7 @@ To accept this quotation, please sign in the customer box and return via Fax or 
 				<text><![CDATA[(วรศักดิ์ เกษมธนกุล / VORASAK KASEMTANAKUL)]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="pading_2" mode="Opaque" x="-2" y="262" width="557" height="10" forecolor="#FEFEFE" backcolor="#01B803"/>
+				<reportElement style="pading_2" mode="Opaque" x="-2" y="262" width="557" height="10" forecolor="#FEFEFE" backcolor="#3EAAEA"/>
 				<textElement verticalAlignment="Middle" lineSpacing="Single">
 					<font fontName="Monospaced" size="10" isBold="true" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H" isPdfEmbedded="false"/>
 				</textElement>
@@ -758,15 +758,15 @@ To accept this quotation, please sign in the customer box and return via Fax or 
 				<text><![CDATA[(_____________________________________)]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="pading_2" x="3" y="193" width="420" height="69"/>
+				<reportElement style="pading_2" x="0" y="193" width="420" height="69"/>
 				<textElement lineSpacing="Single">
 					<font fontName="Monospaced" size="8" isBold="false" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H" isPdfEmbedded="false"/>
 				</textElement>
-				<text><![CDATA[โปรดลงนามและประทับตรา เพื่อยืนยันการสั่งซื้อ และกรุณาส่งกลับมายังบริษัท คอมฟอทต้า  จำกัด
+				<text><![CDATA[โปรดลงนามและประทับตรา เพื่อยืนยันการสั่งซื้อ และกรุณาส่งกลับมายังบริษัท โปรเจค เทอร์มินัล เอเซีย จำกัด
 To accept this quotation, please sign in the customer box and return via Fax or Email,
 
    FAX : +662-249-4283
-   EMAIL: Order@comforta.co.th]]></text>
+   EMAIL: Order@terminalasia.com]]></text>
 			</staticText>
 			<staticText>
 				<reportElement style="pading_2" mode="Transparent" x="311" y="21" width="170" height="15"/>

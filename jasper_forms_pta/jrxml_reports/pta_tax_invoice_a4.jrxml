@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="pta_tax_invoice_a4" language="groovy" pageWidth="595" pageHeight="842" columnWidth="595" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0">
 	<property name="ireport.zoom" value="1.2100000000000124"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="0"/>
+	<property name="ireport.y" value="1592"/>
 	<property name="OPENERP_RELATIONS" value="[&quot;invoice_line&quot;]"/>
 	<style name="space_detail">
 		<box leftPadding="3" rightPadding="3"/>
@@ -131,7 +131,7 @@
 				<reportElement x="509" y="268" width="71" height="325"/>
 			</rectangle>
 			<staticText>
-				<reportElement style="background" mode="Opaque" x="19" y="208" width="61" height="60" forecolor="#000000" backcolor="#BFBFBF"/>
+				<reportElement style="background" mode="Opaque" x="19" y="208" width="61" height="60" forecolor="#000000" backcolor="#FFFFFF"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle" rotation="None" lineSpacing="1_1_2" markup="none">
 					<font fontName="Monospaced" size="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H" isPdfEmbedded="false"/>
 				</textElement>
@@ -139,7 +139,7 @@
 รหัสสินค้า]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="background" mode="Opaque" x="80" y="208" width="199" height="60" forecolor="#000000" backcolor="#BFBFBF"/>
+				<reportElement style="background" mode="Opaque" x="80" y="208" width="199" height="60" forecolor="#000000" backcolor="#FFFFFF"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle" rotation="None" lineSpacing="1_1_2" markup="none">
 					<font fontName="Monospaced" size="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H" isPdfEmbedded="false"/>
 				</textElement>
@@ -147,7 +147,7 @@
 รายละเอียด]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="background" mode="Opaque" x="279" y="208" width="49" height="60" forecolor="#000000" backcolor="#BFBFBF"/>
+				<reportElement style="background" mode="Opaque" x="279" y="208" width="49" height="60" forecolor="#000000" backcolor="#FFFFFF"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle" rotation="None" lineSpacing="1_1_2" markup="none">
 					<font fontName="Monospaced" size="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H" isPdfEmbedded="false"/>
 				</textElement>
@@ -155,7 +155,7 @@
 จำนวน]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="background" mode="Opaque" x="328" y="208" width="61" height="60" forecolor="#000000" backcolor="#BFBFBF"/>
+				<reportElement style="background" mode="Opaque" x="328" y="208" width="61" height="60" forecolor="#000000" backcolor="#FFFFFF"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle" rotation="None" lineSpacing="1_1_2" markup="none">
 					<font fontName="Monospaced" size="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H" isPdfEmbedded="false"/>
 				</textElement>
@@ -163,7 +163,7 @@
 ราคาต่อหน่วย]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="background" mode="Opaque" x="389" y="208" width="49" height="60" forecolor="#000000" backcolor="#BFBFBF"/>
+				<reportElement style="background" mode="Opaque" x="389" y="208" width="49" height="60" forecolor="#000000" backcolor="#FFFFFF"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle" rotation="None" lineSpacing="1_1_2" markup="none">
 					<font fontName="Monospaced" size="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H" isPdfEmbedded="false"/>
 				</textElement>
@@ -171,7 +171,7 @@
 ส่วนลด (%)]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="background" mode="Opaque" x="438" y="208" width="73" height="60" forecolor="#000000" backcolor="#BFBFBF"/>
+				<reportElement style="background" mode="Opaque" x="438" y="208" width="73" height="60" forecolor="#000000" backcolor="#FFFFFF"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle" rotation="None" lineSpacing="1_1_2" markup="none">
 					<font fontName="Monospaced" size="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H" isPdfEmbedded="false"/>
 				</textElement>
@@ -181,7 +181,7 @@
 (หลังหักส่วนลด)]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="background" mode="Opaque" x="509" y="208" width="71" height="60" forecolor="#000000" backcolor="#BFBFBF"/>
+				<reportElement style="background" mode="Opaque" x="509" y="208" width="71" height="60" forecolor="#000000" backcolor="#FFFFFF"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle" rotation="None" lineSpacing="1_1_2" markup="none">
 					<font fontName="Monospaced" size="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H" isPdfEmbedded="false"/>
 				</textElement>
@@ -206,9 +206,9 @@
 				<text><![CDATA[TOTAL BEFORE VAT / ราคารวมก่อนภาษีมูลค่าเพิ่ม]]></text>
 			</staticText>
 			<rectangle>
-				<reportElement x="201" y="687" width="171" height="46" backcolor="#BFBFBF"/>
+				<reportElement x="201" y="687" width="171" height="46" backcolor="#FFFFFF"/>
 				<graphicElement>
-					<pen lineWidth="0.0"/>
+					<pen lineWidth="1.0"/>
 				</graphicElement>
 			</rectangle>
 			<staticText>
@@ -219,15 +219,15 @@
 				<text><![CDATA[Date / วันที่]]></text>
 			</staticText>
 			<rectangle>
-				<reportElement x="384" y="687" width="194" height="46" backcolor="#BFBFBF"/>
+				<reportElement x="384" y="687" width="194" height="46" backcolor="#FFFFFF"/>
 				<graphicElement>
-					<pen lineWidth="0.0"/>
+					<pen lineWidth="1.0"/>
 				</graphicElement>
 			</rectangle>
 			<rectangle>
-				<reportElement x="21" y="667" width="176" height="20" backcolor="#010101"/>
+				<reportElement x="21" y="667" width="176" height="20" backcolor="#FFFFFF"/>
 				<graphicElement>
-					<pen lineWidth="0.0"/>
+					<pen lineWidth="1.0"/>
 				</graphicElement>
 			</rectangle>
 			<image>
@@ -241,9 +241,9 @@
 				<reportElement x="508" y="635" width="71" height="1"/>
 			</line>
 			<rectangle>
-				<reportElement x="21" y="687" width="176" height="46" backcolor="#BFBFBF"/>
+				<reportElement x="21" y="687" width="176" height="46" backcolor="#FFFFFF"/>
 				<graphicElement>
-					<pen lineWidth="0.0"/>
+					<pen lineWidth="1.0"/>
 				</graphicElement>
 			</rectangle>
 			<line>
@@ -268,7 +268,7 @@
 "FOR COMPANY / สำหรับบริษัท"]]></textFieldExpression>
 			</textField>
 			<rectangle>
-				<reportElement x="389" y="635" width="117" height="20" backcolor="#01B803"/>
+				<reportElement x="389" y="635" width="117" height="20" backcolor="#3EAAEA"/>
 				<graphicElement>
 					<pen lineWidth="0.0"/>
 				</graphicElement>
@@ -281,15 +281,15 @@
 				<text><![CDATA[GRAND TOTAL / ราคาสุทธิ]]></text>
 			</staticText>
 			<rectangle>
-				<reportElement x="201" y="667" width="171" height="20" backcolor="#010101"/>
+				<reportElement x="201" y="667" width="171" height="20" backcolor="#FFFFFF"/>
 				<graphicElement>
-					<pen lineWidth="0.0"/>
+					<pen lineWidth="1.0"/>
 				</graphicElement>
 			</rectangle>
 			<rectangle>
-				<reportElement x="384" y="667" width="194" height="20" backcolor="#010101"/>
+				<reportElement x="384" y="667" width="194" height="20" backcolor="#FFFFFF"/>
 				<graphicElement>
-					<pen lineWidth="0.0"/>
+					<pen lineWidth="1.0"/>
 				</graphicElement>
 			</rectangle>
 			<staticText>
@@ -301,7 +301,7 @@
 ได้ตรวจรับมอบสินค้าตามจำนวนรายการและราคาดังระบุข้างต้นไว้ครบถ้วนในสภาพที่เรียบร้อยทุกประการ]]></text>
 			</staticText>
 			<staticText>
-				<reportElement mode="Transparent" x="26" y="667" width="176" height="20" forecolor="#FFFFFF" backcolor="#FFFFFF"/>
+				<reportElement mode="Transparent" x="26" y="667" width="176" height="20" forecolor="#000000" backcolor="#FFFFFF"/>
 				<textElement verticalAlignment="Middle" rotation="None" lineSpacing="Single" markup="none">
 					<font fontName="Monospaced" size="9" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H" isPdfEmbedded="false"/>
 				</textElement>
@@ -315,14 +315,14 @@
 				<text><![CDATA[E. & O.E. ผิด ตก ยกเว้น]]></text>
 			</staticText>
 			<staticText>
-				<reportElement mode="Transparent" x="389" y="667" width="317" height="20" forecolor="#FFFFFF" backcolor="#FFFFFF"/>
+				<reportElement mode="Transparent" x="389" y="667" width="317" height="20" forecolor="#000000" backcolor="#FFFFFF"/>
 				<textElement verticalAlignment="Middle" rotation="None" lineSpacing="Single" markup="none">
 					<font fontName="Monospaced" size="9" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H" isPdfEmbedded="false"/>
 				</textElement>
 				<text><![CDATA[Authorised Signature / ผู้รับมอบอำนาจ]]></text>
 			</staticText>
 			<staticText>
-				<reportElement mode="Transparent" x="206" y="667" width="171" height="20" forecolor="#FFFFFF" backcolor="#FFFFFF"/>
+				<reportElement mode="Transparent" x="206" y="667" width="171" height="20" forecolor="#000000" backcolor="#FFFFFF"/>
 				<textElement verticalAlignment="Middle" rotation="None" lineSpacing="Single" markup="none">
 					<font fontName="Monospaced" size="9" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H" isPdfEmbedded="false"/>
 				</textElement>
@@ -424,7 +424,7 @@
                             "สำนักงานใหญ่" : "สาขาที่: " + $F{taxbranch}))]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
-				<reportElement mode="Transparent" x="96" y="173" width="235" height="79" forecolor="#000000" backcolor="#FFFFFF"/>
+				<reportElement mode="Transparent" x="96" y="173" width="227" height="79" forecolor="#000000" backcolor="#FFFFFF"/>
 				<textElement textAlignment="Left" verticalAlignment="Top" rotation="None" lineSpacing="Single" markup="none">
 					<font fontName="Monospaced" size="9" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H" isPdfEmbedded="false"/>
 				</textElement>
@@ -452,7 +452,7 @@
 				<textFieldExpression class="java.lang.String"><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
 			</textField>
 			<rectangle>
-				<reportElement x="13" y="115" width="568" height="16" backcolor="#01B803"/>
+				<reportElement x="13" y="115" width="568" height="16" backcolor="#3EAAEA"/>
 				<graphicElement>
 					<pen lineWidth="0.0"/>
 				</graphicElement>
@@ -546,7 +546,7 @@ TAX ID. 0105545066810 สํานักงานใหญ่]]></text>
 				<textElement lineSpacing="Single">
 					<font fontName="Monospaced" size="12" isBold="false" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H" isPdfEmbedded="false"/>
 				</textElement>
-				<text><![CDATA[บริษัท โปรเจค เทอร์มินัล เอเชีย จำกัด]]></text>
+				<text><![CDATA[บริษัท โปรเจค เทอร์มินัล เอเซีย จำกัด]]></text>
 			</staticText>
 		</band>
 	</pageHeader>
