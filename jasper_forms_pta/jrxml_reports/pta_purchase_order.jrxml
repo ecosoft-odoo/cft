@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Quotation" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
 	<property name="ireport.zoom" value="1.126972201352392"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="0"/>
+	<property name="ireport.y" value="384"/>
 	<property name="OPENERP_RELATIONS" value="[&quot;order_line&quot;]"/>
 	<import value="org.apache.commons.codec.binary.Base64"/>
 	<style name="table" lineSpacing="Single">
@@ -576,7 +576,7 @@ T.662 240 1331-2 M.6681 846 5205]]></text>
 				<text><![CDATA[ราคารวมก่อนภาษีมูลค่าเพิ่ม / TOTAL BEFORE VAT]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="pading_2" mode="Opaque" x="348" y="57" width="206" height="20" forecolor="#FEFEFE" backcolor="#0F6602">
+				<reportElement style="pading_2" mode="Opaque" x="348" y="57" width="206" height="20" forecolor="#FEFEFE" backcolor="#3EAAEA">
 					<printWhenExpression><![CDATA[$F{state} == "draft"]]></printWhenExpression>
 				</reportElement>
 				<textElement verticalAlignment="Middle" lineSpacing="Single">

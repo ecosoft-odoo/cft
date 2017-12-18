@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="pta_tax_invoice_a4" language="groovy" pageWidth="595" pageHeight="842" columnWidth="595" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0">
 	<property name="ireport.zoom" value="1.2100000000000124"/>
-	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="1592"/>
+	<property name="ireport.x" value="229"/>
+	<property name="ireport.y" value="1719"/>
 	<property name="OPENERP_RELATIONS" value="[&quot;invoice_line&quot;]"/>
 	<style name="space_detail">
 		<box leftPadding="3" rightPadding="3"/>
@@ -260,7 +260,7 @@
 				<reportElement x="438" y="751" width="124" height="1"/>
 			</line>
 			<textField>
-				<reportElement mode="Transparent" x="151" y="775" width="423" height="20" forecolor="#000000" backcolor="#FFFFFF"/>
+				<reportElement mode="Transparent" x="151" y="781" width="423" height="20" forecolor="#000000" backcolor="#FFFFFF"/>
 				<textElement textAlignment="Right" verticalAlignment="Middle" rotation="None" lineSpacing="1_1_2" markup="none">
 					<font fontName="Monospaced" size="9" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H" isPdfEmbedded="false"/>
 				</textElement>
@@ -345,6 +345,13 @@
 			<line>
 				<reportElement x="68" y="751" width="124" height="1"/>
 			</line>
+			<staticText>
+				<reportElement mode="Transparent" x="20" y="766" width="686" height="20" forecolor="#000000" backcolor="#FFFFFF"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle" rotation="None" lineSpacing="1_1_2" markup="none">
+					<font fontName="Monospaced" size="7" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H" isPdfEmbedded="false"/>
+				</textElement>
+				<text><![CDATA[สีขาว : ต้นฉบับใบส่งสินค้า / ใบกำกับภาษี | | สีเขียว : สำหรับวางบิล | | สีชมพู : บัญชี (นำกลับ บริษัท โปรเจค เทอร์มินัล เอเซีย จำกัด)]]></text>
+			</staticText>
 		</band>
 	</background>
 	<pageHeader>
