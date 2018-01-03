@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <template id="external_layout_header" inherit_id="report.external_layout_header">
+            <xpath expr="//div/div/div/img" position="replace">
+                <img t-if="company.logo_qweb" t-att-src="'data:image/png;base64,%s' % company.logo_qweb" style="max-height: 45px;"/>
+            </xpath>
+        </template>
+    </data>
+</openerp>
