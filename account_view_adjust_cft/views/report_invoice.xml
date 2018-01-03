@@ -15,7 +15,7 @@
         <template id="report_invoice_document_cft" inherit_id="account.report_invoice_document">
             <xpath expr="//t/div/div/div" position="replace">
                 <div class="col-xs-6">
-                    <span>เลขประจำตัวผู้เสียภาษีอากร: 0105535014957 สำนักงานใหญ่</span><br/>
+                    <span>เลขประจำตัวผู้เสียภาษีอากร: <t t-if="o.company_id"><span t-field="o.company_id.vat"/></t><t t-if="not o.company_id">0105535014957</t> สำนักงานใหญ่</span><br/>
                     <span>โทร: 0-2240-1331-2 แฟกซ์: 0-2249-4283</span>
                 </div>
                 <div class="col-xs-5 col-xs-offset-1">
