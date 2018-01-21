@@ -57,6 +57,12 @@
 	<field name="line_amount" class="java.lang.Number">
 		<fieldDescription><![CDATA[line_ids/amount]]></fieldDescription>
 	</field>
+	<field name="vat" class="java.lang.String">
+		<fieldDescription><![CDATA[partner_id/vat]]></fieldDescription>
+	</field>
+	<field name="taxbranch" class="java.lang.String">
+		<fieldDescription><![CDATA[partner_id/taxbranch]]></fieldDescription>
+	</field>
 	<variable name="line_amount" class="java.lang.Number">
 		<variableExpression><![CDATA[$F{type} == "cr" ? $F{line_amount} : -$F{line_amount}]]></variableExpression>
 	</variable>
@@ -365,7 +371,7 @@
 				<textFieldExpression class="java.lang.String"><![CDATA[$V{PAGE_NUMBER}+" /"]]></textFieldExpression>
 			</textField>
 			<textField pattern="" isBlankWhenNull="true">
-				<reportElement mode="Transparent" x="161" y="137" width="466" height="20" forecolor="#000000" backcolor="#FFFFFF"/>
+				<reportElement mode="Transparent" x="161" y="122" width="466" height="20" forecolor="#000000" backcolor="#FFFFFF"/>
 				<textElement textAlignment="Left" verticalAlignment="Middle" rotation="None" lineSpacing="Single" markup="none">
 					<font fontName="Monospaced" size="9" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H" isPdfEmbedded="false"/>
 				</textElement>
@@ -417,13 +423,13 @@ TAX ID. 0105545066810 สํานักงานใหญ่]]></text>
 				<text><![CDATA[Page / หน้า :]]></text>
 			</staticText>
 			<rectangle>
-				<reportElement x="13" y="122" width="568" height="16" backcolor="#000000"/>
+				<reportElement x="13" y="120" width="568" height="1" backcolor="#000000"/>
 				<graphicElement>
 					<pen lineWidth="0.0"/>
 				</graphicElement>
 			</rectangle>
 			<staticText>
-				<reportElement mode="Transparent" x="20" y="137" width="190" height="20" forecolor="#000000" backcolor="#FFFFFF"/>
+				<reportElement mode="Transparent" x="20" y="122" width="190" height="20" forecolor="#000000" backcolor="#FFFFFF"/>
 				<textElement textAlignment="Left" verticalAlignment="Middle" rotation="None" lineSpacing="Single" markup="none">
 					<font fontName="Monospaced" size="9" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H" isPdfEmbedded="false"/>
 				</textElement>
@@ -454,6 +460,22 @@ TAX ID. 0105545066810 สํานักงานใหญ่]]></text>
 				</textElement>
 				<text><![CDATA[บริษัท โปรเจค เทอร์มินัล เอเซีย จำกัด]]></text>
 			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="20" y="136" width="190" height="20" forecolor="#000000" backcolor="#FFFFFF"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle" rotation="None" lineSpacing="Single" markup="none">
+					<font fontName="Monospaced" size="9" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H" isPdfEmbedded="false"/>
+				</textElement>
+				<text><![CDATA[TAX ID. / เลขประจำตัวผู้เสียภาษี:]]></text>
+			</staticText>
+			<textField pattern="" isBlankWhenNull="true">
+				<reportElement mode="Transparent" x="148" y="136" width="455" height="20" forecolor="#000000" backcolor="#FFFFFF"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle" rotation="None" lineSpacing="Single" markup="none">
+					<font fontName="Monospaced" size="9" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H" isPdfEmbedded="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{vat} +
+($F{taxbranch}.toString() == "" ? "" :
+    $F{taxbranch} == "00000" ? " / สำนักงานใหญ่" : " / " + $F{taxbranch})]]></textFieldExpression>
+			</textField>
 		</band>
 	</pageHeader>
 	<detail>
