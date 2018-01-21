@@ -474,7 +474,7 @@ TAX ID. 0105535014957 สำนักงานใหญ่]]></text>
 				<textElement verticalAlignment="Middle" rotation="None" lineSpacing="Single" markup="none">
 					<font fontName="Monospaced" size="9" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H" isPdfEmbedded="false"/>
 				</textElement>
-				<text><![CDATA[Tax ID. / เลขประจำตัวผู้เสียภาษี:]]></text>
+				<text><![CDATA[TAX ID. / เลขประจำตัวผู้เสียภาษี:]]></text>
 			</staticText>
 			<textField pattern="" isBlankWhenNull="true">
 				<reportElement mode="Transparent" x="454" y="137" width="454" height="20" forecolor="#000000" backcolor="#FFFFFF"/>
