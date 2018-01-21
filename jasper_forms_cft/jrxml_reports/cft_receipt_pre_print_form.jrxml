@@ -57,6 +57,12 @@
 	<field name="line_amount" class="java.lang.Number">
 		<fieldDescription><![CDATA[line_ids/amount]]></fieldDescription>
 	</field>
+	<field name="vat" class="java.lang.String">
+		<fieldDescription><![CDATA[partner_id/vat]]></fieldDescription>
+	</field>
+	<field name="taxbranch" class="java.lang.String">
+		<fieldDescription><![CDATA[partner_id/taxbranch]]></fieldDescription>
+	</field>
 	<variable name="line_amount" class="java.lang.Number">
 		<variableExpression><![CDATA[$F{type} == "cr" ? $F{line_amount} : -$F{line_amount}]]></variableExpression>
 	</variable>
@@ -117,6 +123,15 @@
     $F{province},
     $F{zip})
 + " " + $F{country}.toString()]]></textFieldExpression>
+			</textField>
+			<textField pattern="" isBlankWhenNull="true">
+				<reportElement mode="Transparent" x="393" y="139" width="498" height="20" forecolor="#000000" backcolor="#FFFFFF"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle" rotation="None" lineSpacing="Single" markup="none">
+					<font fontName="Monospaced" size="9" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H" isPdfEmbedded="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{vat} +
+($F{taxbranch}.toString() == "" ? "" :
+    $F{taxbranch} == "00000" ? " / สำนักงานใหญ่" : " / " + $F{taxbranch})]]></textFieldExpression>
 			</textField>
 		</band>
 	</pageHeader>
