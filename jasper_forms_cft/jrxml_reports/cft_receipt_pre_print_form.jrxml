@@ -125,7 +125,7 @@
 + " " + $F{country}.toString()]]></textFieldExpression>
 			</textField>
 			<textField pattern="" isBlankWhenNull="true">
-				<reportElement mode="Transparent" x="393" y="139" width="498" height="20" forecolor="#000000" backcolor="#FFFFFF"/>
+				<reportElement mode="Transparent" x="435" y="139" width="498" height="20" forecolor="#000000" backcolor="#FFFFFF"/>
 				<textElement textAlignment="Left" verticalAlignment="Middle" rotation="None" lineSpacing="Single" markup="none">
 					<font fontName="Monospaced" size="9" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H" isPdfEmbedded="false"/>
 				</textElement>
@@ -133,6 +133,13 @@
 ($F{taxbranch}.toString() == "" ? "" :
     $F{taxbranch} == "00000" ? " / สำนักงานใหญ่" : " / " + $F{taxbranch})]]></textFieldExpression>
 			</textField>
+			<staticText>
+				<reportElement mode="Transparent" x="303" y="139" width="231" height="20" forecolor="#000000" backcolor="#FFFFFF"/>
+				<textElement verticalAlignment="Middle" rotation="None" lineSpacing="Single" markup="none">
+					<font fontName="Monospaced" size="9" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H" isPdfEmbedded="false"/>
+				</textElement>
+				<text><![CDATA[TAX ID. / เลขประจำตัวผู้เสียภาษี:]]></text>
+			</staticText>
 		</band>
 	</pageHeader>
 	<detail>
