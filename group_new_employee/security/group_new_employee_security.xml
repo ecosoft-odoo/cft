@@ -6,7 +6,7 @@
         <record id="group_sale_salesman_readonly" model="res.groups">
             <field name="name">See Own Leads (readonly)</field>
             <field name="category_id" ref="base.module_category_sales_management"/>
-            <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+            <field name="implied_ids" eval="[(4, ref('base.group_user')), (4, ref('group_new_employee.group_account_invoice_readonly'))]"/>
         </record>
         <!-- Purchase -->
         <record id="group_purchase_user_readonly" model="res.groups">
