@@ -4,6 +4,7 @@
 
 from openerp import models, fields
 
+
 class res_partner_rank_extension(models.Model):
     _name = 'res.partner.rank'
     _order = 'name'
@@ -13,6 +14,10 @@ class res_partner_rank_extension(models.Model):
     )
     description = fields.Char(
         'Description'
+    )
+    for_sale_manager = fields.Boolean(
+        string='Used by Sales Manager only',
+        default=False,
     )
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

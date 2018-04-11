@@ -98,7 +98,9 @@
             <xpath expr="//field[@name='title']" position="after">
                 <field name="id" invisible="1"/>
                 <field name="is_sale_manager" invisible="1"/>
-                <field name="customer_rank" attrs="{'invisible':[('customer','=', False)], 'readonly': [('is_sale_manager','=',False), ('id', '!=', False)]}"/>
+                <field name="customer_rank" widget="selection"
+                  attrs="{'invisible':[('customer','=', False)], 'readonly': [('is_sale_manager','=',False), ('id', '!=', False)]}"
+                  domain="['|', ('for_sale_manager', '=', False), ('for_sale_manager', '=', is_sale_manager)]"/>
             </xpath>
         </field>
     </record>
@@ -121,6 +123,7 @@
                 <group>
                     <group>
                         <field name="description"/>
+                        <field name="for_sale_manager"/>
                     </group>
                     <group>
                         <field name="name"/>
