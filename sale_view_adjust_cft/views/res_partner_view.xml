@@ -96,8 +96,9 @@
             </xpath>
            <!-- Customer Rank -->
             <xpath expr="//field[@name='title']" position="after">
+                <field name="id" invisible="1"/>
                 <field name="is_sale_manager" invisible="1"/>
-                <field name="customer_rank" attrs="{'invisible':[('customer','=', False)], 'readonly': [('is_sale_manager','=',False)]}"/>
+                <field name="customer_rank" attrs="{'invisible':[('customer','=', False)], 'readonly': [('is_sale_manager','=',False), ('id', '!=', False)]}"/>
             </xpath>
         </field>
     </record>
