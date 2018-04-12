@@ -111,6 +111,7 @@
         <field name="arch" type="xml">
             <tree>
                 <field name="name"/>
+                <field name="for_sale_manager"/>
             </tree>
         </field>
     </record>
