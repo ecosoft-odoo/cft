@@ -88,7 +88,7 @@ class AccountInvoice(models.Model):
                 raise except_orm(
                     _('Warning!'),
                     _('Supplier Invoice Number have duplicate document '
-                      'if you want to continue for this document '
+                      'if you want to continue, '
                       'please select Ignore SI Number in tab Other Info')
                 )
         return super(AccountInvoice, self).invoice_validate()
