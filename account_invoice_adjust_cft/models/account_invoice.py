@@ -23,7 +23,8 @@
 #
 ##############################################################################
 
-from openerp import models, fields, api
+from openerp import models, fields, api, _
+from openerp.exceptions import except_orm
 
 
 class AccountInvoice(models.Model):
@@ -32,6 +33,10 @@ class AccountInvoice(models.Model):
     order_id = fields.Many2one(
         'sale.order',
         compute='_compute_order_id',
+    )
+    flag_ignore_si_number = fields.Boolean(
+        string='Ignore SI Number',
+        copy=False,
     )
 
     @api.multi
@@ -72,3 +77,18 @@ class AccountInvoice(models.Model):
                     if order:
                         invoice.order_id = order.id
                         break
+
+    @api.multi
+    def invoice_validate(self):
+        supplier_invoice_number = self[0].supplier_invoice_number
+        if supplier_invoice_number:
+            invoices = self.search(
+                [('supplier_invoice_number', '=', supplier_invoice_number)])
+            if len(invoices) > 1 and not self[0].flag_ignore_si_number:
+                raise except_orm(
+                    _('Warning!'),
+                    _('Supplier Invoice Number have duplicate document '
+                      'if you want to continue for this document '
+                      'please select Ignore SI Number in tab Other Info')
+                )
+        return super(AccountInvoice, self).invoice_validate()
