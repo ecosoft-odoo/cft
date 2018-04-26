@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <!-- Tree view -->
+        <record id="view_product_inventory_report_tree" model="ir.ui.view">
+            <field name="name">view.product.inventory.report.tree</field>
+            <field name="model">product.inventory.report</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="id" invisible="1"/>
+                    <field name="product_id"/>
+                    <field name="categ_id"/>
+                    <field name="order_id"/>
+                    <field name="partner_id"/>
+                    <field name="in_date"/>
+                    <field name="qty"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Search view -->
+        <record id="view_product_inventory_report_search" model="ir.ui.view">
+            <field name="name">view.product.inventory.report.search</field>
+            <field name="model">product.inventory.report</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="product_id"/>
+                    <field name="categ_id"/>
+                    <field name="order_id"/>
+                    <field name="partner_id"/>
+                    <group expand="0" string="Group by...">
+                        <filter name="product_id" string="Product Name" context="{'group_by': 'product_id'}"/>
+                        <filter name="categ_id" string="Internal Category" context="{'group_by': 'categ_id'}"/>
+                        <filter name="order_id" string="PO.No." context="{'group_by': 'order_id'}"/>
+                        <filter name="partner_id" string="Supplier Name" context="{'group_by': 'partner_id'}"/>
+                        <filter name="in_date" string="Incoming Date" context="{'group_by': 'in_date'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+    </data>
+</openerp>
