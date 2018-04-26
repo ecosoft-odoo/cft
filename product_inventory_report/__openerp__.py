@@ -9,6 +9,7 @@
         'stock',
     ],
     'data': [
+        'security/ir.model.access.csv',
         'views/product_inventory_report_view.xml',
         'wizards/product_inventory_report_wizard.xml',
     ],
