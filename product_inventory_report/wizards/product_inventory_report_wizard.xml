@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <!-- Form View -->
+        <record id="view_product_inventory_report_wizard_form" model="ir.ui.view">
+            <field name="name">view.product.inventory.report.wizard.form</field>
+            <field name="model">product.inventory.report.wizard</field>
+            <field name="arch" type="xml">
+                <form>
+	            	<group>
+                        <label for="id" string="Age Inventory"/>
+                        <div>
+                            <div name="age_inventory">
+                                <field name="age_inventory" class="oe_inline"/>
+                                <label string="days"/>
+                            </div>
+                        </div>
+	                </group>
+                    <footer>
+                        <button string="View Inventory" name="open_inventory" type="object" default_focus="1" class="oe_highlight"/>
+                        or
+                        <button string="Cancel" class="oe_link" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_product_inventory_report" model="ir.actions.act_window">
+            <field name="name">Aged Inventory by Product</field>
+            <field name="res_model">product.inventory.report.wizard</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_product_inventory_report_wizard_form"/>
+            <field name="target">new</field>
+        </record>
+
+        <menuitem action="action_product_inventory_report"
+            id="menu_product_inventory_report"
+            name="Aged Inventory by Product"
+            parent="stock.menu_traceability" groups="stock.group_stock_user" sequence="100"/>
+    </data>
+</openerp>
