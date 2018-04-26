@@ -38,6 +38,11 @@ class ProductInventoryReport(models.Model):
         string='Quantity',
         readonly=True,
     )
+    location_id = fields.Many2one(
+        'stock.location',
+        string='Location',
+        readonly=True,
+    )
 
     def init(self, cr):
         tools.drop_view_if_exists(cr, 'product_inventory_report')
@@ -66,7 +71,8 @@ class ProductInventoryReport(models.Model):
                             WHERE r.quant_id = q.id
                             LIMIT 1) AS partner_id,
                            q.in_date,
-                           q.qty
+                           q.qty,
+                           q.location_id
                     FROM stock_quant q
                     LEFT JOIN product_product p ON q.product_id = p.id
                     LEFT JOIN product_template t ON p.product_tmpl_id = t.id)
