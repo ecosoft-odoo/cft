@@ -29,4 +29,5 @@ class ProductInventoryReportWizard(models.TransientModel):
                         '.view_product_inventory_report_tree').id,
             'type': 'ir.actions.act_window',
             'domain': [('id', 'in', report_ids)],
+            'context': {'search_default_internal_loc': 1},
         }
