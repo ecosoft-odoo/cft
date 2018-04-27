@@ -36,8 +36,8 @@ class AccountMove(models.Model):
     @api.depends('line_id.bank_payment_id')
     def _compute_bank_payment(self):
         for move in self:
-            if move.bank_payment_id:  # Not yet assigned
-                break
+            if move.bank_payment_id:
+                continue
             move_lines = move.line_id.filtered('bank_payment_id')
             bank_payments = move_lines.mapped('bank_payment_id')
             if bank_payments:

@@ -29,10 +29,10 @@ class AccountMove(models.Model):
     @api.depends('line_id.bank_receipt_id')
     def _compute_bank_receipt(self):
         for move in self:
+            if move.bank_receipt_id:
+                continue
             bank_receipt_line = move.line_id.filtered('bank_receipt_id')
             move.bank_receipt_id = bank_receipt_line.bank_receipt_id
-            if move.bank_receipt_id:
-                break
 
     @api.multi
     def create_bank_receipt(self, receipt_date):
