@@ -58,6 +58,17 @@
         </field>
     </record>
 
+    <record id="view_partner_tree" model="ir.ui.view">
+        <field name="name">res.partner.tree</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_tree"/>
+        <field name="arch" type="xml">
+            <field name="is_company" position="before">
+                <field name="customer_rank"/>
+            </field>
+        </field>
+    </record>
+
     <!-- make street,job position,phone,email and title required in customer form view and contact form view-->
     <record id="view_partner_form_reqired" model="ir.ui.view">
         <field name="name">view.partner.form.required</field>
