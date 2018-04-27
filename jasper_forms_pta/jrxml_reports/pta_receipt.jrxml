@@ -98,7 +98,7 @@
 				<textElement markup="none">
 					<font pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
 				</textElement>
-				<textFieldExpression class="java.lang.String"><![CDATA[$F{title} + " " + $F{partner_name}]]></textFieldExpression>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{title} + " " + $F{partner_name}.split("\\(สาขา")[0]]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="95" y="186" width="249" height="70"/>
