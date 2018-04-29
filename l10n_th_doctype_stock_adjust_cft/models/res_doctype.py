@@ -7,9 +7,9 @@ class ResDoctype(models.Model):
 
     refer_type = fields.Selection(
         selection_add=[
-            ('receipt', 'Receipt'),
-            ('internal_transfer', 'Internal Transfer'),
-            ('pick', 'Pick'),
-            ('delivery_order', 'Delivery Order'),
+            ('in', 'Receipt'),
+            ('internal', 'Internal Transfer'),
+            ('picking', 'Pick'),
+            ('out', 'Delivery Order'),
         ],
     )

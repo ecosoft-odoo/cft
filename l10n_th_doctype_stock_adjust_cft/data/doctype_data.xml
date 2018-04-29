@@ -7,22 +7,22 @@
         <record id="doctype_receipt" model="res.doctype">
             <field name="name">Receipt</field>
             <field name="sequence_id" ref="doctype_receipt_seq"/>
-            <field name="refer_type">receipt</field>
+            <field name="refer_type">in</field>
         </record>
         <record id="doctype_internal_transfer" model="res.doctype">
             <field name="name">Internal Transfer</field>
             <field name="sequence_id" ref="doctype_internal_transfer_seq"/>
-            <field name="refer_type">internal_transfer</field>
+            <field name="refer_type">internal</field>
         </record>
         <record id="doctype_pick" model="res.doctype">
             <field name="name">Pick</field>
             <field name="sequence_id" ref="doctype_pick_seq"/>
-            <field name="refer_type">pick</field>
+            <field name="refer_type">picking</field>
         </record>
         <record id="doctype_delivery_order" model="res.doctype">
             <field name="name">Delivery Order</field>
             <field name="sequence_id" ref="doctype_delivery_order_seq"/>
-            <field name="refer_type">delivery_order</field>
+            <field name="refer_type">out</field>
         </record>
 
     </data>
