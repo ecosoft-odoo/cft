@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <!-- Form View -->
+        <record id="product_stock_ledger_wizard_view" model="ir.ui.view">
+            <field name="name">product.stock.ledger.wizard.view</field>
+            <field name="model">product.stock.ledger.wizard</field>
+            <field name="arch" type="xml">
+                <form>
+	            	<group>
+	            		<group>
+                            <field name="filter_by"/>
+                            <field name="product_ids" attrs="{'invisible': [('filter_by', '!=', 'product')]}" widget="many2many_tags"/>
+                            <field name="category_id" attrs="{'invisible': [('filter_by', '!=', 'category')]}"/>
+                            <field name="partner_id" attrs="{'invisible': [('filter_by', '!=', 'partner')]}"/>
+	                    	<field name="from_date"/>
+	                    	<field name="to_date"/>
+	                    </group>
+	                    <group></group>
+	                </group>
+                    <footer>
+                        <button string="View Stock Ledger" name="open_product_stock_ledger" type="object" default_focus="1" class="oe_highlight"/>
+                        <button string="Export Stock Ledger" name="export_product_stock_ledger" type="object" default_focus="1"/>
+                        or
+                        <button string="Cancel" class="oe_link" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <!-- Window Action -->
+        <record id="action_product_stock_ledger_wizard" model="ir.actions.act_window">
+            <field name="name">Stock Ledger</field>
+            <field name="res_model">product.stock.ledger.wizard</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="product_stock_ledger_wizard_view"/>
+            <field name="target">new</field>
+        </record>
+
+        <!-- Menu -->
+        <menuitem id="action_accounting_control"
+            name="Accounting Control"
+            parent="account.menu_finance" sequence="4"/>
+        <menuitem action="action_product_stock_ledger_wizard"
+            id="menu_product_stock_ledger_wizard"
+            name="Stock Ledger"
+            parent="action_accounting_control" groups="product_price_visible.group_product_visible" sequence="1"/>
+    </data>
+</openerp>

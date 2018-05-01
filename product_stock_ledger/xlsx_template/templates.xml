@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record model="document.directory" id="dir_product_stock_ledger_report">
+            <field name="name">Product Stock Ledger Report</field>
+            <field name="parent_id" ref="document.dir_root"/>
+            <field name="user_id" ref="base.user_root"/>
+            <field name="ressource_id">0</field>
+            <field name="group_ids" eval="[(4, ref('base.group_user'))]" />
+        </record>
+
+        <record id="xlsx_report_product_stock_ledger" model="ir.attachment">
+            <field name="res_model">product.stock.ledger.wizard</field>
+            <field name="datas"></field>
+            <field name="datas_fname">xlsx_report_product_stock_ledger.xlsx</field>
+            <field name="name">Product Stock Ledger</field>
+            <field name="parent_id" eval="ref('dir_product_stock_ledger_report')"/>
+            <field name="description">
+              {
+                '__EXPORT__': {
+                    'Product Stock Ledger Report': {
+                        'results': {
+                            'A5': 'product_id.name${value or ""}',
+                            'B5': 'date_invoice${value or ""}#{number_format=date}',
+                            'C5': 'invoice_number${value or ""}',
+                            'D5': 'in_qty${value or 0}#{number_format=number}',
+                            'E5': 'out_qty${value or 0}#{number_format=number}',
+                            'F5': 'balance_qty${value or 0}#{number_format=number}',
+                            'G5': 'standard_price${value or 0}#{number_format=number}',
+                            'H5': 'price_unit${value or 0}#{number_format=number}',
+                            'I5': 'amount_total${value or 0}#{number_format=number}',
+                            'J5': 'price_balance${value or 0}#{number_format=number}',
+                        }
+                    }
+                }
+            }
+          </field>
+        </record>
+    </data>
+</openerp>
