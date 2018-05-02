@@ -69,7 +69,7 @@ class ProductStockLedgerWizard(models.TransientModel):
             product_ids = self.env['product.template'] \
                 .search([('categ_id', '=', self.category_id.id)]).ids
             product_ids = self.env['product.product'] \
-                .search([('product_tmpl_id', 'in', product_ids)])
+                .search([('product_tmpl_id', 'in', product_ids)]).ids
         if self.partner_id:
             partner_id = self.partner_id.id
         if self.from_date:
