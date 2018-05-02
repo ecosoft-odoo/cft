@@ -25,9 +25,6 @@
                 <xpath expr="//page[@string='Other Info']/group[1]/group[1]" position="inside">
                     <field name="flag_ignore_si_number"/>
                 </xpath>
-                <xpath expr="//field[@name='supplier_invoice_number']" position="attributes">
-                    <attribute name="required">True</attribute>
-                </xpath>
             </field>
         </record>
     </data>
