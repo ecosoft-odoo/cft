@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
-from openerp import models, fields, api, tools
+from openerp import models, fields, api, tools, _
 import openerp.addons.decimal_precision as dp
+from openerp.exceptions import ValidationError
 
 
 class ProductStockLedger(models.Model):
@@ -71,7 +72,10 @@ class ProductStockLedger(models.Model):
     def _get_condition(self, product_ids, partner_id, date_start, date_end):
         condition = ""
         # Products
-        if len(product_ids) == 1:
+        if not product_ids:
+            raise ValidationError(
+                _("There are no products to list in this category"))
+        elif len(product_ids) == 1:
             condition += "line.product_id = %s" % (str(product_ids[0]), )
         else:
             condition += "line.product_id IN %s" % (str(tuple(product_ids)), )

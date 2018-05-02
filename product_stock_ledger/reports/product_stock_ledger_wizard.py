@@ -57,6 +57,8 @@ class ProductStockLedgerWizard(models.TransientModel):
         self.product_id = False
         self.category_id = False
         self.partner_id = False
+        self.from_date = False
+        self.to_date = False
 
     @api.multi
     def _compute_product_stock_ledger(self):
