@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Quotation" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
-	<property name="ireport.zoom" value="1.6500000000000352"/>
+	<property name="ireport.zoom" value="1.126972201352391"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="1152"/>
+	<property name="ireport.y" value="144"/>
 	<property name="OPENERP_RELATIONS" value="[&quot;order_line&quot;]"/>
 	<import value="org.apache.commons.codec.binary.Base64"/>
 	<style name="table" lineSpacing="Single">
@@ -51,7 +51,7 @@
 		<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2"/>
 	</style>
 	<parameter name="SUBREPORT_DIR" class="java.lang.String">
-		<defaultValueExpression><![CDATA["/home/kittiu/hd/workspace/cft/jasper_forms_pta/jrxml_reports/"]]></defaultValueExpression>
+		<defaultValueExpression><![CDATA["/home/kittiu/hd/workspace/cft/jasper_forms_aal/jrxml_reports/"]]></defaultValueExpression>
 	</parameter>
 	<queryString language="xPath">
 		<![CDATA[/data/record]]>
@@ -280,7 +280,7 @@ CUSTOMER :]]></text>
 				<text><![CDATA[QUOTATION / ใบเสนอราคา]]></text>
 			</staticText>
 			<frame>
-				<reportElement mode="Opaque" x="-1" y="97" width="557" height="15" backcolor="#3EAAEA"/>
+				<reportElement mode="Opaque" x="-1" y="97" width="557" height="15" backcolor="#E60D03"/>
 			</frame>
 			<staticText>
 				<reportElement positionType="Float" mode="Transparent" x="4" y="152" width="126" height="32" backcolor="#B5E7D3"/>
@@ -302,7 +302,7 @@ LOCATION :]]></text>
 				<textElement verticalAlignment="Top" lineSpacing="Single">
 					<font fontName="Monospaced" size="8" isBold="false" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H" isPdfEmbedded="false"/>
 				</textElement>
-				<text><![CDATA[บริษัท โปรเจค เทอร์มินัล เอเซีย จำกัด มีความยินดีที่จะเสนอรายละเอียดสินค้า
+				<text><![CDATA[บริษัท คอมฟอทต้า จำกัด มีความยินดีที่จะเสนอรายละเอียดสินค้า
 We have pleasure in submitting our quotation as requested. Please contact us if you have any queries]]></text>
 			</staticText>
 			<staticText>
@@ -326,6 +326,10 @@ We have pleasure in submitting our quotation as requested. Please contact us if 
 				</textElement>
 				<text><![CDATA[Page / หน้า :]]></text>
 			</staticText>
+			<image>
+				<reportElement x="6" y="3" width="120" height="48"/>
+				<imageExpression class="java.lang.String"><![CDATA[$P{SUBREPORT_DIR} + "aal_logo.jpg"]]></imageExpression>
+			</image>
 			<textField isStretchWithOverflow="true" pattern="dd/MM/yyyy" isBlankWhenNull="true">
 				<reportElement mode="Transparent" x="456" y="42" width="115" height="14" forecolor="#000000" backcolor="#FFFFFF"/>
 				<textElement textAlignment="Left" verticalAlignment="Top" rotation="None" lineSpacing="Single" markup="none">
@@ -411,44 +415,33 @@ We have pleasure in submitting our quotation as requested. Please contact us if 
 				</textElement>
 				<textFieldExpression class="java.lang.String"><![CDATA[$F{client_order_ref}]]></textFieldExpression>
 			</textField>
-			<image>
-				<reportElement x="0" y="3" width="257" height="29"/>
-				<imageExpression class="java.lang.String"><![CDATA[$P{SUBREPORT_DIR} + "pta_logo.jpg"]]></imageExpression>
-			</image>
 			<staticText>
-				<reportElement x="0" y="19" width="363" height="26"/>
-				<textElement lineSpacing="Single">
-					<font fontName="Monospaced" size="12" isBold="false" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H" isPdfEmbedded="false"/>
-				</textElement>
-				<text><![CDATA[บริษัท โปรเจค เทอร์มินัล เอเซีย จำกัด]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="0" y="52" width="363" height="10"/>
+				<reportElement x="4" y="87" width="308" height="10"/>
 				<textElement lineSpacing="Single">
 					<font fontName="Monospaced" size="7" isBold="false" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H" isPdfEmbedded="false"/>
 				</textElement>
-				<text><![CDATA[25 SOI PHRAYA PHIREN, CHUAPLOENG ROAD, THUNGMAHAMEK, SATHON, BANGKOK 10120, THAILAND]]></text>
+				<text><![CDATA[TAX ID. 0105535014957 HEAD OFFICE]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="0" y="62" width="363" height="10"/>
+				<reportElement mode="Transparent" x="4" y="77" width="308" height="10" forecolor="#000000" backcolor="#FFFFFF"/>
+				<textElement textAlignment="Left" verticalAlignment="Top" rotation="None" lineSpacing="Single" markup="none">
+					<font fontName="Monospaced" size="7" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H" isPdfEmbedded="false"/>
+				</textElement>
+				<text><![CDATA[WWW.AUTOACCESS.ASIA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="4" y="57" width="308" height="10"/>
 				<textElement lineSpacing="Single">
 					<font fontName="Monospaced" size="7" isBold="false" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H" isPdfEmbedded="false"/>
 				</textElement>
-				<text><![CDATA[เลขที่ 25 ซอยพระยาพิเรนทร์ ถนนเชื้อเพลิง แขวงทุ่งมหาเมฆ เขตสาทร กรุงเทพมหานคร 10120]]></text>
+				<text><![CDATA[25 SOI PHRAYA PHIREN, CHUAPLOENG ROAD,SATHON, BANGKOK 10120, THAILAND]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="0" y="72" width="363" height="10"/>
+				<reportElement x="4" y="67" width="308" height="10"/>
 				<textElement lineSpacing="Single">
 					<font fontName="Monospaced" size="7" isBold="false" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H" isPdfEmbedded="false"/>
 				</textElement>
-				<text><![CDATA[TEL. +662 240 1331-2  FAX. +662 249 4283 INFO@TERMINALASIA.COM WWW.TERMINALASIA.COM]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="0" y="83" width="363" height="10"/>
-				<textElement lineSpacing="Single">
-					<font fontName="Monospaced" size="7" isBold="false" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H" isPdfEmbedded="false"/>
-				</textElement>
-				<text><![CDATA[TAX ID. 0105545066810 สํานักงานใหญ่]]></text>
+				<text><![CDATA[TEL. +662 240 1331-2  FAX. +662 249 4283]]></text>
 			</staticText>
 		</band>
 	</pageHeader>
@@ -579,7 +572,7 @@ We have pleasure in submitting our quotation as requested. Please contact us if 
 				<text><![CDATA[กรรมการผู้จัดการ / MANAGING DIRECTOR]]></text>
 			</staticText>
 			<frame>
-				<reportElement mode="Opaque" x="2" y="108" width="175" height="45" backcolor="#BFBFBF"/>
+				<reportElement mode="Opaque" x="2" y="108" width="175" height="45" backcolor="#D7D7D7"/>
 			</frame>
 			<line>
 				<reportElement x="483" y="34" width="73" height="1"/>
@@ -615,35 +608,35 @@ We have pleasure in submitting our quotation as requested. Please contact us if 
 				<text><![CDATA[ราคารวมก่อนภาษีมูลค่าเพิ่ม / TOTAL BEFORE VAT]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="pading_2" x="0" y="193" width="420" height="69"/>
+				<reportElement style="pading_2" x="5" y="193" width="420" height="69"/>
 				<textElement lineSpacing="Single">
 					<font fontName="Monospaced" size="8" isBold="false" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H" isPdfEmbedded="false"/>
 				</textElement>
-				<text><![CDATA[โปรดลงนามและประทับตรา เพื่อยืนยันการสั่งซื้อ และกรุณาส่งกลับมายังบริษัท โปรเจค เทอร์มินัล เอเซีย จำกัด
+				<text><![CDATA[โปรดลงนามและประทับตรา เพื่อยืนยันการสั่งซื้อ และกรุณาส่งกลับมายังบริษัท คอมฟอทต้า  จำกัด
 To accept this quotation, please sign in the customer box and return via Fax or Email,
 
    FAX : +662-249-4283
-   EMAIL: Order@terminalasia.com]]></text>
+   EMAIL: Order@comforta.co.th]]></text>
 			</staticText>
 			<frame>
-				<reportElement mode="Opaque" x="363" y="108" width="194" height="45" backcolor="#BFBFBF"/>
+				<reportElement mode="Opaque" x="363" y="108" width="194" height="45" backcolor="#D7D7D7"/>
 			</frame>
 			<staticText>
-				<reportElement style="pading_2" mode="Opaque" x="350" y="41" width="133" height="15" forecolor="#FEFEFE" backcolor="#3EAAEA"/>
+				<reportElement style="pading_2" mode="Opaque" x="350" y="41" width="133" height="15" forecolor="#FEFEFE" backcolor="#E60D03"/>
 				<textElement textAlignment="Right" verticalAlignment="Top" lineSpacing="Single">
 					<font fontName="Monospaced" size="9" isBold="false" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H" isPdfEmbedded="false"/>
 				</textElement>
 				<text><![CDATA[ราคาสุทธิ / GRAND TOTAL]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="pading_2" mode="Opaque" x="363" y="173" width="194" height="20" forecolor="#FEFEFE" backcolor="#3EAAEA"/>
+				<reportElement style="pading_2" mode="Opaque" x="363" y="173" width="194" height="20" forecolor="#FEFEFE" backcolor="#E60D03"/>
 				<textElement verticalAlignment="Middle" lineSpacing="Single">
 					<font fontName="Monospaced" size="8" isBold="false" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H" isPdfEmbedded="false"/>
 				</textElement>
 				<text><![CDATA[ผู้สั่งซื้อ / CUSTOMER]]></text>
 			</staticText>
 			<frame>
-				<reportElement mode="Opaque" x="181" y="108" width="170" height="45" backcolor="#BFBFBF"/>
+				<reportElement mode="Opaque" x="181" y="108" width="170" height="45" backcolor="#D7D7D7"/>
 			</frame>
 			<staticText>
 				<reportElement style="pading_2" mode="Opaque" x="2" y="88" width="175" height="20" forecolor="#FEFEFE" backcolor="#010101"/>
@@ -653,14 +646,14 @@ To accept this quotation, please sign in the customer box and return via Fax or 
 				<text><![CDATA[]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="pading_2" mode="Opaque" x="0" y="262" width="557" height="10" forecolor="#FEFEFE" backcolor="#3EAAEA"/>
+				<reportElement style="pading_2" mode="Opaque" x="0" y="262" width="557" height="10" forecolor="#FEFEFE" backcolor="#E60D03"/>
 				<textElement verticalAlignment="Middle" lineSpacing="Single">
 					<font fontName="Monospaced" size="10" isBold="true" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H" isPdfEmbedded="false"/>
 				</textElement>
 				<text><![CDATA[]]></text>
 			</staticText>
 			<frame>
-				<reportElement mode="Opaque" x="363" y="193" width="194" height="45" backcolor="#BFBFBF"/>
+				<reportElement mode="Opaque" x="363" y="193" width="194" height="45" backcolor="#D7D7D7"/>
 			</frame>
 			<textField>
 				<reportElement style="pading_2" x="6" y="16" width="345" height="70"/>
@@ -688,10 +681,10 @@ To accept this quotation, please sign in the customer box and return via Fax or 
 				<textFieldExpression class="java.lang.String"><![CDATA[$F{note}]]></textFieldExpression>
 			</textField>
 			<frame>
-				<reportElement mode="Opaque" x="361" y="108" width="194" height="45" backcolor="#BFBFBF"/>
+				<reportElement mode="Opaque" x="361" y="108" width="194" height="45" backcolor="#D7D7D7"/>
 			</frame>
 			<frame>
-				<reportElement mode="Opaque" x="179" y="108" width="170" height="45" backcolor="#BFBFBF"/>
+				<reportElement mode="Opaque" x="179" y="108" width="170" height="45" backcolor="#D7D7D7"/>
 			</frame>
 			<staticText>
 				<reportElement style="pading_2" mode="Transparent" x="-2" y="3" width="170" height="20"/>
@@ -707,7 +700,7 @@ To accept this quotation, please sign in the customer box and return via Fax or 
 				</graphicElement>
 			</line>
 			<staticText>
-				<reportElement style="pading_2" mode="Opaque" x="348" y="41" width="133" height="15" forecolor="#FEFEFE" backcolor="#3EAAEA"/>
+				<reportElement style="pading_2" mode="Opaque" x="348" y="41" width="133" height="15" forecolor="#FEFEFE" backcolor="#E60D03"/>
 				<textElement textAlignment="Right" verticalAlignment="Top" lineSpacing="Single">
 					<font fontName="Monospaced" size="9" isBold="false" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H" isPdfEmbedded="false"/>
 				</textElement>
@@ -747,14 +740,14 @@ To accept this quotation, please sign in the customer box and return via Fax or 
 				<text><![CDATA[กรรมการผู้จัดการ / MANAGING DIRECTOR]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="pading_2" mode="Opaque" x="361" y="173" width="194" height="20" forecolor="#FEFEFE" backcolor="#3EAAEA"/>
+				<reportElement style="pading_2" mode="Opaque" x="361" y="173" width="194" height="20" forecolor="#FEFEFE" backcolor="#E60D03"/>
 				<textElement verticalAlignment="Middle" lineSpacing="Single">
 					<font fontName="Monospaced" size="8" isBold="false" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H" isPdfEmbedded="false"/>
 				</textElement>
 				<text><![CDATA[ผู้สั่งซื้อ / CUSTOMER]]></text>
 			</staticText>
 			<frame>
-				<reportElement mode="Opaque" x="361" y="193" width="194" height="45" backcolor="#BFBFBF"/>
+				<reportElement mode="Opaque" x="361" y="193" width="194" height="45" backcolor="#D7D7D7"/>
 			</frame>
 			<staticText>
 				<reportElement style="pading_2" mode="Transparent" x="335" y="149" width="244" height="20"/>
@@ -764,7 +757,7 @@ To accept this quotation, please sign in the customer box and return via Fax or 
 				<text><![CDATA[(วรศักดิ์ เกษมธนกุล / VORASAK KASEMTANAKUL)]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="pading_2" mode="Opaque" x="-2" y="262" width="557" height="10" forecolor="#FEFEFE" backcolor="#3EAAEA"/>
+				<reportElement style="pading_2" mode="Opaque" x="-2" y="262" width="557" height="10" forecolor="#FEFEFE" backcolor="#E60D03"/>
 				<textElement verticalAlignment="Middle" lineSpacing="Single">
 					<font fontName="Monospaced" size="10" isBold="true" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H" isPdfEmbedded="false"/>
 				</textElement>
@@ -778,15 +771,15 @@ To accept this quotation, please sign in the customer box and return via Fax or 
 				<text><![CDATA[(_____________________________________)]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="pading_2" x="0" y="193" width="420" height="69"/>
+				<reportElement style="pading_2" x="3" y="193" width="420" height="69"/>
 				<textElement lineSpacing="Single">
 					<font fontName="Monospaced" size="8" isBold="false" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H" isPdfEmbedded="false"/>
 				</textElement>
-				<text><![CDATA[โปรดลงนามและประทับตรา เพื่อยืนยันการสั่งซื้อ และกรุณาส่งกลับมายังบริษัท โปรเจค เทอร์มินัล เอเซีย จำกัด
+				<text><![CDATA[โปรดลงนามและประทับตรา เพื่อยืนยันการสั่งซื้อ และกรุณาส่งกลับมายังบริษัท คอมฟอทต้า  จำกัด
 To accept this quotation, please sign in the customer box and return via Fax or Email,
 
    FAX : +662-249-4283
-   EMAIL: Order@terminalasia.com]]></text>
+   EMAIL: Order@comforta.co.th]]></text>
 			</staticText>
 			<staticText>
 				<reportElement style="pading_2" mode="Transparent" x="311" y="21" width="170" height="15"/>
@@ -796,7 +789,7 @@ To accept this quotation, please sign in the customer box and return via Fax or 
 				<text><![CDATA[ภาษีมูลค่าเพิ่ม 7% / VAT 7%]]></text>
 			</staticText>
 			<frame>
-				<reportElement mode="Opaque" x="0" y="108" width="175" height="45" backcolor="#BFBFBF"/>
+				<reportElement mode="Opaque" x="0" y="108" width="175" height="45" backcolor="#D7D7D7"/>
 			</frame>
 			<staticText>
 				<reportElement style="pading_2" mode="Transparent" x="186" y="3" width="295" height="15"/>

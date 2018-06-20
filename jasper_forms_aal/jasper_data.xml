@@ -2,44 +2,44 @@
 <openerp>
 	<data>
 		<!-- Sale Order -->
-		<record id="pta_sale_order" model="ir.actions.report.xml">
+		<record id="aal_sale_order" model="ir.actions.report.xml">
 			<field name="string">Quotation</field>
 			<field name="auto">True</field>
 			<field name="model">sale.order</field>
 			<field name="jasper_model_id" ref="sale.model_sale_order"/>
 			<field name="name">Quotation</field>
-			<field name="report_name">pta.sale.order</field>
-			<field name="report_rml">jasper_forms_pta/jrxml_reports/pta_sale_order.jrxml</field>
+			<field name="report_name">aal.sale.order</field>
+			<field name="report_rml">jasper_forms_aal/jrxml_reports/aal_sale_order.jrxml</field>
 			<field name="menu">True</field>
 			<field name="header">False</field>
 			<field name="jasper_report">True</field>
 			<field name="jasper_output">pdf</field>
 		</record>
-		<record id="pta_sale_order_values" model="ir.values">
+		<record id="aal_sale_order_values" model="ir.values">
 			<field name="name">Quotation</field>
 			<field name="model">sale.order</field>
 			<field name="key2" eval="'client_print_multi'"/>
-			<field name="value_unpickle" eval="'ir.actions.report.xml, ' +str(pta_sale_order)"/>
+			<field name="value_unpickle" eval="'ir.actions.report.xml, ' +str(aal_sale_order)"/>
 		</record>
 		<!-- Sale Order (Product Picture) -->
-		<record id="pta_sale_order_product_picture" model="ir.actions.report.xml">
+		<record id="aal_sale_order_product_picture" model="ir.actions.report.xml">
 			<field name="string">Quotation (Product Picture)</field>
 			<field name="auto">True</field>
 			<field name="model">sale.order</field>
 			<field name="jasper_model_id" ref="sale.model_sale_order"/>
 			<field name="name">Quotation (Product Picture)</field>
-			<field name="report_name">pta.sale.order.product.picture</field>
-			<field name="report_rml">jasper_forms_pta/jrxml_reports/pta_sale_order_product_picture.jrxml</field>
+			<field name="report_name">aal.sale.order.product.picture</field>
+			<field name="report_rml">jasper_forms_aal/jrxml_reports/aal_sale_order_product_picture.jrxml</field>
 			<field name="menu">True</field>
 			<field name="header">False</field>
 			<field name="jasper_report">True</field>
 			<field name="jasper_output">pdf</field>
 		</record>
-		<record id="pta_sale_order_product_picture_values" model="ir.values">
+		<record id="aal_sale_order_product_picture_values" model="ir.values">
 			<field name="name">Quotation (Product Picture)</field>
 			<field name="model">sale.order</field>
 			<field name="key2" eval="'client_print_multi'"/>
-			<field name="value_unpickle" eval="'ir.actions.report.xml, ' +str(pta_sale_order_product_picture)"/>
+			<field name="value_unpickle" eval="'ir.actions.report.xml, ' +str(aal_sale_order_product_picture)"/>
 		</record>
 		<!-- Envelope Cover -->
 		<record id="aal_envelope_cover" model="ir.actions.report.xml">
@@ -62,156 +62,156 @@
 			<field name="value_unpickle" eval="'ir.actions.report.xml, ' +str(aal_envelope_cover)"/>
 		</record>
 		<!-- RFQ / PO -->
-		<record id="pta_purchase_order" model="ir.actions.report.xml">
-			<field name="string">RFQ/PO (PTA)</field>
+		<record id="aal_purchase_order" model="ir.actions.report.xml">
+			<field name="string">RFQ/PO (aal)</field>
 			<field name="auto">True</field>
 			<field name="model">purchase.order</field>
 			<field name="jasper_model_id" ref="purchase.model_purchase_order"/>
-			<field name="name">RFQ/PO (PTA)</field>
-			<field name="report_name">pta.purchase.order</field>
-			<field name="report_rml">jasper_forms_pta/jrxml_reports/pta_purchase_order.jrxml</field>
+			<field name="name">RFQ/PO (aal)</field>
+			<field name="report_name">aal.purchase.order</field>
+			<field name="report_rml">jasper_forms_aal/jrxml_reports/aal_purchase_order.jrxml</field>
 			<field name="menu">True</field>
 			<field name="header">False</field>
 			<field name="jasper_report">True</field>
 			<field name="jasper_output">pdf</field>
 		</record>
-		<record id="pta_purchase_order_values" model="ir.values">
-			<field name="name">RFQ/PO (PTA)</field>
+		<record id="aal_purchase_order_values" model="ir.values">
+			<field name="name">RFQ/PO (aal)</field>
 			<field name="model">purchase.order</field>
 			<field name="key2" eval="'client_print_multi'"/>
-			<field name="value_unpickle" eval="'ir.actions.report.xml, ' +str(pta_purchase_order)"/>
+			<field name="value_unpickle" eval="'ir.actions.report.xml, ' +str(aal_purchase_order)"/>
 		</record>
 		<!-- Tax Invoice -->
-		<!-- <record id="pta_tax_invoice" model="ir.actions.report.xml">
-			<field name="string">Tax Invoice (PTA)</field>
+		<record id="aal_tax_invoice" model="ir.actions.report.xml">
+			<field name="string">Tax Invoice (aal)</field>
 			<field name="auto">True</field>
 			<field name="model">account.invoice</field>
 			<field name="jasper_model_id" ref="account.model_account_invoice"/>
-			<field name="name">Tax Invoice (PTA)</field>
-			<field name="report_name">pta.tax.invoice</field>
-			<field name="report_rml">jasper_forms_pta/jrxml_reports/pta_tax_invoice.jrxml</field>
+			<field name="name">Tax Invoice (aal)</field>
+			<field name="report_name">aal.tax.invoice</field>
+			<field name="report_rml">jasper_forms_aal/jrxml_reports/aal_tax_invoice.jrxml</field>
 			<field name="menu">True</field>
 			<field name="header">False</field>
 			<field name="jasper_report">True</field>
 			<field name="jasper_output">pdf</field>
 		</record>
-		<record id="pta_tax_invoice_values" model="ir.values">
-			<field name="name">Tax Invoice (PTA)</field>
+		<record id="aal_tax_invoice_values" model="ir.values">
+			<field name="name">Tax Invoice (aal)</field>
 			<field name="model">account.invoice</field>
 			<field name="key2" eval="'client_print_multi'"/>
-			<field name="value_unpickle" eval="'ir.actions.report.xml, ' +str(pta_tax_invoice)"/>
-		</record> -->
+			<field name="value_unpickle" eval="'ir.actions.report.xml, ' +str(aal_tax_invoice)"/>
+		</record>
 		<!-- Tax invoice (Pre-print form) -->
-		<record id="pta_tax_invoice_pre_print_form" model="ir.actions.report.xml">
+		<record id="aal_tax_invoice_pre_print_form" model="ir.actions.report.xml">
 			<field name="string">Tax Invoice (PP)</field>
 			<field name="auto">True</field>
 			<field name="model">account.invoice</field>
 			<field name="jasper_model_id" ref="account.model_account_invoice"/>
 			<field name="name">Tax Invoice (PP)</field>
-			<field name="report_name">pta.tax.invoice.pre.print.form</field>
-			<field name="report_rml">jasper_forms_pta/jrxml_reports/pta_tax_invoice_pre_print_form.jrxml</field>
+			<field name="report_name">aal.tax.invoice.pre.print.form</field>
+			<field name="report_rml">jasper_forms_aal/jrxml_reports/aal_tax_invoice_pre_print_form.jrxml</field>
 			<field name="menu">True</field>
 			<field name="header">False</field>
 			<field name="jasper_report">True</field>
 			<field name="jasper_output">pdf</field>
 			<field name="copies">1</field>
 		</record>
-		<record id="pta_tax_invoice_pre_print_form_values" model="ir.values">
+		<record id="aal_tax_invoice_pre_print_form_values" model="ir.values">
 			<field name="name">Tax Invoice (PP)</field>
 			<field name="model">account.invoice</field>
 			<field name="key2" eval="'client_print_multi'"/>
-			<field name="value_unpickle" eval="'ir.actions.report.xml, ' +str(pta_tax_invoice_pre_print_form)"/>
+			<field name="value_unpickle" eval="'ir.actions.report.xml, ' +str(aal_tax_invoice_pre_print_form)"/>
 		</record>
 		<!-- Tax invoice A4 -->
-		<record id="pta_tax_invoice_a4" model="ir.actions.report.xml">
+		<record id="aal_tax_invoice_a4" model="ir.actions.report.xml">
 			<field name="string">Tax Invoice (A4)</field>
 			<field name="auto">True</field>
 			<field name="model">account.invoice</field>
 			<field name="jasper_model_id" ref="account.model_account_invoice"/>
 			<field name="name">Tax Invoice (A4)</field>
-			<field name="report_name">pta.tax.invoice.a4</field>
-			<field name="report_rml">jasper_forms_pta/jrxml_reports/pta_tax_invoice_a4.jrxml</field>
+			<field name="report_name">aal.tax.invoice.a4</field>
+			<field name="report_rml">jasper_forms_aal/jrxml_reports/aal_tax_invoice_a4.jrxml</field>
 			<field name="menu">True</field>
 			<field name="header">False</field>
 			<field name="jasper_report">True</field>
 			<field name="jasper_output">pdf</field>
 			<field name="copies">4</field>
 		</record>
-		<record id="pta_tax_invoice_a4_values" model="ir.values">
+		<record id="aal_tax_invoice_a4_values" model="ir.values">
 			<field name="name">Tax Invoice (A4)</field>
 			<field name="model">account.invoice</field>
 			<field name="key2" eval="'client_print_multi'"/>
-			<field name="value_unpickle" eval="'ir.actions.report.xml, ' +str(pta_tax_invoice_a4)"/>
+			<field name="value_unpickle" eval="'ir.actions.report.xml, ' +str(aal_tax_invoice_a4)"/>
 		</record>
 		<!-- Receipt -->
-		<!-- <record id="pta_receipt" model="ir.actions.report.xml">
-			<field name="string">Receipt (PTA)</field>
+		<record id="aal_receipt" model="ir.actions.report.xml">
+			<field name="string">Receipt (aal)</field>
 			<field name="auto">True</field>
 			<field name="model">account.voucher</field>
 			<field name="jasper_model_id" ref="account_voucher.model_account_voucher"/>
-			<field name="name">Receipt (PTA)</field>
-			<field name="report_name">pta.receipt</field>
-			<field name="report_rml">jasper_forms_pta/jrxml_reports/pta_receipt.jrxml</field>
+			<field name="name">Receipt (aal)</field>
+			<field name="report_name">aal.receipt</field>
+			<field name="report_rml">jasper_forms_aal/jrxml_reports/aal_receipt.jrxml</field>
 			<field name="menu">True</field>
 			<field name="header">False</field>
 			<field name="jasper_report">True</field>
 			<field name="jasper_output">pdf</field>
 		</record>
-		<record id="pta_receipt_values" model="ir.values">
-			<field name="name">Receipt (PTA)</field>
+		<record id="aal_receipt_values" model="ir.values">
+			<field name="name">Receipt (aal)</field>
 			<field name="model">account.voucher</field>
 			<field name="key2" eval="'client_print_multi'"/>
-			<field name="value_unpickle" eval="'ir.actions.report.xml, ' +str(pta_receipt)"/>
-		</record> -->
+			<field name="value_unpickle" eval="'ir.actions.report.xml, ' +str(aal_receipt)"/>
+		</record>
 		<!-- Receipt (Pre-print form) -->
-		<record id="pta_receipt_pre_print_form" model="ir.actions.report.xml">
+		<record id="aal_receipt_pre_print_form" model="ir.actions.report.xml">
 			<field name="string">Receipt (PP)</field>
 			<field name="auto">True</field>
 			<field name="model">account.voucher</field>
 			<field name="jasper_model_id" ref="account_voucher.model_account_voucher"/>
 			<field name="name">Receipt (PP)</field>
-			<field name="report_name">pta.receipt.pre.print.form</field>
-			<field name="report_rml">jasper_forms_pta/jrxml_reports/pta_receipt_pre_print_form.jrxml</field>
+			<field name="report_name">aal.receipt.pre.print.form</field>
+			<field name="report_rml">jasper_forms_aal/jrxml_reports/aal_receipt_pre_print_form.jrxml</field>
 			<field name="menu">True</field>
 			<field name="header">False</field>
 			<field name="jasper_report">True</field>
 			<field name="jasper_output">pdf</field>
 			<field name="copies">1</field>
 		</record>
-		<record id="pta_receipt_pre_print_form_values" model="ir.values">
+		<record id="aal_receipt_pre_print_form_values" model="ir.values">
 			<field name="name">Receipt (PP)</field>
 			<field name="model">account.voucher</field>
 			<field name="key2" eval="'client_print_multi'"/>
-			<field name="value_unpickle" eval="'ir.actions.report.xml, ' +str(pta_receipt_pre_print_form)"/>
+			<field name="value_unpickle" eval="'ir.actions.report.xml, ' +str(aal_receipt_pre_print_form)"/>
 		</record>
 		<!-- Receipt A4 -->
-		<record id="pta_receipt_a4" model="ir.actions.report.xml">
+		<record id="aal_receipt_a4" model="ir.actions.report.xml">
 			<field name="string">Receipt (A4)</field>
 			<field name="auto">True</field>
 			<field name="model">account.voucher</field>
 			<field name="jasper_model_id" ref="account_voucher.model_account_voucher"/>
 			<field name="name">Receipt (A4)</field>
-			<field name="report_name">pta.receipt.a4</field>
-			<field name="report_rml">jasper_forms_pta/jrxml_reports/pta_receipt_a4.jrxml</field>
+			<field name="report_name">aal.receipt.a4</field>
+			<field name="report_rml">jasper_forms_aal/jrxml_reports/aal_receipt_a4.jrxml</field>
 			<field name="menu">True</field>
 			<field name="header">False</field>
 			<field name="jasper_report">True</field>
 			<field name="jasper_output">pdf</field>
 			<field name="copies">3</field>
 		</record>
-		<record id="pta_receipt_a4_values" model="ir.values">
+		<record id="aal_receipt_a4_values" model="ir.values">
 			<field name="name">Receipt (A4)</field>
 			<field name="model">account.voucher</field>
 			<field name="key2" eval="'client_print_multi'"/>
-			<field name="value_unpickle" eval="'ir.actions.report.xml, ' +str(pta_receipt_a4)"/>
+			<field name="value_unpickle" eval="'ir.actions.report.xml, ' +str(aal_receipt_a4)"/>
 		</record>
 		<!-- Billing -->
 		<record id="aal_billing" model="ir.actions.report.xml">
-			<field name="string">Billing (AAL)</field>
+			<field name="string">Billing (aal)</field>
 			<field name="auto">True</field>
 			<field name="model">account.billing</field>
 			<field name="jasper_model_id" ref="account_billing.model_account_billing"/>
-			<field name="name">Billing (AAL)</field>
+			<field name="name">Billing (aal)</field>
 			<field name="report_name">aal.billing</field>
 			<field name="report_rml">jasper_forms_aal/jrxml_reports/aal_billing.jrxml</field>
 			<field name="menu">True</field>
@@ -220,7 +220,7 @@
 			<field name="jasper_output">pdf</field>
 		</record>
 		<record id="aal_billing_values" model="ir.values">
-			<field name="name">Billing (AAL)</field>
+			<field name="name">Billing (aal)</field>
 			<field name="model">account.billing</field>
 			<field name="key2" eval="'client_print_multi'"/>
 			<field name="value_unpickle" eval="'ir.actions.report.xml, ' +str(aal_billing)"/>
