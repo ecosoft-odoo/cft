@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<openerp>
+    <data>
+        <record id="group_force_cancel_so" model="res.groups">
+            <field name="name">Force Cancel SO</field>
+        </record>
+    </data>
+</openerp>
