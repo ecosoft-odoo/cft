@@ -7,5 +7,6 @@ class sale_order(models.Model):
 
     @api.multi
     def force_cancel(self):
-        self.write({'state': 'cancel'})
+        # self.write({'state': 'cancel'})
+        self.signal_workflow('force_cancel')
         return True

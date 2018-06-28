@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
   <data>
-
     <record model="ir.ui.view" id="view_order_form_force_cancel">
       <field name="name">sale.order.force.cancel</field>
       <field name="model">sale.order</field>
       <field name="inherit_id" ref="sale.view_order_form"/>
       <field name="arch" type="xml">
         <button name="action_cancel" position="after">
-          <button name="force_cancel" states="manual,progress" string="Force Cancel" type="object" groups="sale_force_cancel_cft.group_force_cancel_so"/>
+          <button name="force_cancel" states="manual,progress" string="Force Cancel" type="workflow" groups="sale_force_cancel_cft.group_force_cancel_so"/>
         </button>
       </field>
     </record>
