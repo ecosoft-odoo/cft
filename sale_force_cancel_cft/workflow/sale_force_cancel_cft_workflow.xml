@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+      <record id="trans_ship_cancel" model="workflow.transition">
+          <field name="act_from" ref="sale.act_ship"/>
+          <field name="act_to" ref="sale.act_cancel"/>
+          <field name="signal">force_cancel</field>
+      </record>
+    </data>
+</openerp>

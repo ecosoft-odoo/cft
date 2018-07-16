@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+  <data>
+    <record model="ir.ui.view" id="view_order_form_force_cancel">
+      <field name="name">sale.order.force.cancel</field>
+      <field name="model">sale.order</field>
+      <field name="inherit_id" ref="sale.view_order_form"/>
+      <field name="arch" type="xml">
+        <h1 position="before">
+          <button name="force_cancel" states="manual,progress" string="Force Cancel" type="workflow"
+            groups="sale_force_cancel_cft.group_force_cancel_so" class="oe_right oe_inline oe_highlight"/>
+        </h1>
+      </field>
+    </record>
+  </data>
+</openerp>
