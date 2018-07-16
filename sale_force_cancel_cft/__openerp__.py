@@ -10,6 +10,6 @@
     'data': [
         'views/sale_view.xml',
         'security/security.xml',
-        'workflow/sale_force_cancel_cft_wkf.xml',
+        'workflow/sale_force_cancel_cft_workflow.xml',
     ],
 }
