@@ -48,7 +48,7 @@ class product_product(osv.Model):
                 data['name'] = p.name
             res[p.id] = (data['code'] and ('['+data['code']+'] ') or '') + (data['name'] or '')
         return res
-        
+
     def _get_partner_code_name(self, cr, uid, ids, product, partner_id, context=None):
         if context.get('type', False) == 'in_invoice':
             for supinfo in product.seller_ids:
@@ -163,7 +163,11 @@ class product_product(osv.Model):
                 id_prod = id_prod_code and product_customer_code_obj.browse(
                     cr, user, id_prod_code, context=context) or []
                 for ppu in id_prod:
-                    ids.append(ppu.product_id.id)
+                    product_ids = self.search(
+                        cr, user,
+                        [('product_tmpl_id', '=', ppu.product_id.id)],
+                        limit=limit, context=context)
+                    ids.extend(product_ids)
             if ids:
                 res = self.name_get(cr, user, ids, context)
         return res
