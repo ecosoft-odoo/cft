@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- © <YEAR(S)> <AUTHOR(S)>
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html). -->
+<openerp>
+    <data noupdate="1">
+        <!-- Stock -->
+        <record id="doctype_receipt" model="res.doctype">
+            <field name="name">Receipt</field>
+            <field name="sequence_id" ref="doctype_receipt_seq"/>
+            <field name="refer_type">receipt</field>
+        </record>
+        <record id="doctype_internal_transfer" model="res.doctype">
+            <field name="name">Internal Transfer</field>
+            <field name="sequence_id" ref="doctype_internal_transfer_seq"/>
+            <field name="refer_type">internal_transfer</field>
+        </record>
+        <record id="doctype_pick" model="res.doctype">
+            <field name="name">Pick</field>
+            <field name="sequence_id" ref="doctype_pick_seq"/>
+            <field name="refer_type">pick</field>
+        </record>
+        <record id="doctype_delivery_order" model="res.doctype">
+            <field name="name">Delivery Order</field>
+            <field name="sequence_id" ref="doctype_delivery_order_seq"/>
+            <field name="refer_type">delivery_order</field>
+        </record>
+
+    </data>
+</openerp>
