@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record id="action_sales_invoice" model="ir.actions.act_window">
+            <field name="name">Invoices</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">account.invoice</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form,calendar,graph</field>
+            <field name="context">{'type': 'in_invoice'}</field>
+            <field name="domain">[('user_id', '=', uid)]</field>
+        </record>
+
+        <record id="action_sales_manager_invoice" model="ir.actions.act_window">
+            <field name="name">Invoices Team</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">account.invoice</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form,calendar,graph</field>
+            <field name="context">{'type': 'in_invoice'}</field>
+            <field name="domain">[('section_id.user_id', '=', uid)]</field>
+        </record>
+
+        <menuitem action="action_sales_invoice"
+            id="menu_sales_invoice"
+            parent="base.menu_sales"
+            sequence="7"
+            groups="base.group_sale_salesman,base.group_sale_manager"/>
+
+        <menuitem action="action_sales_manager_invoice"
+            id="menu_sales_manager_invoice"
+            parent="base.menu_sales"
+            sequence="8"
+            groups="model_security_adjust_cft.group_sale_salesman_team_leads,base.group_sale_manager"/>
+    </data>
+</openerp>
