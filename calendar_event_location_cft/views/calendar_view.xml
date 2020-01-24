@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record id="action_check_in" model="ir.actions.client">
+            <field name="name">Location Check In</field>
+            <field name="tag">check_in</field>
+            <field name="context" eval="{'res_model': 'calendar.event'}"/>
+        </record>
+
+        <record id="view_calendar_event_form" model="ir.ui.view">
+            <field name="name">view.calendar.event.form</field>
+            <field name="model">calendar.event</field>
+            <field name="inherit_id" ref="calendar.view_calendar_event_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//form//sheet" position="before">
+                    <header>
+                        <!-- <a href="#" class="oe_attendance_sign_in_out">
+                           <i id="oe_attendance_sign_in_out_icon" class="fa fa-sign-in"/>
+                        </a> -->
+                        <button name="button_check_in"
+                                string="Check In"
+                                type="object"
+                                attrs="{'invisible':[('location','!=', False)]}"/>
+                        <button type="object" name="button" class="my-button">
+                            <a href="#" class="btn">Submit</a>
+                        </button>
+                    </header>
+                </xpath>
+                <xpath expr="//field[@name='location']" position="after">
+                    <a href="#" class="location_check_in">
+                        Check In
+                    </a>
+                </xpath>
+                <xpath expr="//field[@name='location']" position="attributes">
+                    <attribute name="readonly">True</attribute>
+		            </xpath>
+            </field>
+        </record>
+
+    </data>
+</openerp>
