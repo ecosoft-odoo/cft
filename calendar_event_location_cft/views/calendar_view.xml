@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="view_calendar_event_form" model="ir.ui.view">
+            <field name="name">view.calendar.event.form</field>
+            <field name="model">calendar.event</field>
+            <field name="inherit_id" ref="calendar.view_calendar_event_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//form//sheet" position="before">
+                    <header>
+                        <button name="button_check_in"
+                                string="Check In"
+                                type="object"
+                                class="oe_highlight"
+                                attrs="{'invisible':[('location','!=', False)]}"/>
+                    </header>
+                </xpath>
+                <xpath expr="//field[@name='location']" position="before">
+                    <field name="latitude" invisible="1"/>
+                    <field name="longitude" invisible="1"/>
+                </xpath>
+                <xpath expr="//field[@name='state']" position="before">
+                    <button string="Map"
+                        class="oe_stat_button oe_right"
+                        icon="fa-map-marker" type="object"
+                        name="view_map"
+                        attrs="{'invisible': [('location', '=', False)]}"/>
+                </xpath>
+                <xpath expr="//field[@name='location']" position="attributes">
+                    <attribute name="readonly">True</attribute>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</openerp>

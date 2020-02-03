@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <template id="assets_backend" name="calendar_event_location_cft assets" inherit_id="web.assets_backend">
+            <xpath expr="." position="inside">
+                <script type="text/javascript" t-att-src="'https://maps.googleapis.com/maps/api/js?key=%s' % (request.registry['ir.config_parameter'].get_param(request.cr, request.uid, 'google_map_api_key'))"></script>
+                <script type="text/javascript" src="/calendar_event_location_cft/static/src/js/check_in.js"></script>
+            </xpath>
+        </template>
+    </data>
+</openerp>
