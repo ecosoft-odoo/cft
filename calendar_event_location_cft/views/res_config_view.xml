@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="view_general_configuration" model="ir.ui.view">
+           <field name="name">General Settings</field>
+           <field name="model">base.config.settings</field>
+           <field name="inherit_id" ref="base_setup.view_general_configuration"/>
+           <field name="arch" type="xml">
+               <xpath expr="//form/group[7]" position="after">
+                   <group>
+                       <label for="id" string="Google Map"/>
+                       <div name="google_map">
+                           <div>
+                               <label for="google_map_api_key" string="API Key"/>
+                               <field name="google_map_api_key" class="oe_inline"/>
+                           </div>
+                       </div>
+                   </group>
+               </xpath>
+           </field>
+       </record>
+    </data>
+</openerp>

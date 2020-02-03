@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="1">
+        <record forcecreate="True" id="decimal_location_cft" model="decimal.precision">
+            <field name="name">Location (CFT)</field>
+            <field name="digits" eval="7"/>
+        </record>
+    </data>
+</openerp>
