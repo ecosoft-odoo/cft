@@ -34,6 +34,10 @@ openerp.calendar_event_location_cft = function (instance) {
                     var model = new openerp.Model('calendar.event');
                     var record_id = self.field_manager.datarecord.id;
                     var location = results[0].formatted_address;
+                    // Check that record_id is undefined
+                    if (typeof record_id === 'undefined') {
+                        alert('Record is not exist, please check in again.');
+                    }
                     model.call('write', [record_id, {
                             'latitude': latitude,
                             'longitude': longitude,
