@@ -38,8 +38,7 @@ openerp.calendar_event_location_cft = function (instance) {
                             'latitude': latitude,
                             'longitude': longitude,
                             'location': location}]).then(function(result) {
-                        alert("Save location success.");
-                        self.do_action('reload');
+                        self.view.reload();
                     });
                 } else {
                     alert("Geocode was not successful for the following reason: " + status);
