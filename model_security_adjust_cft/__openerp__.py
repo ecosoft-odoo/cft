@@ -26,6 +26,7 @@
         'security/account_security.xml',
         'security/ir.model.access.csv',
         'security/stock_account_security.xml',
+        'security/crm_security.xml',
         'views/account_invoice_view.xml',
         'views/partner_view.xml',
         'views/stock_view.xml',

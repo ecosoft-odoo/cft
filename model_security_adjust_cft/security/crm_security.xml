@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+<data>
+    <record id="crm_rule_team_phonecall" model="ir.rule">
+        <field name="name">Team Phone Calls</field>
+        <field name="model_id" ref="crm.model_crm_phonecall"/>
+        <field name="groups" eval="[(4,ref('group_sale_salesman_team_leads'))]"/>
+        <field name="domain_force">[('section_id.member_ids','in',[user.id])]</field>
+    </record>
+</data>
+</openerp>
