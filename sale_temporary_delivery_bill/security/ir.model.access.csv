@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_temporary_delivery_bill,temporary.delivery.bill,model_temporary_delivery_bill,stock.group_stock_user,1,1,1,1
+access_temporary_delivery_bill_line,temporary.delivery.bill.line,model_temporary_delivery_bill_line,stock.group_stock_user,1,1,1,1
