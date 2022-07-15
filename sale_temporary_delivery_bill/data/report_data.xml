@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<openerp>
+	<data>
+        <!-- CFT -->
+		<record id="cft_delivery_bill" model="ir.actions.report.xml">
+			<field name="string">Delivery Bill (CFT)</field>
+			<field name="auto">True</field>
+			<field name="model">temporary.delivery.bill</field>
+			<field name="jasper_model_id" ref="sale_temporary_delivery_bill.model_temporary_delivery_bill"/>
+			<field name="name">Delivery Bill (CFT)</field>
+			<field name="report_name">cft.delivery.bill</field>
+			<field name="report_rml">sale_temporary_delivery_bill/reports/cft_delivery_bill.jrxml</field>
+			<field name="menu">True</field>
+			<field name="header">False</field>
+			<field name="jasper_report">True</field>
+			<field name="jasper_output">pdf</field>
+			<field name="copies">2</field>
+		</record>
+		<record id="cft_delivery_bill_values" model="ir.values">
+			<field name="name">Delivery Bill (CFT)</field>
+			<field name="model">temporary.delivery.bill</field>
+			<field name="key2" eval="'client_print_multi'"/>
+			<field name="value_unpickle" eval="'ir.actions.report.xml, ' +str(cft_delivery_bill)"/>
+		</record>
+
+        <!-- PTA -->
+		<record id="pta_delivery_bill" model="ir.actions.report.xml">
+			<field name="string">Delivery Bill (PTA)</field>
+			<field name="auto">True</field>
+			<field name="model">temporary.delivery.bill</field>
+			<field name="jasper_model_id" ref="sale_temporary_delivery_bill.model_temporary_delivery_bill"/>
+			<field name="name">Delivery Bill (PTA)</field>
+			<field name="report_name">pta.delivery.bill</field>
+			<field name="report_rml">sale_temporary_delivery_bill/reports/pta_delivery_bill.jrxml</field>
+			<field name="menu">True</field>
+			<field name="header">False</field>
+			<field name="jasper_report">True</field>
+			<field name="jasper_output">pdf</field>
+			<field name="copies">2</field>
+		</record>
+		<record id="pta_delivery_bill_values" model="ir.values">
+			<field name="name">Delivery Bill (PTA)</field>
+			<field name="model">temporary.delivery.bill</field>
+			<field name="key2" eval="'client_print_multi'"/>
+			<field name="value_unpickle" eval="'ir.actions.report.xml, ' +str(pta_delivery_bill)"/>
+		</record>
+    </data>
+</openerp>
