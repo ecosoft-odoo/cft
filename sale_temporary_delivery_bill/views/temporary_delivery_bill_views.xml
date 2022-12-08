@@ -61,7 +61,7 @@
             name="Temporary Delivery Bill"
             parent="base.menu_sales"
             sequence="100"
-            groups="stock.group_stock_user"
+            groups="base.group_sale_salesman"
             action="temporary_delivery_bill_action"/>
     </data>
 </openerp>
