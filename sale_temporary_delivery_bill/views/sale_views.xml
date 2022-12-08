@@ -9,7 +9,7 @@
                 <h1 position="before">
                     <div class="oe_right oe_button_box">
                         <button class="oe_inline oe_stat_button" type="object"
-                                name="view_temporary_delivery_bill" icon="fa-list" groups="stock.group_stock_user" style="font-size: 11px;">
+                                name="view_temporary_delivery_bill" icon="fa-list" groups="base.group_sale_salesman" style="font-size: 11px;">
                                 <field string="Temp Delivery Bill" name="delivery_bill_count" widget="statinfo"/>
                         </button>
                     </div>
