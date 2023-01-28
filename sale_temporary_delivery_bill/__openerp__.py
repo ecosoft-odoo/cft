@@ -9,7 +9,7 @@
     "license": "AGPL-3",
     "website": "https://github.com/ecosoft-odoo/cft",
     "category": "Sales Management",
-    "depends": ["sale", "stock"],
+    "depends": ["sale", "stock", "l10n_th_doctype_base"],
     "data": [
         "data/ir_sequence_data.xml",
         "data/doctype_data.xml",
