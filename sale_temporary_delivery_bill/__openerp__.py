@@ -11,7 +11,8 @@
     "category": "Sales Management",
     "depends": ["sale", "stock"],
     "data": [
-        "data/temporary_delivery_bill_sequence.xml",
+        "data/ir_sequence_data.xml",
+        "data/doctype_data.xml",
         "data/report_data.xml",
         "security/ir.model.access.csv",
         "views/temporary_delivery_bill_views.xml",

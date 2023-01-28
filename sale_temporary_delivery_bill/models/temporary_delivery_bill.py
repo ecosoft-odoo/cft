@@ -44,8 +44,14 @@ class TemporaryDeliveryBill(models.Model):
     @api.model
     def create(self, vals):
         if vals.get("name", "/") == "/":
-            vals["name"] = self.env["ir.sequence"].next_by_code(
-                "temporary.delivery.bill") 
+            # Find doctype_id
+            refer_type = "temporary_delivery_bill"
+            doctype = self.env["res.doctype"].get_doctype(refer_type)
+            fiscalyear_id = self.env["account.fiscalyear"].find()
+            # --
+            self = self.with_context(doctype_id=doctype.id,
+                                     fiscalyear_id=fiscalyear_id)
+            vals["name"] = self.env["ir.sequence"].next_by_doctype()
         return super(TemporaryDeliveryBill, self).create(vals)
 
 
