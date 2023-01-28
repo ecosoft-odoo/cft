@@ -2,3 +2,4 @@
 
 from . import temporary_delivery_bill
 from . import sale
+from . import res_doctype
