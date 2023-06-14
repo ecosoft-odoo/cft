@@ -36,6 +36,7 @@ This module will adjust stock account
     'demo': [],
     'data': [
         'wizard/stock_valuation_history_view.xml',
+        'wizard/stock_history_wizard.xml',
     ],
     'test': [],
     'installable': True,
