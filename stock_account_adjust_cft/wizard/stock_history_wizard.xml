@@ -6,12 +6,24 @@
             <field name="model">stock.history.wizard</field>
             <field name="arch" type="xml">
                 <form string="Report Options">
-                    <group name="filter" string="Filter By">
-                        <field name="product_ids" widget="many2many_tags"/>
-                        <field name="product_categ_ids" widget="many2many_tags"/>
-                        <field name="partner_ids" widget="many2many_tags"/>
+                    <group>
+                        <group string="Operation">
+                            <field name="date_from"/>
+                            <field name="date_to"/>
+                        </group>
+                        <group/>
                     </group>
-                    <br/><br/><br/><br/>
+                    <notebook>
+                        <page string="Products">
+                            <field name="product_ids"/>
+                        </page>
+                        <page string="Categories">
+                            <field name="product_categ_ids"/>
+                        </page>
+                        <page string="Partners">
+                            <field name="partner_ids"/>
+                        </page>
+                    </notebook>
                     <footer>
                         <button name="run_report" string="View Report" type="object" default_focus="1" class="oe_highlight"/>
                         or
