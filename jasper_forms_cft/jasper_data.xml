@@ -122,6 +122,27 @@
 			<field name="key2" eval="'client_print_multi'"/>
 			<field name="value_unpickle" eval="'ir.actions.report.xml, ' +str(cft_tax_invoice_pre_print_form)"/>
 		</record>
+		<!-- Tax invoice (Pre-print form)(EN) -->
+		<record id="cft_tax_invoice_pre_print_form_en" model="ir.actions.report.xml">
+			<field name="string">Tax Invoice (PP)(EN)</field>
+			<field name="auto">True</field>
+			<field name="model">account.invoice</field>
+			<field name="jasper_model_id" ref="account.model_account_invoice"/>
+			<field name="name">Tax Invoice (PP)(EN)</field>
+			<field name="report_name">cft.tax.invoice.pre.print.form.en</field>
+			<field name="report_rml">jasper_forms_cft/jrxml_reports/cft_tax_invoice_pre_print_form_en.jrxml</field>
+			<field name="menu">True</field>
+			<field name="header">False</field>
+			<field name="jasper_report">True</field>
+			<field name="jasper_output">pdf</field>
+			<field name="copies">1</field>
+		</record>
+		<record id="cft_tax_invoice_pre_print_form_en_values" model="ir.values">
+			<field name="name">Tax Invoice (PP)(EN)</field>
+			<field name="model">account.invoice</field>
+			<field name="key2" eval="'client_print_multi'"/>
+			<field name="value_unpickle" eval="'ir.actions.report.xml, ' +str(cft_tax_invoice_pre_print_form_en)"/>
+		</record>
 		<!-- Tax invoice A4 -->
 		<record id="cft_tax_invoice_a4" model="ir.actions.report.xml">
 			<field name="string">Tax Invoice (A4)</field>
@@ -183,6 +204,27 @@
 			<field name="model">account.voucher</field>
 			<field name="key2" eval="'client_print_multi'"/>
 			<field name="value_unpickle" eval="'ir.actions.report.xml, ' +str(cft_receipt_pre_print_form)"/>
+		</record>
+		<!-- Receipt (Pre-print form)(EN) -->
+		<record id="cft_receipt_pre_print_form_en" model="ir.actions.report.xml">
+			<field name="string">Receipt (PP)(EN)</field>
+			<field name="auto">True</field>
+			<field name="model">account.voucher</field>
+			<field name="jasper_model_id" ref="account_voucher.model_account_voucher"/>
+			<field name="name">Receipt (PP)(EN)</field>
+			<field name="report_name">cft.receipt.pre.print.form.en</field>
+			<field name="report_rml">jasper_forms_cft/jrxml_reports/cft_receipt_pre_print_form_en.jrxml</field>
+			<field name="menu">True</field>
+			<field name="header">False</field>
+			<field name="jasper_report">True</field>
+			<field name="jasper_output">pdf</field>
+			<field name="copies">1</field>
+		</record>
+		<record id="cft_receipt_pre_print_form_en_values" model="ir.values">
+			<field name="name">Receipt (PP)(EN)</field>
+			<field name="model">account.voucher</field>
+			<field name="key2" eval="'client_print_multi'"/>
+			<field name="value_unpickle" eval="'ir.actions.report.xml, ' +str(cft_receipt_pre_print_form_en)"/>
 		</record>
 		<!-- Receipt A4 -->
 		<record id="cft_receipt_a4" model="ir.actions.report.xml">
