@@ -338,7 +338,7 @@
 				<textElement textAlignment="Right" verticalAlignment="Middle" rotation="None" lineSpacing="Single" markup="none">
 					<font fontName="Monospaced" size="9" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H" isPdfEmbedded="false"/>
 				</textElement>
-				<text><![CDATA[VAT 7% / ภาษีมูลค่าเพิ่ม 7%]]></text>
+				<text><![CDATA[VAT / ภาษีมูลค่าเพิ่ม]]></text>
 			</staticText>
 			<line>
 				<reportElement x="68" y="751" width="124" height="1"/>
