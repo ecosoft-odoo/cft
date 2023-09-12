@@ -44,6 +44,9 @@
 	<field name="street" class="java.lang.String">
 		<fieldDescription><![CDATA[partner_id/street]]></fieldDescription>
 	</field>
+	<field name="street2" class="java.lang.String">
+		<fieldDescription><![CDATA[partner_id/street2]]></fieldDescription>
+	</field>
 	<field name="city" class="java.lang.String">
 		<fieldDescription><![CDATA[partner_id/city]]></fieldDescription>
 	</field>
@@ -163,12 +166,12 @@
                             "Head Office" : "สาขาที่: " + $F{taxbranch}))]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
-				<reportElement mode="Transparent" x="80" y="173" width="235" height="76" forecolor="#000000" backcolor="#FFFFFF"/>
+				<reportElement mode="Transparent" x="80" y="170" width="235" height="76" forecolor="#000000" backcolor="#FFFFFF"/>
 				<textElement textAlignment="Left" verticalAlignment="Top" rotation="None" lineSpacing="Single" markup="none">
-					<font fontName="Monospaced" size="10" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H" isPdfEmbedded="false"/>
+					<font fontName="Monospaced" size="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H" isPdfEmbedded="false"/>
 				</textElement>
 				<textFieldExpression class="java.lang.String"><![CDATA[(new Scriptlet()).getAddress(
-    $F{street},
+    ($F{street} != null && $F{street2} != null) ? ($F{street} + " " + $F{street2}) : ($F{street} != null ? $F{street} : $F{street2}),
     $F{city},
     $F{township},
     $F{district},
@@ -274,9 +277,9 @@ $F{line_price_unit} - $F{line_price_unit} * $F{line_discount} / 100]]></textFiel
 				<textFieldExpression class="java.lang.Number"><![CDATA[$F{amount_untaxed} != null ? $F{amount_untaxed} : 0.0]]></textFieldExpression>
 			</textField>
 			<textField pattern="" isBlankWhenNull="true">
-				<reportElement style="space_detail" mode="Transparent" x="18" y="13" width="474" height="20" forecolor="#000000" backcolor="#FFFFFF"/>
+				<reportElement style="space_detail" mode="Transparent" x="18" y="8" width="340" height="30" forecolor="#000000" backcolor="#FFFFFF"/>
 				<textElement textAlignment="Left" verticalAlignment="Middle" rotation="None" lineSpacing="Single" markup="none">
-					<font fontName="SansSerif" size="10" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H" isPdfEmbedded="false"/>
+					<font fontName="SansSerif" size="9" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H" isPdfEmbedded="false"/>
 				</textElement>
 				<textFieldExpression class="java.lang.String"><![CDATA["(" + $F{amount_total_text_en} + ")"]]></textFieldExpression>
 			</textField>

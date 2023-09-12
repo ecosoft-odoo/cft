@@ -27,6 +27,9 @@
 	<field name="street" class="java.lang.String">
 		<fieldDescription><![CDATA[partner_id/street]]></fieldDescription>
 	</field>
+	<field name="street2" class="java.lang.String">
+		<fieldDescription><![CDATA[partner_id/street2]]></fieldDescription>
+	</field>
 	<field name="city" class="java.lang.String">
 		<fieldDescription><![CDATA[partner_id/city]]></fieldDescription>
 	</field>
@@ -120,7 +123,7 @@
 					<font fontName="Monospaced" size="9" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H" isPdfEmbedded="false"/>
 				</textElement>
 				<textFieldExpression class="java.lang.String"><![CDATA[(new Scriptlet()).getAddress(
-    $F{street},
+    ($F{street} != null && $F{street2} != null) ? ($F{street} + " " + $F{street2}) : ($F{street} != null ? $F{street} : $F{street2}),
     $F{city},
     $F{township},
     $F{district},
@@ -191,7 +194,7 @@
 				<textFieldExpression class="java.lang.Number"><![CDATA[$V{amount_total} != null ? $V{amount_total} : 0.0]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
-				<reportElement style="space_detail" mode="Transparent" x="20" y="-1" width="417" height="20" forecolor="#000000" backcolor="#FFFFFF"/>
+				<reportElement style="space_detail" mode="Transparent" x="20" y="-1" width="300" height="30" forecolor="#000000" backcolor="#FFFFFF"/>
 				<textElement textAlignment="Left" verticalAlignment="Middle" rotation="None" lineSpacing="Single" markup="none">
 					<font fontName="Monospaced" size="9" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H" isPdfEmbedded="false"/>
 				</textElement>
