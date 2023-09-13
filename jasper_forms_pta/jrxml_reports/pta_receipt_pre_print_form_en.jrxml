@@ -166,105 +166,105 @@
 				<textElement textAlignment="Left" verticalAlignment="Middle" rotation="None" lineSpacing="1_1_2" markup="none">
 					<font fontName="Monospaced" size="9" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H" isPdfEmbedded="false"/>
 				</textElement>
-				<text><![CDATA[เงินสด................................................บาท]]></text>
+				<text><![CDATA[Cash................................................Baht]]></text>
 			</staticText>
 			<staticText>
 				<reportElement mode="Transparent" x="195" y="623" width="472" height="20" forecolor="#000000" backcolor="#FFFFFF"/>
 				<textElement textAlignment="Left" verticalAlignment="Middle" rotation="None" lineSpacing="1_1_2" markup="none">
 					<font fontName="Monospaced" size="9" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H" isPdfEmbedded="false"/>
 				</textElement>
-				<text><![CDATA[เงินโอน................................................บาท]]></text>
+				<text><![CDATA[Transfer................................................Baht]]></text>
 			</staticText>
 			<staticText>
 				<reportElement mode="Transparent" x="365" y="623" width="669" height="20" forecolor="#000000" backcolor="#FFFFFF"/>
 				<textElement textAlignment="Left" verticalAlignment="Middle" rotation="None" lineSpacing="1_1_2" markup="none">
 					<font fontName="Monospaced" size="9" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H" isPdfEmbedded="false"/>
 				</textElement>
-				<text><![CDATA[ธนาคาร.......................................................................]]></text>
+				<text><![CDATA[Bank.......................................................................]]></text>
 			</staticText>
 			<staticText>
 				<reportElement mode="Transparent" x="26" y="638" width="763" height="20" forecolor="#000000" backcolor="#FFFFFF"/>
 				<textElement textAlignment="Left" verticalAlignment="Middle" rotation="None" lineSpacing="1_1_2" markup="none">
 					<font fontName="Monospaced" size="9" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H" isPdfEmbedded="false"/>
 				</textElement>
-				<text><![CDATA[เช็คธนาคาร/สาขา..........................................................]]></text>
+				<text><![CDATA[Branch..........................................................]]></text>
 			</staticText>
 			<staticText>
 				<reportElement mode="Transparent" x="26" y="653" width="763" height="20" forecolor="#000000" backcolor="#FFFFFF"/>
 				<textElement textAlignment="Left" verticalAlignment="Middle" rotation="None" lineSpacing="1_1_2" markup="none">
 					<font fontName="Monospaced" size="9" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H" isPdfEmbedded="false"/>
 				</textElement>
-				<text><![CDATA[เช็คธนาคาร/สาขา..........................................................]]></text>
+				<text><![CDATA[Branch..........................................................]]></text>
 			</staticText>
 			<staticText>
 				<reportElement mode="Transparent" x="26" y="668" width="763" height="20" forecolor="#000000" backcolor="#FFFFFF"/>
 				<textElement textAlignment="Left" verticalAlignment="Middle" rotation="None" lineSpacing="1_1_2" markup="none">
 					<font fontName="Monospaced" size="9" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H" isPdfEmbedded="false"/>
 				</textElement>
-				<text><![CDATA[เช็คธนาคาร/สาขา..........................................................]]></text>
+				<text><![CDATA[Branch..........................................................]]></text>
 			</staticText>
 			<staticText>
 				<reportElement mode="Transparent" x="236" y="638" width="563" height="20" forecolor="#000000" backcolor="#FFFFFF"/>
 				<textElement textAlignment="Left" verticalAlignment="Middle" rotation="None" lineSpacing="1_1_2" markup="none">
 					<font fontName="Monospaced" size="9" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H" isPdfEmbedded="false"/>
 				</textElement>
-				<text><![CDATA[เช็คเลขที่............................]]></text>
+				<text><![CDATA[No.Cheque............................]]></text>
 			</staticText>
 			<staticText>
 				<reportElement mode="Transparent" x="236" y="653" width="563" height="20" forecolor="#000000" backcolor="#FFFFFF"/>
 				<textElement textAlignment="Left" verticalAlignment="Middle" rotation="None" lineSpacing="1_1_2" markup="none">
 					<font fontName="Monospaced" size="9" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H" isPdfEmbedded="false"/>
 				</textElement>
-				<text><![CDATA[เช็คเลขที่............................]]></text>
+				<text><![CDATA[No.Cheque............................]]></text>
 			</staticText>
 			<staticText>
 				<reportElement mode="Transparent" x="236" y="668" width="563" height="20" forecolor="#000000" backcolor="#FFFFFF"/>
 				<textElement textAlignment="Left" verticalAlignment="Middle" rotation="None" lineSpacing="1_1_2" markup="none">
 					<font fontName="Monospaced" size="9" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H" isPdfEmbedded="false"/>
 				</textElement>
-				<text><![CDATA[เช็คเลขที่............................]]></text>
+				<text><![CDATA[No.Cheque............................]]></text>
 			</staticText>
 			<staticText>
 				<reportElement mode="Transparent" x="342" y="638" width="542" height="20" forecolor="#000000" backcolor="#FFFFFF"/>
 				<textElement textAlignment="Left" verticalAlignment="Middle" rotation="None" lineSpacing="1_1_2" markup="none">
 					<font fontName="Monospaced" size="9" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H" isPdfEmbedded="false"/>
 				</textElement>
-				<text><![CDATA[ลงวันที่......../......../........]]></text>
+				<text><![CDATA[Date......../......../........]]></text>
 			</staticText>
 			<staticText>
 				<reportElement mode="Transparent" x="342" y="653" width="542" height="20" forecolor="#000000" backcolor="#FFFFFF"/>
 				<textElement textAlignment="Left" verticalAlignment="Middle" rotation="None" lineSpacing="1_1_2" markup="none">
 					<font fontName="Monospaced" size="9" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H" isPdfEmbedded="false"/>
 				</textElement>
-				<text><![CDATA[ลงวันที่......../......../........]]></text>
+				<text><![CDATA[Date......../......../........]]></text>
 			</staticText>
 			<staticText>
 				<reportElement mode="Transparent" x="342" y="668" width="542" height="20" forecolor="#000000" backcolor="#FFFFFF"/>
 				<textElement textAlignment="Left" verticalAlignment="Middle" rotation="None" lineSpacing="1_1_2" markup="none">
 					<font fontName="Monospaced" size="9" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H" isPdfEmbedded="false"/>
 				</textElement>
-				<text><![CDATA[ลงวันที่......../......../........]]></text>
+				<text><![CDATA[Date......../......../........]]></text>
 			</staticText>
 			<staticText>
 				<reportElement mode="Transparent" x="439" y="638" width="497" height="20" forecolor="#000000" backcolor="#FFFFFF"/>
 				<textElement textAlignment="Left" verticalAlignment="Middle" rotation="None" lineSpacing="1_1_2" markup="none">
 					<font fontName="Monospaced" size="9" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H" isPdfEmbedded="false"/>
 				</textElement>
-				<text><![CDATA[จำนวนเงิน...............................บาท]]></text>
+				<text><![CDATA[Amount...............................Baht]]></text>
 			</staticText>
 			<staticText>
 				<reportElement mode="Transparent" x="439" y="653" width="497" height="20" forecolor="#000000" backcolor="#FFFFFF"/>
 				<textElement textAlignment="Left" verticalAlignment="Middle" rotation="None" lineSpacing="1_1_2" markup="none">
 					<font fontName="Monospaced" size="9" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H" isPdfEmbedded="false"/>
 				</textElement>
-				<text><![CDATA[จำนวนเงิน...............................บาท]]></text>
+				<text><![CDATA[Amount...............................Baht]]></text>
 			</staticText>
 			<staticText>
 				<reportElement mode="Transparent" x="439" y="668" width="497" height="20" forecolor="#000000" backcolor="#FFFFFF"/>
 				<textElement textAlignment="Left" verticalAlignment="Middle" rotation="None" lineSpacing="1_1_2" markup="none">
 					<font fontName="Monospaced" size="9" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H" isPdfEmbedded="false"/>
 				</textElement>
-				<text><![CDATA[จำนวนเงิน...............................บาท]]></text>
+				<text><![CDATA[Amount...............................Baht]]></text>
 			</staticText>
 			<rectangle>
 				<reportElement x="20" y="701" width="176" height="20" backcolor="#FFFFFF"/>
