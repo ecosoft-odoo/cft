@@ -209,7 +209,7 @@
 				<textElement textAlignment="Right" verticalAlignment="Middle" rotation="None" lineSpacing="Single" markup="none">
 					<font fontName="Monospaced" size="9" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H" isPdfEmbedded="false"/>
 				</textElement>
-				<text><![CDATA[TOTAL BEFORE VAT / ราคารวมก่อนภาษีมูลค่าเพิ่ม]]></text>
+				<text><![CDATA[TOTAL BEFORE VAT 7% / ราคารวมก่อนภาษีมูลค่าเพิ่ม 7%]]></text>
 			</staticText>
 			<rectangle>
 				<reportElement x="201" y="687" width="171" height="46" backcolor="#FFFFFF"/>
