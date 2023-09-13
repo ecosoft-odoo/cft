@@ -173,7 +173,7 @@
 				<textElement textAlignment="Left" verticalAlignment="Middle" rotation="None" lineSpacing="1_1_2" markup="none">
 					<font fontName="Monospaced" size="9" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H" isPdfEmbedded="false"/>
 				</textElement>
-				<text><![CDATA[Transfer................................................Baht]]></text>
+				<text><![CDATA[Transfer............................................Baht]]></text>
 			</staticText>
 			<staticText>
 				<reportElement mode="Transparent" x="365" y="623" width="669" height="20" forecolor="#000000" backcolor="#FFFFFF"/>
