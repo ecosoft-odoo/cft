@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="view_billing_receipt_form_ext" model="ir.ui.view">
+            <field name="name">account.billing.receipt.form.ext.</field>
+            <field name="model">account.billing</field>
+            <field name="inherit_id" ref="account_billing.view_billing_receipt_form"/>
+            <field name="arch" type="xml">
+                <field name="billing_amount" position="after">
+                	<field name="amount_unreconciled_total_text_en" invisible="1"/>
+                	<field name="amount_unreconciled_total_text_th" invisible="1"/>
+                </field>       
+            </field>
+        </record>
+    </data>
+</openerp>
