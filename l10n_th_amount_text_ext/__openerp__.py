@@ -16,7 +16,9 @@ Comply with account_undue_withhold_tax module for Retention and WHT amount.
     'images': [],
     'depends': ['l10n_th_amount_text',
                 'l10n_th_account',
+                'account_billing',
                 ],
+    'data': ['all_docs_view.xml'],
     'test': [
     ],
     'auto_install': False,
