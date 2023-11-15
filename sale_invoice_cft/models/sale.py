@@ -24,11 +24,8 @@ class sale_order_line(models.Model):
                     list(
                         set(
                             [
-                                "{}-{}-{}".format(
-                                    inv.date_invoice.year,
-                                    inv.date_invoice.month,
-                                    inv.date_invoice.day
-                                ) for inv in invoices if inv.date_invoice]
+                                inv.date_invoice
+                                for inv in invoices if inv.date_invoice]
                             )
                         )
                     ),
@@ -36,7 +33,8 @@ class sale_order_line(models.Model):
                     list(
                         set(
                             [
-                                inv.number for inv in invoices if inv.number]
+                                inv.number
+                                for inv in invoices if inv.number]
                             )
                         )
                     ),
