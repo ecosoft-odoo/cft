@@ -7,9 +7,6 @@
             <field name="inherit_id" ref="product_price_visible.view_product_standard_price_inh_visible_form"/>
             <field name="arch" type="xml">
                 <!-- Overwrite groups, only admin can see cost price -->
-                <label for="standard_price" position="attributes">
-                    <attribute name="groups">base.group_erp_manager</attribute>
-                </label>
                 <xpath expr="//field[@name='standard_price']/.." position="attributes">
                     <attribute name="groups">base.group_erp_manager</attribute>
                 </xpath>
