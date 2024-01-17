@@ -32,7 +32,7 @@
             <field name="model">product.product</field>
             <field name="inherit_id" ref="product.product_product_tree_view"/>
             <field name="arch" type="xml">
-                <field name="list_price" position="after">
+                <field name="lst_price" position="after">
                     <field name="standard_price" groups="base.group_erp_manager"/>
                 </field>
             </field>
