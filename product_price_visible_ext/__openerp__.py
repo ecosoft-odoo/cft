@@ -14,6 +14,7 @@
         "product_price_visible",
     ],
     "data": [
+        "views/product_view.xml",
     ],
     "demo": [
     ],
