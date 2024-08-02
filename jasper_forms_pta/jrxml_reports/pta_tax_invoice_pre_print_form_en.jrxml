@@ -425,7 +425,7 @@
 				<textFieldExpression class="java.lang.String"><![CDATA[($F{vat} == "" ? "" : $F{vat}) +
 ($F{taxbranch} == "" ?
     "" : " / " + ($F{taxbranch} == "00000" ?
-                            "Head Office" : "สาขาที่: " + $F{taxbranch}))]]></textFieldExpression>
+                            "Head Office (Branch: " + $F{taxbranch} + ")" : "สาขาที่: " + $F{taxbranch}))]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
 				<reportElement mode="Transparent" x="96" y="170" width="227" height="79" forecolor="#000000" backcolor="#FFFFFF"/>
