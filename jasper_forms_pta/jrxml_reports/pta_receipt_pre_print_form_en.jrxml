@@ -481,7 +481,7 @@ TAX ID. 0105545066810 สํานักงานใหญ่]]></text>
 				</textElement>
 				<textFieldExpression class="java.lang.String"><![CDATA[$F{vat} +
 ($F{taxbranch}.toString() == "" ? "" :
-    $F{taxbranch} == "00000" ? " / Head Office" : " / " + $F{taxbranch})]]></textFieldExpression>
+    $F{taxbranch} == "00000" ? " / Head Office (Branch: " + $F{taxbranch} + ")" : " / " + $F{taxbranch})]]></textFieldExpression>
 			</textField>
 		</band>
 	</pageHeader>
