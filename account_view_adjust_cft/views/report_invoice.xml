@@ -44,6 +44,25 @@
                     </span>
                 </div>
             </xpath>
+            <xpath expr="//t/div/h2" position="replace">
+                <t t-if="o.type in ['out_refund', 'in_refund']">
+                    <h3>
+                        <span t-if="o.type == 'out_refund'">ใบลดหนี้ / ใบกำกับภาษี / Refund/ เลขที่ No./</span>
+                        <span t-if="o.type == 'in_refund'">ใบลดหนี้ / ใบกำกับภาษี / Refund/ เลขที่ No./</span>
+                        <span t-field="o.number"/>
+                    </h3>
+                </t>
+                <t t-else="">
+                    <h2>
+                        <span t-if="o.type == 'out_invoice' and (o.state == 'open' or o.state == 'paid')">ใบเพิ่มหนี้ / ใบกำกับภาษี / Debit Note</span>
+                        <span t-if="o.type == 'out_invoice' and o.state == 'proforma2'">PRO-FORMA</span>
+                        <span t-if="o.type == 'out_invoice' and o.state == 'draft'">Draft Invoice</span>
+                        <span t-if="o.type == 'out_invoice' and o.state == 'cancel'">Cancelled Invoice</span>
+                        <span t-if="o.type == 'in_invoice'">ใบเพิ่มหนี้ / ใบกำกับภาษี / Debit Note</span>
+                        <span t-field="o.number"/>
+                    </h2>
+                </t>
+            </xpath>
             <xpath expr="//t/div/p[@t-if='o.fiscal_position.note']" position="after">
                 <div class="row">
                     <br/><br/>
