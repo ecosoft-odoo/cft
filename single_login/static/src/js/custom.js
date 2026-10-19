@@ -11,6 +11,11 @@ function getCookie(key) {
 };
 
 function updateExpiry() {
+    // one heartbeat per browser, not per tab
+    var now = Date.now(), last = 0;
+    try { last = parseInt(localStorage.getItem('single_login_ping') || '0', 10); } catch (e) {}
+    if (now - last < 50*1000) { return; }
+    try { localStorage.setItem('single_login_ping', String(now)); } catch (e) {}
     new instance.web.Model("res.users").call("save_session").done(function(data) {return data});
 };
 

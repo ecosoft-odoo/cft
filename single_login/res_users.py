@@ -33,6 +33,9 @@ from openerp import http
 
 _logger = logging.getLogger(__name__)
 
+# minutes a session stays valid without heartbeat
+SESSION_MINUTES = 5
+
 
 class Home(openerp.addons.web.controllers.main.Home):
 	@http.route('/web/login', type='http', auth="none")
@@ -92,7 +95,8 @@ class Root_new(openerp.http.Root):
 		#   (the one using the cookie). That is a special feature of the Session Javascript class.
 		# - It could allow session fixation attacks.
 		if not explicit_session and hasattr(response, 'set_cookie'):
-			response.set_cookie('session_id', httprequest.session.sid, max_age=2 * 60)
+			# no max_age: browser session cookie, closing the browser requires a new login
+			response.set_cookie('session_id', httprequest.session.sid)
 		
 		return response
 
@@ -110,10 +114,12 @@ class res_users(osv.osv):
 		}
 	
 	def _login(self, db, login, password):
+		user_id = super(res_users,self)._login(db, login, password)
+		if not user_id:
+			return user_id
+
 		cr = self.pool.cursor()
 		cr.autocommit(True)
-		user_id = super(res_users,self)._login(db, login, password)
-		
 		try:
 			session_id = request.httprequest.session.sid
 			temp_browse = self.browse(cr, SUPERUSER_ID, user_id)
@@ -121,7 +127,8 @@ class res_users(osv.osv):
 			exp_date = temp_browse.expiration_date
 			if exp_date and temp_browse.session_id:
 				exp_date = datetime.strptime(exp_date,"%Y-%m-%d %H:%M:%S")
-				if exp_date < datetime.utcnow() or temp_browse.session_id != session_id:
+				# block only another session that is still alive, an expired one is replaced
+				if exp_date >= datetime.utcnow() and temp_browse.session_id != session_id:
 					raise openerp.exceptions.AccessDenied()
 			self.save_session(cr,user_id)
 		except openerp.exceptions.AccessDenied:
@@ -134,24 +141,34 @@ class res_users(osv.osv):
 		return user_id
 
 
+	#runs the update on its own autocommit cursor: no serialization failure
+	#on res_users and no ORM cache invalidation like res.users.write()
+	def _update_session(self, query, params):
+		cr = self.pool.cursor()
+		cr.autocommit(True)
+		try:
+			cr.execute(query, params)
+		finally:
+			cr.close()
+
 	#clears session_id and session expiry from res.users
 	def clear_session(self, cr, user_id):
 		if isinstance(user_id, list): user_id = user_id[0]
-		self.write(cr, SUPERUSER_ID, user_id, {'session_id':'','expiration_date':False,'logged_in':False})
+		self._update_session("""
+			UPDATE res_users SET session_id = '', expiration_date = NULL, logged_in = false
+			 WHERE id = %s""", (user_id,))
 
 	#insert session_id and session expiry into res.users
 	def save_session(self, cr, user_id):
 		if isinstance(user_id, list): user_id = user_id[0]
-		exp_date = datetime.utcnow() + timedelta(minutes=2)
+		exp_date = datetime.utcnow() + timedelta(minutes=SESSION_MINUTES)
 		sid = request.httprequest.session.sid
-		self.write(cr, SUPERUSER_ID, user_id, {'session_id':sid,'expiration_date':exp_date,'logged_in':True})
+		self._update_session("""
+			UPDATE res_users SET session_id = %s, expiration_date = %s, logged_in = true
+			 WHERE id = %s""", (sid, exp_date, user_id))
 
 	#schedular function to validate users session
 	def validate_sessions(self, cr, uid):
-		ids = self.search(cr,SUPERUSER_ID,[('expiration_date','!=',False)])
-		users = self.browse(cr, SUPERUSER_ID, ids)
-		
-		for user_id in users:
-			exp_date = datetime.strptime(user_id.expiration_date,"%Y-%m-%d %H:%M:%S")
-			if exp_date < datetime.utcnow():
-				self.clear_session(cr, user_id.id)
+		cr.execute("""
+			UPDATE res_users SET session_id = '', expiration_date = NULL, logged_in = false
+			 WHERE expiration_date < %s""", (datetime.utcnow(),))
